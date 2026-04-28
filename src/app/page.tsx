@@ -33,6 +33,9 @@ export default async function Home() {
         <Link href="/churches" className="underline underline-offset-4 hover:no-underline">
           Browse churches →
         </Link>
+        <Link href="/clergy" className="underline underline-offset-4 hover:no-underline">
+          Browse clergy →
+        </Link>
       </nav>
 
       <section className="mt-10">

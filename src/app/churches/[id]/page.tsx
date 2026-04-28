@@ -45,7 +45,7 @@ type Appointment = {
   status_code: string | null;
   years_at_appt: number | null;
   fraction: string | null;
-  clergy: { canonical_name: string };
+  clergy: { id: string; canonical_name: string };
 };
 
 function fmtValue(row: StatRow): string {
@@ -84,7 +84,7 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
 
   const { data: appts } = await supabase
     .from('appointment')
-    .select('role, status_code, years_at_appt, fraction, clergy:clergy_id(canonical_name)')
+    .select('role, status_code, years_at_appt, fraction, clergy:clergy_id(id, canonical_name)')
     .eq('church_id', id)
     .eq('journal_year', 2025)
     .returns<Appointment[]>();
@@ -152,7 +152,12 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
             {appts.map((a, i) => (
               <li key={i} className="flex items-baseline justify-between py-3">
                 <div>
-                  <span className="font-medium">{a.clergy.canonical_name}</span>
+                  <Link
+                    href={`/clergy/${a.clergy.id}`}
+                    className="font-medium hover:underline underline-offset-4"
+                  >
+                    {a.clergy.canonical_name}
+                  </Link>
                   <span className="ml-2 text-sm text-zinc-500">
                     {a.role}
                     {a.years_at_appt != null ? ` · ${a.years_at_appt} yr${a.years_at_appt === 1 ? '' : 's'}` : ''}
