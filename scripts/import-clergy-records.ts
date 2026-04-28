@@ -375,6 +375,17 @@ async function main() {
       }
     }
     if (!clergyId) {
+      // Skip records whose displayName looks like an APPTS-list fragment
+      // or a status timeline rather than a real person's name.
+      if (
+        /\[(RG|SWTX|RG-Hispanic)\]/i.test(r.displayName) ||
+        /;\s*\d{4}\b/.test(r.displayName) ||
+        /^[A-Z]{2,4}:\s*\d{4}/.test(r.displayName) ||
+        r.displayName.includes(' Appt') ||
+        r.displayName.length > 80
+      ) {
+        continue;
+      }
       // Create new — likely a historical retiree never seen elsewhere.
       const { data: ins, error } = await db.from('clergy')
         .insert({ canonical_name: r.displayName, status: 'unknown' })

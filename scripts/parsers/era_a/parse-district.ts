@@ -105,12 +105,27 @@ function nameCandidates(rawName: string): string[] {
   return Array.from(cands).filter((c) => c.length > 0);
 }
 
+/** A pastor-name string is "junk" if it looks like an APPTS list fragment
+ *  or a status timeline rather than a real person's name. These came from
+ *  pastor-column misalignments in older Era A J-section parses. */
+function isJunkClergyName(n: string): boolean {
+  if (!n) return true;
+  if (/\[(RG|SWTX|RG-Hispanic)\]/i.test(n)) return true;
+  if (/;\s*\d{4}\b/.test(n)) return true;
+  if (/^[A-Z]{2,4}:\s*\d{4}/.test(n)) return true;
+  if (/^(McAllen|SAng|SAnt|CC|NB|MC):\s/.test(n)) return true;
+  if (n.includes(' Appt')) return true;
+  if (n.length > 80) return true;
+  return false;
+}
+
 async function upsertClergy(
   db: ReturnType<typeof adminClient>,
   rawName: string,
 ): Promise<string | null> {
   const canonical = rawName.replace(/^Rev\.?\s+/i, '').replace(/\s+/g, ' ').trim();
   if (!canonical) return null;
+  if (isJunkClergyName(canonical)) return null;
   const { data: existing } = await db.from('clergy').select('id').eq('canonical_name', canonical).maybeSingle();
   if (existing) return existing.id;
   const { data: ins, error } = await db.from('clergy').insert({ canonical_name: canonical }).select('id').single();
