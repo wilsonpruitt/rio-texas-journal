@@ -75,8 +75,8 @@ export async function runSubTable(
   let errorCount = 0;
 
   try {
-    const text = extractPages(firstPdfPage, lastPdfPage);
-    const pages = splitPages(text);
+    const text = extractPages(firstPdfPage, lastPdfPage, opts.journalYear);
+    const pages = splitPages(text, opts.journalYear);
 
     const churches = new Map<string, ChurchAccum>();
 
@@ -201,7 +201,8 @@ export function cliEntry(opts: RunOpts, validDistricts: readonly string[]): void
   const [districtCode, firstPdfPageStr, lastPdfPageStr] = process.argv.slice(2);
   if (!districtCode || !firstPdfPageStr || !lastPdfPageStr) {
     console.error(
-      `Usage: <script> <${validDistricts.join('|')}> <firstPdfPage> <lastPdfPage>`,
+      `Usage: <script> <${validDistricts.join('|')}> <firstPdfPage> <lastPdfPage>\n` +
+        `       RTXJ_YEAR=2024 to target a different journal year (default 2025)`,
     );
     process.exit(1);
   }
@@ -209,7 +210,16 @@ export function cliEntry(opts: RunOpts, validDistricts: readonly string[]): void
     console.error(`Unknown district ${districtCode}; expected one of ${validDistricts.join(', ')}`);
     process.exit(1);
   }
-  runSubTable(opts, districtCode, Number(firstPdfPageStr), Number(lastPdfPageStr)).catch(
+  // Year override: defaults flow from the parser's own opts; RTXJ_YEAR can
+  // retarget any of these parsers to another Era B journal.
+  const yearEnv = process.env.RTXJ_YEAR;
+  const effectiveOpts: RunOpts = yearEnv
+    ? { ...opts, journalYear: Number(yearEnv), dataYear: Number(yearEnv) - 1 }
+    : opts;
+  console.log(
+    `journal_year=${effectiveOpts.journalYear} data_year=${effectiveOpts.dataYear} table=${effectiveOpts.tableLabel}`,
+  );
+  runSubTable(effectiveOpts, districtCode, Number(firstPdfPageStr), Number(lastPdfPageStr)).catch(
     (err) => {
       console.error(err);
       process.exit(1);

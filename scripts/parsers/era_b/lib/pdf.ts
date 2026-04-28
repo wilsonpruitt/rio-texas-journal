@@ -1,11 +1,17 @@
 import { execFileSync } from 'node:child_process';
 
-const PDF_PATH =
-  process.env.RTXJ_PDF_2025 ||
-  '/Users/wilsonpruitt/Downloads/2025+Rio+TX+Journal+Web+Updated.pdf';
+const JOURNALS_DIR =
+  process.env.RTXJ_PDF_DIR || '/Users/wilsonpruitt/rio-texas-journal/journals';
+
+function pdfPath(year: number): string {
+  // Allow overriding a single year via RTXJ_PDF_YYYY for compatibility.
+  const override = process.env[`RTXJ_PDF_${year}`];
+  if (override) return override;
+  return `${JOURNALS_DIR}/${year}.pdf`;
+}
 
 /** Extract a page range from the journal PDF as layout-preserved text. */
-export function extractPages(firstPage: number, lastPage: number): string {
+export function extractPages(firstPage: number, lastPage: number, year: number): string {
   return execFileSync(
     'pdftotext',
     [
@@ -13,30 +19,28 @@ export function extractPages(firstPage: number, lastPage: number): string {
       '-nopgbrk',
       '-f', String(firstPage),
       '-l', String(lastPage),
-      PDF_PATH,
+      pdfPath(year),
       '-',
     ],
     { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 },
   );
 }
 
-/** Convert a J-page (1-indexed within Section J) to a PDF page number. */
-export function jPageToPdfPage(jPage: number): number {
-  // Section J starts at PDF page 512 (J-1 == 512).
-  return 511 + jPage;
-}
-
-/** Split a page range into per-page text using "Rio Texas Conference Journal 2025" as the marker. */
-export function splitPages(text: string): string[] {
-  // pdftotext with -nopgbrk doesn't insert form feeds, so split on the page footer.
+/**
+ * Split a page range into per-page text by detecting the journal's page
+ * footer. The footer wording differs between years — 2025 prints
+ * "Rio Texas Conference Journal 2025" while 2024 prints
+ * "2024 RIO TEXAS CONFERENCE JOURNAL". Either form is recognized.
+ */
+export function splitPages(text: string, year: number): string[] {
+  const yr = String(year);
+  const reA = new RegExp(`Rio Texas Conference Journal\\s+${yr}`, 'i');
+  const reB = new RegExp(`${yr}\\s+Rio Texas Conference Journal`, 'i');
   const lines = text.split('\n');
   const pages: string[][] = [[]];
   for (const line of lines) {
     pages[pages.length - 1].push(line);
-    if (/Rio Texas Conference Journal 2025/.test(line)) {
-      pages.push([]);
-    }
+    if (reA.test(line) || reB.test(line)) pages.push([]);
   }
-  // Last bucket is the trailing slice after the final footer (often just whitespace).
   return pages.map((p) => p.join('\n'));
 }
