@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import Sparkline, { type Point } from './Sparkline';
 
 export const dynamic = 'force-dynamic';
 
@@ -97,6 +98,40 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
     .order('field_code')
     .returns<StatRow[]>();
 
+  // Multi-year series for sparklines: pull every year's value for the
+  // headline metrics (membership, average worship, total receipts).
+  const { data: trendRows } = await supabase
+    .from('church_stat')
+    .select('field_code, data_year, value_numeric')
+    .eq('church_id', id)
+    .in('field_code', ['4', '7', '55'])
+    .order('data_year');
+
+  type Trend = { code: string; values: Map<number, number> };
+  const trends = new Map<string, Trend>();
+  for (const r of trendRows ?? []) {
+    const code = (r as { field_code: string }).field_code;
+    const year = (r as { data_year: number }).data_year;
+    const value = (r as { value_numeric: number | null }).value_numeric;
+    if (value == null) continue;
+    if (!trends.has(code)) trends.set(code, { code, values: new Map() });
+    trends.get(code)!.values.set(year, value);
+  }
+  const minYear = 2014;
+  const maxYear = 2024;
+  function pointsFor(code: string): Point[] {
+    const t = trends.get(code);
+    if (!t) return [];
+    const out: Point[] = [];
+    for (let y = minYear; y <= maxYear; y++) {
+      out.push({ year: y, value: t.values.get(y) ?? null });
+    }
+    return out;
+  }
+  const membershipPts = pointsFor('4');
+  const worshipPts = pointsFor('7');
+  const receiptsPts = pointsFor('55');
+
   const { data: appts } = await supabase
     .from('appointment')
     .select('role, status_code, years_at_appt, fraction, clergy:clergy_id(id, canonical_name)')
@@ -164,6 +199,22 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
           )}
         </div>
       </header>
+
+      {(membershipPts.some((p) => p.value != null) ||
+        worshipPts.some((p) => p.value != null) ||
+        receiptsPts.some((p) => p.value != null)) && (
+        <section className="mt-8">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
+            Trends · {minYear + 1}–{maxYear + 1} journals
+          </h2>
+          <p className="mt-1 text-xs text-zinc-500">Year-end membership, average worship attendance, and grand-total receipts as recorded in each annual journal.</p>
+          <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <Sparkline label="Membership" points={membershipPts} format="count" />
+            <Sparkline label="Worship attendance" points={worshipPts} format="count" />
+            <Sparkline label="Total received" points={receiptsPts} format="usd" />
+          </div>
+        </section>
+      )}
 
       {appts && appts.length > 0 && (
         <section className="mt-10">
