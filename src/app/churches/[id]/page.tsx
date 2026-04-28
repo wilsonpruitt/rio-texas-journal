@@ -10,6 +10,20 @@ const DISTRICT_NAME: Record<string, string> = {
   SO: 'South',
 };
 
+const STATUS_LABEL: Record<string, string> = {
+  active: 'Active',
+  closed: 'Closed',
+  disaffiliated: 'Disaffiliated',
+  merged: 'Merged',
+};
+
+const STATUS_COLOR: Record<string, string> = {
+  active: 'bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-950 dark:text-emerald-200 dark:ring-emerald-900',
+  closed: 'bg-zinc-100 text-zinc-700 ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700',
+  disaffiliated: 'bg-rose-50 text-rose-700 ring-rose-200 dark:bg-rose-950 dark:text-rose-200 dark:ring-rose-900',
+  merged: 'bg-violet-50 text-violet-700 ring-violet-200 dark:bg-violet-950 dark:text-violet-200 dark:ring-violet-900',
+};
+
 const CATEGORY_LABEL: Record<string, string> = {
   membership: 'Membership',
   ethnicity: 'Ethnicity',
@@ -26,6 +40,7 @@ type Church = {
   canonical_name: string;
   city: string | null;
   status: string;
+  closed_year: number | null;
   mailing_address: string | null;
   phone: string | null;
   lat: number | null;
@@ -62,7 +77,7 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
 
   const { data: church, error: chErr } = await supabase
     .from('church')
-    .select('id, canonical_name, city, status, mailing_address, phone, lat, lng')
+    .select('id, canonical_name, city, status, closed_year, mailing_address, phone, lat, lng')
     .eq('id', id)
     .maybeSingle<Church>();
   if (chErr || !church) notFound();
@@ -113,11 +128,18 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
       </Link>
 
       <header className="mt-4">
-        <h1 className="text-3xl font-semibold tracking-tight">{church.canonical_name}</h1>
+        <div className="flex items-baseline gap-3 flex-wrap">
+          <h1 className="text-3xl font-semibold tracking-tight">{church.canonical_name}</h1>
+          {church.status !== 'active' && (
+            <span className={'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ' + (STATUS_COLOR[church.status] ?? '')}>
+              {STATUS_LABEL[church.status] ?? church.status}
+              {church.closed_year ? ` · ${church.closed_year}` : ''}
+            </span>
+          )}
+        </div>
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
           {districtName ? `${districtName} District` : 'Unassigned'}
           {church.city && church.city !== church.canonical_name ? ` · ${church.city}` : ''}
-          {church.status !== 'active' ? ` · ${church.status}` : ''}
         </p>
         <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
           {church.mailing_address && (
