@@ -1,0 +1,1423 @@
+[
+  {
+    "new_district": "North",
+    "county": "McCulloch",
+    "city": "Brady",
+    "church": "Grace-New Church Start",
+    "old_district": "West"
+  },
+  {
+    "new_district": "North",
+    "county": "Mason",
+    "city": "Hilda",
+    "church": "Hilda UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "North",
+    "county": "Mason",
+    "city": "Mason",
+    "church": "First UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "North",
+    "county": "San Saba",
+    "city": "Cherokee",
+    "church": "Cherokee UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "North",
+    "county": "Lampasas",
+    "city": "Kempner",
+    "church": "Kempner UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Lampasas",
+    "city": "Lometa",
+    "church": "Lometa UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Lampasas",
+    "city": "Lometa",
+    "church": "Bend UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Burnet",
+    "city": "Bertram",
+    "church": "Bertram UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Austin New Church UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Berkeley UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Bethany UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Covenant UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Decker UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Emmanuel UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "First UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Lake Travis UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Life in the City UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Memorial UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Northwest Hills UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Oak Hill UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Simpson UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "St. John UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "St. Mark UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "St. Paul’s UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "St. Peter’s UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Tarrytown UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Trinity UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "University UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Violet Crown City Church",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Wesley UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Austin",
+    "church": "Westlake UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Spicewood",
+    "church": "Bee Creek UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Manchaca",
+    "church": "Manchaca UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Pﬂugerville",
+    "church": "Pﬂugerville UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Lago Vista",
+    "church": "Rolling Hills Community",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Travis",
+    "city": "Manor",
+    "church": "Manor UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Williamson",
+    "city": "Cedar Park",
+    "church": "First UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Williamson",
+    "city": "Del Valle",
+    "church": "Haynie Chapel",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Williamson",
+    "city": "Liberty Hill",
+    "church": "Cross Track Church UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Williamson",
+    "city": "Leander",
+    "church": "Leander UMC",
+    "old_district": "Capital"
+  },
+  {
+    "new_district": "North",
+    "county": "Llano",
+    "city": "Buchanan Dam",
+    "church": "Highland Lakes UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Llano",
+    "city": "Valley Spring",
+    "church": "Valley Spring UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Hays",
+    "city": "Buda",
+    "church": "Buda UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Hays",
+    "city": "Kyle",
+    "church": "Kyle UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Hays",
+    "city": "Kyle",
+    "church": "The Journey UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Hays",
+    "city": "San Marcos",
+    "church": "El Buen Pastor UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Hays",
+    "city": "San Marcos",
+    "church": "First UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Hays",
+    "city": "San Marcos",
+    "church": "Jackson Chapel UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Hays",
+    "city": "Wimberley",
+    "church": "Wimberley UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Gillespie",
+    "city": "Fredericksburg",
+    "church": "Fredericksburg UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Gillespie",
+    "city": "Harper",
+    "church": "Harper UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "North",
+    "county": "Bastrop",
+    "city": "Bastrop",
+    "church": "Bastrop UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Bastrop",
+    "city": "Cedar Creek",
+    "church": "Cedar Creek UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Bastrop",
+    "city": "Elgin",
+    "church": "Elgin UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Bastrop",
+    "city": "Smithville",
+    "church": "First UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Caldwell",
+    "city": "Fentress",
+    "church": "Fentress UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Caldwell",
+    "city": "Lockhart",
+    "church": "St. Mark UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Caldwell",
+    "city": "Dale",
+    "church": "Corinth UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Caldwell",
+    "city": "Luling",
+    "church": "First UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Caldwell",
+    "city": "Luling",
+    "church": "William Taylor UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Caldwell",
+    "city": "Prairie Lea",
+    "church": "Prairie Lea UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Fayette",
+    "city": "LaGrange",
+    "church": "St. James UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Fayette",
+    "city": "Schulenburg",
+    "church": "Stevens Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Fayette",
+    "city": "Winchester",
+    "church": "Winchester UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Colorado",
+    "city": "Altair",
+    "church": "Wesley Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Colorado",
+    "city": "Columbus",
+    "church": "First UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Colorado",
+    "city": "Columbus",
+    "church": "St. Paul UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Colorado",
+    "city": "Eagle Lake",
+    "church": "Eagle Lake UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Colorado",
+    "city": "Weimar",
+    "church": "Weimar UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Austin",
+    "city": "Industry",
+    "church": "Cherry Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "North",
+    "county": "Guadalupe",
+    "city": "Staples",
+    "church": "Staples UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "Helotes",
+    "church": "Helotes Hills UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Alamo UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Alamo Heights UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Bethany UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Bethel UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Chapel Hill UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Chinese UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Christ Fellowship UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Colonial Hills UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "East St. Paul UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Emanuel UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Epworth UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Ernest T. Dixon UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Jacobs Chapel UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "La Trinidad UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Laurel Heights UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Northern Hills UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Oak Meadow UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Oxford UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Pollard Memorial UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Sanford Chapel UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Spring Creek UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "St. Mark’s UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "St. Matthew’s UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "St. Paul UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Travis Park UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Trinity UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Westlawn UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Windcrest UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Windsong UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "San Antonio",
+    "church": "Impacto Comunitario",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "St. Hedwig",
+    "church": "The Rock UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bexar",
+    "city": "Universal City",
+    "church": "Universal City UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Wilson",
+    "city": "Floresville",
+    "church": "Floresville UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Wilson",
+    "city": "Floresville",
+    "church": "El Mesias UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Wilson",
+    "city": "La Vernia",
+    "church": "La Vernia UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Frio",
+    "city": "Dilley",
+    "church": "Bethania UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Frio",
+    "city": "Pearsall",
+    "church": "San Pablo UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Guadalupe",
+    "city": "Schertz",
+    "church": "Schertz UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "Central",
+    "county": "Guadalupe",
+    "city": "Seguin",
+    "church": "La Trinidad UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "Central",
+    "county": "Guadalupe",
+    "city": "Seguin",
+    "church": "Wesley Harper UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "Central",
+    "county": "Comal",
+    "city": "Canyon Lake",
+    "church": "Canyon Lake UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Comal",
+    "city": "Canyon Lake",
+    "church": "North Shore UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Comal",
+    "city": "Gruene",
+    "church": "Gruene UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Comal",
+    "city": "New Braunfels",
+    "church": "First UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Kendall",
+    "city": "Boerne",
+    "church": "First UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Kendall",
+    "city": "Comfort",
+    "church": "Gaddis Memorial UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Kerr",
+    "city": "Hunt",
+    "church": "Hunt UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Kerr",
+    "city": "Kerrville",
+    "church": "Barnett Chapel UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Kerr",
+    "city": "Kerrville",
+    "church": "First UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Kerr",
+    "city": "Kerrville",
+    "church": "St. Paul’s UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Bandera",
+    "city": "Pipe Creek",
+    "church": "Lakehills UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Medina",
+    "city": "Devine",
+    "church": "Devine UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Medina",
+    "city": "Castroville",
+    "church": "Medina Valley UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Medina",
+    "city": "Yancey",
+    "church": "Yancey UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Uvalde",
+    "city": "Uvalde",
+    "church": "La Divina Trinidad UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Zavala",
+    "city": "Crystal City",
+    "church": "Swindall Memorial UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Dimmit",
+    "city": "Carrizo Springs",
+    "church": "Carrizo Springs UMC",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Maverick",
+    "city": "Eagle Pass",
+    "church": "First UMC / MBH",
+    "old_district": "Hill Country"
+  },
+  {
+    "new_district": "Central",
+    "county": "Sutton",
+    "city": "Sonora",
+    "church": "Sonora UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Upton",
+    "city": "Rankin",
+    "church": "Rankin UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Tom Green",
+    "city": "San Angelo",
+    "church": "Bethel UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Tom Green",
+    "city": "San Angelo",
+    "church": "Sierra Vista UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Tom Green",
+    "city": "San Angelo",
+    "church": "St. Luke UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Tom Green",
+    "city": "San Angelo",
+    "church": "Wesley Trinity UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Pecos",
+    "city": "Iraan",
+    "church": "Iraan UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Kinney",
+    "city": "Brackettville",
+    "church": "Brackettville UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Val Verde",
+    "city": "Del Rio",
+    "church": "First UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "Central",
+    "county": "Val Verde",
+    "city": "Del Rio",
+    "church": "Principe de Paz UMC",
+    "old_district": "West"
+  },
+  {
+    "new_district": "South",
+    "county": "Webb",
+    "city": "Laredo",
+    "church": "First UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "South",
+    "county": "Webb",
+    "city": "Laredo",
+    "church": "La Trinidad UMC",
+    "old_district": "Las Misiones"
+  },
+  {
+    "new_district": "South",
+    "county": "Webb",
+    "city": "Bruni",
+    "church": "Bruni UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Gonzales",
+    "city": "Gonzales",
+    "church": "Evans Chapel",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Gonzales",
+    "city": "Gonzales",
+    "church": "Henson Chapel",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Gonzales",
+    "city": "Harwood",
+    "church": "Harwood UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Gonzales",
+    "city": "Nixon",
+    "church": "Harris Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Dewitt",
+    "city": "Cuero",
+    "church": "Cuero UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Dewitt",
+    "city": "Cuero",
+    "church": "Rabke UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Dewitt",
+    "city": "Yorktown",
+    "church": "First UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Karnes",
+    "city": "Runge",
+    "church": "Runge UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Victoria",
+    "city": "Bloomington",
+    "church": "Bloomington UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Victoria",
+    "city": "Telferner",
+    "church": "Telferner UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Victoria",
+    "city": "Victoria",
+    "church": "First UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Victoria",
+    "city": "Victoria",
+    "church": "Webster Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Jackson",
+    "city": "Edna",
+    "church": "First UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Jackson",
+    "city": "Edna",
+    "church": "Scruggs Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Lavaca",
+    "city": "Hallettsville",
+    "church": "Richardson Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Lavaca",
+    "city": "Shiner",
+    "church": "Shiner UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Lavaca",
+    "city": "Shiner",
+    "church": "Johnson’s Chapel UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Lavaca",
+    "city": "Yoakum",
+    "church": "First UMC",
+    "old_district": "Crossroads"
+  },
+  {
+    "new_district": "South",
+    "county": "Matagorda",
+    "city": "Palacios",
+    "church": "Palacios UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Calhoun",
+    "city": "Port Lavaca",
+    "church": "First UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Calhoun",
+    "city": "Seadrift",
+    "church": "Seadrift UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Aransas",
+    "city": "Rockport",
+    "church": "First UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Refugio",
+    "city": "Woodsboro",
+    "church": "Faith United UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Bee",
+    "city": "Beeville",
+    "church": "First UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Bee",
+    "city": "Beeville",
+    "church": "Jones Chapel UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Bee",
+    "city": "Skidmore",
+    "church": "Skidmore UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Goliad",
+    "city": "Goliad",
+    "church": "Fannin St. UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "San Patricio",
+    "city": "Portland",
+    "church": "First UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "San Patricio",
+    "city": "Sinton",
+    "church": "Sinton UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "San Patricio",
+    "city": "Odem",
+    "church": "Odem UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Bishop",
+    "church": "Bishop UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "El Buen Pastor UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "First UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "Grace UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "Island in the Son UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "Kelsey Memorial UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "St. John’s UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "St. Paul UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Nueces",
+    "city": "Corpus Christi",
+    "church": "Wesley UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Kleberg",
+    "city": "Kingsville",
+    "church": "First UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Kleberg",
+    "city": "Kingsville",
+    "church": "El Buen Pastor UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Duval",
+    "city": "Freer",
+    "church": "Freer UMC",
+    "old_district": "Coastal Bend"
+  },
+  {
+    "new_district": "South",
+    "county": "Zapata",
+    "city": "Zapata",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Weslaco",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Alamo",
+    "church": "San Pablo UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Edinburg",
+    "church": "El Buen Pastor UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Edinburg",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "McAllen",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "McAllen",
+    "church": "St. Mark UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Mercedes",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Mission",
+    "church": "El Mesias UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Pharr",
+    "church": "La Trinidad UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "Pharr",
+    "church": "Nueva Vida UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Hidalgo",
+    "city": "San Juan",
+    "church": "Los Wesleyanos UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Cameron",
+    "city": "Brownsville",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Cameron",
+    "city": "Brownsville",
+    "church": "Templo Emmanuel",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Cameron",
+    "city": "La Feria",
+    "church": "Dios Es Amor UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Cameron",
+    "city": "La Feria",
+    "church": "La Feria UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Cameron",
+    "city": "Port Isabel",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  },
+  {
+    "new_district": "South",
+    "county": "Cameron",
+    "city": "San Benito",
+    "church": "First UMC",
+    "old_district": "El Valle"
+  }
+]
