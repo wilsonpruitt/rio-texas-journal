@@ -24,6 +24,61 @@ const JOURNAL_YEAR = YEAR_ARG ? Number(YEAR_ARG) : 2025;
 const PDF_FILE = `/Users/wilsonpruitt/rio-texas-journal/journals/${JOURNAL_YEAR}-clergy-record.pdf`;
 const PARSER_VERSION = 'clergy_records_v1';
 
+/**
+ * Per-year format quirks.
+ *  - twoColumn: 2024 ships clergy records in a 2-column layout. We split
+ *    each line at COL_BOUNDARY, accumulate each column as its own text,
+ *    and concatenate (left+right) before parsing so records stay
+ *    contiguous.
+ *  - corrupted: 2024's PDF substitutes glyphs for "ti"/"ft"/"tt" with
+ *    random characters (X, 3, Z, ^). We restore them only when they
+ *    appear sandwiched between lowercase letters so real names like
+ *    "JoAnn", "McAllen", "DeKalb" are preserved.
+ */
+const YEAR_FORMAT: Record<number, { twoColumn: boolean; columnBoundary?: number; corrupted: boolean }> = {
+  2025: { twoColumn: false, corrupted: false },
+  2024: { twoColumn: true, columnBoundary: 74, corrupted: true },
+};
+const FORMAT = YEAR_FORMAT[JOURNAL_YEAR] ?? { twoColumn: false, corrupted: false };
+
+function sanitize(text: string): string {
+  if (!FORMAT.corrupted) return text;
+  return text
+    // ﬀ / ﬁ ligature unicode → plain
+    .replace(/ﬀ/g, 'ff').replace(/ﬁ/g, 'fi').replace(/ﬂ/g, 'fl').replace(/ﬃ/g, 'ffi').replace(/ﬄ/g, 'ffl')
+    // mid-lowercase corruption: X/3 → ti, Z → ft, ^ → tt
+    .replace(/([a-z])X(?=[a-z])/g, '$1ti')
+    .replace(/([a-z])3(?=[a-z])/g, '$1ti')
+    .replace(/([a-z])Z(?=[a-z])/g, '$1ft')
+    .replace(/([a-z])\^(?=[a-z])/g, '$1tt');
+}
+
+/** For 2-column layouts, walk each PAGE separately, slicing each line at
+ *  the column boundary and emitting left-column lines then right-column
+ *  lines. This matches the natural reading order: top-left → bottom-left
+ *  → top-right → bottom-right of page 1, then page 2, etc. Records that
+ *  start on page N's left column complete on page N's left column (or
+ *  spill to page N+1's left); right-column records similarly. */
+function unifyColumns(text: string): string {
+  if (!FORMAT.twoColumn) return text;
+  const boundary = FORMAT.columnBoundary ?? 80;
+  const pages = text.split('\f');
+  const out: string[] = [];
+  for (const page of pages) {
+    const lines = page.split('\n');
+    const left: string[] = [];
+    const right: string[] = [];
+    for (const line of lines) {
+      const l = line.slice(0, boundary).replace(/\s+$/, '');
+      const r = line.slice(boundary).replace(/\s+$/, '');
+      left.push(l);
+      right.push(r);
+    }
+    out.push(...left, ...right);
+  }
+  return out.join('\n');
+}
+
 type StatusEntry = { code: string; year: number };
 
 type ApptHistory = { year: number; raw: string };
@@ -91,8 +146,11 @@ function parseEducation(raw: string): EducationEntry[] {
 const NAME_LINE_RE = /^([A-Z][A-Za-z'’-]+(?:\s+[A-Z][A-Za-z'’-]+)*),\s+(.+)$/;
 
 function extractText(): string {
+  // Keep page form feeds (no -nopgbrk) so we can split per page below
+  // — needed for two-column layouts where we read each page's left
+  // column then right column to match the natural reading order.
   return execFileSync('/usr/local/bin/pdftotext',
-    ['-layout', '-nopgbrk', PDF_FILE, '-'],
+    ['-layout', PDF_FILE, '-'],
     { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 }
 
@@ -129,64 +187,108 @@ function parseApptList(s: string): ApptHistory[] {
   return out;
 }
 
+// Pre-comma surname can be 1-3 capitalized words ("Mora Peña", "Lueg, Jr").
+// Post-comma must be a capitalized first name. Disqualifies APPTS-bleed
+// fragments like "District Superintendent, Southern District".
+const STRICT_NAME_LINE_RE =
+  /^([A-Z][A-Za-z'’.-]+(?:\s+[A-Z][A-Za-z'’.-]+){0,2}),\s+([A-Z][A-Za-z'’.-]+)(.*)$/;
+
+const STATUS_CODE_RE = /^[A-Z]{2,4}:\s*\d{4}/;
+
 function parseRecords(text: string): ClergyRec[] {
   const lines = text.split('\n');
-  // Identify record-start indices: lines beginning at column 0 with "Last, First Middle".
+
+  // Identify record-start indices. We allow leading whitespace because
+  // 2024-style PDFs ship the entire body indented; gate against junk
+  // APPTS-bleed fragments by requiring a status-code line ("PM:/FE:/...")
+  // within the next 6 lines.
   const starts: number[] = [];
+  const NAME_NOISE_WORDS = /^(District|Pastor|Director|Chaplain|Assoc|Co-Pastor|Honorable|Leave|Retired|Sabbatical|Suspended|Faith|Texas|Rio|Hill|Coastal|Central|North|South|West|East|Capital|Las|El|United|Methodist|School|Conference|Center|Hospital|Department|Office|Board|Council|University|College|Seminary|Mission|Theological|Christian|First|Second|Third|Saint|St)\b/;
+  const APPT_WORDS_RE = /\b(Conference|District|School|Center|Hospital|Seminary|University|Foundation|Council|Office|Board)\b/;
   for (let i = 0; i < lines.length; i++) {
-    const m = lines[i].match(NAME_LINE_RE);
-    // Must NOT start with whitespace.
+    const trimmed = lines[i].replace(/^\s+/, '');
+    if (!trimmed) continue;
+    const m = trimmed.match(STRICT_NAME_LINE_RE);
     if (!m) continue;
-    if (lines[i][0] === ' ' || lines[i][0] === '\t') continue;
+    if (NAME_NOISE_WORDS.test(m[1])) continue;
+    // Skip if the post-comma chunk reads like an APPTS phrase.
+    const postComma = m[2] + ' ' + m[3].slice(0, 40);
+    if (APPT_WORDS_RE.test(postComma)) continue;
+    // Confirm via a status timeline either on the SAME line (2025 has
+    // "Last, First Middle    PM: 1977; ...") or within the next 6 lines
+    // (2024 puts the timeline on its own line below).
+    let hasStatus = /\b[A-Z]{2,4}:\s*\d{4}/.test(trimmed);
+    if (!hasStatus) {
+      for (let j = i + 1; j < Math.min(i + 7, lines.length); j++) {
+        const tj = lines[j].trim();
+        if (STATUS_CODE_RE.test(tj) || /\b[A-Z]{2,4}:\s*\d{4}/.test(tj)) { hasStatus = true; break; }
+      }
+    }
+    if (!hasStatus) continue;
     starts.push(i);
   }
+
   const recs: ClergyRec[] = [];
   for (let s = 0; s < starts.length; s++) {
     const startIdx = starts[s];
     const endIdx = s + 1 < starts.length ? starts[s + 1] : lines.length;
-    // Skip blocks that look too short (likely false-positive name matches).
-    if (endIdx - startIdx < 1) continue;
 
-    const headLine = lines[startIdx];
-    const nameMatch = headLine.match(NAME_LINE_RE);
+    const headLine = lines[startIdx].replace(/^\s+/, '');
+    const nameMatch = headLine.match(STRICT_NAME_LINE_RE);
     if (!nameMatch) continue;
-    const canonical = `${nameMatch[1].trim()}, ${nameMatch[2].split(/\s{2,}/)[0].trim()}`;
+    const surname = nameMatch[1].trim();
+    const firstAndAfter = (nameMatch[2] + nameMatch[3]).trim();
+    const firstParts = firstAndAfter.split(/\s{2,}/);
+    const firstChunk = firstParts[0].trim();
+    let tailChunks = firstParts.slice(1).join('  ').trim();
+    const canonical = `${surname}, ${firstChunk}`;
+    // If the head-line tail is the status timeline (2025 format), strip
+    // it from the currentAppt slot so we capture currentAppt from a
+    // following line instead.
+    let initialStatus = '';
+    if (/^[A-Z]{2,4}:\s*\d{4}/.test(tailChunks) || / [A-Z]{2,4}:\s*\d{4}/.test(tailChunks)) {
+      initialStatus = tailChunks;
+      tailChunks = '';
+    }
 
-    // The right column of the head line typically starts the status history.
-    const headRightCol = headLine.split(/\s{2,}/).slice(1).join('  ');
-    let statusHistRaw = headRightCol;
-
-    // Concatenate following lines until the next record. Capture:
-    //   - second line indented = "  Current Appt" or "  Retired" or status
-    //   - middle/right column may have ED:, APPTS:, or status continuation
-    let currentAppt: string | null = null;
+    // Walk the lines to find: status timeline, ED, APPTS, currentAppt.
+    let statusLine = initialStatus;
+    let currentAppt = tailChunks || null;
     let education: string | null = null;
     let apptRaw = '';
-    let mode: 'status' | 'ed' | 'appts' | null = 'status';
+    let mode: 'none' | 'ed' | 'appts' = 'none';
 
     for (let i = startIdx + 1; i < endIdx; i++) {
       const line = lines[i];
       if (!line.trim()) continue;
-      // Skip page footer / header lines.
-      if (/Rio Texas Conference Journal|Clergy Records$|^I-\d+$|^\d+$/i.test(line.trim())) continue;
-      // The "current appointment" line is the first indented line whose
-      // content is short and isn't an ED:/APPTS: block.
-      const left = line.slice(0, 28).trim();
-      const right = line.slice(28).trim();
-      if (currentAppt === null && left && !/^(ED|APPTS):/i.test(right) && !/^(ED|APPTS):/i.test(left)) {
-        currentAppt = left;
+      const trimmed = line.trim();
+      if (/Rio Texas Conference Journal|Clergy Records$|^I-\d+$|^\d+$/i.test(trimmed)) continue;
+
+      // Status timeline: starts with PM:/FE:/etc.
+      if (STATUS_CODE_RE.test(trimmed)) {
+        statusLine += ' ' + trimmed;
+        // Status often spans 2 lines; once we're seeing PM/FE codes, keep
+        // accumulating until we hit ED/APPTS/blank.
+        continue;
       }
-      // Detect ED: / APPTS: anywhere on the line.
-      const fullStripped = line.trim();
-      if (/^ED:/i.test(fullStripped) || /^ED:/i.test(right)) { mode = 'ed'; }
-      if (/^APPTS:/i.test(fullStripped) || /^APPTS:/i.test(right)) { mode = 'appts'; }
-      if (mode === 'status') statusHistRaw += ' ' + right;
-      else if (mode === 'ed') education = (education ?? '') + ' ' + (right || fullStripped);
-      else if (mode === 'appts') apptRaw += ' ' + (right || fullStripped);
+      if (/^ED:/i.test(trimmed)) { mode = 'ed'; education = trimmed.replace(/^ED:\s*/i, ''); continue; }
+      if (/^APPTS:/i.test(trimmed)) { mode = 'appts'; apptRaw = trimmed.replace(/^APPTS:\s*/i, ''); continue; }
+
+      if (mode === 'ed') education = (education ?? '') + ' ' + trimmed;
+      else if (mode === 'appts') apptRaw += ' ' + trimmed;
+      else if (statusLine && /^[A-Z]{2,4}:\s*\d{4}/.test(trimmed)) {
+        // continuation of status
+        statusLine += ' ' + trimmed;
+      }
+      // Otherwise: probably a current-appt continuation line. If currentAppt
+      // is null, capture this short line.
+      else if (!currentAppt && trimmed.length < 60 && !/[;:]/.test(trimmed)) {
+        currentAppt = trimmed;
+      }
     }
 
-    const statusHistory = parseStatusHistory(statusHistRaw);
-    const appts = parseApptList(apptRaw);
+    const statusHistory = parseStatusHistory(statusLine || tailChunks);
+    const appts = parseApptList(apptRaw ? `APPTS: ${apptRaw}` : '');
     const educationEntries = education ? parseEducation(education.trim()) : [];
 
     recs.push({
@@ -204,7 +306,9 @@ function parseRecords(text: string): ClergyRec[] {
 }
 
 async function main() {
-  const text = extractText();
+  const rawText = extractText();
+  // 2024-style PDFs need column-unification + glyph repair before record parse.
+  const text = sanitize(unifyColumns(rawText));
   const recs = parseRecords(text);
   console.log(`Parsed ${recs.length} clergy records from ${JOURNAL_YEAR}-clergy-record.pdf`);
 
