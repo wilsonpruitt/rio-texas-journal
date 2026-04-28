@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import Sparkline, { type Point } from './Sparkline';
+import Donut, { type Slice } from './Donut';
 
 export const dynamic = 'force-dynamic';
 
@@ -152,6 +153,48 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
     (statsByCategory[cat] ??= []).push(s);
   }
 
+  // Build composition slices for the ethnicity + gender donuts.
+  function valueOf(code: string): number {
+    return (stats ?? []).find((s) => s.field_code === code)?.value_numeric ?? 0;
+  }
+  const ETHNICITY_PALETTE: Record<string, string> = {
+    '5a': '#0ea5e9', // Asian
+    '5b': '#7c3aed', // Black
+    '5c': '#f59e0b', // Hispanic/Latino
+    '5d': '#16a34a', // Native American
+    '5e': '#06b6d4', // Pacific Islander
+    '5f': '#94a3b8', // White
+    '5g': '#ec4899', // Multi-Racial
+  };
+  const ETHNICITY_LABELS: Record<string, string> = {
+    '5a': 'Asian',
+    '5b': 'Black',
+    '5c': 'Hispanic/Latino',
+    '5d': 'Native American',
+    '5e': 'Pacific Islander',
+    '5f': 'White',
+    '5g': 'Multi-Racial',
+  };
+  const ethnicitySlices: Slice[] = (['5a', '5b', '5c', '5d', '5e', '5f', '5g'] as const).map((code) => ({
+    label: ETHNICITY_LABELS[code],
+    color: ETHNICITY_PALETTE[code],
+    value: valueOf(code),
+  }));
+  const ethnicityTotal = ethnicitySlices.reduce((s, x) => s + x.value, 0);
+
+  const GENDER_PALETTE: Record<string, string> = {
+    '6a': '#8b5cf6', // Female
+    '6b': '#0ea5e9', // Male
+    '6c': '#94a3b8', // Nonbinary
+  };
+  const GENDER_LABELS: Record<string, string> = { '6a': 'Female', '6b': 'Male', '6c': 'Nonbinary' };
+  const genderSlices: Slice[] = (['6a', '6b', '6c'] as const).map((code) => ({
+    label: GENDER_LABELS[code],
+    color: GENDER_PALETTE[code],
+    value: valueOf(code),
+  }));
+  const genderTotal = genderSlices.reduce((s, x) => s + x.value, 0);
+
   const districtName = dh?.district_code ? DISTRICT_NAME[dh.district_code] : null;
   const mapHref =
     church.lat && church.lng
@@ -214,6 +257,30 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
             <Sparkline label="Membership" points={membershipPts} format="count" />
             <Sparkline label="Worship attendance" points={worshipPts} format="count" />
             <Sparkline label="Total received" points={receiptsPts} format="usd" />
+          </div>
+        </section>
+      )}
+
+      {(ethnicityTotal > 0 || genderTotal > 0) && (
+        <section className="mt-8">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">2024 Membership composition</h2>
+          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {ethnicityTotal > 0 && (
+              <div className="rounded-md border border-zinc-200 dark:border-zinc-800 p-3">
+                <div className="text-xs uppercase tracking-wide text-zinc-500">Ethnicity</div>
+                <div className="mt-2">
+                  <Donut slices={ethnicitySlices} centerLabel={new Intl.NumberFormat('en-US').format(ethnicityTotal)} />
+                </div>
+              </div>
+            )}
+            {genderTotal > 0 && (
+              <div className="rounded-md border border-zinc-200 dark:border-zinc-800 p-3">
+                <div className="text-xs uppercase tracking-wide text-zinc-500">Gender</div>
+                <div className="mt-2">
+                  <Donut slices={genderSlices} centerLabel={new Intl.NumberFormat('en-US').format(genderTotal)} />
+                </div>
+              </div>
+            )}
           </div>
         </section>
       )}
