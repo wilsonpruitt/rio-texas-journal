@@ -36,9 +36,10 @@ type ParsedRow = {
 };
 
 const YEARS = [
-  { year: 2023, file: '/Users/wilsonpruitt/rio-texas-journal/journals/2023-bac.pdf', q: { transferOut: 37, withdrawal: 42, deceased: 44 } },
-  { year: 2024, file: '/Users/wilsonpruitt/rio-texas-journal/journals/2024-bac.pdf', q: { transferOut: 37, withdrawal: 42, deceased: 44 } },
-  { year: 2025, file: '/Users/wilsonpruitt/rio-texas-journal/journals/2025-bac.pdf', q: { transferOut: 37, withdrawal: 39, deceased: 41 } },
+  // retired = [§ for full-connection deacons/elders, § for associates, § for local pastors]
+  { year: 2023, file: '/Users/wilsonpruitt/rio-texas-journal/journals/2023-bac.pdf', q: { transferOut: 37, withdrawal: 42, deceased: 44, retired: [49, 50, 51] } },
+  { year: 2024, file: '/Users/wilsonpruitt/rio-texas-journal/journals/2024-bac.pdf', q: { transferOut: 37, withdrawal: 42, deceased: 44, retired: [49, 50, 51] } },
+  { year: 2025, file: '/Users/wilsonpruitt/rio-texas-journal/journals/2025-bac.pdf', q: { transferOut: 37, withdrawal: 39, deceased: 41, retired: [46, 47, 48] } },
 ];
 
 function extract(file: string): string {
@@ -167,6 +168,93 @@ function parseSection(text: string, q: number, status: Status, sourceLabel: stri
   return out;
 }
 
+const SUFFIXES = new Set(['jr', 'sr', 'ii', 'iii', 'iv', 'v']);
+
+/** Split a "Previously" paragraph (comma-separated full names) into individual names.
+ *  Handles "George Robert Grimes, Jr." — when a comma-split token is just a
+ *  suffix, glue it back to the previous name. */
+function splitParagraphNames(paragraph: string): string[] {
+  const parts = paragraph.replace(/\s+/g, ' ').split(/,\s*/).map((p) => p.trim()).filter(Boolean);
+  const out: string[] = [];
+  for (const p of parts) {
+    const stripped = p.replace(/\.$/, '');
+    if (SUFFIXES.has(stripped.toLowerCase()) && out.length > 0) {
+      out[out.length - 1] = `${out[out.length - 1]}, ${p}`;
+    } else {
+      out.push(p);
+    }
+  }
+  return out;
+}
+
+function parseFirstMiddleLast(name: string, year: number, source: string, status: Status): ParsedRow | null {
+  // Strip parenthetical nickname: "Cecil Wilton (Robin) Pearcy III" → "Cecil Wilton Pearcy III"
+  const cleaned = name.replace(/\s*\([^)]*\)\s*/g, ' ').replace(/\s+/g, ' ').trim();
+  if (!cleaned) return null;
+  // Pull off trailing suffix.
+  const suffixMatch = cleaned.match(/(.+?)\s*,\s*(jr|sr|ii|iii|iv|v)\.?$/i)
+    ?? cleaned.match(/(.+?)\s+(jr|sr|ii|iii|iv|v)\.?$/i);
+  let core = cleaned;
+  let suffix = '';
+  if (suffixMatch) {
+    core = suffixMatch[1].trim();
+    suffix = suffixMatch[2];
+  }
+  const tokens = core.split(/\s+/).filter(Boolean);
+  if (tokens.length < 2) return null;
+  const first = tokens[0];
+  const last = tokens[tokens.length - 1] + (suffix ? ` ${suffix}` : '');
+  const middle = tokens.slice(1, -1).join(' ');
+  if (!/^[A-Za-z]/.test(first) || !/^[A-Za-z]/.test(tokens[tokens.length - 1])) return null;
+  return { last, first, middle: middle || undefined, status, source: `${year} ${source}` };
+}
+
+/** Parse a retirement section (§49/§46) — has subsections "This year" (tabular)
+ *  and "Previously" (comma paragraph), interleaved by Deacons/Elders/etc. */
+function parseRetirementSection(text: string, q: number, sourceLabel: string, year: number): ParsedRow[] {
+  const lines = text.split('\n');
+  const [s, e] = sectionRange(lines, q);
+  if (s < 0) return [];
+  const out: ParsedRow[] = [];
+
+  let mode: 'this' | 'prev' | null = null;
+  let prevBuffer: string[] = [];
+  const flushPrev = () => {
+    if (prevBuffer.length === 0) return;
+    const paragraph = prevBuffer.join(' ');
+    for (const name of splitParagraphNames(paragraph)) {
+      const row = parseFirstMiddleLast(name, year, sourceLabel + ' (prev)', 'retired');
+      if (row) out.push(row);
+    }
+    prevBuffer = [];
+  };
+
+  // Start AFTER the section header itself (s) so the "stop on next-section"
+  // check below doesn't fire on the section we're parsing.
+  for (let i = s + 1; i < e; i++) {
+    const line = lines[i];
+    const trimmed = line.trim();
+    // Sub-header detection
+    if (/^[a-z]\)\s*This year/i.test(trimmed)) { flushPrev(); mode = 'this'; continue; }
+    if (/^[a-z]\)\s*Previously/i.test(trimmed)) { flushPrev(); mode = 'prev'; continue; }
+    if (/^Deacons$|^Elders$|^Local Pastors$/i.test(trimmed)) { flushPrev(); continue; }
+    // Stop accumulating "previous" buffer at any next numbered question.
+    if (/^\s*\d+\.\s+\S/.test(line)) { flushPrev(); break; }
+    if (mode === 'this') {
+      const row = parseDataLine(line, year, sourceLabel, 'retired');
+      if (row) out.push(row);
+    } else if (mode === 'prev') {
+      // Skip column headers.
+      if (/Name|Date Effective|None\b/i.test(trimmed)) continue;
+      if (trimmed.length === 0) continue;
+      if (/Rio Texas Conference Journal|Business of the Annual Conference|^E\s*-\s*\d+|^[0-9]+\s*$|March\s+\d{4}/i.test(trimmed)) continue;
+      prevBuffer.push(trimmed);
+    }
+  }
+  flushPrev();
+  return out;
+}
+
 const db = adminClient();
 
 async function fetchAllClergy() {
@@ -225,8 +313,12 @@ async function main() {
     const transferOut = parseSection(text, y.q.transferOut, 'transferred', `§${y.q.transferOut}`, y.year);
     const withdraw = parseSection(text, y.q.withdrawal, 'withdrawn', `§${y.q.withdrawal}`, y.year);
     const deceased = parseSection(text, y.q.deceased, 'deceased', `§${y.q.deceased}`, y.year);
-    console.log(`  transferred: ${transferOut.length}, withdrawn: ${withdraw.length}, deceased: ${deceased.length}`);
-    allRows.push(...transferOut, ...withdraw, ...deceased);
+    const retired: ParsedRow[] = [];
+    for (const rq of y.q.retired) {
+      retired.push(...parseRetirementSection(text, rq, `§${rq}`, y.year));
+    }
+    console.log(`  transferred: ${transferOut.length}, withdrawn: ${withdraw.length}, deceased: ${deceased.length}, retired: ${retired.length}`);
+    allRows.push(...transferOut, ...withdraw, ...deceased, ...retired);
   }
 
   // Status priority — if a clergyperson appears in multiple years, use the
