@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 
 export const dynamic = 'force-dynamic';
@@ -27,6 +28,12 @@ export default async function Home() {
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
         Interactive archive of Rio Texas Annual Conference journals.
       </p>
+
+      <nav className="mt-8 flex gap-6 text-sm">
+        <Link href="/churches" className="underline underline-offset-4 hover:no-underline">
+          Browse churches →
+        </Link>
+      </nav>
 
       <section className="mt-10">
         <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
