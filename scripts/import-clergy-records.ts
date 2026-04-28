@@ -462,7 +462,14 @@ async function main() {
           if (id) { churchId = id; break; }
         }
         if (!churchId) continue;
-        // Insert appointment row.
+        // Skip if a row for this (clergy, church, year) already exists —
+        // prefer richer F-section data (with role/status_code/years_at_appt)
+        // over the bare-bones Section I row.
+        const { data: existing } = await db.from('appointment')
+          .select('id')
+          .eq('clergy_id', clergyId).eq('church_id', churchId).eq('journal_year', a.year)
+          .maybeSingle();
+        if (existing) { matchedAny = true; continue; }
         const { error } = await db.from('appointment').insert({
           church_id: churchId,
           clergy_id: clergyId,
@@ -473,10 +480,7 @@ async function main() {
           fraction: null,
           source_pdf_page: null,
         });
-        if (error) {
-          // Likely duplicate (church_id, clergy_id, journal_year) — ignore.
-          continue;
-        }
+        if (error) continue;
         apptsWritten++;
         matchedAny = true;
       }
