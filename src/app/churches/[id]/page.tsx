@@ -18,11 +18,13 @@ const STATUS_LABEL: Record<string, string> = {
   merged: 'Merged',
 };
 
+// Non-active statuses share a neutral palette; disaffiliation is treated
+// as historical context, not a headline.
 const STATUS_COLOR: Record<string, string> = {
   active: 'bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-950 dark:text-emerald-200 dark:ring-emerald-900',
   closed: 'bg-zinc-100 text-zinc-700 ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700',
-  disaffiliated: 'bg-rose-50 text-rose-700 ring-rose-200 dark:bg-rose-950 dark:text-rose-200 dark:ring-rose-900',
-  merged: 'bg-violet-50 text-violet-700 ring-violet-200 dark:bg-violet-950 dark:text-violet-200 dark:ring-violet-900',
+  disaffiliated: 'bg-zinc-100 text-zinc-700 ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700',
+  merged: 'bg-zinc-100 text-zinc-700 ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700',
 };
 
 const CATEGORY_LABEL: Record<string, string> = {

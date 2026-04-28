@@ -77,10 +77,9 @@ export default async function Home() {
         </nav>
       </header>
 
-      <section className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+      <section className="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
         <StatCard label="Active churches" value={activeChurches ?? 0} accent="emerald" />
-        <StatCard label="Disaffiliated" value={disaffChurches ?? 0} accent="rose" />
-        <StatCard label="Closed" value={closedChurches ?? 0} accent="zinc" />
+        <StatCard label="Historical churches" value={(closedChurches ?? 0) + (disaffChurches ?? 0)} accent="zinc" />
         <StatCard label="Active clergy" value={activeClergy ?? 0} accent="emerald" />
         <StatCard label="Retired clergy" value={retiredClergy ?? 0} accent="sky" />
         <StatCard label="Clergy on file" value={totalClergy ?? 0} accent="zinc" />
@@ -88,16 +87,16 @@ export default async function Home() {
 
       <section className="mt-10 space-y-4">
         <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">Conference-wide trends · 2015–2024</h2>
-        <p className="text-xs text-zinc-500">Each panel sums every reporting church for the data year noted. The 2023 → 2024 step is when most disaffiliations took effect, and shows up clearly in the membership and receipts lines.</p>
-        <Trendline label="Members reported year end (code 4)" points={membershipPts} format="count" highlightYear={2023} />
-        <Trendline label="Average worship attendance (code 7)" points={worshipPts} format="count" highlightYear={2020} />
+        <p className="text-xs text-zinc-500">Each panel sums every reporting church for the data year noted.</p>
+        <Trendline label="Members reported year end (code 4)" points={membershipPts} format="count" />
+        <Trendline label="Average worship attendance (code 7)" points={worshipPts} format="count" />
         <Trendline label="Conference apportionments paid (code 29a)" points={apportPaidPts} format="usd" />
         <Trendline label="Grand total received (code 55)" points={receiptsPts} format="usd" />
       </section>
 
       <section className="mt-12 text-sm text-zinc-500">
         <p>
-          Source data: 11 official Rio Texas Annual Conference journals (2015–2025) including statistical (Section J), appointment (Section F), and clergy-records (Section I) data. Era A (2015–2024) used a 7-district structure (Capital, Coastal Bend, Crossroads, El Valle, Hill Country, Las Misiones, West); Era B (2025–) consolidated into 3 districts (Central, North, South). 126 churches disaffiliated between 2023 and 2025.
+          Source data: 11 official Rio Texas Annual Conference journals (2015–2025) including statistical (Section J), appointment (Section F), and clergy-records (Section I) data. Era A (2015–2024) used a 7-district structure (Capital, Coastal Bend, Crossroads, El Valle, Hill Country, Las Misiones, West); Era B (2025–) consolidated into 3 districts (Central, North, South).
         </p>
       </section>
     </main>
