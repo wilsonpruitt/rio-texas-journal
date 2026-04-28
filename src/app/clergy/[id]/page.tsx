@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
+import ClergyMap, { type Stop } from './ClergyMap';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,7 +31,7 @@ type ApptRow = {
   years_at_appt: number | null;
   fraction: string | null;
   source_pdf_page: number | null;
-  church: { id: string; canonical_name: string; city: string | null } | null;
+  church: { id: string; canonical_name: string; city: string | null; lat: number | null; lng: number | null } | null;
 };
 
 export default async function ClergyDetailPage({ params }: PageProps<'/clergy/[id]'>) {
@@ -46,7 +47,7 @@ export default async function ClergyDetailPage({ params }: PageProps<'/clergy/[i
 
   const { data: appts } = await supabase
     .from('appointment')
-    .select('journal_year, role, status_code, years_at_appt, fraction, source_pdf_page, church:church_id(id, canonical_name, city)')
+    .select('journal_year, role, status_code, years_at_appt, fraction, source_pdf_page, church:church_id(id, canonical_name, city, lat, lng)')
     .eq('clergy_id', id)
     .order('journal_year', { ascending: false })
     .returns<ApptRow[]>();
@@ -72,6 +73,30 @@ export default async function ClergyDetailPage({ params }: PageProps<'/clergy/[i
           </span>
         )}
       </div>
+
+      {(() => {
+        const stops: Stop[] = (appts ?? [])
+          .filter((a) => a.church && a.church.lat != null && a.church.lng != null)
+          .map((a) => ({
+            year: a.journal_year,
+            churchId: a.church!.id,
+            churchName: a.church!.canonical_name,
+            city: a.church!.city,
+            lat: a.church!.lat as number,
+            lng: a.church!.lng as number,
+            role: a.role,
+          }));
+        if (stops.length === 0) return null;
+        return (
+          <section className="mt-10">
+            <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">Career path</h2>
+            <p className="mt-1 text-xs text-zinc-500">{stops.length} appointment{stops.length === 1 ? '' : 's'} on the map. Numbered in chronological order; arcs trace the move between churches.</p>
+            <div className="mt-3">
+              <ClergyMap stops={stops} />
+            </div>
+          </section>
+        );
+      })()}
 
       {byYear.size === 0 ? (
         <p className="mt-8 text-zinc-500">No appointments on file.</p>
