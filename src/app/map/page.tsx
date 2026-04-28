@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import ChurchMap, { type Point } from './Map';
+import Sankey from './Sankey';
 import conversion from '@/lib/district-conversion-2025.json';
 
 export const dynamic = 'force-dynamic';
@@ -83,6 +84,9 @@ export default async function MapPage() {
       </div>
       <div className="mt-6">
         <ChurchMap points={points} />
+      </div>
+      <div className="mt-6">
+        <Sankey />
       </div>
     </main>
   );
