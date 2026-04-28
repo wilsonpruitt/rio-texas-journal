@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 const CURRENT = 2024; // most recent data_year ingested
 const COMPARE_BASE = 2017; // when many Era A series stabilize
 
-const FIELDS = ['4', '7', '7a', '8', '11a', '11b', '14', '21', '23', '28a', '29a', '51', '52', '55'] as const;
+const FIELDS = ['1', '2a', '2b', '4', '7', '7a', '8', '8a', '8b', '11a', '11b', '14', '21', '23', '28a', '29a', '51', '52', '55'] as const;
 
 type StatRow = { church_id: string; data_year: number; field_code: string; value_numeric: number | null };
 type Church = { id: string; canonical_name: string; status: string };
@@ -117,15 +117,43 @@ export default async function LeaderboardsPage() {
     return out.slice(0, n);
   }
 
-  const largestMembership = topN(CURRENT, '4', 10, 'active');
+  // Composite metrics: professions of faith (2a + 2b), faith additions
+  // (2a + 2b + 8). Build a derived per-church value for these.
+  function topNComposite(year: number, codes: string[], n = 10): Entry[] {
+    const out: Entry[] = [];
+    for (const ch of (churches ?? []).filter((c) => c.status === 'active')) {
+      const m = byKey.get(`${ch.id}|${year}`);
+      if (!m) continue;
+      let sum = 0;
+      let any = false;
+      for (const c of codes) {
+        const v = m.get(c);
+        if (v != null) { sum += v; any = true; }
+      }
+      if (!any || sum === 0) continue;
+      out.push({ church: ch, value: sum });
+    }
+    out.sort((a, b) => b.value - a.value);
+    return out.slice(0, n);
+  }
+
+  // HEADLINE: worship + professions of faith + baptisms
   const largestWorship = topN(CURRENT, '7', 10, 'active');
+  const largestProfessions = topNComposite(CURRENT, ['2a', '2b'], 10);
+  const largestBaptisms = topN(CURRENT, '8', 10, 'active');
+
+  // SECONDARY: per-capita & growth versions
+  const worshipRate = ratioRanked(CURRENT, '7', '4', 10, { minDenom: 20 });
+  const growthWorship = growthRanked('7', 10, false);
+  const declineWorship = growthRanked('7', 10, true);
+
+  // Other rankings
+  const largestMembership = topN(CURRENT, '4', 10, 'active');
   const topReceipts = topN(CURRENT, '55', 10, 'active');
   const topGiverHouseholds = topN(CURRENT, '51', 10, 'active');
-
   const onlineRatio = ratioRanked(CURRENT, '7a', '7', 10, { minDenom: 30 });
   const apportionmentPct = ratioRanked(CURRENT, '29a', '28a', 10, { minDenom: 1000 });
   const apportionmentMissed = ratioRanked(CURRENT, '29a', '28a', 10, { minDenom: 1000, ascending: true });
-
   const growthMembership = growthRanked('4', 10, false);
   const declineMembership = growthRanked('4', 10, true);
 
@@ -134,18 +162,32 @@ export default async function LeaderboardsPage() {
       <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">← Home</Link>
       <h1 className="mt-4 text-3xl font-semibold tracking-tight">Leaderboards</h1>
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-        Rankings drawn from {CURRENT} statistics, restricted to active churches. Growth rankings compare {COMPARE_BASE}→{CURRENT}; ratios require a meaningful denominator (worship ≥ 30, apportionment ≥ $1,000) so a tiny church doesn't dominate by accident.
+        Worship attendance and professions of faith / baptisms come first — these are the discipleship signals the conference watches most closely. Rankings drawn from {CURRENT} statistics, restricted to active churches. Growth rankings compare {COMPARE_BASE}→{CURRENT}; ratios require a meaningful denominator so a tiny church doesn't dominate by accident.
       </p>
 
-      <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Board title="Largest membership" subtitle={`${FIELD_LABEL['4']}, ${CURRENT}`} entries={largestMembership} fmt={fmtCount} />
+      <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-zinc-500">Discipleship</h2>
+      <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Board title="Highest worship attendance" subtitle={`${FIELD_LABEL['7']}, ${CURRENT}`} entries={largestWorship} fmt={fmtCount} />
-        <Board title="Highest total receipts" subtitle={`${FIELD_LABEL['55']}, ${CURRENT}`} entries={topReceipts} fmt={fmtUsd} />
-        <Board title="Most giving households" subtitle={`Households giving, ${CURRENT}`} entries={topGiverHouseholds} fmt={fmtCount} />
-        <Board title="Highest online-worship adoption" subtitle={`Online ÷ in-person, ${CURRENT}`} entries={onlineRatio} fmt={fmtPct} />
-        <Board title="Highest apportionment payment %" subtitle={`Paid ÷ apportioned, ${CURRENT}`} entries={apportionmentPct} fmt={fmtPct} />
+        <Board title="Highest worship-to-membership rate" subtitle={`Worship ÷ year-end membership, ${CURRENT}`} entries={worshipRate} fmt={fmtPct} />
+        <Board title="Most professions of faith" subtitle={`Confirmation + other professions (codes 2a + 2b), ${CURRENT}`} entries={largestProfessions} fmt={fmtCount} />
+        <Board title="Most baptisms" subtitle={`Total baptized — children + youth/adults (code 8), ${CURRENT}`} entries={largestBaptisms} fmt={fmtCount} />
+        <Board title="Largest worship growth" subtitle={`${COMPARE_BASE}→${CURRENT} change`} entries={growthWorship} fmt={(n) => `${n > 0 ? '+' : ''}${fmtPct(n)}`} />
+        <Board title="Largest worship decline" subtitle={`${COMPARE_BASE}→${CURRENT} change`} entries={declineWorship} fmt={(n) => `${n > 0 ? '+' : ''}${fmtPct(n)}`} />
+      </div>
+
+      <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-zinc-500">Membership</h2>
+      <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Board title="Largest membership" subtitle={`${FIELD_LABEL['4']}, ${CURRENT}`} entries={largestMembership} fmt={fmtCount} />
         <Board title="Largest membership growth" subtitle={`${COMPARE_BASE}→${CURRENT} change`} entries={growthMembership} fmt={(n) => `${n > 0 ? '+' : ''}${fmtPct(n)}`} />
         <Board title="Largest membership decline" subtitle={`${COMPARE_BASE}→${CURRENT} change`} entries={declineMembership} fmt={(n) => `${n > 0 ? '+' : ''}${fmtPct(n)}`} />
+        <Board title="Highest online-worship adoption" subtitle={`Online ÷ in-person, ${CURRENT}`} entries={onlineRatio} fmt={fmtPct} />
+      </div>
+
+      <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-zinc-500">Finances</h2>
+      <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Board title="Highest total receipts" subtitle={`${FIELD_LABEL['55']}, ${CURRENT}`} entries={topReceipts} fmt={fmtUsd} />
+        <Board title="Most giving households" subtitle={`${FIELD_LABEL['51']}, ${CURRENT}`} entries={topGiverHouseholds} fmt={fmtCount} />
+        <Board title="Highest apportionment payment %" subtitle={`Paid ÷ apportioned, ${CURRENT}`} entries={apportionmentPct} fmt={fmtPct} />
         <Board title="Lowest apportionment payment %" subtitle={`Paid ÷ apportioned, ${CURRENT}`} entries={apportionmentMissed} fmt={fmtPct} />
       </div>
     </main>
