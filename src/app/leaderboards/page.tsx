@@ -142,8 +142,7 @@ export default async function LeaderboardsPage() {
   const largestProfessions = topNComposite(CURRENT, ['2a', '2b'], 10);
   const largestBaptisms = topN(CURRENT, '8', 10, 'active');
 
-  // SECONDARY: per-capita & growth versions
-  const worshipRate = ratioRanked(CURRENT, '7', '4', 10, { minDenom: 20 });
+  // SECONDARY: growth versions
   const growthWorship = growthRanked('7', 10, false);
   const declineWorship = growthRanked('7', 10, true);
 
@@ -168,7 +167,6 @@ export default async function LeaderboardsPage() {
       <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-zinc-500">Discipleship</h2>
       <div className="mt-3 grid grid-cols-1 lg:grid-cols-2 gap-6">
         <Board title="Highest worship attendance" subtitle={`${FIELD_LABEL['7']}, ${CURRENT}`} entries={largestWorship} fmt={fmtCount} />
-        <Board title="Highest worship-to-membership rate" subtitle={`Worship ÷ year-end membership, ${CURRENT}`} entries={worshipRate} fmt={fmtPct} />
         <Board title="Most professions of faith" subtitle={`Confirmation + other professions (codes 2a + 2b), ${CURRENT}`} entries={largestProfessions} fmt={fmtCount} />
         <Board title="Most baptisms" subtitle={`Total baptized — children + youth/adults (code 8), ${CURRENT}`} entries={largestBaptisms} fmt={fmtCount} />
         <Board title="Largest worship growth" subtitle={`${COMPARE_BASE}→${CURRENT} change`} entries={growthWorship} fmt={(n) => `${n > 0 ? '+' : ''}${fmtPct(n)}`} />
