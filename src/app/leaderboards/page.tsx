@@ -150,7 +150,6 @@ export default async function LeaderboardsPage() {
   const largestMembership = topN(CURRENT, '4', 10, 'active');
   const topReceipts = topN(CURRENT, '55', 10, 'active');
   const topGiverHouseholds = topN(CURRENT, '51', 10, 'active');
-  const onlineRatio = ratioRanked(CURRENT, '7a', '7', 10, { minDenom: 30 });
   const apportionmentPct = ratioRanked(CURRENT, '29a', '28a', 10, { minDenom: 1000 });
   const apportionmentMissed = ratioRanked(CURRENT, '29a', '28a', 10, { minDenom: 1000, ascending: true });
   const growthMembership = growthRanked('4', 10, false);
@@ -178,7 +177,6 @@ export default async function LeaderboardsPage() {
         <Board title="Largest membership" subtitle={`${FIELD_LABEL['4']}, ${CURRENT}`} entries={largestMembership} fmt={fmtCount} />
         <Board title="Largest membership growth" subtitle={`${COMPARE_BASE}→${CURRENT} change`} entries={growthMembership} fmt={(n) => `${n > 0 ? '+' : ''}${fmtPct(n)}`} />
         <Board title="Largest membership decline" subtitle={`${COMPARE_BASE}→${CURRENT} change`} entries={declineMembership} fmt={(n) => `${n > 0 ? '+' : ''}${fmtPct(n)}`} />
-        <Board title="Highest online-worship adoption" subtitle={`Online ÷ in-person, ${CURRENT}`} entries={onlineRatio} fmt={fmtPct} />
       </div>
 
       <h2 className="mt-10 text-sm font-medium uppercase tracking-wide text-zinc-500">Finances</h2>
