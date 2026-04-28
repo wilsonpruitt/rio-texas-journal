@@ -29,6 +29,23 @@ export function extractCity(name: string): string | null {
   return name.trim() || null;
 }
 
+/** Normalize "St " (no period) to "St. " — different sub-tables within a single
+ * journal year inconsistently abbreviate "Saint" (e.g. "Austin: St John's" vs
+ * "Austin: St. John's" both refer to the same church).
+ */
+function normalizeSaint(name: string): string {
+  return name.replace(/\bSt(?=\s)/g, 'St.');
+}
+
+/** Expand trailing words truncated to fit narrower columns in some sub-tables. */
+function expandColumnTruncations(name: string): string {
+  return name
+    .replace(/\bChap$/i, 'Chapel')
+    .replace(/\bUnite$/i, 'United')
+    // "San Juan: Los Wesleyan" appears in some sub-tables; "Wesleyanos" is the full Spanish.
+    .replace(/\bLos Wesleyan$/i, 'Los Wesleyanos');
+}
+
 export function canonicalize(rawName: string): string {
-  return expandCityPrefix(rawName.trim());
+  return expandColumnTruncations(normalizeSaint(expandCityPrefix(rawName.trim())));
 }
