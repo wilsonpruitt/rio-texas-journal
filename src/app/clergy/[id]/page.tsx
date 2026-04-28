@@ -5,7 +5,16 @@ import ClergyMap, { type Stop } from './ClergyMap';
 
 export const dynamic = 'force-dynamic';
 
-type Clergy = { id: string; canonical_name: string; status: string };
+type EducationEntry = { institution: string; degree: string; raw: string };
+type StatusEntry = { code: string; year: number };
+
+type Clergy = {
+  id: string;
+  canonical_name: string;
+  status: string;
+  education_history: EducationEntry[] | null;
+  status_history: StatusEntry[] | null;
+};
 
 const STATUS_LABEL: Record<string, string> = {
   active: 'Active',
@@ -40,7 +49,7 @@ export default async function ClergyDetailPage({ params }: PageProps<'/clergy/[i
 
   const { data: clergy } = await supabase
     .from('clergy')
-    .select('id, canonical_name, status')
+    .select('id, canonical_name, status, education_history, status_history')
     .eq('id', id)
     .maybeSingle<Clergy>();
   if (!clergy) notFound();
@@ -97,6 +106,39 @@ export default async function ClergyDetailPage({ params }: PageProps<'/clergy/[i
           </section>
         );
       })()}
+
+      {(clergy.status_history ?? []).length > 0 && (
+        <section className="mt-8">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">Credential timeline</h2>
+          <ol className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm tabular-nums">
+            {(clergy.status_history ?? []).map((s, i) => (
+              <li key={i} className="flex items-baseline gap-1.5">
+                <span className="font-mono text-xs text-zinc-500">{s.code}</span>
+                <span>{s.year}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {(clergy.education_history ?? []).length > 0 && (
+        <section className="mt-8">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">Education</h2>
+          <ul className="mt-3 space-y-1 text-sm">
+            {(clergy.education_history ?? []).map((e, i) => (
+              <li key={i} className="flex items-baseline justify-between gap-3">
+                <Link
+                  href={`/clergy?seminary=${encodeURIComponent(e.institution)}`}
+                  className="hover:underline underline-offset-4"
+                >
+                  {e.institution}
+                </Link>
+                {e.degree && <span className="text-zinc-500 font-mono text-xs">{e.degree}</span>}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {byYear.size === 0 ? (
         <p className="mt-8 text-zinc-500">No appointments on file.</p>

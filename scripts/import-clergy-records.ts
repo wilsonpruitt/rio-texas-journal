@@ -100,6 +100,7 @@ type ClergyRec = {
  *  canonical short label so we can group later (e.g. count "Perkins
  *  alumni"). For everything else, use the raw string unchanged. */
 const SEMINARY_NORMALIZE: Array<[RegExp, string]> = [
+  [/Southern Methodist University/i, 'Southern Methodist University'],
   [/Perkins(\s+School\s+of\s+Theology)?/i, 'Perkins School of Theology'],
   [/Candler(\s+School\s+of\s+Theology)?/i, 'Candler School of Theology'],
   [/Asbury\s+(Theological\s+)?Seminary/i, 'Asbury Theological Seminary'],
@@ -118,22 +119,24 @@ const SEMINARY_NORMALIZE: Array<[RegExp, string]> = [
   [/(Course\s+of\s+Study|COS)\b/i, 'Course of Study'],
 ];
 
+// Degree patterns anchored to END of the entry (greedy institution match).
+// Order matters — longer/more-specific patterns first.
+const DEGREE_END_RE = /\s+(D\.?\s?Min\.?|D\.?\s?M\.?A\.?|D\.?\s?D\.?\s?S\.?|Ph\.?\s?D\.?|J\.?\s?D\.?|D\.?\s?D\.?|M\.?\s?Div\.?|M\.?\s?Th\.?|M\.?\s?T\.?S\.?|M\.?\s?A\.?|M\.?\s?S\.?|M\.?\s?Ed\.?|M\.?\s?M\.?|M\.?\s?S\.?M\.?|M\.?\s?S\.?N\.?|M\.?\s?B\.?A\.?|B\.?\s?Th\.?|B\.?\s?D\.?|B\.?\s?A\.?|B\.?\s?S\.?|B\.?\s?M\.?|D\.?\s?Edu\.?|MDiv|DMin|MTS|MA|BA|BS|BD)\.?$/i;
+
 function parseEducation(raw: string): EducationEntry[] {
   const body = raw.replace(/^ED:\s*/i, '');
   const out: EducationEntry[] = [];
   for (const piece of body.split(/;\s*/)) {
     const p = piece.trim();
     if (!p) continue;
-    // Try to split into institution + degree. The degree is usually the
-    // trailing 1-3 capitalized/abbreviated tokens (M.Div, BA, D.Min, M.Th).
-    const m = p.match(/^(.*?)\s+([BMD][\w. ]+?|Ph\.?D\.?|J\.?D\.?|D\.?Min\.?|M\.?Div\.?|M\.?A\.?|B\.?A\.?|B\.?S\.?|M\.?S\.?|M\.?Th\.?|D\.?D\.?|MDiv|DMin|DMA|MTS)$/i);
+    const m = p.match(DEGREE_END_RE);
     let institution = p;
     let degree = '';
-    if (m) {
-      institution = m[1].trim();
-      degree = m[2].trim();
+    if (m && typeof m.index === 'number') {
+      institution = p.slice(0, m.index).trim();
+      degree = m[1].trim();
     }
-    // Normalize institution to a canonical short label when possible.
+    if (!institution) institution = p;
     let normalized = institution;
     for (const [re, label] of SEMINARY_NORMALIZE) {
       if (re.test(institution)) { normalized = label; break; }
