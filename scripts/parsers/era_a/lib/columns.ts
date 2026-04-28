@@ -99,8 +99,15 @@ function buildSubTable(
   return { columns, nameBoundary, rowsStart: headerIdx + 1, rowsEnd };
 }
 
+/** Strip C0 control characters (except \t \n \r) that some journal years
+ *  embed inside text tokens — 2021 in particular ships \x03 runs that
+ *  glue numeric codes together as one token and break detection. */
+function sanitize(text: string): string {
+  return text.replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
+}
+
 export function findSubTables(pageText: string): SubTable[] {
-  const lines = pageText.split('\n');
+  const lines = sanitize(pageText).split('\n');
   const headers = findFieldCodeLineIndices(lines);
   if (headers.length === 0) return [];
   return headers.map((h, i) =>
@@ -144,20 +151,20 @@ export function sliceRow(line: string, sub: SubTable): SlicedRow | null {
   let rest = headTrim;
   if (m) { seq = m[1]; rest = m[2]; }
 
-  // Split church / pastor on the LAST gap of >=2 spaces that still has
-  // non-whitespace content after it. (Trailing whitespace before the value
-  // columns can match too, which would leave pastor empty.)
+  // Split church / pastor on the FIRST gap of >=2 spaces. Internal spaces
+  // in church names are single-space ("Altair: Wesley Chapel"); the gap to
+  // the pastor column is always 2+ spaces. Using FIRST keeps the church
+  // name consistent across sub-tables (only Membership has pastor; the
+  // other sub-tables have an empty pastor column, so head ends right after
+  // the church name).
   const restTrimmed = rest.replace(/\s+$/, '');
   let church = restTrimmed;
   let pastor = '';
-  const gaps: { idx: number; len: number }[] = [];
-  for (const g of restTrimmed.matchAll(/ {2,}/g)) {
-    gaps.push({ idx: g.index!, len: g[0].length });
-  }
-  if (gaps.length > 0) {
-    const best = gaps[gaps.length - 1];
-    church = restTrimmed.slice(0, best.idx).trim();
-    pastor = restTrimmed.slice(best.idx + best.len).trim();
+  const firstGap = restTrimmed.match(/ {2,}/);
+  if (firstGap) {
+    const idx = firstGap.index!;
+    church = restTrimmed.slice(0, idx).trim();
+    pastor = restTrimmed.slice(idx + firstGap[0].length).trim();
   }
 
   return { seq, church, pastor, values };

@@ -136,6 +136,12 @@ async function main() {
   const { data: allChurches, error: chErr } = await db.from('church').select('id, canonical_name');
   if (chErr) throw chErr;
 
+  // Pre-load known stat_field codes so we can auto-create any new ones we
+  // encounter (older Era A years use codes like 9a/9b/10a/etc. that the
+  // 2025 seed didn't include).
+  const { data: knownFields } = await db.from('stat_field').select('code');
+  const knownCodes = new Set((knownFields ?? []).map((r: { code: string }) => r.code));
+
   const { data: run, error: runErr } = await db
     .from('ingest_run')
     .insert({
@@ -148,7 +154,10 @@ async function main() {
     .single();
   if (runErr) throw runErr;
 
-  const text = extractPages(firstPage, lastPage, journalYear);
+  // Some years (notably 2021) embed C0 control chars in numeric tokens —
+  // strip them so column detection and row slicing work consistently.
+  const text = extractPages(firstPage, lastPage, journalYear)
+    .replace(/[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]/g, '');
   const pages = splitPages(text, journalYear);
 
   // Accumulate per-church stats across all pages of the district.
@@ -209,12 +218,12 @@ async function main() {
     let churchId = await resolveChurch(db, acc.rawName, allChurches!);
     if (!churchId) {
       // Likely a church that closed or disaffiliated before 2025. Create
-      // it with status='disaffiliated' so it appears in /churches but
-      // doesn't pollute current-year aggregates.
+      // with the conservative 'closed' status; disaffiliations can be
+      // promoted manually once the source is verified.
       const canonical = canonicalize(acc.rawName).trim();
       const city = canonical.includes(':') ? canonical.split(':')[0].trim() : canonical;
       const { data: ins, error: insErr } = await db.from('church')
-        .insert({ canonical_name: canonical, city, status: 'disaffiliated' })
+        .insert({ canonical_name: canonical, city, status: 'closed' })
         .select('id, canonical_name')
         .single();
       if (insErr) {
@@ -253,6 +262,20 @@ async function main() {
         );
         clergyAliases++;
       }
+    }
+
+    // Auto-create any unknown stat_field codes encountered.
+    for (const s of acc.stats.values()) {
+      if (knownCodes.has(s.field_code)) continue;
+      const { error: fErr } = await db.from('stat_field').upsert({
+        code: s.field_code,
+        label_en: `Field ${s.field_code} (auto)`,
+        category: 'other',
+        unit: /^\d+[a-z]?$/.test(s.field_code) && Number(s.field_code.replace(/[a-z]$/, '')) >= 24 ? 'usd' : 'count',
+        first_seen_year: dataYear,
+      }, { onConflict: 'code', ignoreDuplicates: true });
+      if (fErr) throw fErr;
+      knownCodes.add(s.field_code);
     }
 
     // Stat rows
