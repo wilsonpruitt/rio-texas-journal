@@ -122,11 +122,17 @@ export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>
   }
   const minYear = 2014;
   const maxYear = 2024;
+  // 2016 financial-field parses are anomalous (different reporting
+  // template; many fields collapsed into a single text field). Skip
+  // 2016 for the receipts series specifically — membership and worship
+  // are fine.
+  const FINANCIAL_CODES = new Set(['55']);
   function pointsFor(code: string): Point[] {
     const t = trends.get(code);
     if (!t) return [];
     const out: Point[] = [];
     for (let y = minYear; y <= maxYear; y++) {
+      if (y === 2016 && FINANCIAL_CODES.has(code)) continue;
       out.push({ year: y, value: t.values.get(y) ?? null });
     }
     return out;
