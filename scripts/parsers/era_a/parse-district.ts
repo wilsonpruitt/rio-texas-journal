@@ -128,7 +128,9 @@ async function upsertClergy(
   if (isJunkClergyName(canonical)) return null;
   const { data: existing } = await db.from('clergy').select('id').eq('canonical_name', canonical).maybeSingle();
   if (existing) return existing.id;
-  const { data: ins, error } = await db.from('clergy').insert({ canonical_name: canonical }).select('id').single();
+  // Default new clergy from J-section to 'unknown' — only the F-section
+  // appointments authoritatively establish current 'active' status.
+  const { data: ins, error } = await db.from('clergy').insert({ canonical_name: canonical, status: 'unknown' }).select('id').single();
   if (error) throw error;
   return ins.id;
 }

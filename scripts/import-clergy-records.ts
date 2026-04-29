@@ -308,6 +308,67 @@ function parseRecords(text: string): ClergyRec[] {
   return recs;
 }
 
+/** Resolve a single APPTS-entry church text to a church_id, creating a
+ *  closed-status row if the historical church isn't in our DB. */
+async function resolveChurchForAppts(
+  rawPart: string,
+  churchByKey: Map<string, string>,
+  db: ReturnType<typeof adminClient>,
+): Promise<string | null> {
+  const cleaned = rawPart.replace(/UMC$/i, '').trim();
+  if (!cleaned || cleaned.length < 3) return null;
+  // Reject non-church fragments that survived the upstream filter.
+  if (/^(Leave|Retired|Sabbatical|Attend|School|Honorable|Suspended|Family|Personal|Transitional|Bishop|Ineligible|Asst\.|Mission)/i.test(cleaned)) return null;
+
+  const transforms: Array<(s: string) => string> = [
+    (s) => s,
+    (s) => canonicalize(s),
+    (s) => canonicalize(s).replace(/\s+UMC$/i, '').trim(),
+    (s) => canonicalize(s).replace(/^V:/i, 'Victoria:'),
+    (s) => canonicalize(s).replace(/^Mc:/i, 'McAllen:'),
+    (s) => canonicalize(s).replace(/^MC:/, 'McAllen:'),
+    (s) => canonicalize(s).replace(/^B:/, 'Brownsville:'),
+    (s) => canonicalize(s).replace(/^P:/, 'Pharr:'),
+    (s) => canonicalize(s).replace(/^L:/, 'Laredo:'),
+    (s) => canonicalize(s).replace(/^E:/, 'Edinburg:'),
+    // "X: First" (no UMC) — what we store
+    (s) => canonicalize(s).replace(/UMC$/i, '').trim(),
+    // strip ": First" suffix — sometimes the canonical_name is just the city
+    (s) => canonicalize(s).replace(/\s+UMC$/i, '').replace(/:\s*First$/i, '').trim(),
+    // append ": First" — sometimes the canonical_name needs it
+    (s) => /:/.test(s) ? s : (canonicalize(s).replace(/UMC$/i, '').trim() + ': First'),
+    // Normalize apostrophe on plural-possessive: "St. Lukes" → "St. Luke's"
+    (s) => s.replace(/(St\.?\s+\w+)s\b/i, "$1's"),
+    // Hyphen → colon: "Brownsville-First" → "Brownsville: First"
+    (s) => s.replace(/^([A-Z][A-Za-z]+)-([A-Z])/, '$1: $2'),
+  ];
+  for (const t of transforms) {
+    const v = t(cleaned).trim();
+    const id = churchByKey.get(v.toLowerCase());
+    if (id) return id;
+  }
+  // Suffix match: "Boerne: First" might be stored as just "Boerne".
+  const lower = cleaned.toLowerCase();
+  for (const [key, id] of churchByKey) {
+    if (key.length < 5) continue;
+    // either DB key endsWith ": " + lower, or lower endsWith ": " + DB key
+    if (key.endsWith(': ' + lower) || lower.endsWith(': ' + key)) return id;
+  }
+
+  // Auto-create as closed church.
+  const canonical = canonicalize(cleaned).replace(/\s+UMC$/i, '').trim();
+  if (!canonical || canonical.length < 3) return null;
+  if (/^[A-Z]{1,3}$/.test(canonical)) return null; // single abbreviation
+  const city = canonical.includes(':') ? canonical.split(':')[0].trim() : canonical;
+  const { data: ins, error } = await db.from('church')
+    .insert({ canonical_name: canonical, city, status: 'closed' })
+    .select('id')
+    .single();
+  if (error) return null;
+  churchByKey.set(canonical.toLowerCase(), ins.id);
+  return ins.id;
+}
+
 async function main() {
   const rawText = extractText();
   // 2024-style PDFs need column-unification + glyph repair before record parse.
@@ -423,44 +484,56 @@ async function main() {
       );
     }
 
+    // Sort APPTS so we can compute years_at_appt = next.year - this.year.
+    const apptsSorted = [...r.appts].sort((a, b) => a.year - b.year);
+
     // Write APPTS rows. Each (year, raw) entry becomes an appointment row
-    // with journal_year=year + role/status_code/years_at_appt = null.
-    for (const a of r.appts) {
+    // with journal_year=year and years_at_appt computed from the next entry.
+    for (let ai = 0; ai < apptsSorted.length; ai++) {
+      const a = apptsSorted[ai];
+      const next = apptsSorted[ai + 1];
+      const yearsAtAppt = next ? Math.max(1, next.year - a.year) : null;
+
+      // Normalize whitespace (PDF text wraps with extra spaces / newlines).
+      const normalized = a.raw.replace(/\s+/g, ' ').trim();
+
       // Skip non-church appointments.
-      if (/^(Retired|Leave of Absence|Honorable Location|Sabbatical|Attend School|Attending School|In School|Incapacity|Medical Leave|Family Leave|No Salary Paying Unit|Suspended|Disability)/i.test(a.raw)) {
+      if (/^(Retired|Leave of Absence|Honorable Location|Sabbatical|Attend School|Attending School|In School|Incapacity|Medical Leave|Family Leave|No Salary Paying Unit|Suspended|Disability|Transitional Leave)/i.test(normalized)) {
         apptsSkipped++;
         continue;
       }
       // Skip clearly out-of-conference (mentions "Conference" or "Conf -" of another).
-      if (/^(WI|TX|NIL|NWTX|NM|East TX|North TX|Central TX|West TX|Northwest TX|Southwest TX|Texas|Oklahoma|Missouri|Kansas|Indiana|Illinois|Louisiana|Arkansas|Florida|Mississippi|Alabama|Tennessee|Georgia|North Carolina|South Carolina|Virginia|Western|Upper|Lower|Great|New)\b.*Conf/i.test(a.raw)) {
+      if (/^(WI|TX|NIL|NWTX|NM|East TX|North TX|Central TX|West TX|Northwest TX|Southwest TX|Texas|Oklahoma|Missouri|Kansas|Indiana|Illinois|Louisiana|Arkansas|Florida|Mississippi|Alabama|Tennessee|Georgia|North Carolina|South Carolina|Virginia|Western|Upper|Lower|Great|New|LRA|Wisconsin|Oregon|Mexico|Puerto Rico)\b.*Conf/i.test(normalized)) {
         apptsSkipped++;
         continue;
       }
-      // Strip leading role designator: "Assoc. Pastor, X" / "Co-Pastor, X" / "District Superintendent, X".
-      let bare = a.raw
-        .replace(/^Assoc(iate)?\.?\s*Pastor[s]?(\s*\(PT\))?,\s*/i, '')
-        .replace(/^Co-Pastor,\s*/i, '')
+      // Skip pre-2015 Rio Grande Conference appointments (different conference
+      // before the merger; they're tagged "[RG]" in the journal).
+      if (/\[RG\]|\bRio Grande Appt\b/i.test(normalized)) {
+        apptsSkipped++;
+        continue;
+      }
+      // Skip placeholder rows.
+      if (/^NO Appointment Name|GBGM|TBS|To Be Supplied/i.test(normalized)) {
+        apptsSkipped++;
+        continue;
+      }
+      // Strip leading role designators: "Assoc. Pastor, X" / "Co-Pastor, X" / etc.
+      let bare = normalized
+        .replace(/^Assoc(iate)?\.?\s*Pastor[s]?(\s*\(PT\))?,?\s*/i, '')
+        .replace(/^Co-Pastor,?\s*/i, '')
         .replace(/^District\s+Superintendent,?\s*/i, '')
-        .replace(/^Chaplain,\s*/i, '')
+        .replace(/^Chaplain,?\s*/i, '')
         .replace(/^Exec\.?\s+Dir\.?,?\s*/i, '')
         .replace(/^Director.*?,\s*/i, '')
         .replace(/^Student\s+Local\s+Pastor,?\s*/i, '')
-        .replace(/UMC$/i, '')
+        .replace(/^Interim\s+Pastor,?\s*/i, '')
         .trim();
       // Multi-charge: split on " / "
       const parts = bare.split(/\s*\/\s*/).map((p) => p.trim()).filter(Boolean);
       let matchedAny = false;
       for (const part of parts) {
-        const candidates = [
-          part,
-          canonicalize(part),
-          canonicalize(part).replace(/\s+UMC$/i, '').trim(),
-        ].filter(Boolean);
-        let churchId: string | null = null;
-        for (const c of candidates) {
-          const id = churchByKey.get(c.toLowerCase());
-          if (id) { churchId = id; break; }
-        }
+        const churchId = await resolveChurchForAppts(part, churchByKey, db);
         if (!churchId) continue;
         // Skip if a row for this (clergy, church, year) already exists —
         // prefer richer F-section data (with role/status_code/years_at_appt)
@@ -476,7 +549,7 @@ async function main() {
           journal_year: a.year,
           role: null,
           status_code: null,
-          years_at_appt: null,
+          years_at_appt: yearsAtAppt,
           fraction: null,
           source_pdf_page: null,
         });
