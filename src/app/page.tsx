@@ -92,7 +92,7 @@ export default async function Home() {
         <Link href="/churches" className="underline underline-offset-4 hover:no-underline">Churches</Link>
         <Link href="/clergy" className="underline underline-offset-4 hover:no-underline">Clergy</Link>
         <Link href="/map" className="underline underline-offset-4 hover:no-underline">Map</Link>
-        <Link href="/seminaries" className="underline underline-offset-4 hover:no-underline">Seminaries</Link>
+        <Link href="/education" className="underline underline-offset-4 hover:no-underline">Education</Link>
         <Link href="/leaderboards" className="underline underline-offset-4 hover:no-underline">Leaderboards</Link>
       </nav>
 

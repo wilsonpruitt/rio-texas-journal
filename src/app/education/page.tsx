@@ -21,7 +21,7 @@ const STATUS_COLORS: Record<string, string> = {
   unknown: 'bg-amber-500',
 };
 
-export default async function SeminariesPage() {
+export default async function EducationPage() {
   const supabase = await createClient();
   const all: ClergyRow[] = [];
   let from = 0;
@@ -84,9 +84,9 @@ export default async function SeminariesPage() {
       <Link href="/" className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
         ← Home
       </Link>
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight">Seminaries</h1>
+      <h1 className="mt-4 text-3xl font-semibold tracking-tight">Education</h1>
       <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-        {ranked.length} institutions across {totalEd} clergy records with education on file. Counts represent unique clergy who hold at least one degree from the institution; status mix is shown as a stacked bar.
+        {ranked.length} institutions across {totalEd} clergy records with education on file. Includes seminaries, divinity schools, and undergraduate institutions wherever degrees were reported. Counts represent unique clergy who hold at least one degree from the institution; status mix is shown as a stacked bar.
       </p>
 
       <div className="mt-10 space-y-6">
@@ -97,7 +97,7 @@ export default async function SeminariesPage() {
           return (
             <section key={r.institution} className="border-b border-zinc-200 dark:border-zinc-800 pb-5">
               <div className="flex items-baseline justify-between gap-4 flex-wrap">
-                <Link href={`/clergy?seminary=${encodeURIComponent(r.institution)}`} className="font-medium hover:underline underline-offset-4">
+                <Link href={`/clergy?institution=${encodeURIComponent(r.institution)}`} className="font-medium hover:underline underline-offset-4">
                   {r.institution}
                 </Link>
                 <div className="text-sm text-zinc-500 tabular-nums">

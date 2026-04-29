@@ -37,7 +37,7 @@ function lastNameKey(name: string): string {
 
 export default async function ClergyPage({ searchParams }: PageProps<'/clergy'>) {
   const sp = await searchParams;
-  const seminaryFilter = typeof sp.seminary === 'string' ? sp.seminary : null;
+  const institutionFilter = typeof sp.institution === 'string' ? sp.institution : (typeof sp.seminary === 'string' ? sp.seminary : null);
 
   const supabase = await createClient();
   const all: ServerRow[] = [];
@@ -57,9 +57,9 @@ export default async function ClergyPage({ searchParams }: PageProps<'/clergy'>)
   }
 
   let filtered = all;
-  if (seminaryFilter) {
+  if (institutionFilter) {
     filtered = filtered.filter((c) =>
-      (c.education_history ?? []).some((e) => e.institution === seminaryFilter),
+      (c.education_history ?? []).some((e) => e.institution === institutionFilter),
     );
   }
 
@@ -81,14 +81,14 @@ export default async function ClergyPage({ searchParams }: PageProps<'/clergy'>)
         ← Home
       </Link>
       <h1 className="mt-4 text-3xl font-semibold tracking-tight">Clergy</h1>
-      {seminaryFilter ? (
+      {institutionFilter ? (
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          {rows.length} clergy with at least one degree from <span className="font-medium text-zinc-900 dark:text-zinc-100">{seminaryFilter}</span>.{' '}
-          <Link href="/clergy" className="underline underline-offset-4">Clear seminary filter →</Link>
+          {rows.length} clergy with at least one degree from <span className="font-medium text-zinc-900 dark:text-zinc-100">{institutionFilter}</span>.{' '}
+          <Link href="/clergy" className="underline underline-offset-4">Clear institution filter →</Link>
         </p>
       ) : (
         <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          {rows.length} clergy on file across all years parsed. The 2025 journal is the source of truth for active clergy; everyone else is grouped by lifecycle status. <Link href="/seminaries" className="underline underline-offset-4">Browse by seminary →</Link>
+          {rows.length} clergy on file across all years parsed. The 2025 journal is the source of truth for active clergy; everyone else is grouped by lifecycle status. <Link href="/education" className="underline underline-offset-4">Browse by education →</Link>
         </p>
       )}
       <ClergyList rows={rows} />
