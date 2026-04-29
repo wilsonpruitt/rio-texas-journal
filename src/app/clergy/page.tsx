@@ -5,14 +5,30 @@ import ClergyList from './ClergyList';
 export const dynamic = 'force-dynamic';
 
 type EducationEntry = { institution: string; degree: string; raw: string };
+type StatusEntry = { code: string; year: number };
 
 type ServerRow = {
   id: string;
   canonical_name: string;
   status: string;
+  credential_class: string | null;
   education_history: EducationEntry[] | null;
-  appointments: { status_code: string | null }[];
+  status_history: StatusEntry[] | null;
+  appointments: { status_code: string | null; journal_year: number }[];
 };
+
+function latestStatusCode(row: ServerRow): string | null {
+  const hist = row.status_history ?? [];
+  if (hist.length > 0) {
+    const latest = [...hist].sort((a, b) => b.year - a.year)[0];
+    if (latest?.code) return latest.code;
+  }
+  const appts = row.appointments ?? [];
+  const withCode = appts.filter((a) => a.status_code);
+  if (withCode.length === 0) return null;
+  withCode.sort((a, b) => b.journal_year - a.journal_year);
+  return withCode[0].status_code;
+}
 
 function lastNameKey(name: string): string {
   const words = name.trim().split(/\s+/);
@@ -29,7 +45,7 @@ export default async function ClergyPage({ searchParams }: PageProps<'/clergy'>)
   while (true) {
     const { data, error } = await supabase
       .from('clergy')
-      .select('id, canonical_name, status, education_history, appointments:appointment(status_code)')
+      .select('id, canonical_name, status, credential_class, education_history, status_history, appointments:appointment(status_code, journal_year)')
       .range(from, from + 999)
       .returns<ServerRow[]>();
     if (error) {
@@ -55,7 +71,8 @@ export default async function ClergyPage({ searchParams }: PageProps<'/clergy'>)
     id: c.id,
     canonical_name: c.canonical_name,
     status: c.status,
-    apptStatus: c.appointments?.[0]?.status_code ?? null,
+    apptStatus: latestStatusCode(c),
+    credentialClass: c.credential_class,
   }));
 
   return (

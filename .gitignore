@@ -43,3 +43,6 @@ next-env.d.ts
 # Local PDFs (use Supabase Storage in prod)
 /pdfs/
 journals/
+
+# colleague review CSVs / working files
+/exports/

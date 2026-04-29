@@ -35,9 +35,22 @@ const PARSER_VERSION = 'clergy_records_v1';
  *    appear sandwiched between lowercase letters so real names like
  *    "JoAnn", "McAllen", "DeKalb" are preserved.
  */
-const YEAR_FORMAT: Record<number, { twoColumn: boolean; columnBoundary?: number; corrupted: boolean }> = {
+const YEAR_FORMAT: Record<number, { twoColumn: boolean; columnBoundary?: number; corrupted: boolean; allCaps?: boolean }> = {
   2025: { twoColumn: false, corrupted: false },
   2024: { twoColumn: true, columnBoundary: 74, corrupted: true },
+  // 2015 ships clergy records in a 2-column ALL-CAPS layout with no ED:
+  // section. Status timelines are prefixed with "CONF REL:".
+  2015: { twoColumn: true, columnBoundary: 83, corrupted: false, allCaps: true },
+  2016: { twoColumn: true, columnBoundary: 63, corrupted: false, allCaps: true },
+  2019: { twoColumn: true, columnBoundary: 71, corrupted: false, allCaps: true },
+  // 2020+ start tagging the name line with a parenthetical status code:
+  // "ABEL, TIMOTHY DAVID (RE)   Driftwood UMC". The name parser strips
+  // these so canonical_name stays clean.
+  2020: { twoColumn: true, columnBoundary: 71, corrupted: false, allCaps: true },
+  2021: { twoColumn: true, columnBoundary: 76, corrupted: false, allCaps: true },
+  2022: { twoColumn: true, columnBoundary: 88, corrupted: false, allCaps: true },
+  // 2023 switches to title-case + corrupted glyphs (same dialect as 2024).
+  2023: { twoColumn: true, columnBoundary: 57, corrupted: true },
 };
 const FORMAT = YEAR_FORMAT[JOURNAL_YEAR] ?? { twoColumn: false, corrupted: false };
 
@@ -197,6 +210,16 @@ const STRICT_NAME_LINE_RE =
   /^([A-Z][A-Za-z'’.-]+(?:\s+[A-Z][A-Za-z'’.-]+){0,2}),\s+([A-Z][A-Za-z'’.-]+)(.*)$/;
 
 const STATUS_CODE_RE = /^[A-Z]{2,4}:\s*\d{4}/;
+// 2015-style status-line prefix: "CONF REL: PM: 1977; FE: 1981; ..."
+const CONF_REL_RE = /^CONF\s+REL:\s*/i;
+
+/** Title-case an ALL-CAPS name like "ABEL, TIMOTHY DAVID" → "Abel, Timothy David".
+ *  Preserves intra-word punctuation and short particles (Jr., II, etc.). */
+function titleCaseName(s: string): string {
+  return s.toLowerCase().replace(/\b([a-z])/g, (_, c) => c.toUpperCase())
+    // Keep common Roman-numeral suffixes as ALL CAPS
+    .replace(/\b(Ii|Iii|Iv|Jr|Sr)\b\.?/g, (m) => m.toUpperCase());
+}
 
 function parseRecords(text: string): ClergyRec[] {
   const lines = text.split('\n');
@@ -219,12 +242,13 @@ function parseRecords(text: string): ClergyRec[] {
     if (APPT_WORDS_RE.test(postComma)) continue;
     // Confirm via a status timeline either on the SAME line (2025 has
     // "Last, First Middle    PM: 1977; ...") or within the next 6 lines
-    // (2024 puts the timeline on its own line below).
+    // (2024 puts the timeline on its own line below; 2015 prefixes it
+    // with "CONF REL:").
     let hasStatus = /\b[A-Z]{2,4}:\s*\d{4}/.test(trimmed);
     if (!hasStatus) {
       for (let j = i + 1; j < Math.min(i + 7, lines.length); j++) {
         const tj = lines[j].trim();
-        if (STATUS_CODE_RE.test(tj) || /\b[A-Z]{2,4}:\s*\d{4}/.test(tj)) { hasStatus = true; break; }
+        if (STATUS_CODE_RE.test(tj) || CONF_REL_RE.test(tj) || /\b[A-Z]{2,4}:\s*\d{4}/.test(tj)) { hasStatus = true; break; }
       }
     }
     if (!hasStatus) continue;
@@ -239,11 +263,21 @@ function parseRecords(text: string): ClergyRec[] {
     const headLine = lines[startIdx].replace(/^\s+/, '');
     const nameMatch = headLine.match(STRICT_NAME_LINE_RE);
     if (!nameMatch) continue;
-    const surname = nameMatch[1].trim();
-    const firstAndAfter = (nameMatch[2] + nameMatch[3]).trim();
+    const rawSurname = nameMatch[1].trim();
+    let firstAndAfter = (nameMatch[2] + nameMatch[3]).trim();
+    // 2020+ append "(CODE)" to names: "TIMOTHY DAVID (RE)". Capture the
+    // code as the latest status entry, then strip from the name chunk.
+    let parentheticalCode: string | null = null;
+    const codeMatch = firstAndAfter.match(/\s*\(([A-Z]{2,4})\)/);
+    if (codeMatch) {
+      parentheticalCode = codeMatch[1];
+      firstAndAfter = firstAndAfter.replace(/\s*\([A-Z]{2,4}\)/, '').trim();
+    }
     const firstParts = firstAndAfter.split(/\s{2,}/);
-    const firstChunk = firstParts[0].trim();
+    const rawFirstChunk = firstParts[0].trim();
     let tailChunks = firstParts.slice(1).join('  ').trim();
+    const surname = FORMAT.allCaps ? titleCaseName(rawSurname) : rawSurname;
+    const firstChunk = FORMAT.allCaps ? titleCaseName(rawFirstChunk) : rawFirstChunk;
     const canonical = `${surname}, ${firstChunk}`;
     // If the head-line tail is the status timeline (2025 format), strip
     // it from the currentAppt slot so we capture currentAppt from a
@@ -267,11 +301,17 @@ function parseRecords(text: string): ClergyRec[] {
       const trimmed = line.trim();
       if (/Rio Texas Conference Journal|Clergy Records$|^I-\d+$|^\d+$/i.test(trimmed)) continue;
 
-      // Status timeline: starts with PM:/FE:/etc.
-      if (STATUS_CODE_RE.test(trimmed)) {
+      // Status timeline: starts with PM:/FE:/etc., or "CONF REL: PM:..." (2015).
+      if (STATUS_CODE_RE.test(trimmed) || CONF_REL_RE.test(trimmed)) {
+        statusLine += ' ' + trimmed.replace(CONF_REL_RE, '');
+        continue;
+      }
+      // Status-line continuation: 2016 wraps "...; RE:" and continues
+      // with "2014; RE: 2015" on the next line. Detect when statusLine
+      // is being accumulated and the current line either contains
+      // "<CODE>: <year>" patterns or starts with an orphan "<year>;".
+      if (statusLine && (/\b[A-Z]{2,4}:\s*\d{4}/.test(trimmed) || /^\d{4}[;,]/.test(trimmed))) {
         statusLine += ' ' + trimmed;
-        // Status often spans 2 lines; once we're seeing PM/FE codes, keep
-        // accumulating until we hit ED/APPTS/blank.
         continue;
       }
       if (/^ED:/i.test(trimmed)) { mode = 'ed'; education = trimmed.replace(/^ED:\s*/i, ''); continue; }
