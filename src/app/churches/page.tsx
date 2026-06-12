@@ -19,7 +19,8 @@ export default async function ChurchesPage() {
     const v = vitMap.get(c.id);
     return {
       id: c.id, name: c.canonical_name, status: c.status, city: c.city,
-      district: district2025(c.county_name), members: m?.members ?? null, trend: m?.trend ?? null,
+      district: district2025(c.county_name),
+      worship: m?.worship ?? null, worshipTrend: m?.worshipTrend ?? null,
       riskTier: v?.risk_tier ?? null, riskScore: v?.risk_score ?? null,
     };
   });

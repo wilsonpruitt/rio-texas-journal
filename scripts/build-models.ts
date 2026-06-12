@@ -20,12 +20,15 @@
 import { createReadStream, readFileSync } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { adminClient } from './parsers/era_b/lib/db.ts';
+import { district2025, DISTRICTS_2025 } from '../src/lib/district-2025.ts';
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 const DRY = process.argv.includes('--dry');
 const DIR = new URL('./data/gcfa/', import.meta.url).pathname;
 const LATEST = 2024;
-const KEEP = new Set(['MEMBTOT', 'AVATTWOR', 'GRANDTOT', 'NUMBAPT', 'RECPROF', 'CFTOTAL', 'ONLNWOR']);
+// Stats kept in the series. Apportionment fields (TOTAPP=conference asked, APPPAID=conference
+// paid) drive the district payout rollup; 0 is a meaningful value for those (paid nothing).
+const KEEP = new Set(['MEMBTOT', 'AVATTWOR', 'GRANDTOT', 'NUMBAPT', 'RECPROF', 'CFTOTAL', 'ONLNWOR', 'TOTAPP', 'APPPAID']);
 const PROJECT_FIELDS = ['MEMBTOT', 'AVATTWOR', 'GRANDTOT'];
 
 type Series = Record<string, Record<string, Record<number, number>>>; // gcfa -> field -> year -> val
@@ -266,17 +269,54 @@ async function main() {
     }
     confSeries[fc] = Object.entries(byYear).map(([year, value]) => ({ year: +year, value: round(value)! })).sort((a, b) => a.year - b.year);
   }
-  // Per-church latest membership + 10-yr trend %, keyed by church_id.
-  const churchMem: Record<string, { members: number | null; trend: number | null }> = {};
-  for (const g of gcfas) {
-    const m = series[g]?.["MEMBTOT"];
-    if (!m || !Object.keys(m).length) continue;
-    const yrs = sortedYears(m);
-    const last = yrs[yrs.length - 1], members = m[last];
+  // Per-church latest membership + worship attendance + 10-yr trend %, keyed by church_id.
+  const churchMem: Record<string, { members: number | null; trend: number | null; worship: number | null; worshipTrend: number | null }> = {};
+  // Latest value + 10-yr % change for one field's per-year series.
+  const latestAndTrend = (s: Record<number, number> | undefined): { value: number | null; trend: number | null } => {
+    if (!s || !Object.keys(s).length) return { value: null, trend: null };
+    const yrs = sortedYears(s);
+    const last = yrs[yrs.length - 1], value = s[last];
     const baseY = yrs.find((y) => y >= last - 10) ?? yrs[0];
-    const base = m[baseY];
-    const trend = base > 0 && baseY !== last ? Math.round(((members - base) / base) * 100) : null;
-    churchMem[map[g]] = { members, trend };
+    const base = s[baseY];
+    const trend = base > 0 && baseY !== last ? Math.round(((value - base) / base) * 100) : null;
+    return { value, trend };
+  };
+  for (const g of gcfas) {
+    const mem = latestAndTrend(series[g]?.["MEMBTOT"]);
+    const wor = latestAndTrend(series[g]?.["AVATTWOR"]);
+    if (mem.value == null && wor.value == null) continue;
+    churchMem[map[g]] = { members: mem.value, trend: mem.trend, worship: wor.value, worshipTrend: wor.trend };
+  }
+
+  // ---- district summary (2025 Central/North/South) for /districts ----------
+  // Apportionment asked (TOTAPP) vs paid (APPPAID) read at each church's latest reported
+  // year (per-church arrears differ); summed per 2025 district to give a payout rate.
+  const vitTierByChurch = new Map(vitRows.map((v) => [v.church_id, v.risk_tier]));
+  const pairedApp = (g: string): { asked: number | null; paid: number | null } => {
+    const a = series[g]?.["TOTAPP"], p = series[g]?.["APPPAID"];
+    if (!a && !p) return { asked: null, paid: null };
+    const yrs = [...(a ? sortedYears(a) : []), ...(p ? sortedYears(p) : [])];
+    const y = Math.max(...yrs);
+    return { asked: a?.[y] ?? null, paid: p?.[y] ?? null };
+  };
+  type Dist = { churches: number; members: number; worship: number; apportioned: number; paid: number; risk: Record<string, number> };
+  const mkDist = (): Dist => ({ churches: 0, members: 0, worship: 0, apportioned: 0, paid: 0, risk: { low: 0, moderate: 0, elevated: 0, high: 0 } });
+  const districtSummary: Record<string, Dist> = Object.fromEntries(DISTRICTS_2025.map((d) => [d, mkDist()]));
+  for (const g of gcfas) {
+    if (outcome(g) !== 'active') continue;
+    const dist = district2025(ident.get(g)?.county_name);
+    if (!dist) continue;
+    const d = districtSummary[dist];
+    d.churches++;
+    const mem = latestAndTrend(series[g]?.["MEMBTOT"]).value;
+    const wor = latestAndTrend(series[g]?.["AVATTWOR"]).value;
+    const { asked, paid } = pairedApp(g);
+    if (mem != null) d.members += mem;
+    if (wor != null) d.worship += wor;
+    if (asked != null) d.apportioned += asked;
+    if (paid != null) d.paid += paid;
+    const t = vitTierByChurch.get(map[g]);
+    if (t && d.risk[t] != null) d.risk[t]++;
   }
 
   // ---- summary + write -----------------------------------------------------
@@ -287,6 +327,11 @@ async function main() {
   console.log(`logistic weights [${FNAMES.join(', ')}]: ${model.weights.map((w) => w.toFixed(2)).join(', ')}`);
   console.log('growth drivers (Pearson r with t->t+3 membership growth):');
   drivers.forEach((d) => console.log(`  ${d.factor}: r=${d.r} (n=${d.n})`));
+  console.log('district summary (2025):');
+  for (const [name, d] of Object.entries(districtSummary)) {
+    const p = d.apportioned > 0 ? (d.paid / d.apportioned) * 100 : 0;
+    console.log(`  ${name}: ${d.churches} churches, worship ${d.worship}, members ${d.members}, paid $${Math.round(d.paid).toLocaleString()}/$${Math.round(d.apportioned).toLocaleString()} = ${p.toFixed(1)}%`);
+  }
   if (DRY) { console.log('** DRY — no writes **'); return; }
 
   await upsert(db, 'church_projection', projRows, 'church_id,field_code,horizon_year');
@@ -298,6 +343,7 @@ async function main() {
     { key: 'outcome_counts', payload: counts },
     { key: 'conference_series', payload: confSeries },
     { key: 'church_membership', payload: churchMem },
+    { key: 'district_summary', payload: districtSummary },
   ], { onConflict: 'key' });
   if (error) throw error;
   console.log('Done.');

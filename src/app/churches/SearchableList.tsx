@@ -10,19 +10,19 @@ export type Row = {
   status: keyof typeof STATUS;
   city: string | null;
   district: string | null;
-  members: number | null;
-  trend: number | null; // % change over window
+  worship: number | null;
+  worshipTrend: number | null; // % change over window
   riskTier: RiskTier | null;
   riskScore: number | null;
 };
 
-type SortKey = "name" | "members" | "trend" | "risk";
+type SortKey = "name" | "worship" | "trend" | "risk";
 
 export default function SearchableList({ rows, districts }: { rows: Row[]; districts: string[] }) {
   const [q, setQ] = useState("");
   const [status, setStatus] = useState<string>("active");
   const [district, setDistrict] = useState<string>("all");
-  const [sort, setSort] = useState<SortKey>("members");
+  const [sort, setSort] = useState<SortKey>("worship");
   const [asc, setAsc] = useState(false);
 
   const filtered = useMemo(() => {
@@ -35,7 +35,7 @@ export default function SearchableList({ rows, districts }: { rows: Row[]; distr
     });
     const dir = asc ? 1 : -1;
     r = [...r].sort((a, b) => {
-      const get = (x: Row) => sort === "name" ? x.name : sort === "members" ? (x.members ?? -1) : sort === "trend" ? (x.trend ?? -999) : (x.riskScore ?? -1);
+      const get = (x: Row) => sort === "name" ? x.name : sort === "worship" ? (x.worship ?? -1) : sort === "trend" ? (x.worshipTrend ?? -999) : (x.riskScore ?? -1);
       const av = get(a), bv = get(b);
       if (typeof av === "string") return (av as string).localeCompare(bv as string) * (asc ? 1 : -1);
       return ((av as number) - (bv as number)) * dir;
@@ -63,7 +63,7 @@ export default function SearchableList({ rows, districts }: { rows: Row[]; distr
         <div className="grid grid-cols-[1fr_auto_auto_auto] sm:grid-cols-[1.6fr_1fr_auto_auto_auto] gap-x-4 px-4 py-2.5 border-b border-rule text-xs text-ink-mute">
           <button onClick={() => toggle("name")} className="text-left hover:text-ink">Church {arrow("name")}</button>
           <span className="hidden sm:block">District</span>
-          <button onClick={() => toggle("members")} className="text-right hover:text-ink tnum">Members {arrow("members")}</button>
+          <button onClick={() => toggle("worship")} className="text-right hover:text-ink tnum">Worship {arrow("worship")}</button>
           <button onClick={() => toggle("trend")} className="text-right hover:text-ink tnum w-20">Trend {arrow("trend")}</button>
           <button onClick={() => toggle("risk")} className="text-right hover:text-ink tnum w-20">Risk {arrow("risk")}</button>
         </div>
@@ -78,9 +78,9 @@ export default function SearchableList({ rows, districts }: { rows: Row[]; distr
                 {x.city && <span className="text-xs text-faint pl-3.5">{x.city}</span>}
               </div>
               <span className="hidden sm:block text-sm text-ink-mute truncate">{x.district ?? "—"}</span>
-              <span className="text-right tnum text-ink">{x.members != null ? new Intl.NumberFormat("en-US").format(x.members) : "—"}</span>
-              <span className={`text-right tnum text-sm w-20 ${x.trend == null ? "text-faint" : x.trend < 0 ? "text-ember" : "text-teal"}`}>
-                {x.trend == null ? "—" : `${x.trend > 0 ? "+" : ""}${x.trend}%`}
+              <span className="text-right tnum text-ink">{x.worship != null ? new Intl.NumberFormat("en-US").format(x.worship) : "—"}</span>
+              <span className={`text-right tnum text-sm w-20 ${x.worshipTrend == null ? "text-faint" : x.worshipTrend < 0 ? "text-ember" : "text-teal"}`}>
+                {x.worshipTrend == null ? "—" : `${x.worshipTrend > 0 ? "+" : ""}${x.worshipTrend}%`}
               </span>
               <span className="text-right w-20">
                 {x.riskTier && x.status === "active" ? (

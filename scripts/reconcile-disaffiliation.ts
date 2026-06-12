@@ -8,10 +8,10 @@
  *
  *   node --env-file=.env.local --experimental-strip-types scripts/reconcile-disaffiliation.ts [--apply]
  *
- * Categories -> target status:
+ * Categories -> target status (Wilson's authoritative classification 2026-06-12):
  *   a/b/c/e Disaffiliated (done)  -> disaffiliated
- *   d Lawsuit                     -> (configurable; default leave as-is, report only)
- *   f Vote pending                -> active
+ *   d Lawsuit                     -> disaffiliated (they left; lawsuit is over property)
+ *   f Vote pending                -> active (still in the conference until the vote)
  */
 import { adminClient } from "./parsers/era_b/lib/db.ts";
 import { readFileSync, writeFileSync } from "node:fs";
@@ -19,6 +19,26 @@ import { readFileSync, writeFileSync } from "node:fs";
 const APPLY = process.argv.includes("--apply");
 const CSV = "/Users/wilsonpruitt/Downloads/Rio TX UMC Disaffiliation.xlsx - Disaffiliated.csv";
 const Q = String.fromCharCode(34);
+
+// Hand-map for rows the fuzzy matcher misses or mis-matches (verified against DB 2026-06-12).
+// Keyed by exact CSV name -> authoritative GCFA church number.
+const HAND_MAP: Record<string, string> = {
+  "CC: St. Luke's (CB)": "750613",        // Saint Lukes Corpus Christi (active live record; 759624 is a closed dup)
+  "Sant: Northwest Hills": "763956",      // Northwest Hills (San Antonio) — not 758083 (Austin)
+  "Sant: St. Andrew's": "764164",         // Saint Andrews San Antonio
+  "Harlandale": "764005",                 // Harlandale (San Antonio)
+  "Sant: Resurrection": "758471",         // Resurrection (San Antonio)
+  "Walnut": "761172",                     // Walnut (Buchanan Dam)
+  "Oak Island-San Antonio (LM)": "763648",// Oak Island — fuzzy matcher wrongly grabbed Oak Meadow (764073)
+  "New Fountain-Hondo (HC)": "761206",    // New Fountain — fuzzy matcher wrongly grabbed Hondo (760862)
+};
+
+// Target status per category.
+const TARGET: Record<string, "disaffiliated" | "active"> = {
+  disaffiliated: "disaffiliated",
+  lawsuit: "disaffiliated",
+  pending: "active",
+};
 
 const CITY: Record<string, string> = {
   CC: "Corpus Christi", SA: "San Antonio", SANT: "San Antonio", PA: "Port Arthur",
@@ -72,9 +92,16 @@ async function main() {
     if (!data?.length) break; all.push(...(data as typeof all)); if (data.length < 1000) break;
   }
   const ours = all.map((c) => ({ ...c, tok: tokens(c.canonical_name + " " + (c.city ?? "")) }));
+  const byGcfa = new Map(ours.map((o) => [o.gcfa_number, o]));
 
   const rows: any[] = [];
   for (const r of csv) {
+    const hand = HAND_MAP[r.name];
+    if (hand) {
+      const o = byGcfa.get(hand) ?? null;
+      rows.push({ csv: r.name, category: cat(r.reason), csvStatus: r.status, match: o, score: 1.0, hand: true });
+      continue;
+    }
     const ct = tokens(r.name);
     let best: typeof ours[0] | null = null, bestScore = 0;
     for (const o of ours) {
@@ -94,23 +121,37 @@ async function main() {
   };
   ["disaffiliated", "lawsuit", "pending"].forEach(summarize);
 
-  // write review file: mismatches + unmatched
-  const review = rows.map((r) =>
-    [r.csv, r.category, r.match?.canonical_name ?? "*** NO MATCH ***", r.match?.gcfa_number ?? "", r.match?.status ?? "", r.score.toFixed(2)].join("\t"));
+  // write review file: every row with its target status + whether a change is needed
+  const review = rows.map((r) => {
+    const target = TARGET[r.category] ?? "";
+    const change = r.match && target && r.match.status !== target ? `${r.match.status}->${target}` : "";
+    return [r.csv, r.category, r.match?.canonical_name ?? "*** NO MATCH ***", r.match?.gcfa_number ?? "",
+      r.match?.status ?? "", target, change, r.hand ? "hand" : r.score.toFixed(2)].join("\t");
+  });
   writeFileSync(new URL("./data/disaffiliation-reconcile.tsv", import.meta.url).pathname,
-    "csv_name\tcategory\tour_match\tgcfa\tour_status\tscore\n" + review.join("\n"));
+    "csv_name\tcategory\tour_match\tgcfa\tour_status\ttarget\tchange\tscore\n" + review.join("\n"));
   console.log("\nReview file: scripts/data/disaffiliation-reconcile.tsv");
 
+  // unmatched warning
+  const unmatched = rows.filter((r) => !r.match);
+  if (unmatched.length) console.log(`\n⚠ ${unmatched.length} STILL UNMATCHED:`, unmatched.map((r) => r.csv).join(", "));
+
+  // planned changes (dry-run preview always shown)
+  const changes = rows.filter((r) => r.match && TARGET[r.category] && r.match.status !== TARGET[r.category]);
+  console.log(`\nPlanned status changes: ${changes.length}`);
+  const tally: Record<string, number> = {};
+  changes.forEach((r) => { const k = `${r.match.status}->${TARGET[r.category]}`; tally[k] = (tally[k] ?? 0) + 1; });
+  console.log("  ", JSON.stringify(tally));
+
   if (APPLY) {
-    // target: disaffiliated -> 'disaffiliated'; pending -> leave active; lawsuit -> leave as-is (report only)
     let fixed = 0;
-    for (const r of rows) {
-      if (r.category === "disaffiliated" && r.match && r.match.status !== "disaffiliated") {
-        await db.from("church").update({ status: "disaffiliated" }).eq("id", r.match.id);
-        fixed++;
-      }
+    for (const r of changes) {
+      await db.from("church").update({ status: TARGET[r.category] }).eq("id", r.match.id);
+      fixed++;
     }
-    console.log(`Applied: ${fixed} churches set to disaffiliated.`);
+    console.log(`\nApplied: ${fixed} church status updates.`);
+  } else {
+    console.log("\n(dry run — pass --apply to write)");
   }
 }
 main().catch((e) => { console.error(e); process.exit(1); });

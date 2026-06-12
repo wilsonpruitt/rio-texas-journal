@@ -34,9 +34,22 @@ export async function conferenceSeries(fieldCode: string) {
   return payload[fieldCode] ?? [];
 }
 
-/** Per-church latest membership + 10-yr trend %, keyed by church_id (precomputed). */
-export async function churchMembership(): Promise<Record<string, { members: number | null; trend: number | null }>> {
+export type DistrictSummary = {
+  churches: number; members: number; worship: number;
+  apportioned: number; paid: number;
+  risk: Record<"low" | "moderate" | "elevated" | "high", number>;
+};
+
+/** Per-2025-district active-church rollup (precomputed by build-models). */
+export async function districtSummary(): Promise<Record<string, DistrictSummary>> {
+  const sb = await createClient();
+  const { data } = await sb.from("model_meta").select("payload").eq("key", "district_summary").maybeSingle();
+  return (data?.payload ?? {}) as Record<string, DistrictSummary>;
+}
+
+/** Per-church latest membership + worship attendance + 10-yr trend %, keyed by church_id (precomputed). */
+export async function churchMembership(): Promise<Record<string, { members: number | null; trend: number | null; worship: number | null; worshipTrend: number | null }>> {
   const sb = await createClient();
   const { data } = await sb.from("model_meta").select("payload").eq("key", "church_membership").maybeSingle();
-  return (data?.payload ?? {}) as Record<string, { members: number | null; trend: number | null }>;
+  return (data?.payload ?? {}) as Record<string, { members: number | null; trend: number | null; worship: number | null; worshipTrend: number | null }>;
 }
