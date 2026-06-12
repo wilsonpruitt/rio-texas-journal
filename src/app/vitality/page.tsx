@@ -3,11 +3,13 @@ import { createClient } from "@/lib/supabase/server";
 import { fetchAll, churchMembership } from "@/lib/atlas-server";
 import { district2025 } from "@/lib/district-2025";
 import { fmtInt, RISK, type RiskTier } from "@/lib/atlas";
+import { requireUnlock } from "@/lib/unlock";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Vitality & Risk" };
 
 export default async function VitalityPage() {
+  await requireUnlock("/vitality");
   const sb = await createClient();
 
   const vits = await fetchAll<{ church_id: string; risk_score: number; risk_tier: RiskTier; observed_status: string }>((s, from, to) =>

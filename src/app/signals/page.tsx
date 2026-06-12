@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { TrendChart } from "@/app/_components/TrendChart";
+import { LockedTeaser } from "@/app/_components/LockedTeaser";
 import insights from "@/data/insights.json";
 import { fmtInt, fmtUsd, fmtPct } from "@/lib/atlas";
+import { isUnlocked } from "@/lib/unlock";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Signals" };
 
 type Row = {
@@ -20,7 +22,8 @@ const median = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); retu
 const top = (key: keyof Row, gate = 40, n = 12) =>
   rows.filter((r) => r[key] != null && r.members >= gate).sort((a, b) => (b[key] as number) - (a[key] as number)).slice(0, n);
 
-export default function SignalsPage() {
+export default async function SignalsPage() {
+  const unlocked = await isUnlocked();
   const latest = insights.generatedFor;
   const engNow = trend[trend.length - 1].ratio, engThen = trend[0].ratio;
   const medEng = median(rows.filter((r) => r.engagement != null).map((r) => r.engagement!));
@@ -44,29 +47,37 @@ export default function SignalsPage() {
         members, through {latest}.
       </p>
 
-      {/* 0. Bright spots */}
+      {/* 0. Bright spots — gated (inferential model) */}
       <Section
         eyebrow="Against the odds"
-        title="Demographics don't decide a church's future."
-        lede={`Each church plotted by the affluence of its community (left = harder, right = easier) against its worship trajectory (up = growing). If neighborhood made the church, the dots would climb left to right. They don't. ${bright.length} congregations are growing in the hardest contexts, while ${untapped.length} decline in the most favorable ones — the clearest sign that ministry, not zip code, is doing the work.`}
+        title={unlocked ? "Demographics don't decide a church's future." : "Growing against the odds."}
+        lede={unlocked
+          ? `Each church plotted by the affluence of its community (left = harder, right = easier) against its worship trajectory (up = growing). If neighborhood made the church, the dots would climb left to right. They don't. ${bright.length} congregations are growing in the hardest contexts, while ${untapped.length} decline in the most favorable ones — the clearest sign that ministry, not zip code, is doing the work.`
+          : "Some congregations thrive where the demographics are hardest, while others decline in the most favorable settings. This analysis maps every church's community context against its worship trajectory to find them."}
       >
-        <div className="grid lg:grid-cols-[1.3fr_1fr] gap-6">
-          <div className="panel rounded-lg p-6">
-            <div className="eyebrow">Community favorability vs worship trajectory</div>
-            <Scatter rows={quad} />
-            <div className="mt-2 flex flex-wrap gap-4 text-xs text-ink-mute">
-              <Dot color="var(--color-teal)" label="Growing in a hard context" />
-              <Dot color="var(--color-amber)" label="Declining in a good context" />
-              <Dot color="var(--color-faint)" label="Other" />
+        {unlocked ? (
+          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-6">
+            <div className="panel rounded-lg p-6">
+              <div className="eyebrow">Community favorability vs worship trajectory</div>
+              <Scatter rows={quad} />
+              <div className="mt-2 flex flex-wrap gap-4 text-xs text-ink-mute">
+                <Dot color="var(--color-teal)" label="Growing in a hard context" />
+                <Dot color="var(--color-amber)" label="Declining in a good context" />
+                <Dot color="var(--color-faint)" label="Other" />
+              </div>
+            </div>
+            <div className="space-y-5">
+              <CalloutList heading="Bright spots" sub="growing against a hard context" tone="teal"
+                rows={bright.slice(0, 6)} metric={(r) => `+${r.worshipTrend!.toFixed(0)}%`} />
+              <CalloutList heading="Untapped potential" sub="declining in a favorable context" tone="amber"
+                rows={untapped.slice(0, 6)} metric={(r) => `${r.worshipTrend!.toFixed(0)}%`} />
             </div>
           </div>
-          <div className="space-y-5">
-            <CalloutList heading="Bright spots" sub="growing against a hard context" tone="teal"
-              rows={bright.slice(0, 6)} metric={(r) => `+${r.worshipTrend!.toFixed(0)}%`} />
-            <CalloutList heading="Untapped potential" sub="declining in a favorable context" tone="amber"
-              rows={untapped.slice(0, 6)} metric={(r) => `${r.worshipTrend!.toFixed(0)}%`} />
-          </div>
-        </div>
+        ) : (
+          <LockedTeaser title="Bright-spots analysis"
+            blurb="Plots every church's community context against its trajectory to surface the congregations growing where the odds are hardest. Enter the access code to view."
+            next="/signals" />
+        )}
       </Section>
 
       {/* 1. Engagement */}

@@ -1,15 +1,18 @@
 import { TrendChart } from "@/app/_components/TrendChart";
+import { LockedTeaser } from "@/app/_components/LockedTeaser";
 import ConferenceScenario from "./ConferenceScenario";
 import financeJson from "@/data/conference-finance.json";
 import { type FinanceRow, defaultAssumptions, cagr } from "@/lib/finance-model";
 import { fmtUsd, fmtPct } from "@/lib/atlas";
+import { isUnlocked } from "@/lib/unlock";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 export const metadata = { title: "Conference Finance" };
 
 const rows = financeJson as FinanceRow[];
 
-export default function ConferencePage() {
+export default async function ConferencePage() {
+  const unlocked = await isUnlocked();
   const first = rows[0], last = rows[rows.length - 1];
   const baseline = defaultAssumptions(rows);
 
@@ -63,7 +66,13 @@ export default function ConferencePage() {
           change what the reserves earn — and see where the conference&rsquo;s finances land by {last.data_year + 5}.
         </p>
         <div className="mt-6">
-          <ConferenceScenario rows={rows} baseline={baseline} />
+          {unlocked ? (
+            <ConferenceScenario rows={rows} baseline={baseline} />
+          ) : (
+            <LockedTeaser title="Finance scenario model"
+              blurb="An interactive projection: adjust apportionment giving, expenses, and investment return to see how the conference's reserves respond over the next five years. Enter the access code to use it."
+              next="/conference" />
+          )}
         </div>
       </section>
     </main>

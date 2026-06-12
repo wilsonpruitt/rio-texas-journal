@@ -10,13 +10,14 @@ const NAV = [
   { href: "/conference", label: "Finance" },
   { href: "/signals", label: "Signals" },
   { href: "/map", label: "Map" },
-  { href: "/vitality", label: "Vitality" },
+  { href: "/vitality", label: "Vitality", gated: true },
 ];
 
-export function SiteHeader() {
+export function SiteHeader({ unlocked = false }: { unlocked?: boolean }) {
   const path = usePathname();
   const isActive = (href: string) =>
     href === "/" ? path === "/" : path.startsWith(href);
+  const nav = NAV.filter((n) => !n.gated || unlocked);
 
   return (
     <header className="sticky top-0 z-40 bg-parchment/85 backdrop-blur-sm border-b border-rule">
@@ -31,7 +32,7 @@ export function SiteHeader() {
             </span>
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2 text-sm">
-            {NAV.map((n) => (
+            {nav.map((n) => (
               <Link
                 key={n.href}
                 href={n.href}
@@ -45,6 +46,18 @@ export function SiteHeader() {
                 {n.label}
               </Link>
             ))}
+            {!unlocked && (
+              <Link
+                href="/unlock"
+                aria-label="Enter access code"
+                title="Enter access code"
+                className="ml-1 px-2 py-1 rounded-sm text-faint hover:text-ink hover:bg-bone transition-colors"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                  <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+              </Link>
+            )}
           </nav>
         </div>
       </div>

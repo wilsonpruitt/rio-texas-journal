@@ -3,6 +3,7 @@ import { Fraunces, Libre_Franklin, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
+import { isUnlocked } from "@/lib/unlock";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -27,16 +28,17 @@ export const metadata: Metadata = {
     "An interactive statistical atlas of the Rio Texas Annual Conference and its predecessor conferences — 481 churches, 2000–2024, with trends, projections, and vitality analysis.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const unlocked = await isUnlocked();
   return (
     <html
       lang="en"
       className={`${fraunces.variable} ${franklin.variable} ${jbmono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <SiteHeader />
+        <SiteHeader unlocked={unlocked} />
         <div className="flex-1">{children}</div>
         <SiteFooter />
       </body>
