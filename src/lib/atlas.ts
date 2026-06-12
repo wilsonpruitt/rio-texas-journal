@@ -3,7 +3,7 @@
 export const fmtInt = (n: number | null | undefined) =>
   n == null ? "—" : new Intl.NumberFormat("en-US").format(Math.round(n));
 export const fmtUsd = (n: number | null | undefined) =>
-  n == null ? "—" : new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0, notation: n >= 1e6 ? "compact" : "standard" }).format(n);
+  n == null ? "—" : new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: n >= 1e6 ? 1 : 0, notation: n >= 1e6 ? "compact" : "standard" }).format(n);
 export const fmtPct = (n: number | null | undefined, digits = 1) =>
   n == null ? "—" : `${n.toFixed(digits)}%`;
 export const fmtSigned = (n: number | null | undefined) =>
