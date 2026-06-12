@@ -150,8 +150,10 @@ async function main() {
     if (data.length < 1000) break;
   }
   // effective outcome: disaffiliated (authoritative) > closed (status OR ceased reporting <2023) > active
-  const outcome = (g: string): 'active' | 'closed' | 'disaffiliated' => {
+  // 'unverified' = roster discrepancy awaiting Wilson's confirmation — excluded from everything.
+  const outcome = (g: string): 'active' | 'closed' | 'disaffiliated' | 'unverified' => {
     const s = statusMap.get(map[g]);
+    if (s === 'unverified') return 'unverified';
     if (s === 'disaffiliated') return 'disaffiliated';
     const last = ident.get(g)?.last_year ?? LATEST;
     if (s === 'closed' || s === 'merged' || last < 2023) return 'closed';
@@ -190,7 +192,9 @@ async function main() {
   for (const g of gcfas) {
     const f = series[g]; if (!f) continue;
     const v = featvec(f); if (!v) continue;
-    feats.push({ g, v, status: outcome(g) });
+    const st = outcome(g);
+    if (st === 'unverified') continue; // excluded from vitality + risk entirely
+    feats.push({ g, v, status: st });
   }
   const train = feats.filter((r) => r.status !== 'disaffiliated');
   const Xtr = train.map((r) => [r.v!.cagr, r.v!.attRatio, r.v!.size, r.v!.bapRate, r.v!.netRate]);

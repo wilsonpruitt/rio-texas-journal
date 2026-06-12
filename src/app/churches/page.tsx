@@ -7,7 +7,7 @@ export const metadata = { title: "Churches" };
 
 export default async function ChurchesPage() {
   const churches = await fetchAll<{ id: string; canonical_name: string; status: Row["status"]; city: string | null; county_name: string | null }>((s, from, to) =>
-    s.from("church").select("id, canonical_name, status, city, county_name").not("gcfa_number", "is", null).range(from, to));
+    s.from("church").select("id, canonical_name, status, city, county_name").not("gcfa_number", "is", null).neq("status", "unverified").range(from, to));
   const vits = await fetchAll<{ church_id: string; risk_tier: Row["riskTier"]; risk_score: number }>((s, from, to) =>
     s.from("church_vitality").select("church_id, risk_tier, risk_score").range(from, to));
   const mem = await churchMembership();

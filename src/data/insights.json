@@ -1,7 +1,7 @@
 {
   "generatedFor": 2024,
   "gateMembers": 25,
-  "count": 182,
+  "count": 180,
   "engagementTrend": [
     {
       "year": 2010,
@@ -141,7 +141,7 @@
       "propPerMember": 8863.636363636364,
       "income": 49045,
       "povertyRate": 16.7,
-      "favorability": 28
+      "favorability": 29
     },
     {
       "id": "8c6ec210-ae4f-43bd-9645-2c0ff463f2a3",
@@ -189,7 +189,7 @@
       "propPerMember": 7068.6274509803925,
       "income": 59608,
       "povertyRate": 18.3,
-      "favorability": 30
+      "favorability": 31
     },
     {
       "id": "8b8e44e3-9c12-45ba-9569-6b6f69d53dde",
@@ -237,7 +237,7 @@
       "propPerMember": 23461.53846153846,
       "income": 64542,
       "povertyRate": 13.3,
-      "favorability": 44
+      "favorability": 45
     },
     {
       "id": "17b1b04a-d44b-455a-9130-2c5cc48421af",
@@ -317,7 +317,7 @@
       "propPerMember": 5574.585635359116,
       "income": 51547,
       "povertyRate": 27.6,
-      "favorability": 12
+      "favorability": 13
     },
     {
       "id": "ae5d1498-7a5a-4f26-a08d-43df0e7c8969",
@@ -349,7 +349,7 @@
       "propPerMember": 5809.433962264151,
       "income": 37796,
       "povertyRate": 32.2,
-      "favorability": 5
+      "favorability": 6
     },
     {
       "id": "148b0f84-164d-4c39-bef0-c0bb78a93158",
@@ -365,7 +365,7 @@
       "propPerMember": 4739.336492890995,
       "income": 60264,
       "povertyRate": 15.7,
-      "favorability": 34
+      "favorability": 36
     },
     {
       "id": "c54e062d-d3fd-4a5c-b533-a39d7bdd586a",
@@ -429,7 +429,7 @@
       "propPerMember": 10792.452830188678,
       "income": 56867,
       "povertyRate": 29.8,
-      "favorability": 10
+      "favorability": 11
     },
     {
       "id": "1f011736-1149-4499-a442-e2f78191416c",
@@ -445,7 +445,7 @@
       "propPerMember": 17433.94230769231,
       "income": 35742,
       "povertyRate": 33.8,
-      "favorability": 3
+      "favorability": 4
     },
     {
       "id": "dd6e43b9-37d3-46d7-acd7-f3a497099a68",
@@ -509,7 +509,7 @@
       "propPerMember": 6755.855855855856,
       "income": 49768,
       "povertyRate": 29.9,
-      "favorability": 9
+      "favorability": 10
     },
     {
       "id": "815e5d2a-5906-4db3-9708-7d1717a14b5f",
@@ -525,7 +525,7 @@
       "propPerMember": 4819.277108433735,
       "income": 51111,
       "povertyRate": 20.6,
-      "favorability": 25
+      "favorability": 26
     },
     {
       "id": "f118f110-588b-4837-9f1d-acfd3a2d6c9a",
@@ -573,7 +573,7 @@
       "propPerMember": 29872.928934010153,
       "income": 102886,
       "povertyRate": 7.1,
-      "favorability": 86
+      "favorability": 85
     },
     {
       "id": "0c4b0201-5308-4dc7-b404-aa73fec2f8b5",
@@ -685,23 +685,7 @@
       "propPerMember": 13628.396524486572,
       "income": 97149,
       "povertyRate": 13.6,
-      "favorability": 73
-    },
-    {
-      "id": "1f17b666-7a31-4392-91be-cc7984f6f243",
-      "name": "St Luke Austin",
-      "city": "Austin",
-      "district": "North",
-      "members": 195,
-      "worship": 0,
-      "worshipTrend": -100,
-      "engagement": 0,
-      "disciplesPer100": 0.17094017094017094,
-      "propValue": 2400000,
-      "propPerMember": 12307.692307692309,
-      "income": 144637,
-      "povertyRate": 5.9,
-      "favorability": 98
+      "favorability": 72
     },
     {
       "id": "42ab92c7-a554-4a6e-b316-d7d91cf1ef8d",
@@ -717,7 +701,7 @@
       "propPerMember": 60062.039603960395,
       "income": 62334,
       "povertyRate": 18.1,
-      "favorability": 32
+      "favorability": 33
     },
     {
       "id": "fa59ea2f-4a9d-4556-b4c9-d0e6f8ab06f0",
@@ -797,7 +781,7 @@
       "propPerMember": 4119.422794117647,
       "income": 86976,
       "povertyRate": 11.9,
-      "favorability": 69
+      "favorability": 68
     },
     {
       "id": "312bb14b-e465-46b1-b7c0-bd46ca99e104",
@@ -845,23 +829,7 @@
       "propPerMember": 14102.310231023102,
       "income": 66177,
       "povertyRate": 16.8,
-      "favorability": 38
-    },
-    {
-      "id": "9920a92b-d879-4dd6-9a0f-40e25ede00ba",
-      "name": "Resurrection",
-      "city": "San Antonio",
-      "district": "Central",
-      "members": 102,
-      "worship": 0,
-      "worshipTrend": -100,
-      "engagement": 0,
-      "disciplesPer100": 0.65359477124183,
-      "propValue": 0,
-      "propPerMember": 0,
-      "income": 84180,
-      "povertyRate": 8.6,
-      "favorability": 73
+      "favorability": 40
     },
     {
       "id": "14748b28-875f-4a57-a3c9-9fdccf4e5c58",
@@ -877,7 +845,7 @@
       "propPerMember": 60344.8275862069,
       "income": 76906,
       "povertyRate": 13.1,
-      "favorability": 58
+      "favorability": 59
     },
     {
       "id": "df77899f-26c8-4eea-8675-14be209c0b73",
@@ -925,7 +893,7 @@
       "propPerMember": 86340.4255319149,
       "income": 88246,
       "povertyRate": 8.8,
-      "favorability": 77
+      "favorability": 76
     },
     {
       "id": "510d0f60-1c0e-4b89-b87e-0b9f64f74665",
@@ -960,20 +928,20 @@
       "favorability": 95
     },
     {
-      "id": "393a4185-8f74-4783-b4d1-bc0b91ec2538",
-      "name": "Garwood Lehrer Memorial",
-      "city": "Garwood",
-      "district": "North",
-      "members": 70,
-      "worship": 0,
-      "worshipTrend": -100,
-      "engagement": 0,
-      "disciplesPer100": 0.47619047619047616,
-      "propValue": 0,
-      "propPerMember": 0,
-      "income": 65761,
-      "povertyRate": 11.4,
-      "favorability": 52
+      "id": "f0dbb525-437c-4fe6-99ce-016fbdfc5621",
+      "name": "Gruene",
+      "city": "New Braunfels",
+      "district": "Central",
+      "members": 1111,
+      "worship": 583,
+      "worshipTrend": 0.1718213058419244,
+      "engagement": 0.5247524752475248,
+      "disciplesPer100": 4.02040204020402,
+      "propValue": 4100390,
+      "propPerMember": 3690.7200720072005,
+      "income": 84426,
+      "povertyRate": 6.8,
+      "favorability": 80
     },
     {
       "id": "7fcff840-4e68-41ba-90b5-7e52c6e284f6",
@@ -990,22 +958,6 @@
       "income": 86819,
       "povertyRate": 13.8,
       "favorability": 63
-    },
-    {
-      "id": "c2ed920b-e130-4f52-be8a-ff0895284369",
-      "name": "Hallettsville First",
-      "city": "Hallettsville",
-      "district": "South",
-      "members": 175,
-      "worship": 0,
-      "worshipTrend": -100,
-      "engagement": 0,
-      "disciplesPer100": 0.7619047619047619,
-      "propValue": 0,
-      "propPerMember": 0,
-      "income": 63500,
-      "povertyRate": 7.9,
-      "favorability": 59
     },
     {
       "id": "d0f5d7e6-2f26-4cab-b79c-0edfb81a35c6",
@@ -1053,7 +1005,7 @@
       "propPerMember": 5068.493421052632,
       "income": 88533,
       "povertyRate": 9.2,
-      "favorability": 76
+      "favorability": 75
     },
     {
       "id": "0d0e06f5-602d-4350-9554-8b96fccbc3cc",
@@ -1069,7 +1021,7 @@
       "propPerMember": 15695.027624309392,
       "income": 56533,
       "povertyRate": 9.1,
-      "favorability": 48
+      "favorability": 49
     },
     {
       "id": "60ec57f4-f5c1-4d3d-87fb-83340b00c965",
@@ -1085,7 +1037,7 @@
       "propPerMember": 14099.290780141844,
       "income": 118750,
       "povertyRate": 12.5,
-      "favorability": 85
+      "favorability": 86
     },
     {
       "id": "c64a5aef-5736-4571-bef1-13ed1969227b",
@@ -1101,7 +1053,7 @@
       "propPerMember": 18542.540620384047,
       "income": 55478,
       "povertyRate": 23.3,
-      "favorability": 22
+      "favorability": 23
     },
     {
       "id": "58df46ae-78c1-4ab9-a679-a4f2e5f4684c",
@@ -1133,7 +1085,7 @@
       "propPerMember": 18236.40776699029,
       "income": 62796,
       "povertyRate": 13.3,
-      "favorability": 43
+      "favorability": 44
     },
     {
       "id": "3e461741-2499-42c9-8525-c18f8d710b5f",
@@ -1181,7 +1133,7 @@
       "propPerMember": 44230.769230769234,
       "income": 74577,
       "povertyRate": 4.1,
-      "favorability": 78
+      "favorability": 76
     },
     {
       "id": "d3d1c2b3-e016-40f4-9d06-8d7b3e6fbea0",
@@ -1197,7 +1149,7 @@
       "propPerMember": 23356.571428571428,
       "income": 59591,
       "povertyRate": 18.2,
-      "favorability": 31
+      "favorability": 32
     },
     {
       "id": "ff3f6dd7-2e2c-4111-96c4-a6a2a019adf9",
@@ -1245,7 +1197,7 @@
       "propPerMember": 6520.602150537635,
       "income": 91443,
       "povertyRate": 14.7,
-      "favorability": 65
+      "favorability": 64
     },
     {
       "id": "095a3595-fec1-4fad-99c3-f194ea6e97df",
@@ -1261,7 +1213,7 @@
       "propPerMember": 30295.835616438355,
       "income": 60509,
       "povertyRate": 22.2,
-      "favorability": 27
+      "favorability": 28
     },
     {
       "id": "757da41b-38de-48eb-a498-aaa67313e434",
@@ -1293,7 +1245,7 @@
       "propPerMember": 20537.81512605042,
       "income": 64654,
       "povertyRate": 16.9,
-      "favorability": 35
+      "favorability": 36
     },
     {
       "id": "cac38b03-9686-419b-a8f0-01fd03142497",
@@ -1310,22 +1262,6 @@
       "income": 60890,
       "povertyRate": 17.6,
       "favorability": 33
-    },
-    {
-      "id": "529945ae-97d7-4620-8e6d-4095fa1e08e8",
-      "name": "Mathis",
-      "city": "Mathis",
-      "district": "South",
-      "members": 103,
-      "worship": 0,
-      "worshipTrend": -100,
-      "engagement": 0,
-      "disciplesPer100": 0,
-      "propValue": 0,
-      "propPerMember": 0,
-      "income": 41286,
-      "povertyRate": 23.6,
-      "favorability": 13
     },
     {
       "id": "f98eecec-2576-4285-84a6-e946605d357d",
@@ -1357,7 +1293,7 @@
       "propPerMember": 10664.948453608247,
       "income": 69500,
       "povertyRate": 13.9,
-      "favorability": 47
+      "favorability": 48
     },
     {
       "id": "19917db0-c8e2-4b24-88fc-a595a75a3ec8",
@@ -1389,7 +1325,7 @@
       "propPerMember": 9557.123966942148,
       "income": 68877,
       "povertyRate": 9.7,
-      "favorability": 61
+      "favorability": 60
     },
     {
       "id": "54e66b0f-5383-413f-9a93-c19b01fdcb90",
@@ -1405,7 +1341,7 @@
       "propPerMember": 21285.35546875,
       "income": 63434,
       "povertyRate": 15.7,
-      "favorability": 40
+      "favorability": 41
     },
     {
       "id": "27798106-b1fc-43de-930c-da7815303199",
@@ -1453,7 +1389,7 @@
       "propPerMember": 9482.758620689656,
       "income": 37168,
       "povertyRate": 11.7,
-      "favorability": 29
+      "favorability": 30
     },
     {
       "id": "6909655a-4d8e-4e71-98e3-74db8589d2fd",
@@ -1485,7 +1421,7 @@
       "propPerMember": 10935.596170583116,
       "income": 57728,
       "povertyRate": 23.8,
-      "favorability": 24
+      "favorability": 25
     },
     {
       "id": "c0362a27-7070-4bf4-b216-d3eb40e7d1bf",
@@ -1501,7 +1437,7 @@
       "propPerMember": 27812.5,
       "income": 60642,
       "povertyRate": 9.3,
-      "favorability": 54
+      "favorability": 55
     },
     {
       "id": "6b5a877c-1c57-43c0-a94b-42f797d1d775",
@@ -1533,7 +1469,7 @@
       "propPerMember": 15210.60606060606,
       "income": 53129,
       "povertyRate": 12.4,
-      "favorability": 38
+      "favorability": 39
     },
     {
       "id": "0caac72d-a65e-4db4-a6b2-ef78ee87220d",
@@ -1565,7 +1501,7 @@
       "propPerMember": 8877.570175438597,
       "income": 81833,
       "povertyRate": 7.8,
-      "favorability": 74
+      "favorability": 73
     },
     {
       "id": "501ff694-2283-457f-bd4f-72bdf20462c7",
@@ -1693,7 +1629,7 @@
       "propPerMember": 9120.481927710844,
       "income": 65699,
       "povertyRate": 12.4,
-      "favorability": 47
+      "favorability": 48
     },
     {
       "id": "fbbf54f5-9aba-431d-a0ec-b88767b1b59e",
@@ -1725,7 +1661,7 @@
       "propPerMember": 9367.713004484305,
       "income": 76065,
       "povertyRate": 15.3,
-      "favorability": 49
+      "favorability": 50
     },
     {
       "id": "0c3ed197-9f6f-46b2-b35f-3783b06a04cb",
@@ -1741,7 +1677,7 @@
       "propPerMember": 20323.30827067669,
       "income": 60663,
       "povertyRate": 12.7,
-      "favorability": 42
+      "favorability": 43
     },
     {
       "id": "bf38e659-ec66-46ba-b668-650322ac0185",
@@ -1757,7 +1693,7 @@
       "propPerMember": 68709.30232558139,
       "income": 65486,
       "povertyRate": 11.4,
-      "favorability": 50
+      "favorability": 51
     },
     {
       "id": "c4a7bbf2-52d5-4f8c-a4fa-75a263f7374c",
@@ -1805,7 +1741,7 @@
       "propPerMember": 12760.869565217392,
       "income": 95899,
       "povertyRate": 5.5,
-      "favorability": 85
+      "favorability": 84
     },
     {
       "id": "82694095-5b96-412c-b3dd-83148cf4443d",
@@ -1822,6 +1758,22 @@
       "income": 131421,
       "povertyRate": 4.8,
       "favorability": 97
+    },
+    {
+      "id": "3a9b01b5-5b26-43da-ad36-28a52287890c",
+      "name": "Cross Track Church",
+      "city": "Liberty Hill",
+      "district": "North",
+      "members": 212,
+      "worship": 78,
+      "worshipTrend": -41.35338345864661,
+      "engagement": 0.36792452830188677,
+      "disciplesPer100": 3.1446540880503147,
+      "propValue": 2664600,
+      "propPerMember": 12568.867924528302,
+      "income": 128086,
+      "povertyRate": 3.3,
+      "favorability": 98
     },
     {
       "id": "dbc1311e-8017-460f-a31b-32c619042836",
@@ -1854,22 +1806,6 @@
       "income": 64750,
       "povertyRate": 9.9,
       "favorability": 56
-    },
-    {
-      "id": "ac82c2e6-f2d5-4027-97f9-787c737a3aa2",
-      "name": "Walnut",
-      "city": "Buchanan Dam",
-      "district": "North",
-      "members": 108,
-      "worship": 70,
-      "worshipTrend": 12.903225806451612,
-      "engagement": 0.6481481481481481,
-      "disciplesPer100": 0,
-      "propValue": 350000,
-      "propPerMember": 3240.740740740741,
-      "income": 60663,
-      "povertyRate": 12.7,
-      "favorability": 42
     },
     {
       "id": "9fee194e-e4af-4774-82dd-057effa3c6e9",
@@ -1917,7 +1853,7 @@
       "propPerMember": 2283.582089552239,
       "income": 62516,
       "povertyRate": 17,
-      "favorability": 33
+      "favorability": 34
     },
     {
       "id": "c886def4-ac57-4595-835d-d19c7c42a862",
@@ -1933,7 +1869,7 @@
       "propPerMember": 18726.829268292684,
       "income": 50567,
       "povertyRate": 32.2,
-      "favorability": 8
+      "favorability": 9
     },
     {
       "id": "b3326e72-e931-41a9-898d-0fe53917b685",
@@ -1949,7 +1885,7 @@
       "propPerMember": 19957.14285714286,
       "income": 60968,
       "povertyRate": 13,
-      "favorability": 41
+      "favorability": 43
     },
     {
       "id": "ed4bb5a0-ba48-4d41-922b-f3614c71c7ab",
@@ -1965,7 +1901,7 @@
       "propPerMember": 10638.207407407408,
       "income": 48117,
       "povertyRate": 23.2,
-      "favorability": 19
+      "favorability": 20
     },
     {
       "id": "7c03d390-3e5e-4fab-8cd5-d440dfe3eeab",
@@ -1981,7 +1917,7 @@
       "propPerMember": 4080.886917960089,
       "income": 56867,
       "povertyRate": 29.8,
-      "favorability": 11
+      "favorability": 12
     },
     {
       "id": "610d5167-b263-4e5a-b144-b0efc0176f48",
@@ -1997,7 +1933,7 @@
       "propPerMember": 18856.834196891192,
       "income": 35742,
       "povertyRate": 33.8,
-      "favorability": 4
+      "favorability": 5
     },
     {
       "id": "5a1cd85a-dc72-47b6-aa93-85adffa50719",
@@ -2061,7 +1997,7 @@
       "propPerMember": 55555.555555555555,
       "income": 52041,
       "povertyRate": 19.7,
-      "favorability": 26
+      "favorability": 27
     },
     {
       "id": "690afe51-ca23-4f92-9b63-0a880a4b7662",
@@ -2128,6 +2064,22 @@
       "favorability": null
     },
     {
+      "id": "0c7bf3b4-5150-4075-8ab4-2e1b78643c41",
+      "name": "Eagle Pass",
+      "city": "Eagle Pass",
+      "district": "Central",
+      "members": 83,
+      "worship": 105,
+      "worshipTrend": 128.26086956521738,
+      "engagement": 1.2650602409638554,
+      "disciplesPer100": 8.835341365461847,
+      "propValue": 2593000,
+      "propPerMember": 31240.963855421687,
+      "income": 52295,
+      "povertyRate": 22.8,
+      "favorability": 22
+    },
+    {
       "id": "451fb194-72c5-4012-b0f0-0a8ac0a9db98",
       "name": "Hilda",
       "city": "Hilda",
@@ -2157,7 +2109,7 @@
       "propPerMember": 7002.857142857143,
       "income": 75048,
       "povertyRate": 3.8,
-      "favorability": 80
+      "favorability": 78
     },
     {
       "id": "18de8bc7-99d9-4adc-82b2-38b37feb4cfc",
@@ -2189,7 +2141,7 @@
       "propPerMember": 13331.417004048582,
       "income": 79617,
       "povertyRate": 6.6,
-      "favorability": 75
+      "favorability": 74
     },
     {
       "id": "a0e3fcc3-756b-4374-a8f4-79ec87c10ad0",
@@ -2224,22 +2176,6 @@
       "favorability": 61
     },
     {
-      "id": "296667ba-9083-4a38-a111-d08434fc8ead",
-      "name": "Veribest",
-      "city": "Veribest",
-      "district": "Central",
-      "members": 77,
-      "worship": 0,
-      "worshipTrend": -100,
-      "engagement": 0,
-      "disciplesPer100": 0,
-      "propValue": 0,
-      "propPerMember": 0,
-      "income": null,
-      "povertyRate": null,
-      "favorability": null
-    },
-    {
       "id": "16f6ba00-5e69-4909-9291-4346768b98fa",
       "name": "Chapel Hill",
       "city": "San Antonio",
@@ -2253,7 +2189,7 @@
       "propPerMember": 10180.722891566265,
       "income": 48049,
       "povertyRate": 20.7,
-      "favorability": 23
+      "favorability": 24
     },
     {
       "id": "515cafd9-78fd-4dc9-8e64-c487a28fa55a",
@@ -2301,7 +2237,7 @@
       "propPerMember": 23370,
       "income": 57609,
       "povertyRate": 10.6,
-      "favorability": 45
+      "favorability": 46
     },
     {
       "id": "b039784a-a1bc-4677-a010-82b78f99344d",
@@ -2365,7 +2301,7 @@
       "propPerMember": 4876.865728900256,
       "income": 84426,
       "povertyRate": 6.8,
-      "favorability": 81
+      "favorability": 80
     },
     {
       "id": "4878d22b-a9ed-4ca5-94f1-f3353f7bdf21",
@@ -2429,7 +2365,7 @@
       "propPerMember": 17181.164383561645,
       "income": 40233,
       "povertyRate": 29.9,
-      "favorability": 7
+      "favorability": 8
     },
     {
       "id": "19de34f2-0f5d-42b0-895b-a2a1efbf3bac",
@@ -2445,7 +2381,7 @@
       "propPerMember": 0,
       "income": 62203,
       "povertyRate": 15.7,
-      "favorability": 36
+      "favorability": 37
     },
     {
       "id": "fadcb1b1-9cf8-4e5c-8e5d-6fe655cc0b46",
@@ -2509,7 +2445,7 @@
       "propPerMember": 21605.128205128207,
       "income": 75395,
       "povertyRate": 11.2,
-      "favorability": 62
+      "favorability": 61
     },
     {
       "id": "50dd83a1-12ef-4abb-bdad-0404dd296814",
@@ -2525,7 +2461,7 @@
       "propPerMember": 8795.238095238095,
       "income": 64251,
       "povertyRate": 12.7,
-      "favorability": 46
+      "favorability": 47
     },
     {
       "id": "98dd64ee-0c08-470c-a12a-010463b00b30",
@@ -2541,7 +2477,7 @@
       "propPerMember": 24149.13157894737,
       "income": 62203,
       "povertyRate": 15.7,
-      "favorability": 37
+      "favorability": 38
     },
     {
       "id": "27ef77db-9063-48d3-80a4-b1adab136fc0",
@@ -2557,7 +2493,7 @@
       "propPerMember": 35321.57676348548,
       "income": 60222,
       "povertyRate": 15.9,
-      "favorability": 34
+      "favorability": 35
     },
     {
       "id": "609b5b21-d48b-49c0-86cf-3458e1067113",
@@ -2605,7 +2541,7 @@
       "propPerMember": 9726.570175438597,
       "income": 53342,
       "povertyRate": 18.9,
-      "favorability": 27
+      "favorability": 28
     },
     {
       "id": "01ea8c34-ad3a-427c-8628-7ca8040565cd",
@@ -2621,7 +2557,7 @@
       "propPerMember": 15144.970414201183,
       "income": 56852,
       "povertyRate": 13.9,
-      "favorability": 35
+      "favorability": 37
     },
     {
       "id": "45ca9b08-60a4-41cb-9385-ba6ef09693cb",
@@ -2653,7 +2589,7 @@
       "propPerMember": 69426.07339449541,
       "income": 62203,
       "povertyRate": 15.7,
-      "favorability": 37
+      "favorability": 39
     },
     {
       "id": "43311455-ca2a-4f52-9528-7b64a775edad",
@@ -2701,7 +2637,7 @@
       "propPerMember": 19258.064516129034,
       "income": 66177,
       "povertyRate": 16.8,
-      "favorability": 39
+      "favorability": 40
     },
     {
       "id": "56a6eab3-1eb8-4947-aab6-03db90f31fd5",
@@ -2717,7 +2653,23 @@
       "propPerMember": 33461.53846153846,
       "income": 66177,
       "povertyRate": 16.8,
-      "favorability": 39
+      "favorability": 41
+    },
+    {
+      "id": "b3090b8a-d365-4eeb-a823-36f0f41118fc",
+      "name": "Edna Scruggs",
+      "city": "Edna",
+      "district": "South",
+      "members": 45,
+      "worship": 15,
+      "worshipTrend": -25,
+      "engagement": 0.3333333333333333,
+      "disciplesPer100": 0.7407407407407407,
+      "propValue": 457000,
+      "propPerMember": 10155.555555555555,
+      "income": 60890,
+      "povertyRate": 17.6,
+      "favorability": 34
     },
     {
       "id": "2c82bb02-45ef-4736-a69e-667ff018bdc8",
@@ -2733,7 +2685,7 @@
       "propPerMember": 147.05882352941177,
       "income": 67022,
       "povertyRate": 11,
-      "favorability": 55
+      "favorability": 56
     },
     {
       "id": "54f20f2f-faef-4c88-9071-6bc8b9cb1340",
@@ -2813,7 +2765,7 @@
       "propPerMember": 10344.827586206897,
       "income": 56466,
       "povertyRate": 10.9,
-      "favorability": 43
+      "favorability": 44
     },
     {
       "id": "cedfcdef-03e3-41a0-bf8a-01f848892465",
@@ -2829,7 +2781,7 @@
       "propPerMember": 10204.081632653062,
       "income": 70148,
       "povertyRate": 14.6,
-      "favorability": 46
+      "favorability": 47
     },
     {
       "id": "79f5a46d-7efe-497a-9295-b637c7d6edc7",
@@ -2845,7 +2797,7 @@
       "propPerMember": 20953.488372093023,
       "income": 72155,
       "povertyRate": 13.7,
-      "favorability": 50
+      "favorability": 52
     },
     {
       "id": "a64db238-b37d-4e63-9b33-dc0165255c0d",
@@ -2877,7 +2829,7 @@
       "propPerMember": 2135.3846153846152,
       "income": 55478,
       "povertyRate": 23.3,
-      "favorability": 23
+      "favorability": 24
     },
     {
       "id": "6839f564-79e9-43d7-b32d-516830178f04",
@@ -2893,7 +2845,7 @@
       "propPerMember": 7236.111111111111,
       "income": 59591,
       "povertyRate": 18.2,
-      "favorability": 31
+      "favorability": 32
     },
     {
       "id": "62ba7c84-f9a0-46be-8cae-3afc11c1e167",
@@ -2909,7 +2861,7 @@
       "propPerMember": 11535.632183908046,
       "income": 37796,
       "povertyRate": 32.2,
-      "favorability": 6
+      "favorability": 7
     },
     {
       "id": "79b5303e-2f34-4c85-acd4-450b5a5439e5",
@@ -2925,7 +2877,7 @@
       "propPerMember": 9185.185185185184,
       "income": 65486,
       "povertyRate": 11.4,
-      "favorability": 51
+      "favorability": 52
     },
     {
       "id": "db0fedf3-4597-489a-b34e-bdf487393c87",
@@ -2941,7 +2893,23 @@
       "propPerMember": 30148.936170212764,
       "income": 51990,
       "povertyRate": 26.2,
-      "favorability": 15
+      "favorability": 16
+    },
+    {
+      "id": "5a61a577-28fd-4758-b28d-78eadcced00f",
+      "name": "Jacobs Chapel",
+      "city": "San Antonio",
+      "district": "Central",
+      "members": 294,
+      "worship": 37,
+      "worshipTrend": -60.215053763440864,
+      "engagement": 0.12585034013605442,
+      "disciplesPer100": 0.22675736961451248,
+      "propValue": 1777000,
+      "propPerMember": 6044.21768707483,
+      "income": 34815,
+      "povertyRate": 33.5,
+      "favorability": 3
     },
     {
       "id": "d287c742-5597-4604-89fc-b8d1ff65db45",
@@ -2989,7 +2957,7 @@
       "propPerMember": 12105.69105691057,
       "income": 71367,
       "povertyRate": 17,
-      "favorability": 41
+      "favorability": 42
     },
     {
       "id": "26e61764-395e-441c-9793-e0832150197d",

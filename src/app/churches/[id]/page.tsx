@@ -28,7 +28,7 @@ export default async function ChurchPage({ params }: PageProps<"/churches/[id]">
   const { data: church } = await sb.from("church")
     .select("id, canonical_name, gcfa_number, city, address, state, zip, county_name, status, church_ethnicity, congregation_type, legacy_conferences, first_data_year, last_data_year, lat, lng")
     .eq("id", id).maybeSingle();
-  if (!church || !church.gcfa_number) notFound();
+  if (!church || !church.gcfa_number || church.status === "unverified") notFound();
 
   const [statsRes, projRes, vitRes, cohRes] = await Promise.all([
     sb.from("church_stat").select("data_year, field_code, value_numeric").eq("church_id", id).eq("source", "gcfa").in("field_code", FIELDS),

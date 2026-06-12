@@ -1,0 +1,204 @@
+new_district	county	city	church	old_district	our_match	gcfa	our_status	score
+North	McCulloch	Brady	Grace-New Church Start	West	*** NO MATCH ***			0.20
+North	Mason	Hilda	Hilda UMC	West	Hilda	762542	active	1.00
+North	Mason	Mason	First UMC	West	Mason	762644	active	0.50
+North	San Saba	Cherokee	Cherokee UMC	West	Cherokee	760703	active	1.00
+North	Lampasas	Kempner	Kempner UMC	Capital	Kempner	761013	active	1.00
+North	Lampasas	Lometa	Lometa UMC	Capital	Lometa	761126	active	1.00
+North	Lampasas	Lometa	Bend UMC	Capital	Bend	760678	active	0.50
+North	Burnet	Bertram	Bertram UMC	Capital	Bertram	760543	active	1.00
+North	Travis	Austin	Austin New Church UMC	Capital	Austin New Church	730295	active	1.00
+North	Travis	Austin	Berkeley UMC	Capital	Berkeley	757352	active	1.00
+North	Travis	Austin	Bethany UMC	Capital	Bethany Austin	758573	active	1.00
+North	Travis	Austin	Covenant UMC	Capital	Covenant Austin	758130	active	1.00
+North	Travis	Austin	Decker UMC	Capital	Decker	758482	active	1.00
+North	Travis	Austin	Emmanuel UMC	Capital	Austin: Emmanuel	755125	active	1.00
+North	Travis	Austin	First UMC	Capital	First Austin	758185	active	1.00
+North	Travis	Austin	Lake Travis UMC	Capital	Lake Travis	758538	active	1.00
+North	Travis	Austin	Life in the City UMC	Capital	Life in the City	756860	active	1.00
+North	Travis	Austin	Memorial UMC	Capital	Memorial Austin	758128	active	1.00
+North	Travis	Austin	Northwest Hills UMC	Capital	Northwest Hills	758083	active	1.00
+North	Travis	Austin	Oak Hill UMC	Capital	Oak Hill	758117	active	1.00
+North	Travis	Austin	Simpson UMC	Capital	Simpson Austin	985025	active	1.00
+North	Travis	Austin	St. John UMC	Capital	St Johns Austin	758243	active	0.50
+North	Travis	Austin	St. Mark UMC	Capital	St Mark Austin	758276	active	1.00
+North	Travis	Austin	St. Paul’s UMC	Capital	Saint Paul Austin	758460	active	hand
+North	Travis	Austin	St. Peter’s UMC	Capital	St Peters Austin	985014	active	1.00
+North	Travis	Austin	Tarrytown UMC	Capital	Tarrytown	758323	active	1.00
+North	Travis	Austin	Trinity UMC	Capital	Trinity Austin	758345	active	1.00
+North	Travis	Austin	University UMC	Capital	University Austin	758367	active	1.00
+North	Travis	Austin	Violet Crown City Church	Capital	Violet Crown City Church	758141	active	1.00
+North	Travis	Austin	Wesley UMC	Capital	Wesley Austin	985036	active	1.00
+North	Travis	Austin	Westlake UMC	Capital	Westlake	760782	active	1.00
+North	Travis	Spicewood	Bee Creek UMC	Capital	Bee Creek	758356	active	1.00
+North	Travis	Manchaca	Manchaca UMC	Capital	Manchaca	758802	active	1.00
+North	Travis	Pﬂugerville	Pflugerville UMC	Capital	Pflugerville	758414	active	1.00
+North	Travis	Lago Vista	Rolling Hills Community	Capital	Rolling Hills Community	758711	active	1.00
+North	Travis	Manor	Manor UMC	Crossroads	Manor	758846	active	1.00
+North	Williamson	Cedar Park	First UMC	Capital	Cedar Park: First	758152	active	1.00
+North	Williamson	Del Valle	Haynie Chapel	Crossroads	Haynie Chapel	758664	active	1.00
+North	Williamson	Liberty Hill	Cross Track Church UMC	Capital	Cross Track Church	761081	closed	1.00
+North	Williamson	Leander	Leander UMC	Capital	Leander	761068	active	1.00
+North	Llano	Buchanan Dam	Highland Lakes UMC	Hill Country	Buchanan Dam: Highland Lakes	760918	active	1.00
+North	Llano	Valley Spring	Valley Spring UMC	Hill Country	Valley Spring	761115	active	1.00
+North	Hays	Buda	Buda UMC	Hill Country	Buda	758425	active	1.00
+North	Hays	Kyle	Kyle UMC	Hill Country	Kyle First	758722	active	0.50
+North	Hays	Kyle	The Journey UMC	Hill Country	The Journey	758458	active	hand
+North	Hays	San Marcos	El Buen Pastor UMC	Hill Country	San Marcos: El Buen Pastor	755763	active	1.00
+North	Hays	San Marcos	First UMC	Hill Country	San Marcos: First	759008	active	1.00
+North	Hays	San Marcos	Jackson Chapel UMC	Hill Country	San Marcos Jackson	985184	active	0.75
+North	Hays	Wimberley	Wimberley UMC	Hill Country	Wimberley	758620	active	1.00
+North	Gillespie	Fredericksburg	Fredericksburg UMC	Hill Country	Fredericksburg	760805	active	1.00
+North	Gillespie	Harper	Harper UMC	Hill Country	Harper	760840	active	0.50
+North	Bastrop	Bastrop	Bastrop UMC	Crossroads	Bastrop	758403	active	1.00
+North	Bastrop	Cedar Creek	Cedar Creek UMC	Crossroads	Cedar Creek	759098	active	1.00
+North	Bastrop	Elgin	Elgin UMC	Crossroads	Elgin	758527	active	1.00
+North	Bastrop	Smithville	First UMC	Crossroads	Smithville	759087	active	0.50
+North	Caldwell	Fentress	Fentress UMC	Crossroads	Fentress	758540	active	1.00
+North	Caldwell	Lockhart	St. Mark UMC	Crossroads	Lockhart: St. Mark's	985140	active	hand
+North	Caldwell	Dale	Corinth UMC	Crossroads	Dale: Corinth	985071	active	1.00
+North	Caldwell	Luling	First UMC	Crossroads	Luling: First	758788	active	1.00
+North	Caldwell	Luling	William Taylor UMC	Crossroads	Luling William Taylor	985151	active	1.00
+North	Caldwell	Prairie Lea	Prairie Lea UMC	Crossroads	Prairie Lea	758983	disaffiliated	0.67
+North	Fayette	LaGrange	St. James UMC	Crossroads	La Grange Saint James	985138	active	1.00
+North	Fayette	Schulenburg	Stevens Chapel UMC	Crossroads	Schulenburg Stevens Chpl	984954	active	0.50
+North	Fayette	Winchester	Winchester UMC	Crossroads	Winchester	759112	active	1.00
+North	Colorado	Altair	Wesley Chapel UMC	Crossroads	Altair: Wesley Chapel	984863	active	0.75
+North	Colorado	Columbus	First UMC	Crossroads	Columbus: First	758447	active	1.00
+North	Colorado	Columbus	St. Paul UMC	Crossroads	Columbus: St. Paul	984874	active	1.00
+North	Colorado	Eagle Lake	Eagle Lake UMC	Crossroads	Eagle Lake	758505	active	1.00
+North	Colorado	Weimar	Weimar UMC	Crossroads	Weimar	759167	active	1.00
+North	Austin	Industry	Cherry Chapel UMC	Crossroads	Industry: Cherry Chapel	985127	active	1.00
+North	Guadalupe	Staples	Staples UMC	Crossroads	Staples	759123	active	1.00
+Central	Bexar	Helotes	Helotes Hills UMC	Las Misiones	Helotes Hills	763353	active	1.00
+Central	Bexar	San Antonio	Alamo UMC	Las Misiones	Alamo	763488	active	1.00
+Central	Bexar	San Antonio	Alamo Heights UMC	Las Misiones	Alamo Heights	763785	active	1.00
+Central	Bexar	San Antonio	Bethany UMC	Las Misiones	Bethany San Antonio	763967	active	1.00
+Central	Bexar	San Antonio	Bethel UMC	Las Misiones	Bethel San Antonio	763843	active	1.00
+Central	Bexar	San Antonio	Chapel Hill UMC	Las Misiones	Chapel Hill	763307	active	1.00
+Central	Bexar	San Antonio	Chinese UMC	Las Misiones	Chinese San Antonio	763854	active	1.00
+Central	Bexar	San Antonio	Christ Fellowship UMC	Las Misiones	Christ Fellowship	756118	active	1.00
+Central	Bexar	San Antonio	Colonial Hills UMC	Las Misiones	Colonial Hills	763898	active	1.00
+Central	Bexar	San Antonio	East St. Paul UMC	Las Misiones	East St Paul	985925	active	1.00
+Central	Bexar	San Antonio	Emanuel UMC	Las Misiones	Emanuel San Antonio	755570	active	1.00
+Central	Bexar	San Antonio	Epworth UMC	Las Misiones	Epworth San Antonio	763945	active	1.00
+Central	Bexar	San Antonio	Ernest T. Dixon UMC	Las Misiones	Ernest T Dixon	764016	active	1.00
+Central	Bexar	San Antonio	Jacobs Chapel UMC	Las Misiones	Jacobs Chapel	985947	closed	1.00
+Central	Bexar	San Antonio	La Trinidad UMC	Las Misiones	La Trinidad San Antonio	755683	active	1.00
+Central	Bexar	San Antonio	Laurel Heights UMC	Las Misiones	Laurel Heights	764062	active	1.00
+Central	Bexar	San Antonio	Northern Hills UMC	Las Misiones	Northern Hills	763397	active	1.00
+Central	Bexar	San Antonio	Oak Meadow UMC	Las Misiones	Oak Meadow	764073	active	1.00
+Central	Bexar	San Antonio	Oxford UMC	Las Misiones	Oxford	764051	active	1.00
+Central	Bexar	San Antonio	Pollard Memorial UMC	Las Misiones	Pollard Memorial	755706	active	1.00
+Central	Bexar	San Antonio	Sanford Chapel UMC	Las Misiones	Sanford Chapel	985993	active	1.00
+Central	Bexar	San Antonio	Spring Creek UMC	Las Misiones	Spring Creek	764392	active	hand
+Central	Bexar	San Antonio	St. Mark’s UMC	Las Misiones	Saint Marks San Antonio	764200	active	1.00
+Central	Bexar	San Antonio	St. Matthew’s UMC	Las Misiones	Saint Matthews San Antonio	764211	active	1.00
+Central	Bexar	San Antonio	St. Paul UMC	Las Misiones	Saint Paul San Antonio	985982	active	1.00
+Central	Bexar	San Antonio	Travis Park UMC	Las Misiones	Travis Park	764244	active	1.00
+Central	Bexar	San Antonio	Trinity UMC	Las Misiones	Trinity San Antonio	764266	active	1.00
+Central	Bexar	San Antonio	Westlawn UMC	Las Misiones	Westlawn	755741	active	1.00
+Central	Bexar	San Antonio	Windcrest UMC	Las Misiones	Windcrest	763832	active	1.00
+Central	Bexar	San Antonio	Windsong UMC	Las Misiones	Centro Windsong	757374	active	0.75
+Central	Bexar	San Antonio	Impacto Comunitario	Las Misiones	*** NO MATCH ***			0.40
+Central	Bexar	St. Hedwig	The Rock UMC	Las Misiones	The Rock UMC	001106	active	1.00
+Central	Bexar	Universal City	Universal City UMC	Las Misiones	Universal City	763978	active	1.00
+Central	Wilson	Floresville	Floresville UMC	Las Misiones	Floresville	763502	active	1.00
+Central	Wilson	Floresville	El Mesias UMC	Las Misiones	Floresville: El Mesias	755320	active	1.00
+Central	Wilson	La Vernia	La Vernia UMC	Las Misiones	La Vernia	763568	active	1.00
+Central	Frio	Dilley	Bethania UMC	Las Misiones	Dilley: Bethania	756745	active	1.00
+Central	Frio	Pearsall	San Pablo UMC	Las Misiones	Pearsall: San Pablo	756701	active	1.00
+Central	Guadalupe	Schertz	Schertz UMC	Las Misiones	Schertz	764324	active	1.00
+Central	Guadalupe	Seguin	La Trinidad UMC	Crossroads	Seguin: La Trinidad	755785	active	1.00
+Central	Guadalupe	Seguin	Wesley Harper UMC	Crossroads	Seguin: Wesley Harper	986031	active	1.00
+Central	Comal	Canyon Lake	Canyon Lake UMC	Hill Country	Canyon Lake	763637	active	1.00
+Central	Comal	Canyon Lake	North Shore UMC	Hill Country	Canyon Lake North Shore	758493	active	1.00
+Central	Comal	Gruene	Gruene UMC	Hill Country	Gruene	758595	closed	hand
+Central	Comal	New Braunfels	First UMC	Hill Country	New Braunfels	763626	active	0.67
+Central	Kendall	Boerne	First UMC	Hill Country	Boerne First	760587	active	1.00
+Central	Kendall	Comfort	Gaddis Memorial UMC	Hill Country	Comfort Gaddis Meml	760725	active	0.50
+Central	Kerr	Hunt	Hunt UMC	Hill Country	Hunt	760884	active	1.00
+Central	Kerr	Kerrville	Barnett Chapel UMC	Hill Country	Barnett Chapel	985891	active	1.00
+Central	Kerr	Kerrville	First UMC	Hill Country	First Kerrville	760964	active	1.00
+Central	Kerr	Kerrville	St. Paul’s UMC	Hill Country	St Pauls Kerrville	760942	active	1.00
+Central	Bandera	Pipe Creek	Lakehills UMC	Hill Country	Lakehills	760532	active	hand
+Central	Medina	Devine	Devine UMC	Hill Country	Devine	763444	active	1.00
+Central	Medina	Castroville	Medina Valley UMC	Hill Country	Castroville: Medina Valley	760975	active	1.00
+Central	Medina	Yancey	Yancey UMC	Hill Country	Yancey	761343	active	1.00
+Central	Uvalde	Uvalde	La Divina Trinidad UMC	Hill Country	Uvalde: La Divina Trinidad	755887	active	1.00
+Central	Zavala	Crystal City	Swindall Memorial UMC	Hill Country	Crystal City: Swindall Memorial	756186	active	1.00
+Central	Dimmit	Carrizo Springs	Carrizo Springs UMC	Hill Country	Carrizo Springs	760645	active	1.00
+Central	Maverick	Eagle Pass	First UMC / MBH	Hill Country	Eagle [ Pass	762440	closed	hand
+Central	Sutton	Sonora	Sonora UMC	West	Sonora	763067	active	1.00
+Central	Upton	Rankin	Rankin UMC	West	Rankin	762861	active	1.00
+Central	Tom Green	San Angelo	Bethel UMC	West	San Angelo: Bethel	755648	active	1.00
+Central	Tom Green	San Angelo	Sierra Vista UMC	West	Sierra Vista	762941	active	1.00
+Central	Tom Green	San Angelo	St. Luke UMC	West	St Luke San Angelo	763001	active	1.00
+Central	Tom Green	San Angelo	Wesley Trinity UMC	West	Wesley Trinity	750624	active	1.00
+Central	Pecos	Iraan	Iraan UMC	West	Iraan	837088	closed	1.00
+Central	Kinney	Brackettville	Brackettville UMC	West	Brackettville	762267	active	1.00
+Central	Val Verde	Del Rio	First UMC	West	Del Rio	762427	active	0.67
+Central	Val Verde	Del Rio	Principe de Paz UMC	West	Del Rio: Principe de Paz	755307	active	1.00
+South	Webb	Laredo	First UMC	Las Misiones	Laredo: First	761742	active	1.00
+South	Webb	Laredo	La Trinidad UMC	Las Misiones	Laredo: La Trinidad	756541	active	1.00
+South	Webb	Bruni	Bruni UMC	Coastal Bend	Bruni	761525	active	1.00
+South	Gonzales	Gonzales	Evans Chapel	Crossroads	Evan's Chapel	985812	active	1.00
+South	Gonzales	Gonzales	Henson Chapel	Crossroads	Gonzales: Henson Chapel	985801	active	1.00
+South	Gonzales	Harwood	Harwood UMC	Crossroads	Harwood	759134	active	1.00
+South	Gonzales	Nixon	Harris Chapel UMC	Crossroads	Nixon: Harris Chapel	985914	active	0.75
+South	Dewitt	Cuero	Cuero UMC	Crossroads	Cuero: First	759704	active	0.50
+South	Dewitt	Cuero	Rabke UMC	Crossroads	Rabke	760417	active	1.00
+South	Dewitt	Yorktown	First UMC	Crossroads	Yorktown	760406	active	0.50
+South	Karnes	Runge	Runge UMC	Crossroads	Runge	760246	active	1.00
+South	Victoria	Bloomington	Bloomington UMC	Crossroads	Bloomington First	759442	active	0.50
+South	Victoria	Telferner	Telferner UMC	Crossroads	Telferner	760337	active	1.00
+South	Victoria	Victoria	First UMC	Crossroads	First Victoria	760348	active	1.00
+South	Victoria	Victoria	Webster Chapel UMC	Crossroads	Websters Chapel	984976	active	0.50
+South	Jackson	Edna	First UMC	Crossroads	Edna: First	759748	active	1.00
+South	Jackson	Edna	Scruggs Chapel UMC	Crossroads	Edna: Scruggs	984896	closed	0.67
+South	Lavaca	Hallettsville	Richardson Chapel UMC	Crossroads	Richardson-Brown Chapel	984921	active	0.75
+South	Lavaca	Shiner	Shiner UMC	Crossroads	Shiner: First	759043	active	0.50
+South	Lavaca	Shiner	Johnson’s Chapel UMC	Crossroads	Shiner: Johnson's Chapel	984715	active	1.00
+South	Lavaca	Yoakum	First UMC	Crossroads	Yoakum	760428	active	0.50
+South	Matagorda	Palacios	Palacios UMC	Coastal Bend	Palacios	760042	active	1.00
+South	Calhoun	Port Lavaca	First UMC	Coastal Bend	Port Lavaca	760144	active	0.67
+South	Calhoun	Seadrift	Seadrift UMC	Coastal Bend	Seadrift	760268	active	1.00
+South	Aransas	Rockport	First UMC	Coastal Bend	Rockport: First	760224	active	1.00
+South	Refugio	Woodsboro	Faith United UMC	Coastal Bend	Woodsboro: Faith United	760383	active	1.00
+South	Bee	Beeville	First UMC	Coastal Bend	Beeville: First	759384	active	1.00
+South	Bee	Beeville	Jones Chapel UMC	Coastal Bend	Beeville: Jones Chapel	985834	active	1.00
+South	Bee	Skidmore	Skidmore UMC	Coastal Bend	Skidmore	760304	active	1.00
+South	Goliad	Goliad	Fannin St. UMC	Coastal Bend	Goliad: Fannin St.	985060	active	1.00
+South	San Patricio	Portland	First UMC	Coastal Bend	Portland	760122	active	0.50
+South	San Patricio	Sinton	Sinton UMC	Coastal Bend	Sinton: First	760281	active	0.50
+South	San Patricio	Odem	Odem UMC	Coastal Bend	Odem	760020	active	1.00
+South	Nueces	Bishop	Bishop UMC	Coastal Bend	Bishop	761491	active	1.00
+South	Nueces	Corpus Christi	El Buen Pastor UMC	Coastal Bend	Corpus Christi: El Buen Pastor	756153	active	1.00
+South	Nueces	Corpus Christi	First UMC	Coastal Bend	First Corpus Christi	759544	active	1.00
+South	Nueces	Corpus Christi	Grace UMC	Coastal Bend	Grace Corpus Christi	759420	active	1.00
+South	Nueces	Corpus Christi	Island in the Son UMC	Coastal Bend	Island in the Son	759577	active	1.00
+South	Nueces	Corpus Christi	Kelsey Memorial UMC	Coastal Bend	Corpus Christi: Kelsey Memorial	756142	active	1.00
+South	Nueces	Corpus Christi	St. John’s UMC	Coastal Bend	Saint Johns Corpus Christi	759602	active	1.00
+South	Nueces	Corpus Christi	St. Paul UMC	Coastal Bend	St Paul Corpus Christi	985845	active	1.00
+South	Nueces	Corpus Christi	Wesley UMC	Coastal Bend	Wesley Corpus Christi	759681	active	1.00
+South	Kleberg	Kingsville	First UMC	Coastal Bend	First Kingsville	761731	active	1.00
+South	Kleberg	Kingsville	El Buen Pastor UMC	Coastal Bend	Kingsville: El Buen Pastor	756528	active	1.00
+South	Duval	Freer	Freer UMC	Coastal Bend	Freer	761640	active	1.00
+South	Zapata	Zapata	First UMC	El Valle	Zapata	760656	active	0.50
+South	Hidalgo	Weslaco	First UMC	El Valle	Weslaco	762063	active	0.50
+South	Hidalgo	Alamo	San Pablo UMC	El Valle	Alamo: San Pablo	756062	active	1.00
+South	Hidalgo	Edinburg	El Buen Pastor UMC	El Valle	Edinburg: El Buen Pastor	756346	active	1.00
+South	Hidalgo	Edinburg	First UMC	El Valle	Edinburg	761605	active	0.50
+South	Hidalgo	McAllen	First UMC	El Valle	First McAllen	761800	active	1.00
+South	Hidalgo	McAllen	St. Mark UMC	El Valle	Saint Mark McAllen	761822	active	1.00
+South	Hidalgo	Mercedes	First UMC	El Valle	Mercedes: First	761844	active	1.00
+South	Hidalgo	Mission	El Mesias UMC	El Valle	Mission: El Mesias	756643	active	1.00
+South	Hidalgo	Pharr	La Trinidad UMC	El Valle	Pharr: La Trinidad	756723	active	1.00
+South	Hidalgo	Pharr	Nueva Vida UMC	El Valle	Nueva Vida Mission	730273	active	0.75
+South	Hidalgo	San Juan	Los Wesleyanos UMC	El Valle	San Juan: Los Wesleyanos	756426	active	1.00
+South	Cameron	Brownsville	First UMC	El Valle	Brownsville: First	761480	active	1.00
+South	Cameron	Brownsville	Templo Emmanuel	El Valle	Brownsville Templo Eman	756175	active	0.50
+South	Cameron	La Feria	Dios Es Amor UMC	El Valle	La Feria: Dios Es Amor	756665	active	1.00
+South	Cameron	La Feria	La Feria UMC	El Valle	La Feria	761720	active	1.00
+South	Cameron	Port Isabel	First UMC	El Valle	Port Isabel	761946	active	0.67
+South	Cameron	San Benito	First UMC	El Valle	San Benito: First	762006	active	1.00
