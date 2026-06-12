@@ -80,7 +80,7 @@ export default async function ChurchPage({ params }: PageProps<"/churches/[id]">
 
   const st = STATUS[(church.status as keyof typeof STATUS)] ?? STATUS.active;
   const lineage = (church.legacy_conferences ?? []).join(" → ");
-  const district = district2025(church.county_name);
+  const district = district2025(church.county_name, church.gcfa_number);
   const eraADistrict = cohort?.district && cohort.district !== district ? cohort.district : null;
 
   return (

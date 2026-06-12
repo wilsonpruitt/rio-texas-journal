@@ -1,3 +1,5 @@
+import { ROSTER_DISTRICT_2025 } from "./district-roster-2025.ts";
+
 // Rio Texas 2025 district realignment (Central / North / South), assigned by COUNTY.
 // Derived from the conference's 2025 district-conversion table (district-conversion-2025.json);
 // counties map 1:1 to districts (Guadalupe split 3 Central / 1 North → Central). Using county
@@ -29,8 +31,16 @@ export const DISTRICT_2025_BY_COUNTY: Record<string, "Central" | "North" | "Sout
   STARR: "South", "JIM WELLS": "South", WILLACY: "South", BROOKS: "South", "LA SALLE": "South",
 };
 
-/** Current (2025) district for a church, by county name. Returns null if unmapped. */
-export function district2025(countyName: string | null | undefined): "Central" | "North" | "South" | null {
+/**
+ * Current (2025) district for a church. The FINAL 07.14.2025 roster (per-church,
+ * via gcfaNumber) is authoritative; county inference is the fallback for churches
+ * not on that roster (e.g. closed/disaffiliated churches shown with historical context).
+ */
+export function district2025(countyName: string | null | undefined, gcfaNumber?: string | null): "Central" | "North" | "South" | null {
+  if (gcfaNumber) {
+    const d = ROSTER_DISTRICT_2025[gcfaNumber];
+    if (d) return d;
+  }
   if (!countyName) return null;
   return DISTRICT_2025_BY_COUNTY[countyName.trim().toUpperCase()] ?? null;
 }

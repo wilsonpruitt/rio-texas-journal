@@ -6,8 +6,8 @@ export const dynamic = "force-dynamic";
 export const metadata = { title: "Churches" };
 
 export default async function ChurchesPage() {
-  const churches = await fetchAll<{ id: string; canonical_name: string; status: Row["status"]; city: string | null; county_name: string | null }>((s, from, to) =>
-    s.from("church").select("id, canonical_name, status, city, county_name").not("gcfa_number", "is", null).neq("status", "unverified").range(from, to));
+  const churches = await fetchAll<{ id: string; canonical_name: string; status: Row["status"]; city: string | null; county_name: string | null; gcfa_number: string }>((s, from, to) =>
+    s.from("church").select("id, canonical_name, status, city, county_name, gcfa_number").not("gcfa_number", "is", null).neq("status", "unverified").range(from, to));
   const vits = await fetchAll<{ church_id: string; risk_tier: Row["riskTier"]; risk_score: number }>((s, from, to) =>
     s.from("church_vitality").select("church_id, risk_tier, risk_score").range(from, to));
   const mem = await churchMembership();
@@ -19,7 +19,7 @@ export default async function ChurchesPage() {
     const v = vitMap.get(c.id);
     return {
       id: c.id, name: c.canonical_name, status: c.status, city: c.city,
-      district: district2025(c.county_name),
+      district: district2025(c.county_name, c.gcfa_number),
       worship: m?.worship ?? null, worshipTrend: m?.worshipTrend ?? null,
       riskTier: v?.risk_tier ?? null, riskScore: v?.risk_score ?? null,
     };

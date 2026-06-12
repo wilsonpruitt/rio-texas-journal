@@ -37,7 +37,7 @@ North	Travis	Lago Vista	Rolling Hills Community	Capital	Rolling Hills Community	
 North	Travis	Manor	Manor UMC	Crossroads	Manor	758846	active	1.00
 North	Williamson	Cedar Park	First UMC	Capital	Cedar Park: First	758152	active	1.00
 North	Williamson	Del Valle	Haynie Chapel	Crossroads	Haynie Chapel	758664	active	1.00
-North	Williamson	Liberty Hill	Cross Track Church UMC	Capital	Cross Track Church	761081	closed	1.00
+North	Williamson	Liberty Hill	Cross Track Church UMC	Capital	Cross Track Church	761081	active	1.00
 North	Williamson	Leander	Leander UMC	Capital	Leander	761068	active	1.00
 North	Llano	Buchanan Dam	Highland Lakes UMC	Hill Country	Buchanan Dam: Highland Lakes	760918	active	1.00
 North	Llano	Valley Spring	Valley Spring UMC	Hill Country	Valley Spring	761115	active	1.00
@@ -83,7 +83,7 @@ Central	Bexar	San Antonio	East St. Paul UMC	Las Misiones	East St Paul	985925	act
 Central	Bexar	San Antonio	Emanuel UMC	Las Misiones	Emanuel San Antonio	755570	active	1.00
 Central	Bexar	San Antonio	Epworth UMC	Las Misiones	Epworth San Antonio	763945	active	1.00
 Central	Bexar	San Antonio	Ernest T. Dixon UMC	Las Misiones	Ernest T Dixon	764016	active	1.00
-Central	Bexar	San Antonio	Jacobs Chapel UMC	Las Misiones	Jacobs Chapel	985947	closed	1.00
+Central	Bexar	San Antonio	Jacobs Chapel UMC	Las Misiones	Jacobs Chapel	985947	active	1.00
 Central	Bexar	San Antonio	La Trinidad UMC	Las Misiones	La Trinidad San Antonio	755683	active	1.00
 Central	Bexar	San Antonio	Laurel Heights UMC	Las Misiones	Laurel Heights	764062	active	1.00
 Central	Bexar	San Antonio	Northern Hills UMC	Las Misiones	Northern Hills	763397	active	1.00
@@ -113,7 +113,7 @@ Central	Guadalupe	Seguin	La Trinidad UMC	Crossroads	Seguin: La Trinidad	755785	a
 Central	Guadalupe	Seguin	Wesley Harper UMC	Crossroads	Seguin: Wesley Harper	986031	active	1.00
 Central	Comal	Canyon Lake	Canyon Lake UMC	Hill Country	Canyon Lake	763637	active	1.00
 Central	Comal	Canyon Lake	North Shore UMC	Hill Country	Canyon Lake North Shore	758493	active	1.00
-Central	Comal	Gruene	Gruene UMC	Hill Country	Gruene	758595	closed	hand
+Central	Comal	Gruene	Gruene UMC	Hill Country	Gruene	758595	active	hand
 Central	Comal	New Braunfels	First UMC	Hill Country	New Braunfels	763626	active	0.67
 Central	Kendall	Boerne	First UMC	Hill Country	Boerne First	760587	active	1.00
 Central	Kendall	Comfort	Gaddis Memorial UMC	Hill Country	Comfort Gaddis Meml	760725	active	0.50
@@ -128,14 +128,14 @@ Central	Medina	Yancey	Yancey UMC	Hill Country	Yancey	761343	active	1.00
 Central	Uvalde	Uvalde	La Divina Trinidad UMC	Hill Country	Uvalde: La Divina Trinidad	755887	active	1.00
 Central	Zavala	Crystal City	Swindall Memorial UMC	Hill Country	Crystal City: Swindall Memorial	756186	active	1.00
 Central	Dimmit	Carrizo Springs	Carrizo Springs UMC	Hill Country	Carrizo Springs	760645	active	1.00
-Central	Maverick	Eagle Pass	First UMC / MBH	Hill Country	Eagle [ Pass	762440	closed	hand
+Central	Maverick	Eagle Pass	First UMC / MBH	Hill Country	Eagle Pass: First (Mission Border Hope)	762440	active	hand
 Central	Sutton	Sonora	Sonora UMC	West	Sonora	763067	active	1.00
 Central	Upton	Rankin	Rankin UMC	West	Rankin	762861	active	1.00
 Central	Tom Green	San Angelo	Bethel UMC	West	San Angelo: Bethel	755648	active	1.00
 Central	Tom Green	San Angelo	Sierra Vista UMC	West	Sierra Vista	762941	active	1.00
 Central	Tom Green	San Angelo	St. Luke UMC	West	St Luke San Angelo	763001	active	1.00
 Central	Tom Green	San Angelo	Wesley Trinity UMC	West	Wesley Trinity	750624	active	1.00
-Central	Pecos	Iraan	Iraan UMC	West	Iraan	837088	closed	1.00
+Central	Pecos	Iraan	Iraan UMC	West	Iraan	837088	active	1.00
 Central	Kinney	Brackettville	Brackettville UMC	West	Brackettville	762267	active	1.00
 Central	Val Verde	Del Rio	First UMC	West	Del Rio	762427	active	0.67
 Central	Val Verde	Del Rio	Principe de Paz UMC	West	Del Rio: Principe de Paz	755307	active	1.00
@@ -155,7 +155,7 @@ South	Victoria	Telferner	Telferner UMC	Crossroads	Telferner	760337	active	1.00
 South	Victoria	Victoria	First UMC	Crossroads	First Victoria	760348	active	1.00
 South	Victoria	Victoria	Webster Chapel UMC	Crossroads	Websters Chapel	984976	active	0.50
 South	Jackson	Edna	First UMC	Crossroads	Edna: First	759748	active	1.00
-South	Jackson	Edna	Scruggs Chapel UMC	Crossroads	Edna: Scruggs	984896	closed	0.67
+South	Jackson	Edna	Scruggs Chapel UMC	Crossroads	Edna: Scruggs	984896	active	0.67
 South	Lavaca	Hallettsville	Richardson Chapel UMC	Crossroads	Richardson-Brown Chapel	984921	active	0.75
 South	Lavaca	Shiner	Shiner UMC	Crossroads	Shiner: First	759043	active	0.50
 South	Lavaca	Shiner	Johnson’s Chapel UMC	Crossroads	Shiner: Johnson's Chapel	984715	active	1.00

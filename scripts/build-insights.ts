@@ -37,13 +37,13 @@ const idMap: Record<string, string> = JSON.parse(readFileSync(DIR + "church_id_m
 const churchesJson: any[] = JSON.parse(readFileSync(DIR + "churches.json", "utf8"));
 const identByGcfa = new Map(churchesJson.map((c) => [String(c.gcfa_number), c]));
 
-type Church = { id: string; canonical_name: string; city: string | null; county_name: string | null; zip: string | null };
+type Church = { id: string; canonical_name: string; city: string | null; county_name: string | null; zip: string | null; gcfa: string };
 const churches: Church[] = [];
 for (const [gcfa, id] of Object.entries(idMap)) {
   if (statusByChurchId.get(id) !== "active") continue;
   const c = identByGcfa.get(gcfa);
   const zip = c?.zip ? String(c.zip).slice(0, 5).padStart(5, "0") : null;
-  churches.push({ id, canonical_name: c?.church_name ?? "(unknown)", city: c?.city ?? null, county_name: c?.county_name ?? null, zip });
+  churches.push({ id, canonical_name: c?.church_name ?? "(unknown)", city: c?.city ?? null, county_name: c?.county_name ?? null, zip, gcfa });
 }
 
 // ACS neighborhood profile by ZIP (small table — direct query, no timeout)
@@ -108,7 +108,7 @@ for (const c of churches) {
   const propValue = latest(f?.get("VALPROP"));
   const acs = c.zip ? acsByZip.get(c.zip) ?? null : null;
   out.push({
-    id: c.id, name: c.canonical_name, city: c.city, district: district2025(c.county_name),
+    id: c.id, name: c.canonical_name, city: c.city, district: district2025(c.county_name, c.gcfa),
     members,
     worship,
     worshipTrend: trendPct(f?.get("AVATTWOR")),                                    // vitality axis

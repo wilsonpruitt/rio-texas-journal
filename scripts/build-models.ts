@@ -308,7 +308,7 @@ async function main() {
   const districtSummary: Record<string, Dist> = Object.fromEntries(DISTRICTS_2025.map((d) => [d, mkDist()]));
   for (const g of gcfas) {
     if (outcome(g) !== 'active') continue;
-    const dist = district2025(ident.get(g)?.county_name);
+    const dist = district2025(ident.get(g)?.county_name, g);
     if (!dist) continue;
     const d = districtSummary[dist];
     d.churches++;

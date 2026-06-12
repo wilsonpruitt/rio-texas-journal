@@ -28,15 +28,15 @@ export default async function DistrictPage({ params }: Params) {
   const payout = d.apportioned > 0 ? (d.paid / d.apportioned) * 100 : null;
 
   // roster — active churches in this district
-  const churches = await fetchAll<{ id: string; canonical_name: string; status: Row["status"]; city: string | null; county_name: string | null }>((s, from, to) =>
-    s.from("church").select("id, canonical_name, status, city, county_name").not("gcfa_number", "is", null).range(from, to));
+  const churches = await fetchAll<{ id: string; canonical_name: string; status: Row["status"]; city: string | null; county_name: string | null; gcfa_number: string }>((s, from, to) =>
+    s.from("church").select("id, canonical_name, status, city, county_name, gcfa_number").not("gcfa_number", "is", null).range(from, to));
   const vits = await fetchAll<{ church_id: string; risk_tier: Row["riskTier"]; risk_score: number }>((s, from, to) =>
     s.from("church_vitality").select("church_id, risk_tier, risk_score").range(from, to));
   const mem = await churchMembership();
   const vitMap = new Map(vits.map((v) => [v.church_id, v]));
 
   const rows: Row[] = churches
-    .filter((c) => c.status === "active" && district2025(c.county_name) === name)
+    .filter((c) => c.status === "active" && district2025(c.county_name, c.gcfa_number) === name)
     .map((c) => {
       const m = mem[c.id];
       const v = vitMap.get(c.id);

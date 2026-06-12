@@ -14,8 +14,8 @@ export default async function VitalityPage() {
 
   const vits = await fetchAll<{ church_id: string; risk_score: number; risk_tier: RiskTier; observed_status: string }>((s, from, to) =>
     s.from("church_vitality").select("church_id, risk_score, risk_tier, observed_status").eq("observed_status", "active").range(from, to));
-  const churches = await fetchAll<{ id: string; canonical_name: string; city: string | null; county_name: string | null }>((s, from, to) =>
-    s.from("church").select("id, canonical_name, city, county_name").not("gcfa_number", "is", null).range(from, to));
+  const churches = await fetchAll<{ id: string; canonical_name: string; city: string | null; county_name: string | null; gcfa_number: string }>((s, from, to) =>
+    s.from("church").select("id, canonical_name, city, county_name, gcfa_number").not("gcfa_number", "is", null).range(from, to));
   const mem = await churchMembership();
   const { data: autopsyData } = await sb.from("model_meta").select("payload").eq("key", "disaffiliation_autopsy").maybeSingle();
   const autopsy = autopsyData?.payload as any;
@@ -28,7 +28,7 @@ export default async function VitalityPage() {
 
   const atRisk = vits
     .filter((v) => v.risk_tier === "high" || v.risk_tier === "elevated")
-    .map((v) => ({ ...v, name: nameMap.get(v.church_id)?.canonical_name ?? "?", city: nameMap.get(v.church_id)?.city ?? null, district: district2025(nameMap.get(v.church_id)?.county_name), members: mem[v.church_id]?.members ?? null }))
+    .map((v) => ({ ...v, name: nameMap.get(v.church_id)?.canonical_name ?? "?", city: nameMap.get(v.church_id)?.city ?? null, district: district2025(nameMap.get(v.church_id)?.county_name, nameMap.get(v.church_id)?.gcfa_number), members: mem[v.church_id]?.members ?? null }))
     .sort((a, b) => b.risk_score - a.risk_score);
 
   return (
