@@ -255,6 +255,30 @@ async function main() {
   };
   const disaffReport = { disaffiliated: profile('disaffiliated'), active: profile('active'), closed: profile('closed') };
 
+  // ---- 6. precomputed aggregates for the site (avoids paginating church_stat) --
+  // Conference-wide yearly totals for the overview trend panels.
+  const confSeries: Record<string, { year: number; value: number }[]> = {};
+  for (const fc of ["MEMBTOT", "AVATTWOR", "GRANDTOT"]) {
+    const byYear: Record<number, number> = {};
+    for (const g of gcfas) {
+      const m = series[g]?.[fc]; if (!m) continue;
+      for (const y of sortedYears(m)) byYear[y] = (byYear[y] ?? 0) + m[y];
+    }
+    confSeries[fc] = Object.entries(byYear).map(([year, value]) => ({ year: +year, value: round(value)! })).sort((a, b) => a.year - b.year);
+  }
+  // Per-church latest membership + 10-yr trend %, keyed by church_id.
+  const churchMem: Record<string, { members: number | null; trend: number | null }> = {};
+  for (const g of gcfas) {
+    const m = series[g]?.["MEMBTOT"];
+    if (!m || !Object.keys(m).length) continue;
+    const yrs = sortedYears(m);
+    const last = yrs[yrs.length - 1], members = m[last];
+    const baseY = yrs.find((y) => y >= last - 10) ?? yrs[0];
+    const base = m[baseY];
+    const trend = base > 0 && baseY !== last ? Math.round(((members - base) / base) * 100) : null;
+    churchMem[map[g]] = { members, trend };
+  }
+
   // ---- summary + write -----------------------------------------------------
   const counts = { active: grp('active').length, closed: grp('closed').length, disaffiliated: grp('disaffiliated').length };
   console.log(`projections: ${projRows.length} rows`);
@@ -272,6 +296,8 @@ async function main() {
     { key: 'growth_drivers', payload: { drivers, built_year: LATEST } },
     { key: 'disaffiliation_autopsy', payload: disaffReport },
     { key: 'outcome_counts', payload: counts },
+    { key: 'conference_series', payload: confSeries },
+    { key: 'church_membership', payload: churchMem },
   ], { onConflict: 'key' });
   if (error) throw error;
   console.log('Done.');

@@ -1,7 +1,12 @@
 import "server-only";
 import { createClient } from "@/lib/supabase/server";
 
-/** Page through a Supabase query 1000 rows at a time. */
+/**
+ * Page through a Supabase query 1000 rows at a time.
+ * IMPORTANT: the build callback MUST include a stable `.order(...)` (e.g. .order("id")),
+ * otherwise PostgREST row order is unstable across pages and aggregations over the
+ * paged result will double-count / drop rows.
+ */
 export async function fetchAll<T>(
   build: (sb: Awaited<ReturnType<typeof createClient>>, from: number, to: number) => PromiseLike<{ data: T[] | null }>,
 ): Promise<T[]> {
@@ -16,15 +21,22 @@ export async function fetchAll<T>(
   return out;
 }
 
-/** Conference-wide yearly SUM of a GCFA field (source='gcfa'). */
-export async function conferenceSeries(fieldCode: string, fromYear = 2000, toYear = 2024) {
-  const rows = await fetchAll<{ data_year: number; value_numeric: number | null }>((sb, from, to) =>
-    sb.from("church_stat").select("data_year, value_numeric").eq("source", "gcfa").eq("field_code", fieldCode).gte("data_year", fromYear).lte("data_year", toYear).range(from, to),
-  );
-  const byYear = new Map<number, number>();
-  for (const r of rows) {
-    if (r.value_numeric == null) continue;
-    byYear.set(r.data_year, (byYear.get(r.data_year) ?? 0) + r.value_numeric);
-  }
-  return [...byYear.entries()].map(([year, value]) => ({ year, value })).sort((a, b) => a.year - b.year);
+/**
+ * Conference-wide yearly totals for a GCFA field — read from the precomputed
+ * model_meta['conference_series'] row (built by scripts/build-models.ts). Summing
+ * over the raw church_stat table here would require paginating ~12k rows per field,
+ * which is slow and order-unstable under RLS.
+ */
+export async function conferenceSeries(fieldCode: string) {
+  const sb = await createClient();
+  const { data } = await sb.from("model_meta").select("payload").eq("key", "conference_series").maybeSingle();
+  const payload = (data?.payload ?? {}) as Record<string, { year: number; value: number }[]>;
+  return payload[fieldCode] ?? [];
+}
+
+/** Per-church latest membership + 10-yr trend %, keyed by church_id (precomputed). */
+export async function churchMembership(): Promise<Record<string, { members: number | null; trend: number | null }>> {
+  const sb = await createClient();
+  const { data } = await sb.from("model_meta").select("payload").eq("key", "church_membership").maybeSingle();
+  return (data?.payload ?? {}) as Record<string, { members: number | null; trend: number | null }>;
 }

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
-import { fetchAll } from "@/lib/atlas-server";
+import { fetchAll, churchMembership } from "@/lib/atlas-server";
+import { district2025 } from "@/lib/district-2025";
 import { fmtInt, RISK, type RiskTier } from "@/lib/atlas";
 
 export const dynamic = "force-dynamic";
@@ -11,21 +12,13 @@ export default async function VitalityPage() {
 
   const vits = await fetchAll<{ church_id: string; risk_score: number; risk_tier: RiskTier; observed_status: string }>((s, from, to) =>
     s.from("church_vitality").select("church_id, risk_score, risk_tier, observed_status").eq("observed_status", "active").range(from, to));
-  const churches = await fetchAll<{ id: string; canonical_name: string; city: string | null }>((s, from, to) =>
-    s.from("church").select("id, canonical_name, city").not("gcfa_number", "is", null).range(from, to));
-  const cohorts = await fetchAll<{ church_id: string; district: string | null }>((s, from, to) =>
-    s.from("church_cohort").select("church_id, district").range(from, to));
-  const memRows = await fetchAll<{ church_id: string; data_year: number; value_numeric: number | null }>((s, from, to) =>
-    s.from("church_stat").select("church_id, data_year, value_numeric").eq("source", "gcfa").eq("field_code", "MEMBTOT").range(from, to));
+  const churches = await fetchAll<{ id: string; canonical_name: string; city: string | null; county_name: string | null }>((s, from, to) =>
+    s.from("church").select("id, canonical_name, city, county_name").not("gcfa_number", "is", null).range(from, to));
+  const mem = await churchMembership();
   const { data: autopsyData } = await sb.from("model_meta").select("payload").eq("key", "disaffiliation_autopsy").maybeSingle();
   const autopsy = autopsyData?.payload as any;
 
   const nameMap = new Map(churches.map((c) => [c.id, c]));
-  const distMap = new Map(cohorts.map((c) => [c.church_id, c.district]));
-  const latestMem = new Map<string, number>();
-  const byCh = new Map<string, Map<number, number>>();
-  for (const r of memRows) { if (r.value_numeric == null || r.value_numeric === 0) continue; if (!byCh.has(r.church_id)) byCh.set(r.church_id, new Map()); byCh.get(r.church_id)!.set(r.data_year, r.value_numeric); }
-  for (const [id, m] of byCh) { const y = Math.max(...m.keys()); latestMem.set(id, m.get(y)!); }
 
   const tiers: Record<RiskTier, number> = { low: 0, moderate: 0, elevated: 0, high: 0 };
   for (const v of vits) tiers[v.risk_tier]++;
@@ -33,7 +26,7 @@ export default async function VitalityPage() {
 
   const atRisk = vits
     .filter((v) => v.risk_tier === "high" || v.risk_tier === "elevated")
-    .map((v) => ({ ...v, name: nameMap.get(v.church_id)?.canonical_name ?? "?", city: nameMap.get(v.church_id)?.city ?? null, district: distMap.get(v.church_id) ?? null, members: latestMem.get(v.church_id) ?? null }))
+    .map((v) => ({ ...v, name: nameMap.get(v.church_id)?.canonical_name ?? "?", city: nameMap.get(v.church_id)?.city ?? null, district: district2025(nameMap.get(v.church_id)?.county_name), members: mem[v.church_id]?.members ?? null }))
     .sort((a, b) => b.risk_score - a.risk_score);
 
   return (

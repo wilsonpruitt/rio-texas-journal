@@ -51,3 +51,4 @@ journals/
 scripts/data/gcfa/church_stats.csv
 scripts/data/gcfa/church_stats.jsonl
 scripts/data/gcfa/church_id_map.json
+scripts/data/disaffiliation-reconcile.tsv
