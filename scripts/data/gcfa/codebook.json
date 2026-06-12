@@ -1,0 +1,1577 @@
+[
+  {
+    "code": "MEMBPREV",
+    "raw_code": "MEMBPREV",
+    "question": "Total professing members reported at close of last year(See Instructions)",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "RECPROF",
+    "raw_code": "RECPROF",
+    "question": "Received this year on Profession of Christian Faith",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "RECCONF",
+    "raw_code": "RECCONF",
+    "question": "Received this year on Profession of Faith through confirmation",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "RECREST",
+    "raw_code": "RECREST",
+    "question": "Restored by affirmation (or correction to previous years report)",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "RECCOR",
+    "raw_code": "RECCOR",
+    "question": "Correct previous year’s reporting errors of total professing membership numbers by addition",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "RECUMC",
+    "raw_code": "RECUMC",
+    "question": "Received from other United Methodist Churches",
+    "table": 1,
+    "category": "giving"
+  },
+  {
+    "code": "RECOTH",
+    "raw_code": "RECOTH",
+    "question": "Received from other denominations",
+    "table": 1,
+    "category": "giving"
+  },
+  {
+    "code": "RECCLO",
+    "raw_code": "RECCLO",
+    "question": "Received from closed United Methodist Churches",
+    "table": 1,
+    "category": "giving"
+  },
+  {
+    "code": "REMCHR",
+    "raw_code": "REMCHR",
+    "question": "Removed or corrected by Charge Conference action",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "REMWITH",
+    "raw_code": "REMWITH",
+    "question": "Withdrawn",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "REMCOR",
+    "raw_code": "REMCOR",
+    "question": "Correct previous year’s reporting errors of total professing membership numbers by subtraction",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "REMUMC",
+    "raw_code": "REMUMC",
+    "question": "Removed by transfer to other United Methodist Churches",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "REMOTH",
+    "raw_code": "REMOTH",
+    "question": "Removed by transfer to other denominations",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "REMDEATH",
+    "raw_code": "REMDEATH",
+    "question": "Removed by death",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "MEMBTOT",
+    "raw_code": "MEMBTOT",
+    "question": "Total professing members at close of this year",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "MEMBA",
+    "raw_code": "MEMBA",
+    "question": "Asian",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "MEMBAAB",
+    "raw_code": "MEMBAA/B",
+    "question": "African American/Black",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "MEMBH",
+    "raw_code": "MEMBH",
+    "question": "Hispanic",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "MEMBN",
+    "raw_code": "MEMBN",
+    "question": "Native American",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "MEMBP",
+    "raw_code": "MEMBP",
+    "question": "Pacific Islander",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "MEMBW",
+    "raw_code": "MEMBW",
+    "question": "White",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "MEMBMR",
+    "raw_code": "MEMBMR",
+    "question": "Multi Racial",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "ETHTOT",
+    "raw_code": "ETHTOT",
+    "question": "Total Membership Ethnicity",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "MEMBFEM",
+    "raw_code": "MEMBFEM",
+    "question": "Number of female members",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "MEMBMALE",
+    "raw_code": "MEMBMALE",
+    "question": "Number of male members",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "MEMBNONB",
+    "raw_code": "MEMBNONB",
+    "question": "Number of non-binary members",
+    "table": null,
+    "category": "membership"
+  },
+  {
+    "code": "GENDTOT",
+    "raw_code": "GENDTOT",
+    "question": "Total Membership Gender",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "AVATTWOR",
+    "raw_code": "AVATTWOR",
+    "question": "Average attendance at the principal weekly worship service(s)",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "ONLNWOR",
+    "raw_code": "ONLNWOR",
+    "question": "Number of persons who worship online",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "BAPTCHILD",
+    "raw_code": "BAPTCHILD",
+    "question": "Number of persons baptized this year (0-12 Years)",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "BAPTADULT",
+    "raw_code": "BAPTADULT",
+    "question": "Number of persons baptized this year (ages 13 or older)",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "NUMBAPT",
+    "raw_code": "NUMBAPT",
+    "question": "Number of persons baptized this year (all ages)",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "PREPMEMB",
+    "raw_code": "PREPMEMB",
+    "question": "Total baptized members who have not become professing members",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CONSTIT",
+    "raw_code": "CONSTIT",
+    "question": "Number of persons on constituency roll (230.3)",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CFCHILD",
+    "raw_code": "CFCHILD",
+    "question": "Number of CHILDREN in all Christian formation groups and other small group ministries Ages 0-11",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CFYOUTH",
+    "raw_code": "CFYOUTH",
+    "question": "Number of YOUTH in all Christian formation groups and other small group ministries Ages 12-18",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CFYADLT",
+    "raw_code": "CFYADLT",
+    "question": "Number of YOUNG ADULTS in all Christian formation groups and other small group ministries Ages 19-30",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CFOADLT",
+    "raw_code": "CFOADLT",
+    "question": "Number of OTHER ADULTS in all Christian formation groups and other small group ministries Ages 31+",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CFTOTAL",
+    "raw_code": "CFTOTAL",
+    "question": "TOTAL number of persons participating in Christian formation groups",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CONFIRM",
+    "raw_code": "CONFIRM",
+    "question": "Total enrolled in confirmation classes this year",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSATTSUN",
+    "raw_code": "CSATTSUN",
+    "question": "Average attendance in Sunday church school  (all ages)",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "VBSPART",
+    "raw_code": "VBSPART",
+    "question": "Number of participants in Vacation Bible School",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSCLASS",
+    "raw_code": "CSCLASS",
+    "question": "Number of ongoing classes and other small groups (all ages) in Sunday Church School",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "ONGOCLASS",
+    "raw_code": "ONGOCLASS",
+    "question": "Number of ongoing classes and other small groups (all ages) in Sunday Church School",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "SHORTCLASS",
+    "raw_code": "SHORTCLASS",
+    "question": "Number of s hort-term classes and groups (all ages)",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "UMMMEMB",
+    "raw_code": "UMMMEMB",
+    "question": "Membership in United Methodist Men",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "UMMPROG",
+    "raw_code": "UMMPROG",
+    "question": "UMM amount paid for projects",
+    "table": 1,
+    "category": "finance"
+  },
+  {
+    "code": "UMWMEMB",
+    "raw_code": "UMWMEMB",
+    "question": "Membership in United Methodist Women",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "UMWWORK",
+    "raw_code": "UMWWORK",
+    "question": "UMW Amount paid for local church and community work",
+    "table": 1,
+    "category": "finance"
+  },
+  {
+    "code": "UMVIM",
+    "raw_code": "UMVIM",
+    "question": "Number of UMVIM teams sent from this local church",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "UMVIMPAR",
+    "raw_code": "UMVIMPAR",
+    "question": "Number of church members participating in any UMVIM team",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "OUTRCH",
+    "raw_code": "OUTRCH",
+    "question": "Total Number of community ministries for outreach, justice, and mercy offered by this local church",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "OUTRCHHLTH",
+    "raw_code": "OUTRCHHLTH",
+    "question": "Of the ministries counted in Line 21, how many focus on global/regional health?",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "OUTRCHPOOR",
+    "raw_code": "OUTRCHPOOR",
+    "question": "Of the ministries counted in Line 21, how many focus on engaging in ministry with the poor/socially marginalized?",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "MISSENGAGE",
+    "raw_code": "MISSENGAGE",
+    "question": "Number of persons from your congregation engaged in mission/community ministries",
+    "table": 1,
+    "category": "apportionments"
+  },
+  {
+    "code": "OUTSRVD",
+    "raw_code": "OUTSRVD",
+    "question": "Number of persons served by community ministries for outreach, justice, and mercy",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "VALPROP",
+    "raw_code": "VALPROP",
+    "question": "Market value of church-owned land, buildings, and equipment",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "VALOTH",
+    "raw_code": "VALOTH",
+    "question": "Market value of other assets (cash, securities, other property, etc)",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "DEBTCHUR",
+    "raw_code": "DEBTCHUR",
+    "question": "Indebtedness on items 33,34,35 at end of year",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "DEBTOTH",
+    "raw_code": "DEBTOTH",
+    "question": "Other indebtedness (current expenses, etc)",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "TOTAPP",
+    "raw_code": "TOTAPP",
+    "question": "Amount APPORTIONED to the local church by the CONFERENCE",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "DISTAPPOR",
+    "raw_code": "DISTAPPOR",
+    "question": "Amount APPORTIONED to the local church by the DISTRICT (if applicable)",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "APPPAID",
+    "raw_code": "APPPAID",
+    "question": "Amount PAID by the local church to the CONFERENCE for all apportioned causes",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "DISTPAID",
+    "raw_code": "DISTPAID",
+    "question": "Amount PAID by the local church to the DISTRICT for all apportioned causes (if applicable)",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "GENADV",
+    "raw_code": "GENADV",
+    "question": "Total amount for General Advance Specials remitted to the Annual Conference Treasurer",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "WSSPEC",
+    "raw_code": "WSSPEC",
+    "question": "Total amount for World Service Specials remitted to the Annual Conference Treasurer",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "CONFADV",
+    "raw_code": "CONFADV",
+    "question": "Conference Advance Specials",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "YSF",
+    "raw_code": "YSF",
+    "question": "Youth Service Fund",
+    "table": 2,
+    "category": "giving"
+  },
+  {
+    "code": "BENOTHA",
+    "raw_code": "BENOTHA",
+    "question": "Other Benevolences sent to Conference Treasurer",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "ACSPSUN",
+    "raw_code": "ACSPSUN",
+    "question": "Conference Sunday Offerings",
+    "table": 2,
+    "category": "giving"
+  },
+  {
+    "code": "GENCHROFA",
+    "raw_code": "GENCHROFa",
+    "question": "Human Relations",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GENCHROFB",
+    "raw_code": "GENCHROFb",
+    "question": "UMCOR Sunday (Formerly One Great Hour of Sharing)",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GENCHROFC",
+    "raw_code": "GENCHROFc",
+    "question": "Peace with Justice",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GENCHROFD",
+    "raw_code": "GENCHROFd",
+    "question": "Native American Sunday",
+    "table": 2,
+    "category": "demographics"
+  },
+  {
+    "code": "GENCHROFE",
+    "raw_code": "GENCHROFe",
+    "question": "World Communion",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GENCHROFF",
+    "raw_code": "GENCHROFf",
+    "question": "U.M. Student Day",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "UMDIRECT",
+    "raw_code": "UMDIRECT",
+    "question": "Total amount given directly to United Methodist causes (not sent to AC Treasurer)",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "OTHDIRECT",
+    "raw_code": "OTHDIRECT",
+    "question": "Total amount given to non-United Methodist benevolent and charitable causes",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "PENBILLED",
+    "raw_code": "PENBILLED",
+    "question": "Total paid for direct-billed and/or non-apportioned clergy pension and other non-health benefits",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "HLTHBILLED",
+    "raw_code": "HLTHBILLED",
+    "question": "Total paid for direct-billed and/or non-apportioned clergy health benefits",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "COMPPAST",
+    "raw_code": "COMPPAST",
+    "question": "Base compensation paid to/for the Senior Pastor or other person assigned or appointed in the lead pastoral role to the church",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "COMPASSC",
+    "raw_code": "COMPASSC",
+    "question": "Base compensation paid to/for all Associate Pastor(s) and other pastoral staff assigned or appointed to the church.",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "DEACOMP",
+    "raw_code": "DEACOMP",
+    "question": "Base compensation paid to/for any Deacons not included in 41a or 41b.",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "PASTHOUS",
+    "raw_code": "PASTHOUS",
+    "question": "Housing-related allowances and utilities paid to/for Pastor",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "ASSCHOUS",
+    "raw_code": "ASSCHOUS",
+    "question": "Housing-related allowances/utilities paid to/for Associate",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "DEACHOUS",
+    "raw_code": "DEACHOUS",
+    "question": "Housing benefits paid to/for any Deacons not included in 41a or 41b.",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "TOTREMB",
+    "raw_code": "TOTREMB",
+    "question": "Total Accountable reimbursements paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "TOTCASH",
+    "raw_code": "TOTCASH",
+    "question": "Total Other Cash Allowances paid to/for pastor/associate",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "OTHCOMP",
+    "raw_code": "OTHCOMP",
+    "question": "Total amount paid in salary and benefits for all other church staff and diaconal ministers",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "PROGEXP",
+    "raw_code": "PROGEXP",
+    "question": "Total amount spent for local church program expenses",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "OPEREXP",
+    "raw_code": "OPEREXP",
+    "question": "Total amount spent for other local church operating expenses",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "PRININT",
+    "raw_code": "PRIN/INT",
+    "question": "Total amount paid for principal and interest on indebtedness, loans, mortgages, etc.",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "BLDGIMPV",
+    "raw_code": "BLDGIMPV",
+    "question": "Total amount paid on capital expenditures for building, improvements, and major equipment purchases",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "GRANDTOT",
+    "raw_code": "GRANDTOT",
+    "question": "GRAND TOTAL PAID",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "NUMPLEDG",
+    "raw_code": "NUMPLEDG",
+    "question": "Number of households giving to the local church",
+    "table": 3,
+    "category": "other"
+  },
+  {
+    "code": "BENOTHAA",
+    "raw_code": "BENOTHAa",
+    "question": "Amount received through pledges",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "BENOTHAB",
+    "raw_code": "BENOTHAb",
+    "question": "Amount received from non-pledging, but identified givers",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "BENOTHAC",
+    "raw_code": "BENOTHAc",
+    "question": "Amount received from unidentified givers",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "BENOTHAD",
+    "raw_code": "BENOTHAd",
+    "question": "Amount received from interest and dividends and/or transferred from liquid assets",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "BENOTHAE",
+    "raw_code": "BENOTHAe",
+    "question": "Amount received from Sale of Church Assets",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "BENOTHAF",
+    "raw_code": "BENOTHAf",
+    "question": "Amount received through building use fees, contributions, and rentals",
+    "table": 3,
+    "category": "finance"
+  },
+  {
+    "code": "BENOTHAG",
+    "raw_code": "BENOTHAg",
+    "question": "Amount received through fundraisers and other sources",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "ANNOPP",
+    "raw_code": "ANNOPP",
+    "question": "Total income for annual budget/spending plan",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "CAPFUNA",
+    "raw_code": "CAPFUNa",
+    "question": "Capital campaigns",
+    "table": 3,
+    "category": "finance"
+  },
+  {
+    "code": "CAPFUNB",
+    "raw_code": "CAPFUNb",
+    "question": "Memorials, endowments, and bequests",
+    "table": 3,
+    "category": "other"
+  },
+  {
+    "code": "CAPFUNC",
+    "raw_code": "CAPFUNc",
+    "question": "Funds from other sources and projects, including sale of buildings",
+    "table": 3,
+    "category": "finance"
+  },
+  {
+    "code": "CAPFUND",
+    "raw_code": "CAPFUNd",
+    "question": "Amount received for Special Sundays, General Advance Specials, World Service Specials, and other forms of directed benevolent (charitable) giving",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "CAPFUN",
+    "raw_code": "CAPFUN",
+    "question": "Total income for designated causes including capital campaign and other special projects",
+    "table": 3,
+    "category": "finance"
+  },
+  {
+    "code": "FUNDSCRA",
+    "raw_code": "FUNDSCRa",
+    "question": "Equitable Compensation Funds received by Church or Pastor",
+    "table": 3,
+    "category": "finance"
+  },
+  {
+    "code": "FUNDSCRB",
+    "raw_code": "FUNDSCRb",
+    "question": "Advance Special, apportioned, and connectional funds received by church",
+    "table": 3,
+    "category": "apportionments"
+  },
+  {
+    "code": "FUNDSCR",
+    "raw_code": "FUNDSCR",
+    "question": "Other grants and financial support from institutional sources",
+    "table": 3,
+    "category": "other"
+  },
+  {
+    "code": "FUNDSCRC",
+    "raw_code": "FUNDSCRc",
+    "question": "Total Support from other institutions",
+    "table": 3,
+    "category": "other"
+  },
+  {
+    "code": "INCOMETOT",
+    "raw_code": "INCOMETOT",
+    "question": "Total income from connectional and other institutional sources outside the local church",
+    "table": 3,
+    "category": "giving"
+  },
+  {
+    "code": "ACSOTHER",
+    "raw_code": "ACSOTHER",
+    "question": "Other Conference Sunday Offerings",
+    "table": 2,
+    "category": "giving"
+  },
+  {
+    "code": "ACSPSUNA",
+    "raw_code": "ACSPSUNa",
+    "question": "Christian Education Sunday",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "ACSPSUNB",
+    "raw_code": "ACSPSUNb",
+    "question": "Golden Cross Sunday",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "ACSPSUNC",
+    "raw_code": "ACSPSUNc",
+    "question": "Rural Life Sunday",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "ACSPSUND",
+    "raw_code": "ACSPSUNd",
+    "question": "Disability Awareness Sunday",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "ADMCONF",
+    "raw_code": "ADMCONF",
+    "question": "Area and Conference Administration Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "ADMCONFA",
+    "raw_code": "ADMCONFA",
+    "question": "Area and Conference Administration Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "ADMDIST",
+    "raw_code": "ADMDIST",
+    "question": "District Administration Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "ADMDISTA",
+    "raw_code": "ADMDISTA",
+    "question": "District Administration Fund Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "ADMGEN",
+    "raw_code": "ADMGEN",
+    "question": "General Administration Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "ADMGENA",
+    "raw_code": "ADMGENA",
+    "question": "General Administration Fund Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "ADMJURA",
+    "raw_code": "ADMJURA",
+    "question": "Jurisdictional Administration Fund Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "ADMJURIS",
+    "raw_code": "ADMJURIS",
+    "question": "Jurisdictional Administration Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "ADMOPEN",
+    "raw_code": "ADMOPEN",
+    "question": "Administration (Open) Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "ADMOPENA",
+    "raw_code": "ADMOPENA",
+    "question": "Administration (Open) Appor",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "AOADULTS",
+    "raw_code": "AOADULTS",
+    "question": "Adults (post high school) in all other groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "AOCHILD",
+    "raw_code": "AOCHILD",
+    "question": "Children (0-6th grade) in all other groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "AOLEAD",
+    "raw_code": "AOLEAD",
+    "question": "Number of leaders in all other groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "AOTOTAL",
+    "raw_code": "AOTOTAL",
+    "question": "Total Christian formation participants in all other groups",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "AOYOUTH",
+    "raw_code": "AOYOUTH",
+    "question": "Youth (7-12th grade) in all other groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "ASSCREMB",
+    "raw_code": "ASSCREMB",
+    "question": "Accountable reimbursements paid to/for Associate",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "AUF",
+    "raw_code": "AUF",
+    "question": "Africa University Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "AUFA",
+    "raw_code": "AUFA",
+    "question": "Africa University Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "BCF",
+    "raw_code": "BCF",
+    "question": "Black College Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "BCFA",
+    "raw_code": "BCFA",
+    "question": "Black College Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "BENDIR",
+    "raw_code": "BENDIR",
+    "question": "Pension and Benefit fund (MPP and/or CPP) paid directly to GBOPHB",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "BENOPEN1",
+    "raw_code": "BENOPEN1",
+    "question": "Open Benevolences",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "BENOPEN2",
+    "raw_code": "BENOPEN2",
+    "question": "Open Benevolences",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "BENOPEN3",
+    "raw_code": "BENOPEN3",
+    "question": "Open Benevolences",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "BENOTHER",
+    "raw_code": "BENOTHER",
+    "question": "Other Benevolences paid directly by local church(do not include payments sent to conference finance office or United Methodist Church general boards & agencies)",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "CB",
+    "raw_code": "CB",
+    "question": "Conference Benevolences Paid",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "CBA",
+    "raw_code": "CBA",
+    "question": "Conference Benevolences Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "CHOTH",
+    "raw_code": "CHOTH",
+    "question": "Number of Christian formation groups, other than Sunday church school for Children",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CLGYOPA",
+    "raw_code": "CLGYOPA",
+    "question": "Clergy Open Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "CLGYOPEN",
+    "raw_code": "CLGYOPEN",
+    "question": "Clergy (Open) Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "CLGYOPENA",
+    "raw_code": "CLGYOPENA",
+    "question": "Clergy (Open ) Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "CSADULTS",
+    "raw_code": "CSADULTS",
+    "question": "Adults (post high school) in all Sunday church school groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSATSUPA",
+    "raw_code": "CSATSUPA",
+    "question": null,
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSATSUPC",
+    "raw_code": "CSATSUPC",
+    "question": null,
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSATSUPY",
+    "raw_code": "CSATSUPY",
+    "question": null,
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSATTACC",
+    "raw_code": "CSATTACC",
+    "question": "Sunday School Attend",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSATTMSN",
+    "raw_code": "CSATTMSN",
+    "question": "Sunday School Attend",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSATTOTH",
+    "raw_code": "CSATTOTH",
+    "question": "Average attendance in other ongoing classes and groups for learning",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSATTSHT",
+    "raw_code": "CSATTSHT",
+    "question": "Average attendance in short-term classes and groups for learning",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSATTSUP",
+    "raw_code": "CSATTSUP",
+    "question": "Average Attendance",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSCHILD",
+    "raw_code": "CSCHILD",
+    "question": "Children (0-6th grade) in all Sunday church school groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSEXP",
+    "raw_code": "CSEXP",
+    "question": "Current expenses for program (including church school)",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "CSLEAD",
+    "raw_code": "CSLEAD",
+    "question": "Number of leaders in all Sunday church school groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSONGO",
+    "raw_code": "CSONGO",
+    "question": "Average attendance in other ongoing classes and groups for learning",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSPROF",
+    "raw_code": "CSPROF",
+    "question": "Number of Church/School Leaders",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CSTOTAL",
+    "raw_code": "CSTOTAL",
+    "question": "Total Christian formation participants in Sunday church school groups",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSTOTALA",
+    "raw_code": "CSTOTALa",
+    "question": "Total Christian formation participants in Sunday Church school groups",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSTOTALB",
+    "raw_code": "CSTOTALb",
+    "question": "Total Christian formation participants in all other groups",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "CSYOUTH",
+    "raw_code": "CSYOUTH",
+    "question": "Youth (7-12th grade) in all Sunday church school groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "CVNTMEM",
+    "raw_code": "CVNTMEM",
+    "question": "Number of persons (all ages) active in covenant discipleship groups",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "DAYCARE",
+    "raw_code": "DAYCARE",
+    "question": "Number of community ministries for daycare and/or education",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "DAYSRVD",
+    "raw_code": "DAYSRVD",
+    "question": "Number of persons served by community ministries for daycare and/or education",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "DCNCOMP",
+    "raw_code": "DCNCOMP",
+    "question": "Total amount paid in salary and benefits for Deacons",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "DIACCOMP",
+    "raw_code": "DIACCOMP",
+    "question": "Total amount paid in salary and benefits for Diaconal Ministers",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "DSFUND",
+    "raw_code": "DSFUND",
+    "question": "District Superintendent Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "DSFUNDA",
+    "raw_code": "DSFUNDA",
+    "question": "District Superintendent Fund Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "EPISFUNA",
+    "raw_code": "EPISFUNA",
+    "question": "Episcopal Fund Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "EPISFUND",
+    "raw_code": "EPISFUND",
+    "question": "Episcopal Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "EQUCOMP",
+    "raw_code": "EQUCOMP",
+    "question": "Equitable Compensation Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "EQUCOMPA",
+    "raw_code": "EQUCOMPA",
+    "question": "Equitable Compensation Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "GAS",
+    "raw_code": "GAS",
+    "question": "General Advance Specials and World Service Special Gifts Total",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GASWSS",
+    "raw_code": "GAS/WSS",
+    "question": "General Advance Specials and World Service Special Gifts Total",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GASA",
+    "raw_code": "GASa",
+    "question": "General Advance Specials",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GASB",
+    "raw_code": "GASb",
+    "question": "World Service Special Gifts",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GCS",
+    "raw_code": "GCS",
+    "question": "???",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "GENCHROF",
+    "raw_code": "GENCHROF",
+    "question": "General Church Offerings (Total)",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "HIGHEDUA",
+    "raw_code": "HIGHEDUA",
+    "question": "HIGHER EDUCATION (CAP AND OPER EXP) APPORTIONED",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "HIGHEDUC",
+    "raw_code": "HIGHEDUC",
+    "question": "Higher Education",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "HLTHWEL",
+    "raw_code": "HLTHWEL",
+    "question": "Health and Welfare Agencies",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "HLTHWELA",
+    "raw_code": "HLTHWELA",
+    "question": "HEALTH AND WELFARE AGENCIES APPORTIONED",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "HOUSUTIL",
+    "raw_code": "HOUSUTIL",
+    "question": "Housting-Related Allowances and Utilities",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "ICF",
+    "raw_code": "ICF",
+    "question": "Interdenominational Cooperation Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "ICFA",
+    "raw_code": "ICFA",
+    "question": "Interdenominational Cooperation Fund Paid Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "MASSCOMM",
+    "raw_code": "MASSCOMM",
+    "question": "Mass Communications Fund",
+    "table": 2,
+    "category": "giving"
+  },
+  {
+    "code": "MEF",
+    "raw_code": "MEF",
+    "question": "Ministerial Education Fund Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "MEFA",
+    "raw_code": "MEFA",
+    "question": "Ministerial Education Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "MEMBAA",
+    "raw_code": "MEMBAA",
+    "question": "African American",
+    "table": 1,
+    "category": "demographics"
+  },
+  {
+    "code": "MEMBB",
+    "raw_code": "MEMBB",
+    "question": "Black",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "MISPAR",
+    "raw_code": "MISPAR",
+    "question": "Number of persons sent out on other mission teams from this local church",
+    "table": 1,
+    "category": "apportionments"
+  },
+  {
+    "code": "MISTEAMS",
+    "raw_code": "MISTEAMS",
+    "question": "Number of other mission teams sent from this local church",
+    "table": 1,
+    "category": "apportionments"
+  },
+  {
+    "code": "MPPCPP",
+    "raw_code": "MPP/CPP",
+    "question": "Pension and Benefit Funds (MPP and CPP) paid direct",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "OTHCASH",
+    "raw_code": "OTHCASH",
+    "question": "Other cash allowances paid to/for Associate",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "OTHCASHA",
+    "raw_code": "OTHCASHA",
+    "question": "Other Cash Allowance paid to/for Pastor",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "OTHCASHB",
+    "raw_code": "OTHCASHb",
+    "question": "Other cash allowances paid to/for Associate",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "PASTREMB",
+    "raw_code": "PASTREMB",
+    "question": "Accountable reimbursements paid to/for Pastor",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "PENSTREAS",
+    "raw_code": "PENSTREAS",
+    "question": "Pension Benefit Funds Remitted to Conference Treasurer",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "PENTREAA",
+    "raw_code": "PENTREAA",
+    "question": "Pension Benefit Funds Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "PENTREAS",
+    "raw_code": "PenTreas",
+    "question": "Pension Benefit Fund",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "PENTREASA",
+    "raw_code": "PENTREASa",
+    "question": "Pension Benefits Remitted to Conf Treasurer (Apportioned)",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "PROPART",
+    "raw_code": "PROPART",
+    "question": "Number of Christian formation participants (line 19) who became professing members this year",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "REIMBURS",
+    "raw_code": "REIMBURS",
+    "question": "Reimbursement Paid to Pastor & Associate",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "TGAF",
+    "raw_code": "TGAF",
+    "question": "Temporary General Aid Fund",
+    "table": 2,
+    "category": "giving"
+  },
+  {
+    "code": "TOTGROUP",
+    "raw_code": "TOTGROUP",
+    "question": "Total Number of Christian formation group",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "TOTPAST",
+    "raw_code": "TOTPAST",
+    "question": "Total Housing-related allowances and utilities",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "TOTSERV",
+    "raw_code": "TOTSERV",
+    "question": "Total persons served by weekday ministry programs",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "UMWTREAS",
+    "raw_code": "UMWTREAS",
+    "question": "United Methodist Women cash sent to district or conference UMW Treasurer",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "UMYFMEMB",
+    "raw_code": "UMYFMEMB",
+    "question": "Membership in United Methodist Youth Fellowship",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "UMYFPROJ",
+    "raw_code": "UMYFPROJ",
+    "question": "UMYF amount paid for projects",
+    "table": 1,
+    "category": "finance"
+  },
+  {
+    "code": "VALCHUR",
+    "raw_code": "VALCHUR",
+    "question": "Market value of church land, buildings, and equipment",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "VALPARS",
+    "raw_code": "VALPARS",
+    "question": "Market value of church-owned parsonages and furniture",
+    "table": 2,
+    "category": "other"
+  },
+  {
+    "code": "WEEKMIN",
+    "raw_code": "WEEKMIN",
+    "question": "Number of weekday ministry programs",
+    "table": 1,
+    "category": "other"
+  },
+  {
+    "code": "WS",
+    "raw_code": "WS",
+    "question": "World Service Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "WSA",
+    "raw_code": "WSA",
+    "question": "World Service Apportionment",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "WSLB",
+    "raw_code": "WSLB",
+    "question": "World Service/ Conf Ben Paid",
+    "table": 2,
+    "category": "finance"
+  },
+  {
+    "code": "WSLBA",
+    "raw_code": "WSLBA",
+    "question": "World Service/ Conf Ben Apportioned",
+    "table": 2,
+    "category": "apportionments"
+  },
+  {
+    "code": "YOADULT",
+    "raw_code": "YOADULT",
+    "question": "Number of Christian formation groups, other than Sunday church school for Adults",
+    "table": 1,
+    "category": "membership"
+  },
+  {
+    "code": "YOOTH",
+    "raw_code": "YOOTH",
+    "question": "Number of Christian formation groups, other than Sunday church school for Youth",
+    "table": 1,
+    "category": "membership"
+  }
+]

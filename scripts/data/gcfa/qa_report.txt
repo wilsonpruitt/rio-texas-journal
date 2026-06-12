@@ -1,0 +1,64 @@
+GCFA EXTRACT QA — /Users/wilsonpruitt/Downloads/Service Ticket #726954 - Wilson Pruitt.xlsx
+years: 2000..2024  (25 sheets)
+codebook fields: 225
+unique churches (by GCFA #): 485
+total stat cells: 1085027
+
+PER-YEAR COVERAGE:
+  2000: 458 churches, 37098 stat cells, 81 stat cols, conf={'Rio Grande': 100, 'Southwest Texas': 358}
+  2001: 453 churches, 38505 stat cells, 85 stat cols, conf={'Rio Grande': 99, 'Southwest Texas': 354}
+  2002: 448 churches, 38080 stat cells, 85 stat cols, conf={'Rio Grande': 99, 'Southwest Texas': 349}
+  2003: 448 churches, 38080 stat cells, 85 stat cols, conf={'Rio Grande': 99, 'Southwest Texas': 349}
+  2004: 447 churches, 37995 stat cells, 85 stat cols, conf={'Rio Grande': 95, 'Southwest Texas': 352}
+  2005: 443 churches, 66007 stat cells, 150 stat cols, conf={'Rio Grande': 95, 'Southwest Texas': 348}
+  2006: 441 churches, 65709 stat cells, 149 stat cols, conf={'Southwest Texas': 347, 'Rio Grande': 94}
+  2007: 436 churches, 64964 stat cells, 149 stat cols, conf={'Rio Grande': 92, 'Southwest Texas': 344}
+  2008: 437 churches, 65113 stat cells, 149 stat cols, conf={'Rio Grande': 92, 'Southwest Texas': 345}
+  2009: 427 churches, 44835 stat cells, 105 stat cols, conf={'Southwest Texas': 339, 'Rio Grande': 88}
+  2010: 424 churches, 44520 stat cells, 105 stat cols, conf={'Southwest Texas': 339, 'Rio Grande': 85}
+  2011: 422 churches, 44292 stat cells, 105 stat cols, conf={'Southwest Texas': 337, 'Rio Grande': 85}
+  2012: 415 churches, 43575 stat cells, 105 stat cols, conf={'Rio Grande': 84, 'Southwest Texas': 331}
+  2013: 398 churches, 40392 stat cells, 102 stat cols, conf={'Rio Grande': 70, 'Southwest Texas': 328}
+  2014: 386 churches, 39372 stat cells, 102 stat cols, conf={'Rio Grande': 60, 'Southwest Texas': 326}
+  2015: 381 churches, 38862 stat cells, 102 stat cols, conf={'Rio Texas': 381}
+  2016: 373 churches, 38046 stat cells, 102 stat cols, conf={'Rio Texas': 373}
+  2017: 359 churches, 39849 stat cells, 111 stat cols, conf={'Rio Texas': 359}
+  2018: 353 churches, 39183 stat cells, 111 stat cols, conf={'Rio Texas': 353}
+  2019: 350 churches, 38850 stat cells, 111 stat cols, conf={'Rio Texas': 350}
+  2020: 352 churches, 39072 stat cells, 111 stat cols, conf={'Rio Texas': 352}
+  2021: 339 churches, 37968 stat cells, 112 stat cols, conf={'Rio Texas': 339}
+  2022: 343 churches, 38759 stat cells, 113 stat cols, conf={'Rio Texas': 343}
+  2023: 333 churches, 37629 stat cells, 113 stat cols, conf={'Rio Texas': 333}
+  2024: 248 churches, 28272 stat cells, 114 stat cols, conf={'Rio Texas': 248}
+
+UNKNOWN STAT CODES (not in codebook): 28
+  CSADULT: 4011
+  UMMPROJ: 4011
+  GENCHOFF: 4011
+  AOADULT: 1757
+  WSS: 1757
+  HUMANREL: 1757
+  ONEGRTHR: 1757
+  PEACEJUS: 1757
+  NATAMER: 1757
+  WORLDCOM: 1757
+  UMSTUDENT: 1757
+  CHRED: 1757
+  GLDNCRSS: 1757
+  RURALLIFE: 1757
+  DSBLAWARE: 1757
+  ACSPOTHER: 1757
+  ADMJURISA: 1757
+  EPISFUNDA: 1757
+  PASTCASH: 1757
+  ASSCCASH: 1757
+  BENOTHATOT: 1757
+  CAPFUNTOT: 1757
+  FUNDSCRTOT: 1757
+  WSCB: 458
+  MIF: 458
+  OUR: 373
+  TOTATTENDANCE: 343
+  NETEXPENDITURES: 248
+
+CHURCH LONGEVITY (n_years appearing): {1: 9, 2: 5, 3: 6, 4: 7, 5: 4, 6: 4, 7: 5, 8: 5, 9: 10, 10: 5, 11: 2, 12: 12, 13: 18, 14: 11, 15: 5, 16: 11, 17: 16, 18: 7, 19: 5, 20: 1, 21: 12, 22: 1, 23: 9, 24: 84, 25: 231}

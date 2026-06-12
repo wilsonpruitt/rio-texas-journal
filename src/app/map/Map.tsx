@@ -1,43 +1,50 @@
-'use client';
+"use client";
 
-import { useEffect, useRef, useState } from 'react';
-import 'leaflet/dist/leaflet.css';
+import { useEffect, useRef, useState } from "react";
+import "leaflet/dist/leaflet.css";
 
 export type Point = {
   id: string;
   name: string;
+  city: string | null;
   lat: number;
   lng: number;
-  district2025: string; // CE / NO / SO / ''
-  district2024: string; // Capital / North / Coastal Bend / etc. / ''
-  city: string | null;
+  status: string;
+  riskTier: string | null;
+  riskScore: number | null;
+  members: number | null;
+  trend: number | null;
+  district: "Central" | "North" | "South" | null;
 };
 
-const ERA_B_COLOR: Record<string, string> = {
-  CE: '#2563eb',
-  NO: '#16a34a',
-  SO: '#dc2626',
-  '': '#737373',
+type Mode = "status" | "risk" | "trend" | "district";
+
+const C = {
+  teal: "#1f6e62", ember: "#b1431c", amber: "#a9772b", elev: "#c2722e", faint: "#938974",
+  ox: "#6e2417", sky: "#2c5d70",
 };
 
-const ERA_B_NAME: Record<string, string> = {
-  CE: 'Central',
-  NO: 'North',
-  SO: 'South',
-};
+function colorFor(p: Point, mode: Mode): string {
+  if (mode === "status") {
+    return p.status === "active" ? C.teal : p.status === "disaffiliated" ? C.amber : p.status === "closed" ? C.ember : C.faint;
+  }
+  if (mode === "risk") {
+    if (p.status !== "active" || !p.riskTier) return C.faint;
+    return p.riskTier === "low" ? C.teal : p.riskTier === "moderate" ? C.amber : p.riskTier === "elevated" ? C.elev : C.ember;
+  }
+  if (mode === "district") {
+    return p.district === "North" ? C.teal : p.district === "Central" ? C.amber : p.district === "South" ? C.sky : C.faint;
+  }
+  if (p.trend == null) return C.faint;
+  return p.trend > 5 ? C.teal : p.trend < -5 ? C.ember : C.amber;
+}
 
-const ERA_A_COLOR: Record<string, string> = {
-  Capital: '#2563eb',
-  'Coastal Bend': '#06b6d4',
-  Crossroads: '#f59e0b',
-  'El Valle': '#dc2626',
-  'Hill Country': '#16a34a',
-  'Las Misiones': '#a855f7',
-  West: '#78350f',
-  '': '#737373',
+const LEGEND: Record<Mode, { label: string; color: string }[]> = {
+  status: [{ label: "Active", color: C.teal }, { label: "Disaffiliated", color: C.amber }, { label: "Closed", color: C.ember }],
+  risk: [{ label: "Low", color: C.teal }, { label: "Moderate", color: C.amber }, { label: "Elevated", color: C.elev }, { label: "High", color: C.ember }],
+  trend: [{ label: "Growing", color: C.teal }, { label: "Stable", color: C.amber }, { label: "Declining", color: C.ember }],
+  district: [{ label: "North", color: C.teal }, { label: "Central", color: C.amber }, { label: "South", color: C.sky }],
 };
-
-export type EraView = '2025' | '2024';
 
 export default function Map({ points }: { points: Point[] }) {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -45,117 +52,73 @@ export default function Map({ points }: { points: Point[] }) {
   const mapRef = useRef<any>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const markersRef = useRef<any[]>([]);
-  const [era, setEra] = useState<EraView>('2025');
-
-  // Recompute counts for whichever era is active.
-  const counts: Record<string, number> = {};
-  for (const p of points) {
-    const k = era === '2025' ? p.district2025 : p.district2024;
-    counts[k] = (counts[k] || 0) + 1;
-  }
+  const [mode, setMode] = useState<Mode>("risk");
 
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const L = (await import('leaflet')).default;
+      const L = (await import("leaflet")).default;
       if (cancelled || !containerRef.current) return;
       if (!mapRef.current) {
-        mapRef.current = L.map(containerRef.current).setView([29.5, -98.5], 7);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors',
-          maxZoom: 18,
+        mapRef.current = L.map(containerRef.current, { scrollWheelZoom: false }).setView([29.6, -98.8], 7);
+        L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+          attribution: "© OpenStreetMap © CARTO", subdomains: "abcd", maxZoom: 19,
         }).addTo(mapRef.current);
       }
-      // Clear existing markers, then redraw.
       for (const m of markersRef.current) m.remove();
       markersRef.current = [];
       const bounds = L.latLngBounds([]);
-      for (const p of points) {
-        const districtKey = era === '2025' ? p.district2025 : p.district2024;
-        const palette = era === '2025' ? ERA_B_COLOR : ERA_A_COLOR;
-        const color = palette[districtKey] ?? palette[''];
-        const districtLabel = era === '2025'
-          ? (ERA_B_NAME[districtKey] ?? '')
-          : (districtKey || '');
+      const ordered = [...points].sort((a, b) => (a.status === "active" ? 1 : 0) - (b.status === "active" ? 1 : 0));
+      for (const p of ordered) {
+        const color = colorFor(p, mode);
+        const r = p.members ? Math.max(3.5, Math.min(13, 3 + Math.sqrt(p.members) / 3.2)) : 3.5;
         const marker = L.circleMarker([p.lat, p.lng], {
-          radius: 5,
-          color,
-          weight: 1.5,
-          fillColor: color,
-          fillOpacity: 0.75,
+          radius: r, color, weight: 1, fillColor: color,
+          fillOpacity: p.status === "active" ? 0.72 : 0.4,
         }).addTo(mapRef.current);
         marker.bindPopup(
-          `<div style="font-size:13px;line-height:1.35">
+          `<div style="font-family:var(--font-franklin);font-size:13px;line-height:1.4">
              <strong>${escapeHtml(p.name)}</strong><br/>
-             <span style="color:#666">${escapeHtml(p.city ?? '')}${districtLabel ? ` · ${districtLabel} District` : ''}</span><br/>
-             <a href="/churches/${p.id}" style="color:#2563eb;text-decoration:underline">Open profile →</a>
+             <span style="color:#6b6354">${escapeHtml(p.city ?? "")}</span><br/>
+             <span style="color:#6b6354">${p.members != null ? p.members + " members" : ""}${p.riskScore != null && p.status === "active" ? ` · risk ${p.riskScore}` : ""}</span><br/>
+             <a href="/churches/${p.id}" style="color:#1f6e62">Open profile →</a>
            </div>`,
         );
         bounds.extend([p.lat, p.lng]);
         markersRef.current.push(marker);
       }
-      if (points.length > 0 && era === '2025') {
-        mapRef.current.fitBounds(bounds, { padding: [30, 30] });
-      }
+      if (points.length) mapRef.current.fitBounds(bounds, { padding: [30, 30] });
     })();
-
     return () => { cancelled = true; };
-  }, [points, era]);
+  }, [points, mode]);
 
-  // Cleanup map on unmount.
-  useEffect(() => () => {
-    if (mapRef.current) { mapRef.current.remove(); mapRef.current = null; }
-  }, []);
-
-  const eraEntries = era === '2025'
-    ? (['CE', 'NO', 'SO'] as const).map((k) => ({ key: k, label: ERA_B_NAME[k], color: ERA_B_COLOR[k] }))
-    : (['Capital', 'Coastal Bend', 'Crossroads', 'El Valle', 'Hill Country', 'Las Misiones', 'West'] as const).map((k) => ({ key: k, label: k, color: ERA_A_COLOR[k] }));
+  useEffect(() => () => { if (mapRef.current) { mapRef.current.remove(); mapRef.current = null; } }, []);
 
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between flex-wrap gap-3">
-        <div className="inline-flex rounded-md border border-zinc-300 dark:border-zinc-700 overflow-hidden text-sm">
-          <button
-            type="button"
-            onClick={() => setEra('2024')}
-            className={
-              'px-3 py-1.5 ' +
-              (era === '2024'
-                ? 'bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900'
-                : 'text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800')
-            }
-          >
-            2024 · Era A (7 districts)
-          </button>
-          <button
-            type="button"
-            onClick={() => setEra('2025')}
-            className={
-              'px-3 py-1.5 ' +
-              (era === '2025'
-                ? 'bg-zinc-900 text-zinc-50 dark:bg-zinc-100 dark:text-zinc-900'
-                : 'text-zinc-600 hover:bg-zinc-100 dark:text-zinc-400 dark:hover:bg-zinc-800')
-            }
-          >
-            2025 · Era B (3 districts)
-          </button>
+        <div className="inline-flex rounded-md border border-rule overflow-hidden text-sm bg-vellum">
+          {(["risk", "trend", "district", "status"] as Mode[]).map((m) => (
+            <button key={m} onClick={() => setMode(m)}
+              className={`px-3.5 py-1.5 transition-colors ${mode === m ? "bg-ink text-vellum" : "text-ink-mute hover:bg-bone"}`}>
+              {m === "risk" ? "Closure risk" : m === "trend" ? "Trajectory" : m === "district" ? "District" : "Status"}
+            </button>
+          ))}
         </div>
         <ul className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
-          {eraEntries.map((e) => (
-            <li key={e.key} className="flex items-center gap-1.5">
-              <span className="inline-block size-2.5 rounded-full" style={{ background: e.color }} />
-              {e.label} · {counts[e.key] ?? 0}
+          {LEGEND[mode].map((e) => (
+            <li key={e.label} className="flex items-center gap-1.5 text-ink-mute">
+              <span className="inline-block size-2.5 rounded-full" style={{ background: e.color }} />{e.label}
             </li>
           ))}
         </ul>
       </div>
-      <div ref={containerRef} className="h-[calc(100vh-14rem)] w-full rounded-md border border-zinc-200 dark:border-zinc-800" />
+      <div ref={containerRef} className="h-[calc(100vh-15rem)] min-h-[460px] w-full rounded-lg border border-rule overflow-hidden" />
+      <p className="text-xs text-faint">{points.length} churches with mapped coordinates · marker size reflects membership · scroll-zoom disabled (drag &amp; use +/−).</p>
     </div>
   );
 }
 
 function escapeHtml(s: string): string {
-  return s.replace(/[&<>"']/g, (c) =>
-    c === '&' ? '&amp;' : c === '<' ? '&lt;' : c === '>' ? '&gt;' : c === '"' ? '&quot;' : '&#39;',
-  );
+  return s.replace(/[&<>"']/g, (c) => (c === "&" ? "&amp;" : c === "<" ? "&lt;" : c === ">" ? "&gt;" : c === '"' ? "&quot;" : "&#39;"));
 }

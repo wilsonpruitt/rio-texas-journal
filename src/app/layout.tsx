@@ -1,36 +1,45 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Libre_Franklin, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { SiteHeader } from "./SiteHeader";
+import { SiteFooter } from "./SiteFooter";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz", "SOFT", "WONK"],
+});
+const franklin = Libre_Franklin({
+  variable: "--font-franklin",
   subsets: ["latin"],
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jbmono = JetBrains_Mono({
+  variable: "--font-jbmono",
   subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Rio Texas Journal",
-    template: "%s · Rio Texas Journal",
+    default: "Rio Texas Atlas — A Statistical Portrait of the Conference",
+    template: "%s · Rio Texas Atlas",
   },
-  description: "Public, read-only interactive archive of Rio Texas Annual Conference journals — churches, clergy, appointments, and statistics from 2015–2025.",
+  description:
+    "An interactive statistical atlas of the Rio Texas Annual Conference and its predecessor conferences — 481 churches, 2000–2024, with trends, projections, and vitality analysis.",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${franklin.variable} ${jbmono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <SiteHeader />
+        <div className="flex-1">{children}</div>
+        <SiteFooter />
+      </body>
     </html>
   );
 }

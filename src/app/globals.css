@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================================
+   Rio Texas Journal — editorial data-atlas design system
+   Parchment & ink, with teal=vitality / ember=decline encoding.
+   ============================================================ */
+
+@theme {
+  /* surfaces */
+  --color-parchment: #f3eee2;   /* page ground */
+  --color-bone:      #faf6ec;   /* raised card */
+  --color-vellum:    #fdfbf5;   /* lightest panel */
+
+  /* ink */
+  --color-ink:       #1b1813;   /* primary text */
+  --color-ink-soft:  #57504593; /* muted (alpha) */
+  --color-ink-mute:  #6b6354;   /* labels */
+  --color-faint:     #938974;   /* faintest */
+  --color-rule:      #ddd4c0;   /* hairlines */
+  --color-rule-bold: #c7bca2;
+
+  /* accents — also the data encoding */
+  --color-teal:      #1f6e62;   /* vitality / growth */
+  --color-teal-soft: #e2ede9;
+  --color-ember:     #b1431c;   /* decline / risk */
+  --color-ember-soft:#f4e3d8;
+  --color-amber:     #a9772b;   /* moderate / caution */
+  --color-amber-soft:#f1e7cf;
+  --color-oxblood:   #6e2417;   /* deep header accent */
+
+  /* type */
+  --font-display: var(--font-fraunces);
+  --font-sans:    var(--font-franklin);
+  --font-mono:    var(--font-jbmono);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    background-color: var(--color-parchment);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv01";
+    /* faint paper texture: two offset radial dots + a vignette warmth */
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(110,36,23,0.035) 1px, transparent 0);
+    background-size: 22px 22px;
   }
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+    font-weight: 470;
+    letter-spacing: -0.01em;
+  }
+  h1 { font-weight: 500; }
+  ::selection { background: var(--color-teal); color: var(--color-vellum); }
+  a { text-underline-offset: 3px; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* hairline framing used across panels */
+  .rule { border-color: var(--color-rule); }
+  .panel {
+    background: var(--color-bone);
+    border: 1px solid var(--color-rule);
+  }
+  /* small caps eyebrow label */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-ink-mute);
+  }
+  .tnum { font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+  /* the masthead double-rule */
+  .masthead-rule {
+    border-top: 3px double var(--color-rule-bold);
+  }
 }

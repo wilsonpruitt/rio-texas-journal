@@ -46,3 +46,8 @@ journals/
 
 # colleague review CSVs / working files
 /exports/
+
+# GCFA extract — large derived artifact (regenerate via scripts/data/extract_gcfa.py)
+scripts/data/gcfa/church_stats.csv
+scripts/data/gcfa/church_stats.jsonl
+scripts/data/gcfa/church_id_map.json

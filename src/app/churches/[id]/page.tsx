@@ -1,367 +1,240 @@
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
-import Sparkline, { type Point } from './Sparkline';
-import Donut, { type Slice } from './Donut';
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
+import { TrendChart, type Pt } from "@/app/_components/TrendChart";
+import { RiskMeter } from "@/app/_components/RiskMeter";
+import { fmtInt, fmtUsd, fmtPct, STATUS, type RiskTier } from "@/lib/atlas";
+import { district2025 } from "@/lib/district-2025";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
-const DISTRICT_NAME: Record<string, string> = {
-  CE: 'Central',
-  NO: 'North',
-  SO: 'South',
-};
+const FIELDS = ["MEMBTOT", "AVATTWOR", "GRANDTOT", "NUMBAPT", "RECPROF", "PREPMEMB", "ONLNWOR", "CFTOTAL"];
 
-const STATUS_LABEL: Record<string, string> = {
-  active: 'Active',
-  closed: 'Closed',
-  disaffiliated: 'Disaffiliated',
-  merged: 'Merged',
-};
+type StatRow = { data_year: number; field_code: string; value_numeric: number | null };
+type ProjRow = { field_code: string; horizon_year: number; projected: number; lo: number; hi: number; base_year: number; base_value: number };
 
-// Non-active statuses share a neutral palette; disaffiliation is treated
-// as historical context, not a headline.
-const STATUS_COLOR: Record<string, string> = {
-  active: 'bg-emerald-50 text-emerald-700 ring-emerald-200 dark:bg-emerald-950 dark:text-emerald-200 dark:ring-emerald-900',
-  closed: 'bg-zinc-100 text-zinc-700 ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700',
-  disaffiliated: 'bg-zinc-100 text-zinc-700 ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700',
-  merged: 'bg-zinc-100 text-zinc-700 ring-zinc-300 dark:bg-zinc-800 dark:text-zinc-300 dark:ring-zinc-700',
-};
-
-const CATEGORY_LABEL: Record<string, string> = {
-  membership: 'Membership',
-  ethnicity: 'Ethnicity',
-  worship: 'Worship',
-  groups: 'Groups & Ministries',
-  finance: 'Finances',
-  other: 'Gender',
-};
-
-const CATEGORY_ORDER = ['membership', 'worship', 'ethnicity', 'other', 'groups', 'finance'];
-
-type Church = {
-  id: string;
-  canonical_name: string;
-  city: string | null;
-  status: string;
-  closed_year: number | null;
-  mailing_address: string | null;
-  phone: string | null;
-  lat: number | null;
-  lng: number | null;
-};
-
-type StatRow = {
-  field_code: string;
-  value_numeric: number | null;
-  value_text: string | null;
-  source_pdf_page: number | null;
-  stat_field: { label_en: string; category: string; unit: string };
-};
-
-type Appointment = {
-  role: string | null;
-  status_code: string | null;
-  years_at_appt: number | null;
-  fraction: string | null;
-  clergy: { id: string; canonical_name: string };
-};
-
-function fmtValue(row: StatRow): string {
-  if (row.value_numeric === null) return row.value_text ?? '—';
-  if (row.stat_field.unit === 'usd') {
-    return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(row.value_numeric);
-  }
-  return new Intl.NumberFormat('en-US').format(row.value_numeric);
+// Scale metrics report 0 in a church's exit/non-report year — treat 0 as missing.
+const ZERO_AS_MISSING = new Set(["MEMBTOT", "AVATTWOR", "GRANDTOT"]);
+function series(rows: StatRow[], code: string): Pt[] {
+  return rows.filter((r) => r.field_code === code && r.value_numeric != null && !(ZERO_AS_MISSING.has(code) && r.value_numeric === 0))
+    .map((r) => ({ year: r.data_year, value: r.value_numeric as number }))
+    .sort((a, b) => a.year - b.year);
 }
 
-export default async function ChurchPage({ params }: PageProps<'/churches/[id]'>) {
+export default async function ChurchPage({ params }: PageProps<"/churches/[id]">) {
   const { id } = await params;
-  const supabase = await createClient();
+  const sb = await createClient();
 
-  const { data: church, error: chErr } = await supabase
-    .from('church')
-    .select('id, canonical_name, city, status, closed_year, mailing_address, phone, lat, lng')
-    .eq('id', id)
-    .maybeSingle<Church>();
-  if (chErr || !church) notFound();
+  const { data: church } = await sb.from("church")
+    .select("id, canonical_name, gcfa_number, city, address, state, zip, county_name, status, church_ethnicity, congregation_type, legacy_conferences, first_data_year, last_data_year, lat, lng")
+    .eq("id", id).maybeSingle();
+  if (!church || !church.gcfa_number) notFound();
 
-  const { data: dh } = await supabase
-    .from('district_history')
-    .select('district_code')
-    .eq('church_id', id)
-    .eq('data_year', 2024)
-    .maybeSingle<{ district_code: string }>();
+  const [statsRes, projRes, vitRes, cohRes] = await Promise.all([
+    sb.from("church_stat").select("data_year, field_code, value_numeric").eq("church_id", id).eq("source", "gcfa").in("field_code", FIELDS),
+    sb.from("church_projection").select("field_code, horizon_year, projected, lo, hi, base_year, base_value").eq("church_id", id),
+    sb.from("church_vitality").select("risk_score, risk_tier, prob_decline, factors, observed_status").eq("church_id", id).maybeSingle(),
+    sb.from("church_cohort").select("size_band, ethnicity, district, cohort_key").eq("church_id", id).maybeSingle(),
+  ]);
+  const stats = (statsRes.data ?? []) as StatRow[];
+  const projections = (projRes.data ?? []) as ProjRow[];
+  const vit = vitRes.data as { risk_score: number; risk_tier: RiskTier; prob_decline: number; factors: Record<string, number>; observed_status: string } | null;
+  const cohort = cohRes.data as { size_band: string; ethnicity: string | null; district: string | null; cohort_key: string } | null;
 
-  const { data: stats } = await supabase
-    .from('church_stat')
-    .select('field_code, value_numeric, value_text, source_pdf_page, stat_field!inner(label_en, category, unit)')
-    .eq('church_id', id)
-    .eq('data_year', 2024)
-    .order('field_code')
-    .returns<StatRow[]>();
+  const zip = church.zip ? String(church.zip).slice(0, 5).padStart(5, "0") : null;
+  const { data: acs } = zip ? await sb.from("community_acs").select("*").eq("zip", zip).maybeSingle() : { data: null };
 
-  // Multi-year series for sparklines: pull every year's value for the
-  // headline metrics (membership, average worship, total receipts).
-  const { data: trendRows } = await supabase
-    .from('church_stat')
-    .select('field_code, data_year, value_numeric')
-    .eq('church_id', id)
-    .in('field_code', ['4', '7', '55'])
-    .order('data_year');
-
-  type Trend = { code: string; values: Map<number, number> };
-  const trends = new Map<string, Trend>();
-  for (const r of trendRows ?? []) {
-    const code = (r as { field_code: string }).field_code;
-    const year = (r as { data_year: number }).data_year;
-    const value = (r as { value_numeric: number | null }).value_numeric;
-    if (value == null) continue;
-    if (!trends.has(code)) trends.set(code, { code, values: new Map() });
-    trends.get(code)!.values.set(year, value);
-  }
-  const minYear = 2014;
-  const maxYear = 2024;
-  // 2016 financial-field parses are anomalous (different reporting
-  // template; many fields collapsed into a single text field). Skip
-  // 2016 for the receipts series specifically — membership and worship
-  // are fine.
-  const FINANCIAL_CODES = new Set(['55']);
-  function pointsFor(code: string): Point[] {
-    const t = trends.get(code);
-    if (!t) return [];
-    const out: Point[] = [];
-    for (let y = minYear; y <= maxYear; y++) {
-      if (y === 2016 && FINANCIAL_CODES.has(code)) continue;
-      out.push({ year: y, value: t.values.get(y) ?? null });
+  // peer benchmarking — latest membership of cohort-mates
+  let peerStat: { n: number; pct: number | null } = { n: 0, pct: null };
+  if (cohort) {
+    const { data: peers } = await sb.from("church_cohort").select("church_id").eq("cohort_key", cohort.cohort_key);
+    const ids = (peers ?? []).map((p: { church_id: string }) => p.church_id);
+    if (ids.length > 1) {
+      const { data: peerMem } = await sb.from("church_stat").select("value_numeric").eq("source", "gcfa").eq("field_code", "MEMBTOT").eq("data_year", church.last_data_year).in("church_id", ids);
+      const vals = (peerMem ?? []).map((r: { value_numeric: number | null }) => r.value_numeric).filter((v): v is number => v != null && v > 0);
+      const mine = series(stats, "MEMBTOT").at(-1)?.value ?? null;
+      if (mine != null && vals.length > 1) {
+        const below = vals.filter((v) => v < mine).length;
+        peerStat = { n: vals.length, pct: Math.round((below / vals.length) * 100) };
+      } else peerStat = { n: vals.length, pct: null };
     }
-    return out;
-  }
-  const membershipPts = pointsFor('4');
-  const worshipPts = pointsFor('7');
-  const receiptsPts = pointsFor('55');
-
-  const { data: appts } = await supabase
-    .from('appointment')
-    .select('role, status_code, years_at_appt, fraction, clergy:clergy_id(id, canonical_name)')
-    .eq('church_id', id)
-    .eq('journal_year', 2025)
-    .returns<Appointment[]>();
-
-  const { data: aliases } = await supabase
-    .from('church_alias')
-    .select('alias, source_section, journal_year')
-    .eq('church_id', id);
-
-  const statsByCategory: Record<string, StatRow[]> = {};
-  for (const s of stats ?? []) {
-    const cat = s.stat_field.category;
-    (statsByCategory[cat] ??= []).push(s);
   }
 
-  // Build composition slices for the ethnicity + gender donuts.
-  function valueOf(code: string): number {
-    return (stats ?? []).find((s) => s.field_code === code)?.value_numeric ?? 0;
-  }
-  const ETHNICITY_PALETTE: Record<string, string> = {
-    '5a': '#0ea5e9', // Asian
-    '5b': '#7c3aed', // Black
-    '5c': '#f59e0b', // Hispanic/Latino
-    '5d': '#16a34a', // Native American
-    '5e': '#06b6d4', // Pacific Islander
-    '5f': '#94a3b8', // White
-    '5g': '#ec4899', // Multi-Racial
-  };
-  const ETHNICITY_LABELS: Record<string, string> = {
-    '5a': 'Asian',
-    '5b': 'Black',
-    '5c': 'Hispanic/Latino',
-    '5d': 'Native American',
-    '5e': 'Pacific Islander',
-    '5f': 'White',
-    '5g': 'Multi-Racial',
-  };
-  const ethnicitySlices: Slice[] = (['5a', '5b', '5c', '5d', '5e', '5f', '5g'] as const).map((code) => ({
-    label: ETHNICITY_LABELS[code],
-    color: ETHNICITY_PALETTE[code],
-    value: valueOf(code),
-  }));
-  const ethnicityTotal = ethnicitySlices.reduce((s, x) => s + x.value, 0);
+  const mem = series(stats, "MEMBTOT");
+  const att = series(stats, "AVATTWOR");
+  const giving = series(stats, "GRANDTOT");
+  const memNow = mem.at(-1)?.value ?? null;
+  const attNow = att.at(-1)?.value ?? null;
+  const memPeak = mem.length ? Math.max(...mem.map((p) => p.value)) : null;
+  const memStart = mem[0]?.value ?? null;
 
-  const GENDER_PALETTE: Record<string, string> = {
-    '6a': '#8b5cf6', // Female
-    '6b': '#0ea5e9', // Male
-    '6c': '#94a3b8', // Nonbinary
+  const projFor = (code: string) => {
+    if (church.status !== "active") return {}; // projections only meaningful for active churches
+    const ps = projections.filter((p) => p.field_code === code).sort((a, b) => a.horizon_year - b.horizon_year);
+    if (!ps.length) return {};
+    return {
+      projection: ps.map((p) => ({ year: p.horizon_year, value: p.projected })),
+      band: ps.map((p) => ({ year: p.horizon_year, lo: p.lo, hi: p.hi })),
+    };
   };
-  const GENDER_LABELS: Record<string, string> = { '6a': 'Female', '6b': 'Male', '6c': 'Nonbinary' };
-  const genderSlices: Slice[] = (['6a', '6b', '6c'] as const).map((code) => ({
-    label: GENDER_LABELS[code],
-    color: GENDER_PALETTE[code],
-    value: valueOf(code),
-  }));
-  const genderTotal = genderSlices.reduce((s, x) => s + x.value, 0);
 
-  const districtName = dh?.district_code ? DISTRICT_NAME[dh.district_code] : null;
-  const mapHref =
-    church.lat && church.lng
-      ? `https://www.openstreetmap.org/?mlat=${church.lat}&mlon=${church.lng}&zoom=15`
-      : null;
+  const st = STATUS[(church.status as keyof typeof STATUS)] ?? STATUS.active;
+  const lineage = (church.legacy_conferences ?? []).join(" → ");
+  const district = district2025(church.county_name);
+  const eraADistrict = cohort?.district && cohort.district !== district ? cohort.district : null;
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
-      <Link href="/churches" className="text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100">
-        ← Churches
-      </Link>
+    <main className="mx-auto max-w-6xl px-5 sm:px-8 py-10">
+      <Link href="/churches" className="eyebrow hover:text-ink">← All churches</Link>
 
-      <header className="mt-4">
-        <div className="flex items-baseline gap-3 flex-wrap">
-          <h1 className="text-3xl font-semibold tracking-tight">{church.canonical_name}</h1>
-          {church.status !== 'active' && (
-            <span className={'inline-flex items-center rounded-full px-3 py-1 text-xs font-medium ring-1 ' + (STATUS_COLOR[church.status] ?? '')}>
-              {STATUS_LABEL[church.status] ?? church.status}
-              {church.closed_year ? ` · ${church.closed_year}` : ''}
-            </span>
-          )}
+      <header className="mt-4 flex flex-wrap items-end justify-between gap-4 pb-6 border-b border-rule">
+        <div>
+          <div className="flex items-center gap-2">
+            <span className="inline-block w-2 h-2 rounded-full" style={{ background: st.dot }} />
+            <span className={`text-sm ${st.text}`}>{st.label}</span>
+            {church.congregation_type && <span className="text-sm text-faint">· {church.congregation_type}</span>}
+          </div>
+          <h1 className="mt-1 font-display text-4xl sm:text-5xl text-ink">{church.canonical_name}</h1>
+          <p className="mt-2 text-ink-mute">
+            {[church.city, church.county_name && `${church.county_name.trim()} County`, church.state].filter(Boolean).join(", ")}
+            {district && <> · {district} District</>}
+          </p>
         </div>
-        <p className="mt-2 text-zinc-600 dark:text-zinc-400">
-          {districtName ? `${districtName} District` : 'Unassigned'}
-          {church.city && church.city !== church.canonical_name ? ` · ${church.city}` : ''}
-        </p>
-        <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
-          {church.mailing_address && (
-            <div>
-              <div className="text-zinc-500">Address</div>
-              <div>{church.mailing_address}</div>
-            </div>
-          )}
-          {church.phone && (
-            <div>
-              <div className="text-zinc-500">Phone</div>
-              <div>{church.phone}</div>
-            </div>
-          )}
-          {mapHref && (
-            <div>
-              <div className="text-zinc-500">Map</div>
-              <a href={mapHref} target="_blank" rel="noopener" className="underline underline-offset-4">
-                {church.lat?.toFixed(4)}, {church.lng?.toFixed(4)}
-              </a>
-            </div>
-          )}
+        <div className="text-right text-sm text-faint tnum">
+          <div>GCFA #{church.gcfa_number}</div>
+          <div>Reported {church.first_data_year}–{church.last_data_year}</div>
+          {eraADistrict && <div className="text-ink-mute">Formerly {eraADistrict} District</div>}
+          {lineage && <div className="text-ink-mute">{lineage}</div>}
         </div>
       </header>
 
-      {(membershipPts.some((p) => p.value != null) ||
-        worshipPts.some((p) => p.value != null) ||
-        receiptsPts.some((p) => p.value != null)) && (
-        <section className="mt-8">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-            Trends · {minYear + 1}–{maxYear + 1} journals
-          </h2>
-          <p className="mt-1 text-xs text-zinc-500">Year-end membership, average worship attendance, and grand-total receipts as recorded in each annual journal.</p>
-          <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-            <Sparkline label="Membership" points={membershipPts} format="count" />
-            <Sparkline label="Worship attendance" points={worshipPts} format="count" />
-            <Sparkline label="Total received" points={receiptsPts} format="usd" />
+      <section className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <Metric label="Members" value={fmtInt(memNow)} sub={memPeak && memNow != null && memPeak !== memNow ? `peak ${fmtInt(memPeak)}` : undefined} />
+        <Metric label="Worship attendance" value={fmtInt(attNow)} />
+        <Metric label="Attendance / member" value={memNow && attNow ? `${Math.round((attNow / memNow) * 100)}%` : "—"} />
+        <Metric
+          label={`Since ${mem[0]?.year ?? ""}`}
+          value={memStart && memNow != null ? `${memNow >= memStart ? "+" : ""}${Math.round(((memNow - memStart) / memStart) * 100)}%` : "—"}
+          sub="membership"
+        />
+      </section>
+
+      <div className="mt-8 grid lg:grid-cols-3 gap-5">
+        <div className="lg:col-span-2 space-y-5">
+          <ChartCard title="Professing membership" subtitle="with five-year projection" series={mem} accent="ember" {...projFor("MEMBTOT")} />
+          <div className="grid sm:grid-cols-2 gap-5">
+            <ChartCard title="Worship attendance" series={att} accent="ember" {...projFor("AVATTWOR")} small />
+            <ChartCard title="Total funds paid" series={giving} accent="teal" format="usd" {...projFor("GRANDTOT")} small />
           </div>
-        </section>
-      )}
+        </div>
 
-      {(ethnicityTotal > 0 || genderTotal > 0) && (
-        <section className="mt-8">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">2024 Membership composition</h2>
-          <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {ethnicityTotal > 0 && (
-              <div className="rounded-md border border-zinc-200 dark:border-zinc-800 p-3">
-                <div className="text-xs uppercase tracking-wide text-zinc-500">Ethnicity</div>
-                <div className="mt-2">
-                  <Donut slices={ethnicitySlices} centerLabel={new Intl.NumberFormat('en-US').format(ethnicityTotal)} />
-                </div>
-              </div>
-            )}
-            {genderTotal > 0 && (
-              <div className="rounded-md border border-zinc-200 dark:border-zinc-800 p-3">
-                <div className="text-xs uppercase tracking-wide text-zinc-500">Gender</div>
-                <div className="mt-2">
-                  <Donut slices={genderSlices} centerLabel={new Intl.NumberFormat('en-US').format(genderTotal)} />
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
-      {appts && appts.length > 0 && (
-        <section className="mt-10">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-            2025 Appointments
-          </h2>
-          <ul className="mt-3 divide-y divide-zinc-200 dark:divide-zinc-800">
-            {appts.map((a, i) => (
-              <li key={i} className="flex items-baseline justify-between py-3">
-                <div>
-                  <Link
-                    href={`/clergy/${a.clergy.id}`}
-                    className="font-medium hover:underline underline-offset-4"
-                  >
-                    {a.clergy.canonical_name}
-                  </Link>
-                  <span className="ml-2 text-sm text-zinc-500">
-                    {a.role}
-                    {a.years_at_appt != null ? ` · ${a.years_at_appt} yr${a.years_at_appt === 1 ? '' : 's'}` : ''}
-                  </span>
-                </div>
-                <div className="text-sm text-zinc-500">
-                  {a.status_code}
-                  {a.fraction ? ` [${a.fraction}]` : ''}
-                </div>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
-
-      {stats && stats.length > 0 && (
-        <section className="mt-10">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-            2024 Statistics
-          </h2>
-          {CATEGORY_ORDER.filter((cat) => statsByCategory[cat]?.length).map((cat) => (
-            <div key={cat} className="mt-6">
-              <h3 className="font-medium">{CATEGORY_LABEL[cat] ?? cat}</h3>
-              <dl className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-1 text-sm">
-                {statsByCategory[cat].map((s) => (
-                  <div key={s.field_code} className="flex justify-between border-b border-zinc-100 dark:border-zinc-900 py-1">
-                    <dt className="text-zinc-600 dark:text-zinc-400">
-                      <span className="text-xs text-zinc-400 mr-1.5 font-mono">{s.field_code}</span>
-                      {s.stat_field.label_en}
-                    </dt>
-                    <dd className="tabular-nums">{fmtValue(s)}</dd>
-                  </div>
+        <div className="space-y-5">
+          {vit && church.status === "active" && (
+            <div className="panel rounded-lg p-5">
+              <div className="eyebrow">Vitality</div>
+              <div className="mt-3"><RiskMeter score={vit.risk_score} tier={vit.risk_tier} /></div>
+              <div className="mt-4 pt-4 border-t border-rule space-y-1.5">
+                {Object.entries(vit.factors ?? {}).sort((a, b) => b[1] - a[1]).map(([k, v]) => (
+                  <FactorRow key={k} name={k} contrib={v} />
                 ))}
-              </dl>
+              </div>
+              <p className="mt-3 text-xs text-faint">Ember pushes toward closure; teal protects against it.</p>
             </div>
-          ))}
-        </section>
-      )}
+          )}
+          {vit && church.status !== "active" && (
+            <div className="panel rounded-lg p-5">
+              <div className="eyebrow">Outcome</div>
+              <p className="mt-2 text-ink">Recorded as <span className={st.text}>{st.label.toLowerCase()}</span>.</p>
+            </div>
+          )}
 
-      {aliases && aliases.length > 0 && (
-        <section className="mt-10">
-          <h2 className="text-sm font-medium uppercase tracking-wide text-zinc-500">
-            Also known as
-          </h2>
-          <ul className="mt-3 text-sm text-zinc-600 dark:text-zinc-400">
-            {aliases.map((a, i) => (
-              <li key={i}>
-                {a.alias}{' '}
-                <span className="text-zinc-400 text-xs">
-                  ({a.source_section} {a.journal_year})
-                </span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
+          {cohort && (
+            <div className="panel rounded-lg p-5">
+              <div className="eyebrow">Peers · churches like this</div>
+              <p className="mt-2 text-sm text-ink-mute">{cohort.size_band} members{cohort.ethnicity ? `, ${cohort.ethnicity}` : ""}</p>
+              {peerStat.pct != null ? (
+                <>
+                  <div className="mt-3 h-2 rounded-full bg-parchment ring-1 ring-rule overflow-hidden">
+                    <div className="h-full bg-teal" style={{ width: `${peerStat.pct}%` }} />
+                  </div>
+                  <p className="mt-2 text-sm text-ink">Larger than <span className="tnum font-medium">{peerStat.pct}%</span> of its {peerStat.n} peers.</p>
+                </>
+              ) : <p className="mt-2 text-sm text-faint">{peerStat.n} peer churches.</p>}
+            </div>
+          )}
+
+          {acs && (
+            <div className="panel rounded-lg p-5">
+              <div className="eyebrow">Neighborhood · ZIP {zip}</div>
+              <dl className="mt-3 grid grid-cols-2 gap-y-2.5 gap-x-3 text-sm">
+                <Demo label="Population" value={fmtInt(acs.total_pop)} />
+                <Demo label="Median income" value={fmtUsd(acs.median_household_income)} />
+                <Demo label="Hispanic" value={fmtPct(acs.pct_hispanic)} />
+                <Demo label="Over 65" value={fmtPct(acs.pct_over65)} />
+                <Demo label="Under 18" value={fmtPct(acs.pct_under18)} />
+                <Demo label="Poverty" value={fmtPct(acs.poverty_rate)} />
+              </dl>
+              <p className="mt-3 text-xs text-faint">U.S. Census ACS 5-year, by ZIP tabulation area.</p>
+            </div>
+          )}
+        </div>
+      </div>
     </main>
+  );
+}
+
+function Metric({ label, value, sub }: { label: string; value: string; sub?: string }) {
+  return (
+    <div className="panel rounded-lg px-4 py-3">
+      <div className="text-xs text-ink-mute">{label}</div>
+      <div className="tnum text-2xl font-semibold text-ink mt-0.5">{value}</div>
+      {sub && <div className="text-xs text-faint tnum">{sub}</div>}
+    </div>
+  );
+}
+
+function ChartCard({ title, subtitle, series, accent, format, projection, band, small }: {
+  title: string; subtitle?: string; series: Pt[]; accent: "teal" | "ember"; format?: "count" | "usd";
+  projection?: Pt[]; band?: { year: number; lo: number; hi: number }[]; small?: boolean;
+}) {
+  return (
+    <div className="panel rounded-lg p-5">
+      <div className="flex items-baseline justify-between">
+        <h3 className="text-sm font-medium text-ink">{title}</h3>
+        {subtitle && <span className="text-xs text-faint">{subtitle}</span>}
+      </div>
+      <div className="mt-3">
+        <TrendChart points={series} projection={projection} band={band} accent={accent} format={format ?? "count"} height={small ? 120 : 168} />
+      </div>
+    </div>
+  );
+}
+
+const FACTOR_LABEL: Record<string, string> = {
+  log_size: "Size",
+  membership_cagr: "Membership trend",
+  attendance_per_member: "Engagement",
+  baptism_rate: "Baptisms",
+  net_change_rate: "Net change",
+};
+function FactorRow({ name, contrib }: { name: string; contrib: number }) {
+  const w = Math.min(100, Math.abs(contrib) * 60);
+  const risky = contrib > 0;
+  return (
+    <div className="flex items-center gap-3">
+      <div className="flex-1 text-xs text-ink-mute">{FACTOR_LABEL[name] ?? name}</div>
+      <div className="w-24 h-1.5 rounded-full bg-parchment ring-1 ring-rule overflow-hidden">
+        <div className="h-full rounded-full" style={{ width: `${w}%`, background: risky ? "var(--color-ember)" : "var(--color-teal)" }} />
+      </div>
+    </div>
+  );
+}
+
+function Demo({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <dt className="text-xs text-ink-mute">{label}</dt>
+      <dd className="tnum text-ink font-medium">{value}</dd>
+    </div>
   );
 }
