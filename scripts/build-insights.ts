@@ -37,14 +37,26 @@ const idMap: Record<string, string> = JSON.parse(readFileSync(DIR + "church_id_m
 const churchesJson: any[] = JSON.parse(readFileSync(DIR + "churches.json", "utf8"));
 const identByGcfa = new Map(churchesJson.map((c) => [String(c.gcfa_number), c]));
 
-type Church = { id: string; canonical_name: string; city: string | null; county_name: string | null };
+type Church = { id: string; canonical_name: string; city: string | null; county_name: string | null; zip: string | null };
 const churches: Church[] = [];
 for (const [gcfa, id] of Object.entries(idMap)) {
   if (statusByChurchId.get(id) !== "active") continue;
   const c = identByGcfa.get(gcfa);
-  churches.push({ id, canonical_name: c?.church_name ?? "(unknown)", city: c?.city ?? null, county_name: c?.county_name ?? null });
+  const zip = c?.zip ? String(c.zip).slice(0, 5).padStart(5, "0") : null;
+  churches.push({ id, canonical_name: c?.church_name ?? "(unknown)", city: c?.city ?? null, county_name: c?.county_name ?? null, zip });
 }
-const gcfaById = new Map(Object.entries(idMap).map(([g, id]) => [id, g]));
+
+// ACS neighborhood profile by ZIP (small table — direct query, no timeout)
+type Acs = { zip: string; median_household_income: number | null; poverty_rate: number | null; pct_family_households: number | null; median_age: number | null; total_pop: number | null };
+const acsByZip = new Map<string, Acs>();
+for (let from = 0; ; from += 1000) {
+  const { data, error } = await db.from("community_acs")
+    .select("zip, median_household_income, poverty_rate, pct_family_households, median_age, total_pop").range(from, from + 999);
+  if (error) throw error;
+  if (!data?.length) break;
+  for (const r of data as Acs[]) acsByZip.set(r.zip, r);
+  if (data.length < 1000) break;
+}
 
 // gcfa -> field -> year -> value, read from the local stats extract (avoids DB scan timeouts)
 const seriesByGcfa = new Map<string, Map<string, Map<number, number>>>();
@@ -74,8 +86,18 @@ const recentAvg = (m: Map<number, number> | undefined, n = 3): number | null => 
   return yrs.reduce((s, y) => s + (m.get(y) ?? 0), 0) / yrs.length;
 };
 
+// % change of a field over the most recent ~10 reported years (worship trajectory)
+const trendPct = (m: Map<number, number> | undefined): number | null => {
+  if (!m || m.size < 2) return null;
+  const yrs = [...m.keys()].sort((a, b) => a - b);
+  const last = yrs[yrs.length - 1];
+  const baseY = yrs.find((y) => y >= last - 10) ?? yrs[0];
+  const base = m.get(baseY)!, lastV = m.get(last)!;
+  return base > 0 && baseY !== last ? ((lastV - base) / base) * 100 : null;
+};
+
 // per-church signals
-const out = [];
+const out: any[] = [];
 for (const c of churches) {
   const f = series.get(c.id);
   const members = latest(f?.get("MEMBTOT"));
@@ -84,15 +106,33 @@ for (const c of churches) {
   const prof = recentAvg(f?.get("RECPROF"));
   const bapt = recentAvg(f?.get("NUMBAPT"));
   const propValue = latest(f?.get("VALPROP"));
+  const acs = c.zip ? acsByZip.get(c.zip) ?? null : null;
   out.push({
     id: c.id, name: c.canonical_name, city: c.city, district: district2025(c.county_name),
     members,
     worship,
+    worshipTrend: trendPct(f?.get("AVATTWOR")),                                    // vitality axis
     engagement: worship != null ? worship / members : null,                       // worship per member
     disciplesPer100: prof != null || bapt != null ? ((prof ?? 0) + (bapt ?? 0)) / members * 100 : null,
     propValue,
     propPerMember: propValue != null ? propValue / members : null,
+    income: acs?.median_household_income ?? null,
+    povertyRate: acs?.poverty_rate ?? null,
+    favorability: null as number | null,                                          // filled below (percentile)
   });
+}
+
+// Community favorability = percentile rank of a composite (income up, poverty down,
+// family-households up) across churches that have ACS. This is the X-axis of the
+// bright-spots quadrant; church vitality (worshipTrend) is the Y-axis.
+const z = (xs: number[]) => { const m = xs.reduce((a, b) => a + b, 0) / xs.length; const sd = Math.sqrt(xs.reduce((a, b) => a + (b - m) ** 2, 0) / xs.length) || 1; return (v: number) => (v - m) / sd; };
+const withAcs = out.filter((r) => r.income != null && r.povertyRate != null);
+if (withAcs.length > 5) {
+  const zInc = z(withAcs.map((r) => r.income));
+  const zPov = z(withAcs.map((r) => r.povertyRate));
+  const raw = withAcs.map((r) => ({ r, s: zInc(r.income) - zPov(r.povertyRate) }));
+  raw.sort((a, b) => a.s - b.s);
+  raw.forEach((x, i) => { x.r.favorability = Math.round((i / (raw.length - 1)) * 100); }); // 0..100 percentile
 }
 
 // conference engagement trend (sum worship / sum members per year, all reporting churches)
@@ -122,4 +162,10 @@ const med = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); return 
 console.log(`${out.length} active churches (>= ${GATE_MEMBERS} members) profiled`);
 console.log(`engagement: conference ratio ${engagementTrend[0]?.year} ${(engagementTrend[0]?.ratio * 100).toFixed(0)}% -> ${latestYear} ${(engagementTrend[engagementTrend.length - 1]?.ratio * 100).toFixed(0)}%`);
 console.log(`median engagement ${(med(out.filter((c) => c.engagement != null).map((c) => c.engagement!)) * 100).toFixed(0)}% | median disciples/100 ${med(out.filter((c) => c.disciplesPer100 != null).map((c) => c.disciplesPer100!)).toFixed(1)} | median $/member ${Math.round(med(out.filter((c) => c.propPerMember != null).map((c) => c.propPerMember!))).toLocaleString()}`);
+// bright spots: favorability <= 40th pctile (harder context) AND worshipTrend > 0 (growing)
+const quad = out.filter((c) => c.favorability != null && c.worshipTrend != null);
+const bright = quad.filter((c) => c.favorability <= 40 && c.worshipTrend > 0).sort((a, b) => b.worshipTrend - a.worshipTrend);
+const untapped = quad.filter((c) => c.favorability >= 60 && c.worshipTrend < 0).sort((a, b) => a.worshipTrend - b.worshipTrend);
+console.log(`bright-spots model: ${quad.length} churches with ACS + trend | ${bright.length} bright spots (hard context, growing) | ${untapped.length} untapped (good context, declining)`);
+console.log(`  top bright spots: ${bright.slice(0, 5).map((c) => `${c.name} (+${c.worshipTrend.toFixed(0)}%, fav ${c.favorability})`).join("; ")}`);
 console.log(`wrote ${OUT}`);

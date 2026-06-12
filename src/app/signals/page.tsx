@@ -10,6 +10,7 @@ type Row = {
   id: string; name: string; city: string | null; district: string | null;
   members: number; worship: number | null; engagement: number | null;
   disciplesPer100: number | null; propValue: number | null; propPerMember: number | null;
+  worshipTrend: number | null; income: number | null; povertyRate: number | null; favorability: number | null;
 };
 
 const rows = insights.churches as Row[];
@@ -27,6 +28,11 @@ export default function SignalsPage() {
   const totalProp = rows.reduce((s, r) => s + (r.propValue ?? 0), 0);
   const medProp = median(rows.filter((r) => r.propPerMember != null).map((r) => r.propPerMember!));
 
+  // bright-spots quadrant: community favorability (x) vs worship trajectory (y)
+  const quad = rows.filter((r) => r.favorability != null && r.worshipTrend != null);
+  const bright = quad.filter((r) => r.favorability! <= 40 && r.worshipTrend! > 0).sort((a, b) => b.worshipTrend! - a.worshipTrend!);
+  const untapped = quad.filter((r) => r.favorability! >= 60 && r.worshipTrend! < 0).sort((a, b) => a.worshipTrend! - b.worshipTrend!);
+
   return (
     <main className="mx-auto max-w-6xl px-5 sm:px-8 py-10">
       <p className="eyebrow">Beneath the membership count</p>
@@ -37,6 +43,31 @@ export default function SignalsPage() {
         congregation&rsquo;s life than its roll. Drawn from {insights.count} active churches with {insights.gateMembers}+
         members, through {latest}.
       </p>
+
+      {/* 0. Bright spots */}
+      <Section
+        eyebrow="Against the odds"
+        title="Demographics don't decide a church's future."
+        lede={`Each church plotted by the affluence of its community (left = harder, right = easier) against its worship trajectory (up = growing). If neighborhood made the church, the dots would climb left to right. They don't. ${bright.length} congregations are growing in the hardest contexts, while ${untapped.length} decline in the most favorable ones — the clearest sign that ministry, not zip code, is doing the work.`}
+      >
+        <div className="grid lg:grid-cols-[1.3fr_1fr] gap-6">
+          <div className="panel rounded-lg p-6">
+            <div className="eyebrow">Community favorability vs worship trajectory</div>
+            <Scatter rows={quad} />
+            <div className="mt-2 flex flex-wrap gap-4 text-xs text-ink-mute">
+              <Dot color="var(--color-teal)" label="Growing in a hard context" />
+              <Dot color="var(--color-amber)" label="Declining in a good context" />
+              <Dot color="var(--color-faint)" label="Other" />
+            </div>
+          </div>
+          <div className="space-y-5">
+            <CalloutList heading="Bright spots" sub="growing against a hard context" tone="teal"
+              rows={bright.slice(0, 6)} metric={(r) => `+${r.worshipTrend!.toFixed(0)}%`} />
+            <CalloutList heading="Untapped potential" sub="declining in a favorable context" tone="amber"
+              rows={untapped.slice(0, 6)} metric={(r) => `${r.worshipTrend!.toFixed(0)}%`} />
+          </div>
+        </div>
+      </Section>
 
       {/* 1. Engagement */}
       <Section
@@ -110,6 +141,70 @@ function Section({ eyebrow, title, lede, children }: { eyebrow: string; title: s
       <p className="mt-3 text-ink-mute max-w-3xl leading-relaxed">{lede}</p>
       <div className="mt-6">{children}</div>
     </section>
+  );
+}
+
+function Dot({ color, label }: { color: string; label: string }) {
+  return <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full" style={{ background: color }} />{label}</span>;
+}
+
+// Community favorability (x, 0–100 percentile) vs worship trajectory (y, % change).
+function Scatter({ rows }: { rows: Row[] }) {
+  const W = 560, H = 340, P = { l: 44, r: 14, t: 16, b: 34 };
+  const yClamp = (v: number) => Math.max(-100, Math.min(120, v));
+  const x = (fav: number) => P.l + (fav / 100) * (W - P.l - P.r);
+  const yMin = -100, yMax = 120;
+  const y = (v: number) => P.t + (1 - (yClamp(v) - yMin) / (yMax - yMin)) * (H - P.t - P.b);
+  const color = (r: Row) =>
+    r.favorability! <= 40 && r.worshipTrend! > 0 ? "var(--color-teal)"
+    : r.favorability! >= 60 && r.worshipTrend! < 0 ? "var(--color-amber)"
+    : "var(--color-faint)";
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} className="mt-4 w-full" role="img" aria-label="Bright-spots quadrant">
+      {/* quadrant guides */}
+      <line x1={x(50)} x2={x(50)} y1={P.t} y2={H - P.b} stroke="var(--color-rule)" strokeWidth="1" />
+      <line x1={P.l} x2={W - P.r} y1={y(0)} y2={y(0)} stroke="var(--color-rule)" strokeWidth="1" />
+      {/* y ticks */}
+      {[-100, -50, 0, 50, 100].map((v) => (
+        <text key={v} x={P.l - 6} y={y(v) + 3} textAnchor="end" className="fill-faint" style={{ fontSize: 9 }}>{v > 0 ? `+${v}` : v}%</text>
+      ))}
+      {/* x axis labels */}
+      <text x={P.l} y={H - 8} textAnchor="start" className="fill-faint" style={{ fontSize: 10 }}>Harder context</text>
+      <text x={W - P.r} y={H - 8} textAnchor="end" className="fill-faint" style={{ fontSize: 10 }}>Easier context</text>
+      {/* quadrant captions */}
+      <text x={x(4)} y={P.t + 10} className="fill-teal" style={{ fontSize: 10, fontWeight: 600 }}>Bright spots</text>
+      <text x={W - P.r - 2} y={H - P.b - 6} textAnchor="end" className="fill-amber" style={{ fontSize: 10, fontWeight: 600 }}>Untapped</text>
+      {/* points */}
+      {rows.map((r) => (
+        <circle key={r.id} cx={x(r.favorability!)} cy={y(r.worshipTrend!)} r={color(r) === "var(--color-faint)" ? 2.5 : 3.5}
+          fill={color(r)} opacity={color(r) === "var(--color-faint)" ? 0.45 : 0.9} />
+      ))}
+    </svg>
+  );
+}
+
+function CalloutList({ heading, sub, tone, rows, metric }: {
+  heading: string; sub: string; tone: "teal" | "amber"; rows: Row[]; metric: (r: Row) => string;
+}) {
+  const text = tone === "teal" ? "text-teal" : "text-amber";
+  return (
+    <div className="panel rounded-lg overflow-hidden">
+      <div className="px-4 py-3 border-b border-rule">
+        <div className={`font-medium ${text}`}>{heading}</div>
+        <div className="text-xs text-ink-mute">{sub}</div>
+      </div>
+      <div>
+        {rows.map((r) => (
+          <Link key={r.id} href={`/churches/${r.id}`} className="flex items-center gap-3 px-4 py-2 border-b border-rule hover:bg-vellum transition-colors">
+            <div className="min-w-0 flex-1">
+              <div className="text-ink truncate text-sm">{r.name}</div>
+              <div className="text-xs text-faint truncate">{[r.city, r.district].filter(Boolean).join(" · ")} · {fmtInt(r.members)} members</div>
+            </div>
+            <span className={`tnum text-sm font-semibold ${text}`}>{metric(r)}</span>
+          </Link>
+        ))}
+      </div>
+    </div>
   );
 }
 

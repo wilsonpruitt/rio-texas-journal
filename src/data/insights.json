@@ -102,10 +102,14 @@
       "district": "South",
       "members": 63,
       "worship": 63,
+      "worshipTrend": 117.24137931034481,
       "engagement": 1,
       "disciplesPer100": 7.936507936507936,
       "propValue": 244000,
-      "propPerMember": 3873.0158730158732
+      "propPerMember": 3873.0158730158732,
+      "income": 49768,
+      "povertyRate": 29.9,
+      "favorability": 9
     },
     {
       "id": "eda64a59-a3fe-422e-9690-0416733d0013",
@@ -114,10 +118,14 @@
       "district": "North",
       "members": 285,
       "worship": 170,
+      "worshipTrend": -69.0909090909091,
       "engagement": 0.5964912280701754,
       "disciplesPer100": 6.081871345029239,
       "propValue": 21700249,
-      "propPerMember": 76141.2245614035
+      "propPerMember": 76141.2245614035,
+      "income": 97160,
+      "povertyRate": 11.4,
+      "favorability": 79
     },
     {
       "id": "1fddec34-9009-41af-b101-cda2bce56c8d",
@@ -126,10 +134,14 @@
       "district": "Central",
       "members": 99,
       "worship": 29,
+      "worshipTrend": -3.3333333333333335,
       "engagement": 0.29292929292929293,
       "disciplesPer100": 0,
       "propValue": 877500,
-      "propPerMember": 8863.636363636364
+      "propPerMember": 8863.636363636364,
+      "income": 49045,
+      "povertyRate": 16.7,
+      "favorability": 28
     },
     {
       "id": "8c6ec210-ae4f-43bd-9645-2c0ff463f2a3",
@@ -138,10 +150,14 @@
       "district": "Central",
       "members": 48,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 51990,
+      "povertyRate": 26.2,
+      "favorability": 15
     },
     {
       "id": "775e91d2-5939-49ab-a7c5-a85985c65d49",
@@ -150,10 +166,14 @@
       "district": "North",
       "members": 365,
       "worship": 75,
+      "worshipTrend": -16.666666666666664,
       "engagement": 0.2054794520547945,
       "disciplesPer100": 0.365296803652968,
       "propValue": 6000000,
-      "propPerMember": 16438.35616438356
+      "propPerMember": 16438.35616438356,
+      "income": 101304,
+      "povertyRate": 17.9,
+      "favorability": 66
     },
     {
       "id": "8b5a9dab-faa2-471f-b48b-d880e2f29bab",
@@ -162,10 +182,14 @@
       "district": "Central",
       "members": 102,
       "worship": 45,
+      "worshipTrend": 0,
       "engagement": 0.4411764705882353,
       "disciplesPer100": 4.575163398692811,
       "propValue": 721000,
-      "propPerMember": 7068.6274509803925
+      "propPerMember": 7068.6274509803925,
+      "income": 59608,
+      "povertyRate": 18.3,
+      "favorability": 30
     },
     {
       "id": "8b8e44e3-9c12-45ba-9569-6b6f69d53dde",
@@ -174,10 +198,14 @@
       "district": "Central",
       "members": 166,
       "worship": 30,
+      "worshipTrend": -53.84615384615385,
       "engagement": 0.18072289156626506,
       "disciplesPer100": 2.0080321285140563,
       "propValue": 937000,
-      "propPerMember": 5644.578313253012
+      "propPerMember": 5644.578313253012,
+      "income": 84260,
+      "povertyRate": 7.4,
+      "favorability": 77
     },
     {
       "id": "ec41e1ff-0408-4ca5-bfe2-ec44bfb4fe48",
@@ -186,10 +214,14 @@
       "district": "Central",
       "members": 242,
       "worship": 50,
+      "worshipTrend": -37.5,
       "engagement": 0.2066115702479339,
       "disciplesPer100": 0.9641873278236914,
       "propValue": 775000,
-      "propPerMember": 3202.4793388429753
+      "propPerMember": 3202.4793388429753,
+      "income": 50865,
+      "povertyRate": 25.1,
+      "favorability": 17
     },
     {
       "id": "7c8aa33d-6344-4a38-8a9a-af0599b622ad",
@@ -198,10 +230,14 @@
       "district": "Central",
       "members": 26,
       "worship": 12,
+      "worshipTrend": -50,
       "engagement": 0.46153846153846156,
       "disciplesPer100": 3.8461538461538463,
       "propValue": 610000,
-      "propPerMember": 23461.53846153846
+      "propPerMember": 23461.53846153846,
+      "income": 64542,
+      "povertyRate": 13.3,
+      "favorability": 44
     },
     {
       "id": "17b1b04a-d44b-455a-9130-2c5cc48421af",
@@ -210,10 +246,14 @@
       "district": "Central",
       "members": 378,
       "worship": 120,
+      "worshipTrend": -14.285714285714285,
       "engagement": 0.31746031746031744,
       "disciplesPer100": 1.3227513227513228,
       "propValue": 5850000,
-      "propPerMember": 15476.190476190477
+      "propPerMember": 15476.190476190477,
+      "income": 30655,
+      "povertyRate": 42.7,
+      "favorability": 1
     },
     {
       "id": "6c1c3ac8-39ec-46cd-9fa9-4696cca196a3",
@@ -222,10 +262,14 @@
       "district": "Central",
       "members": 222,
       "worship": 47,
+      "worshipTrend": 11.904761904761903,
       "engagement": 0.21171171171171171,
       "disciplesPer100": 0.45045045045045046,
       "propValue": 1205000,
-      "propPerMember": 5427.927927927928
+      "propPerMember": 5427.927927927928,
+      "income": 54279,
+      "povertyRate": 23.3,
+      "favorability": 22
     },
     {
       "id": "289638f1-dc35-4637-aee5-df4eac1fd3ae",
@@ -234,10 +278,14 @@
       "district": "Central",
       "members": 242,
       "worship": 68,
+      "worshipTrend": 13.333333333333334,
       "engagement": 0.2809917355371901,
       "disciplesPer100": 0.9641873278236914,
       "propValue": 651000,
-      "propPerMember": 2690.0826446280994
+      "propPerMember": 2690.0826446280994,
+      "income": 40233,
+      "povertyRate": 29.9,
+      "favorability": 7
     },
     {
       "id": "fbaadd2c-52d9-47ce-a654-fdf08d4678fc",
@@ -246,10 +294,14 @@
       "district": "Central",
       "members": 262,
       "worship": 65,
+      "worshipTrend": -28.57142857142857,
       "engagement": 0.2480916030534351,
       "disciplesPer100": 2.035623409669211,
       "propValue": 1335800,
-      "propPerMember": 5098.473282442748
+      "propPerMember": 5098.473282442748,
+      "income": null,
+      "povertyRate": null,
+      "favorability": null
     },
     {
       "id": "a7afaaa3-7b0a-4778-b23a-2d427c91326c",
@@ -258,10 +310,14 @@
       "district": "South",
       "members": 181,
       "worship": 30,
+      "worshipTrend": -47.368421052631575,
       "engagement": 0.16574585635359115,
       "disciplesPer100": 0,
       "propValue": 1009000,
-      "propPerMember": 5574.585635359116
+      "propPerMember": 5574.585635359116,
+      "income": 51547,
+      "povertyRate": 27.6,
+      "favorability": 12
     },
     {
       "id": "ae5d1498-7a5a-4f26-a08d-43df0e7c8969",
@@ -270,10 +326,14 @@
       "district": "Central",
       "members": 259,
       "worship": 85,
+      "worshipTrend": -54.54545454545454,
       "engagement": 0.3281853281853282,
       "disciplesPer100": 5.534105534105533,
       "propValue": 2296000,
-      "propPerMember": 8864.864864864865
+      "propPerMember": 8864.864864864865,
+      "income": 115823,
+      "povertyRate": 4.2,
+      "favorability": 92
     },
     {
       "id": "7586bb95-aaa3-4af6-b2fc-ca693a2e8127",
@@ -282,10 +342,14 @@
       "district": "South",
       "members": 530,
       "worship": 96,
+      "worshipTrend": -36,
       "engagement": 0.1811320754716981,
       "disciplesPer100": 0.7547169811320755,
       "propValue": 3079000,
-      "propPerMember": 5809.433962264151
+      "propPerMember": 5809.433962264151,
+      "income": 37796,
+      "povertyRate": 32.2,
+      "favorability": 5
     },
     {
       "id": "148b0f84-164d-4c39-bef0-c0bb78a93158",
@@ -294,10 +358,14 @@
       "district": "South",
       "members": 211,
       "worship": 46,
+      "worshipTrend": -38.666666666666664,
       "engagement": 0.21800947867298578,
       "disciplesPer100": 2.211690363349131,
       "propValue": 1000000,
-      "propPerMember": 4739.336492890995
+      "propPerMember": 4739.336492890995,
+      "income": 60264,
+      "povertyRate": 15.7,
+      "favorability": 34
     },
     {
       "id": "c54e062d-d3fd-4a5c-b533-a39d7bdd586a",
@@ -306,10 +374,14 @@
       "district": "Central",
       "members": 39,
       "worship": 25,
+      "worshipTrend": 25,
       "engagement": 0.6410256410256411,
       "disciplesPer100": 0,
       "propValue": 25000,
-      "propPerMember": 641.025641025641
+      "propPerMember": 641.025641025641,
+      "income": 43769,
+      "povertyRate": 36.7,
+      "favorability": 3
     },
     {
       "id": "da4d70f3-c11f-4d98-98e2-fd9c12c5273e",
@@ -318,10 +390,14 @@
       "district": "South",
       "members": 1019,
       "worship": 109,
+      "worshipTrend": -54.58333333333333,
       "engagement": 0.1069676153091266,
       "disciplesPer100": 0.556100752371606,
       "propValue": 2095000,
-      "propPerMember": 2055.9371933267907
+      "propPerMember": 2055.9371933267907,
+      "income": 64864,
+      "povertyRate": 21,
+      "favorability": 30
     },
     {
       "id": "9fa65959-21ca-49be-b723-3b5c0d429d20",
@@ -330,10 +406,14 @@
       "district": "South",
       "members": 69,
       "worship": 39,
+      "worshipTrend": 11.428571428571429,
       "engagement": 0.5652173913043478,
       "disciplesPer100": 0.4830917874396135,
       "propValue": 1100000,
-      "propPerMember": 15942.028985507246
+      "propPerMember": 15942.028985507246,
+      "income": 51662,
+      "povertyRate": 26.1,
+      "favorability": 14
     },
     {
       "id": "0ae4c0c1-0858-4b04-8b1b-ab3e10b02549",
@@ -342,10 +422,14 @@
       "district": "South",
       "members": 53,
       "worship": 15,
+      "worshipTrend": -25,
       "engagement": 0.2830188679245283,
       "disciplesPer100": 0.6289308176100629,
       "propValue": 572000,
-      "propPerMember": 10792.452830188678
+      "propPerMember": 10792.452830188678,
+      "income": 56867,
+      "povertyRate": 29.8,
+      "favorability": 10
     },
     {
       "id": "1f011736-1149-4499-a442-e2f78191416c",
@@ -354,10 +438,14 @@
       "district": "South",
       "members": 52,
       "worship": 20,
+      "worshipTrend": -75,
       "engagement": 0.38461538461538464,
       "disciplesPer100": 1.282051282051282,
       "propValue": 906565,
-      "propPerMember": 17433.94230769231
+      "propPerMember": 17433.94230769231,
+      "income": 35742,
+      "povertyRate": 33.8,
+      "favorability": 3
     },
     {
       "id": "dd6e43b9-37d3-46d7-acd7-f3a497099a68",
@@ -366,10 +454,14 @@
       "district": "South",
       "members": 280,
       "worship": 80,
+      "worshipTrend": -26.605504587155966,
       "engagement": 0.2857142857142857,
       "disciplesPer100": 4.761904761904763,
       "propValue": 3376000,
-      "propPerMember": 12057.142857142857
+      "propPerMember": 12057.142857142857,
+      "income": 54029,
+      "povertyRate": 20.4,
+      "favorability": 26
     },
     {
       "id": "95efff6f-d0a2-4f99-ab8e-29d75a2e5d1e",
@@ -378,10 +470,14 @@
       "district": "South",
       "members": 31,
       "worship": 13,
+      "worshipTrend": -7.142857142857142,
       "engagement": 0.41935483870967744,
       "disciplesPer100": 3.225806451612903,
       "propValue": 126000,
-      "propPerMember": 4064.516129032258
+      "propPerMember": 4064.516129032258,
+      "income": 48117,
+      "povertyRate": 23.2,
+      "favorability": 19
     },
     {
       "id": "1afd62a6-9588-41b2-af45-794872ab353a",
@@ -390,10 +486,14 @@
       "district": "Central",
       "members": 124,
       "worship": 22,
+      "worshipTrend": -37.142857142857146,
       "engagement": 0.1774193548387097,
       "disciplesPer100": 0,
       "propValue": 400000,
-      "propPerMember": 3225.8064516129034
+      "propPerMember": 3225.8064516129034,
+      "income": 47567,
+      "povertyRate": 22.8,
+      "favorability": 20
     },
     {
       "id": "1f181fc7-0e89-4d6c-8287-09c385ff652f",
@@ -402,10 +502,14 @@
       "district": "South",
       "members": 222,
       "worship": 50,
+      "worshipTrend": -28.57142857142857,
       "engagement": 0.22522522522522523,
       "disciplesPer100": 1.3513513513513513,
       "propValue": 1499800,
-      "propPerMember": 6755.855855855856
+      "propPerMember": 6755.855855855856,
+      "income": 49768,
+      "povertyRate": 29.9,
+      "favorability": 9
     },
     {
       "id": "815e5d2a-5906-4db3-9708-7d1717a14b5f",
@@ -414,10 +518,14 @@
       "district": "Central",
       "members": 83,
       "worship": 25,
+      "worshipTrend": -10.714285714285714,
       "engagement": 0.30120481927710846,
       "disciplesPer100": 5.622489959839358,
       "propValue": 400000,
-      "propPerMember": 4819.277108433735
+      "propPerMember": 4819.277108433735,
+      "income": 51111,
+      "povertyRate": 20.6,
+      "favorability": 25
     },
     {
       "id": "f118f110-588b-4837-9f1d-acfd3a2d6c9a",
@@ -426,10 +534,14 @@
       "district": "North",
       "members": 111,
       "worship": 47,
+      "worshipTrend": -42.68292682926829,
       "engagement": 0.42342342342342343,
       "disciplesPer100": 0.9009009009009009,
       "propValue": 2836000,
-      "propPerMember": 25549.54954954955
+      "propPerMember": 25549.54954954955,
+      "income": 97160,
+      "povertyRate": 11.4,
+      "favorability": 79
     },
     {
       "id": "5c184111-d418-4c44-ad44-6d251bf6a629",
@@ -438,10 +550,14 @@
       "district": "North",
       "members": 168,
       "worship": 64,
+      "worshipTrend": -44.827586206896555,
       "engagement": 0.38095238095238093,
       "disciplesPer100": 0.7936507936507936,
       "propValue": 1993197,
-      "propPerMember": 11864.267857142857
+      "propPerMember": 11864.267857142857,
+      "income": 84529,
+      "povertyRate": 10.3,
+      "favorability": 69
     },
     {
       "id": "bf6f4d97-1ea1-469f-9d39-eec07755e4a4",
@@ -450,10 +566,14 @@
       "district": "North",
       "members": 591,
       "worship": 165,
+      "worshipTrend": -44.81605351170568,
       "engagement": 0.27918781725888325,
       "disciplesPer100": 0.8460236886632826,
       "propValue": 17654901,
-      "propPerMember": 29872.928934010153
+      "propPerMember": 29872.928934010153,
+      "income": 102886,
+      "povertyRate": 7.1,
+      "favorability": 86
     },
     {
       "id": "0c4b0201-5308-4dc7-b404-aa73fec2f8b5",
@@ -462,10 +582,14 @@
       "district": "North",
       "members": 784,
       "worship": 256,
+      "worshipTrend": -54.690265486725664,
       "engagement": 0.32653061224489793,
       "disciplesPer100": 1.1904761904761907,
       "propValue": 9443562,
-      "propPerMember": 12045.359693877552
+      "propPerMember": 12045.359693877552,
+      "income": 100761,
+      "povertyRate": 7.2,
+      "favorability": 84
     },
     {
       "id": "2e6ae045-bb51-430e-b932-6f07f54cc227",
@@ -474,10 +598,14 @@
       "district": "North",
       "members": 73,
       "worship": 49,
+      "worshipTrend": -31.944444444444443,
       "engagement": 0.6712328767123288,
       "disciplesPer100": 0,
       "propValue": 12650000,
-      "propPerMember": 173287.67123287672
+      "propPerMember": 173287.67123287672,
+      "income": 87978,
+      "povertyRate": 12.7,
+      "favorability": 67
     },
     {
       "id": "7a9c80ad-1585-44d0-adeb-6bd46e1598d7",
@@ -486,10 +614,14 @@
       "district": "North",
       "members": 230,
       "worship": 95,
+      "worshipTrend": -69.35483870967742,
       "engagement": 0.41304347826086957,
       "disciplesPer100": 2.608695652173913,
       "propValue": 3500000,
-      "propPerMember": 15217.391304347826
+      "propPerMember": 15217.391304347826,
+      "income": 107194,
+      "povertyRate": 5.2,
+      "favorability": 90
     },
     {
       "id": "56ed76dd-935c-4aad-864a-e9d1e5e21a3a",
@@ -498,10 +630,14 @@
       "district": "North",
       "members": 176,
       "worship": 95,
+      "worshipTrend": -10.377358490566039,
       "engagement": 0.5397727272727273,
       "disciplesPer100": 2.840909090909091,
       "propValue": 3990208,
-      "propPerMember": 22671.636363636364
+      "propPerMember": 22671.636363636364,
+      "income": 104946,
+      "povertyRate": 5.7,
+      "favorability": 89
     },
     {
       "id": "ef3b519e-4819-498e-98d3-8f7210d1886d",
@@ -510,10 +646,14 @@
       "district": "North",
       "members": 124,
       "worship": 82,
+      "worshipTrend": -14.583333333333334,
       "engagement": 0.6612903225806451,
       "disciplesPer100": 0.26881720430107525,
       "propValue": 2180000,
-      "propPerMember": 17580.645161290322
+      "propPerMember": 17580.645161290322,
+      "income": 120829,
+      "povertyRate": 5.9,
+      "favorability": 93
     },
     {
       "id": "622a7413-b365-49c7-8968-bbbd011665df",
@@ -522,10 +662,14 @@
       "district": "North",
       "members": 899,
       "worship": 267,
+      "worshipTrend": -44.948453608247426,
       "engagement": 0.29699666295884314,
       "disciplesPer100": 2.076381164256581,
       "propValue": 41364000,
-      "propPerMember": 46011.123470522805
+      "propPerMember": 46011.123470522805,
+      "income": 154867,
+      "povertyRate": 13.3,
+      "favorability": 96
     },
     {
       "id": "d39e19d6-04f2-4599-af45-5b1e78bd0287",
@@ -534,10 +678,14 @@
       "district": "North",
       "members": 633,
       "worship": 273,
+      "worshipTrend": -24.793388429752067,
       "engagement": 0.4312796208530806,
       "disciplesPer100": 2.211690363349131,
       "propValue": 8626775,
-      "propPerMember": 13628.396524486572
+      "propPerMember": 13628.396524486572,
+      "income": 97149,
+      "povertyRate": 13.6,
+      "favorability": 73
     },
     {
       "id": "1f17b666-7a31-4392-91be-cc7984f6f243",
@@ -546,10 +694,14 @@
       "district": "North",
       "members": 195,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0.17094017094017094,
       "propValue": 2400000,
-      "propPerMember": 12307.692307692309
+      "propPerMember": 12307.692307692309,
+      "income": 144637,
+      "povertyRate": 5.9,
+      "favorability": 98
     },
     {
       "id": "42ab92c7-a554-4a6e-b316-d7d91cf1ef8d",
@@ -558,10 +710,14 @@
       "district": "North",
       "members": 101,
       "worship": 33,
+      "worshipTrend": -60.71428571428571,
       "engagement": 0.32673267326732675,
       "disciplesPer100": 0.9900990099009901,
       "propValue": 6066266,
-      "propPerMember": 60062.039603960395
+      "propPerMember": 60062.039603960395,
+      "income": 62334,
+      "povertyRate": 18.1,
+      "favorability": 32
     },
     {
       "id": "fa59ea2f-4a9d-4556-b4c9-d0e6f8ab06f0",
@@ -570,10 +726,14 @@
       "district": "North",
       "members": 2623,
       "worship": 490,
+      "worshipTrend": -19.934640522875817,
       "engagement": 0.18680899733130005,
       "disciplesPer100": 1.0293556995806328,
       "propValue": 21644000,
-      "propPerMember": 8251.62028211971
+      "propPerMember": 8251.62028211971,
+      "income": 144637,
+      "povertyRate": 5.9,
+      "favorability": 98
     },
     {
       "id": "3944f15e-0d6b-4210-8003-43de5207fe7e",
@@ -582,10 +742,14 @@
       "district": "North",
       "members": 139,
       "worship": 75,
+      "worshipTrend": -63.23529411764706,
       "engagement": 0.539568345323741,
       "disciplesPer100": 0,
       "propValue": 5230393,
-      "propPerMember": 37628.72661870503
+      "propPerMember": 37628.72661870503,
+      "income": 81657,
+      "povertyRate": 11.8,
+      "favorability": 64
     },
     {
       "id": "cc6805a0-d789-45e7-af65-26f6b48a3c1d",
@@ -594,10 +758,14 @@
       "district": "North",
       "members": 501,
       "worship": 105,
+      "worshipTrend": -66.8769716088328,
       "engagement": 0.20958083832335328,
       "disciplesPer100": 1.1310711909514306,
       "propValue": 9000114,
-      "propPerMember": 17964.299401197604
+      "propPerMember": 17964.299401197604,
+      "income": 126422,
+      "povertyRate": 5.7,
+      "favorability": 94
     },
     {
       "id": "f3167b92-f5b1-4810-a185-b5e80b300e54",
@@ -606,10 +774,14 @@
       "district": "North",
       "members": 756,
       "worship": 178,
+      "worshipTrend": -55.50000000000001,
       "engagement": 0.23544973544973544,
       "disciplesPer100": 0.9700176366843033,
       "propValue": 13169000,
-      "propPerMember": 17419.31216931217
+      "propPerMember": 17419.31216931217,
+      "income": 30336,
+      "povertyRate": 47.9,
+      "favorability": 0
     },
     {
       "id": "c169ee08-a821-457f-aebb-527d1203f01e",
@@ -618,10 +790,14 @@
       "district": "North",
       "members": 816,
       "worship": 140,
+      "worshipTrend": -25.53191489361702,
       "engagement": 0.1715686274509804,
       "disciplesPer100": 0.6944444444444445,
       "propValue": 3361449,
-      "propPerMember": 4119.422794117647
+      "propPerMember": 4119.422794117647,
+      "income": 86976,
+      "povertyRate": 11.9,
+      "favorability": 69
     },
     {
       "id": "312bb14b-e465-46b1-b7c0-bd46ca99e104",
@@ -630,10 +806,14 @@
       "district": "North",
       "members": 621,
       "worship": 143,
+      "worshipTrend": -43.7007874015748,
       "engagement": 0.23027375201288244,
       "disciplesPer100": 1.610305958132045,
       "propValue": 9263887,
-      "propPerMember": 14917.692431561996
+      "propPerMember": 14917.692431561996,
+      "income": 109522,
+      "povertyRate": 5.7,
+      "favorability": 90
     },
     {
       "id": "79b0b58e-3795-4245-8d99-a169f46fd9d0",
@@ -642,10 +822,14 @@
       "district": "North",
       "members": 352,
       "worship": 120,
+      "worshipTrend": -38.144329896907216,
       "engagement": 0.3409090909090909,
       "disciplesPer100": 1.2310606060606062,
       "propValue": 4250000,
-      "propPerMember": 12073.863636363636
+      "propPerMember": 12073.863636363636,
+      "income": 110417,
+      "povertyRate": 5.7,
+      "favorability": 91
     },
     {
       "id": "75cd1284-0e81-4521-aecd-e3488663350f",
@@ -654,10 +838,14 @@
       "district": "North",
       "members": 303,
       "worship": 58,
+      "worshipTrend": -64.41717791411043,
       "engagement": 0.19141914191419143,
       "disciplesPer100": 1.65016501650165,
       "propValue": 4273000,
-      "propPerMember": 14102.310231023102
+      "propPerMember": 14102.310231023102,
+      "income": 66177,
+      "povertyRate": 16.8,
+      "favorability": 38
     },
     {
       "id": "9920a92b-d879-4dd6-9a0f-40e25ede00ba",
@@ -666,10 +854,14 @@
       "district": "Central",
       "members": 102,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0.65359477124183,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 84180,
+      "povertyRate": 8.6,
+      "favorability": 73
     },
     {
       "id": "14748b28-875f-4a57-a3c9-9fdccf4e5c58",
@@ -678,10 +870,14 @@
       "district": "North",
       "members": 29,
       "worship": 16,
+      "worshipTrend": 14.285714285714285,
       "engagement": 0.5517241379310345,
       "disciplesPer100": 0,
       "propValue": 1750000,
-      "propPerMember": 60344.8275862069
+      "propPerMember": 60344.8275862069,
+      "income": 76906,
+      "povertyRate": 13.1,
+      "favorability": 58
     },
     {
       "id": "df77899f-26c8-4eea-8675-14be209c0b73",
@@ -690,10 +886,14 @@
       "district": "Central",
       "members": 336,
       "worship": 188,
+      "worshipTrend": -26.27450980392157,
       "engagement": 0.5595238095238095,
       "disciplesPer100": 1.2896825396825395,
       "propValue": 5647010,
-      "propPerMember": 16806.57738095238
+      "propPerMember": 16806.57738095238,
+      "income": 80777,
+      "povertyRate": 8.9,
+      "favorability": 70
     },
     {
       "id": "196bb365-2e9f-4110-b710-19f780ff9626",
@@ -702,10 +902,14 @@
       "district": "North",
       "members": 54,
       "worship": 22,
+      "worshipTrend": -43.58974358974359,
       "engagement": 0.4074074074074074,
       "disciplesPer100": 0,
       "propValue": 937629,
-      "propPerMember": 17363.5
+      "propPerMember": 17363.5,
+      "income": 71964,
+      "povertyRate": 11.4,
+      "favorability": 58
     },
     {
       "id": "3df9c724-6f87-4ed2-9302-f2d54de49b98",
@@ -714,10 +918,14 @@
       "district": "North",
       "members": 47,
       "worship": 35,
+      "worshipTrend": -80.55555555555556,
       "engagement": 0.7446808510638298,
       "disciplesPer100": 3.546099290780142,
       "propValue": 4058000,
-      "propPerMember": 86340.4255319149
+      "propPerMember": 86340.4255319149,
+      "income": 88246,
+      "povertyRate": 8.8,
+      "favorability": 77
     },
     {
       "id": "510d0f60-1c0e-4b89-b87e-0b9f64f74665",
@@ -726,10 +934,14 @@
       "district": "North",
       "members": 1535,
       "worship": 206,
+      "worshipTrend": -39.411764705882355,
       "engagement": 0.13420195439739413,
       "disciplesPer100": 0.738327904451683,
       "propValue": 15841688,
-      "propPerMember": 10320.317915309446
+      "propPerMember": 10320.317915309446,
+      "income": 129116,
+      "povertyRate": 6,
+      "favorability": 95
     },
     {
       "id": "50eba10c-45af-4079-8b14-b4893388f78c",
@@ -738,10 +950,14 @@
       "district": "North",
       "members": 2068,
       "worship": 353,
+      "worshipTrend": -74.56772334293949,
       "engagement": 0.1706963249516441,
       "disciplesPer100": 0.61250805931657,
       "propValue": 24255000,
-      "propPerMember": 11728.72340425532
+      "propPerMember": 11728.72340425532,
+      "income": 123722,
+      "povertyRate": 4.1,
+      "favorability": 95
     },
     {
       "id": "393a4185-8f74-4783-b4d1-bc0b91ec2538",
@@ -750,10 +966,14 @@
       "district": "North",
       "members": 70,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0.47619047619047616,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 65761,
+      "povertyRate": 11.4,
+      "favorability": 52
     },
     {
       "id": "7fcff840-4e68-41ba-90b5-7e52c6e284f6",
@@ -762,10 +982,14 @@
       "district": "North",
       "members": 337,
       "worship": 92,
+      "worshipTrend": -51.06382978723404,
       "engagement": 0.27299703264094954,
       "disciplesPer100": 0.791295746785361,
       "propValue": 4892000,
-      "propPerMember": 14516.320474777449
+      "propPerMember": 14516.320474777449,
+      "income": 86819,
+      "povertyRate": 13.8,
+      "favorability": 63
     },
     {
       "id": "c2ed920b-e130-4f52-be8a-ff0895284369",
@@ -774,10 +998,14 @@
       "district": "South",
       "members": 175,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0.7619047619047619,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 63500,
+      "povertyRate": 7.9,
+      "favorability": 59
     },
     {
       "id": "d0f5d7e6-2f26-4cab-b79c-0edfb81a35c6",
@@ -786,10 +1014,14 @@
       "district": "North",
       "members": 145,
       "worship": 30,
+      "worshipTrend": -14.285714285714285,
       "engagement": 0.20689655172413793,
       "disciplesPer100": 0,
       "propValue": 800000,
-      "propPerMember": 5517.241379310345
+      "propPerMember": 5517.241379310345,
+      "income": 78019,
+      "povertyRate": 12.9,
+      "favorability": 59
     },
     {
       "id": "7d9d2733-275f-454e-8e3c-442d9c080773",
@@ -798,10 +1030,14 @@
       "district": "North",
       "members": 56,
       "worship": 55,
+      "worshipTrend": -22.535211267605636,
       "engagement": 0.9821428571428571,
       "disciplesPer100": 0.5952380952380952,
       "propValue": 528180,
-      "propPerMember": 9431.785714285714
+      "propPerMember": 9431.785714285714,
+      "income": 108393,
+      "povertyRate": 6.9,
+      "favorability": 88
     },
     {
       "id": "a114dee9-05f9-431a-a561-8aae75349c5a",
@@ -810,10 +1046,14 @@
       "district": "North",
       "members": 304,
       "worship": 107,
+      "worshipTrend": -20.74074074074074,
       "engagement": 0.3519736842105263,
       "disciplesPer100": 1.9736842105263157,
       "propValue": 1540822,
-      "propPerMember": 5068.493421052632
+      "propPerMember": 5068.493421052632,
+      "income": 88533,
+      "povertyRate": 9.2,
+      "favorability": 76
     },
     {
       "id": "0d0e06f5-602d-4350-9554-8b96fccbc3cc",
@@ -822,10 +1062,14 @@
       "district": "North",
       "members": 181,
       "worship": 36,
+      "worshipTrend": -61.29032258064516,
       "engagement": 0.19889502762430938,
       "disciplesPer100": 2.0257826887661143,
       "propValue": 2840800,
-      "propPerMember": 15695.027624309392
+      "propPerMember": 15695.027624309392,
+      "income": 56533,
+      "povertyRate": 9.1,
+      "favorability": 48
     },
     {
       "id": "60ec57f4-f5c1-4d3d-87fb-83340b00c965",
@@ -834,10 +1078,14 @@
       "district": "North",
       "members": 846,
       "worship": 203,
+      "worshipTrend": -39.58333333333333,
       "engagement": 0.23995271867612294,
       "disciplesPer100": 1.1426319936958234,
       "propValue": 11928000,
-      "propPerMember": 14099.290780141844
+      "propPerMember": 14099.290780141844,
+      "income": 118750,
+      "povertyRate": 12.5,
+      "favorability": 85
     },
     {
       "id": "c64a5aef-5736-4571-bef1-13ed1969227b",
@@ -846,10 +1094,14 @@
       "district": "North",
       "members": 677,
       "worship": 193,
+      "worshipTrend": -41.86746987951807,
       "engagement": 0.28508124076809455,
       "disciplesPer100": 0.68931560807484,
       "propValue": 12553300,
-      "propPerMember": 18542.540620384047
+      "propPerMember": 18542.540620384047,
+      "income": 55478,
+      "povertyRate": 23.3,
+      "favorability": 22
     },
     {
       "id": "58df46ae-78c1-4ab9-a679-a4f2e5f4684c",
@@ -858,10 +1110,14 @@
       "district": "South",
       "members": 183,
       "worship": 40,
+      "worshipTrend": -94.29386590584879,
       "engagement": 0.2185792349726776,
       "disciplesPer100": 3.642987249544626,
       "propValue": 2814300,
-      "propPerMember": 15378.688524590163
+      "propPerMember": 15378.688524590163,
+      "income": 87373,
+      "povertyRate": 7.1,
+      "favorability": 81
     },
     {
       "id": "31f49a06-927c-4903-8ffe-0f86b22caed9",
@@ -870,10 +1126,14 @@
       "district": "North",
       "members": 103,
       "worship": 60,
+      "worshipTrend": -40.5940594059406,
       "engagement": 0.5825242718446602,
       "disciplesPer100": 11.003236245954694,
       "propValue": 1878350,
-      "propPerMember": 18236.40776699029
+      "propPerMember": 18236.40776699029,
+      "income": 62796,
+      "povertyRate": 13.3,
+      "favorability": 43
     },
     {
       "id": "3e461741-2499-42c9-8525-c18f8d710b5f",
@@ -882,10 +1142,14 @@
       "district": "North",
       "members": 140,
       "worship": 54,
+      "worshipTrend": -65.16129032258064,
       "engagement": 0.38571428571428573,
       "disciplesPer100": 1.4285714285714286,
       "propValue": 4304000,
-      "propPerMember": 30742.85714285714
+      "propPerMember": 30742.85714285714,
+      "income": 90925,
+      "povertyRate": 14.4,
+      "favorability": 65
     },
     {
       "id": "5d3fbc0a-5cdf-4ce3-ae82-ec428358e953",
@@ -894,10 +1158,14 @@
       "district": "Central",
       "members": 42,
       "worship": 15,
+      "worshipTrend": -48.275862068965516,
       "engagement": 0.35714285714285715,
       "disciplesPer100": 0.7936507936507936,
       "propValue": 955685,
-      "propPerMember": 22754.404761904763
+      "propPerMember": 22754.404761904763,
+      "income": 76591,
+      "povertyRate": 1.1,
+      "favorability": 82
     },
     {
       "id": "5bde0546-2932-4df7-bb9b-5341cbdad5b9",
@@ -906,10 +1174,14 @@
       "district": "North",
       "members": 52,
       "worship": 13,
+      "worshipTrend": -50,
       "engagement": 0.25,
       "disciplesPer100": 2.564102564102564,
       "propValue": 2300000,
-      "propPerMember": 44230.769230769234
+      "propPerMember": 44230.769230769234,
+      "income": 74577,
+      "povertyRate": 4.1,
+      "favorability": 78
     },
     {
       "id": "d3d1c2b3-e016-40f4-9d06-8d7b3e6fbea0",
@@ -918,10 +1190,14 @@
       "district": "South",
       "members": 105,
       "worship": 50,
+      "worshipTrend": -60.9375,
       "engagement": 0.47619047619047616,
       "disciplesPer100": 2.5396825396825395,
       "propValue": 2452440,
-      "propPerMember": 23356.571428571428
+      "propPerMember": 23356.571428571428,
+      "income": 59591,
+      "povertyRate": 18.2,
+      "favorability": 31
     },
     {
       "id": "ff3f6dd7-2e2c-4111-96c4-a6a2a019adf9",
@@ -930,10 +1206,14 @@
       "district": "South",
       "members": 460,
       "worship": 189,
+      "worshipTrend": -40,
       "engagement": 0.4108695652173913,
       "disciplesPer100": 2.318840579710145,
       "propValue": 5608495,
-      "propPerMember": 12192.380434782608
+      "propPerMember": 12192.380434782608,
+      "income": 77642,
+      "povertyRate": 12.7,
+      "favorability": 60
     },
     {
       "id": "5ac16556-ff9d-4137-9935-b501e7569254",
@@ -942,10 +1222,14 @@
       "district": "South",
       "members": 1549,
       "worship": 351,
+      "worshipTrend": -40.70945945945946,
       "engagement": 0.22659780503550678,
       "disciplesPer100": 0.9898859479233915,
       "propValue": 30175972,
-      "propPerMember": 19480.937378954164
+      "propPerMember": 19480.937378954164,
+      "income": 37796,
+      "povertyRate": 32.2,
+      "favorability": 6
     },
     {
       "id": "1b264852-79b0-4e1d-b22f-b7bcc701a9fc",
@@ -954,10 +1238,14 @@
       "district": "South",
       "members": 93,
       "worship": 34,
+      "worshipTrend": -65.65656565656566,
       "engagement": 0.3655913978494624,
       "disciplesPer100": 0.35842293906810035,
       "propValue": 606416,
-      "propPerMember": 6520.602150537635
+      "propPerMember": 6520.602150537635,
+      "income": 91443,
+      "povertyRate": 14.7,
+      "favorability": 65
     },
     {
       "id": "095a3595-fec1-4fad-99c3-f194ea6e97df",
@@ -966,10 +1254,14 @@
       "district": "South",
       "members": 292,
       "worship": 165,
+      "worshipTrend": -54.670329670329664,
       "engagement": 0.565068493150685,
       "disciplesPer100": 3.4246575342465753,
       "propValue": 8846384,
-      "propPerMember": 30295.835616438355
+      "propPerMember": 30295.835616438355,
+      "income": 60509,
+      "povertyRate": 22.2,
+      "favorability": 27
     },
     {
       "id": "757da41b-38de-48eb-a498-aaa67313e434",
@@ -978,10 +1270,14 @@
       "district": "South",
       "members": 56,
       "worship": 20,
+      "worshipTrend": -68.75,
       "engagement": 0.35714285714285715,
       "disciplesPer100": 2.380952380952381,
       "propValue": 3064000,
-      "propPerMember": 54714.28571428572
+      "propPerMember": 54714.28571428572,
+      "income": 53803,
+      "povertyRate": 26.4,
+      "favorability": 17
     },
     {
       "id": "6bfb2998-2c61-4e55-b8c3-8e68dcaf39d4",
@@ -990,10 +1286,14 @@
       "district": "South",
       "members": 119,
       "worship": 23,
+      "worshipTrend": -69.33333333333334,
       "engagement": 0.19327731092436976,
       "disciplesPer100": 0.2801120448179272,
       "propValue": 2444000,
-      "propPerMember": 20537.81512605042
+      "propPerMember": 20537.81512605042,
+      "income": 64654,
+      "povertyRate": 16.9,
+      "favorability": 35
     },
     {
       "id": "cac38b03-9686-419b-a8f0-01fd03142497",
@@ -1002,10 +1302,14 @@
       "district": "South",
       "members": 307,
       "worship": 55,
+      "worshipTrend": -58.64661654135338,
       "engagement": 0.1791530944625407,
       "disciplesPer100": 1.4115092290988058,
       "propValue": 8901721,
-      "propPerMember": 28995.8338762215
+      "propPerMember": 28995.8338762215,
+      "income": 60890,
+      "povertyRate": 17.6,
+      "favorability": 33
     },
     {
       "id": "529945ae-97d7-4620-8e6d-4095fa1e08e8",
@@ -1014,10 +1318,14 @@
       "district": "South",
       "members": 103,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 41286,
+      "povertyRate": 23.6,
+      "favorability": 13
     },
     {
       "id": "f98eecec-2576-4285-84a6-e946605d357d",
@@ -1026,10 +1334,14 @@
       "district": "South",
       "members": 78,
       "worship": 18,
+      "worshipTrend": -55.00000000000001,
       "engagement": 0.23076923076923078,
       "disciplesPer100": 2.9914529914529915,
       "propValue": 1141631,
-      "propPerMember": 14636.294871794871
+      "propPerMember": 14636.294871794871,
+      "income": 69327,
+      "povertyRate": 12.4,
+      "favorability": 53
     },
     {
       "id": "f22ef8d9-ff8a-4a49-b7dc-1b7029825ce2",
@@ -1038,10 +1350,14 @@
       "district": "South",
       "members": 194,
       "worship": 55,
+      "worshipTrend": -26.666666666666668,
       "engagement": 0.28350515463917525,
       "disciplesPer100": 0.3436426116838488,
       "propValue": 2069000,
-      "propPerMember": 10664.948453608247
+      "propPerMember": 10664.948453608247,
+      "income": 69500,
+      "povertyRate": 13.9,
+      "favorability": 47
     },
     {
       "id": "19917db0-c8e2-4b24-88fc-a595a75a3ec8",
@@ -1050,10 +1366,14 @@
       "district": "South",
       "members": 781,
       "worship": 140,
+      "worshipTrend": -50.177935943060504,
       "engagement": 0.1792573623559539,
       "disciplesPer100": 0.6828851899274434,
       "propValue": 5000000,
-      "propPerMember": 6402.048655569783
+      "propPerMember": 6402.048655569783,
+      "income": 81580,
+      "povertyRate": 8.7,
+      "favorability": 71
     },
     {
       "id": "8b164b76-a40e-48a4-a760-ba13591d6475",
@@ -1062,10 +1382,14 @@
       "district": "South",
       "members": 121,
       "worship": 37,
+      "worshipTrend": -78.48837209302324,
       "engagement": 0.30578512396694213,
       "disciplesPer100": 1.9283746556473829,
       "propValue": 1156412,
-      "propPerMember": 9557.123966942148
+      "propPerMember": 9557.123966942148,
+      "income": 68877,
+      "povertyRate": 9.7,
+      "favorability": 61
     },
     {
       "id": "54e66b0f-5383-413f-9a93-c19b01fdcb90",
@@ -1074,10 +1398,14 @@
       "district": "South",
       "members": 256,
       "worship": 89,
+      "worshipTrend": -62.28813559322034,
       "engagement": 0.34765625,
       "disciplesPer100": 1.3020833333333335,
       "propValue": 5449051,
-      "propPerMember": 21285.35546875
+      "propPerMember": 21285.35546875,
+      "income": 63434,
+      "povertyRate": 15.7,
+      "favorability": 40
     },
     {
       "id": "27798106-b1fc-43de-930c-da7815303199",
@@ -1086,10 +1414,14 @@
       "district": "South",
       "members": 53,
       "worship": 29,
+      "worshipTrend": -39.58333333333333,
       "engagement": 0.5471698113207547,
       "disciplesPer100": 1.2578616352201257,
       "propValue": 1377000,
-      "propPerMember": 25981.132075471698
+      "propPerMember": 25981.132075471698,
+      "income": 96182,
+      "povertyRate": 3.4,
+      "favorability": 87
     },
     {
       "id": "d8ce902a-f2d4-4e90-8742-ec58b2a022fd",
@@ -1098,10 +1430,14 @@
       "district": "South",
       "members": 113,
       "worship": 34,
+      "worshipTrend": -30.612244897959183,
       "engagement": 0.3008849557522124,
       "disciplesPer100": 1.4749262536873153,
       "propValue": 2629925,
-      "propPerMember": 23273.672566371682
+      "propPerMember": 23273.672566371682,
+      "income": 48000,
+      "povertyRate": 23.4,
+      "favorability": 18
     },
     {
       "id": "ae66159f-bf4c-4840-b7f5-d19dfacba7cb",
@@ -1110,10 +1446,14 @@
       "district": "South",
       "members": 29,
       "worship": 8,
+      "worshipTrend": -38.46153846153847,
       "engagement": 0.27586206896551724,
       "disciplesPer100": 2.2988505747126435,
       "propValue": 275000,
-      "propPerMember": 9482.758620689656
+      "propPerMember": 9482.758620689656,
+      "income": 37168,
+      "povertyRate": 11.7,
+      "favorability": 29
     },
     {
       "id": "6909655a-4d8e-4e71-98e3-74db8589d2fd",
@@ -1122,10 +1462,14 @@
       "district": "South",
       "members": 36,
       "worship": 19,
+      "worshipTrend": -53.65853658536586,
       "engagement": 0.5277777777777778,
       "disciplesPer100": 0.9259259259259258,
       "propValue": 1039000,
-      "propPerMember": 28861.11111111111
+      "propPerMember": 28861.11111111111,
+      "income": 85592,
+      "povertyRate": 9.7,
+      "favorability": 72
     },
     {
       "id": "772c9e12-050d-447d-9333-4f2d83b8df0f",
@@ -1134,10 +1478,14 @@
       "district": "South",
       "members": 1149,
       "worship": 147,
+      "worshipTrend": -46.35036496350365,
       "engagement": 0.1279373368146214,
       "disciplesPer100": 0.8123005512039455,
       "propValue": 12565000,
-      "propPerMember": 10935.596170583116
+      "propPerMember": 10935.596170583116,
+      "income": 57728,
+      "povertyRate": 23.8,
+      "favorability": 24
     },
     {
       "id": "c0362a27-7070-4bf4-b216-d3eb40e7d1bf",
@@ -1146,10 +1494,14 @@
       "district": "South",
       "members": 52,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0,
       "propValue": 1446250,
-      "propPerMember": 27812.5
+      "propPerMember": 27812.5,
+      "income": 60642,
+      "povertyRate": 9.3,
+      "favorability": 54
     },
     {
       "id": "6b5a877c-1c57-43c0-a94b-42f797d1d775",
@@ -1158,10 +1510,14 @@
       "district": "South",
       "members": 79,
       "worship": 40,
+      "worshipTrend": 14.285714285714285,
       "engagement": 0.5063291139240507,
       "disciplesPer100": 2.109704641350211,
       "propValue": 1036600,
-      "propPerMember": 13121.518987341773
+      "propPerMember": 13121.518987341773,
+      "income": 66451,
+      "povertyRate": 11.6,
+      "favorability": 53
     },
     {
       "id": "52e79e0d-c776-42ff-8a00-876e666bf23a",
@@ -1170,10 +1526,14 @@
       "district": "South",
       "members": 132,
       "worship": 31,
+      "worshipTrend": -31.11111111111111,
       "engagement": 0.23484848484848486,
       "disciplesPer100": 0.505050505050505,
       "propValue": 2007800,
-      "propPerMember": 15210.60606060606
+      "propPerMember": 15210.60606060606,
+      "income": 53129,
+      "povertyRate": 12.4,
+      "favorability": 38
     },
     {
       "id": "0caac72d-a65e-4db4-a6b2-ef78ee87220d",
@@ -1182,10 +1542,14 @@
       "district": "Central",
       "members": 107,
       "worship": 49,
+      "worshipTrend": -53.77358490566038,
       "engagement": 0.45794392523364486,
       "disciplesPer100": 6.230529595015576,
       "propValue": 1944684,
-      "propPerMember": 18174.616822429907
+      "propPerMember": 18174.616822429907,
+      "income": 79066,
+      "povertyRate": 13.9,
+      "favorability": 57
     },
     {
       "id": "f1c5ae46-365b-40e1-a501-133d310f8342",
@@ -1194,10 +1558,14 @@
       "district": "North",
       "members": 114,
       "worship": 36,
+      "worshipTrend": -37.93103448275862,
       "engagement": 0.3157894736842105,
       "disciplesPer100": 8.771929824561402,
       "propValue": 1012043,
-      "propPerMember": 8877.570175438597
+      "propPerMember": 8877.570175438597,
+      "income": 81833,
+      "povertyRate": 7.8,
+      "favorability": 74
     },
     {
       "id": "501ff694-2283-457f-bd4f-72bdf20462c7",
@@ -1206,10 +1574,14 @@
       "district": "Central",
       "members": 2229,
       "worship": 291,
+      "worshipTrend": -48.220640569395016,
       "engagement": 0.13055181695827725,
       "disciplesPer100": 0.7028562883206221,
       "propValue": 14153550,
-      "propPerMember": 6349.730820995962
+      "propPerMember": 6349.730820995962,
+      "income": 110955,
+      "povertyRate": 5.2,
+      "favorability": 91
     },
     {
       "id": "e6334a72-6000-44c1-9d33-d1dd99484134",
@@ -1218,10 +1590,14 @@
       "district": "Central",
       "members": 119,
       "worship": 30,
+      "worshipTrend": -42.30769230769231,
       "engagement": 0.25210084033613445,
       "disciplesPer100": 2.801120448179272,
       "propValue": 2105000,
-      "propPerMember": 17689.0756302521
+      "propPerMember": 17689.0756302521,
+      "income": 36250,
+      "povertyRate": 46.4,
+      "favorability": 1
     },
     {
       "id": "46a61502-c7fe-475d-a641-d4f5e86a638e",
@@ -1230,10 +1606,14 @@
       "district": "South",
       "members": 51,
       "worship": 13,
+      "worshipTrend": -71.11111111111111,
       "engagement": 0.2549019607843137,
       "disciplesPer100": 0,
       "propValue": 888000,
-      "propPerMember": 17411.764705882353
+      "propPerMember": 17411.764705882353,
+      "income": 35763,
+      "povertyRate": 39.2,
+      "favorability": 2
     },
     {
       "id": "f800c239-851a-443c-8adf-f74f416a0e3e",
@@ -1242,10 +1622,14 @@
       "district": "North",
       "members": 58,
       "worship": 20,
+      "worshipTrend": -37.5,
       "engagement": 0.3448275862068966,
       "disciplesPer100": 0.5747126436781609,
       "propValue": 720000,
-      "propPerMember": 12413.793103448275
+      "propPerMember": 12413.793103448275,
+      "income": null,
+      "povertyRate": null,
+      "favorability": null
     },
     {
       "id": "5c031041-df39-4d04-ad86-88d490baa684",
@@ -1254,10 +1638,14 @@
       "district": "Central",
       "members": 192,
       "worship": 72,
+      "worshipTrend": -25,
       "engagement": 0.375,
       "disciplesPer100": 0.3472222222222222,
       "propValue": 2302000,
-      "propPerMember": 11989.583333333334
+      "propPerMember": 11989.583333333334,
+      "income": 79770,
+      "povertyRate": 8.2,
+      "favorability": 71
     },
     {
       "id": "73129dff-3fd4-462e-8d74-3f531fa4fb28",
@@ -1266,10 +1654,14 @@
       "district": "North",
       "members": 463,
       "worship": 220,
+      "worshipTrend": -25.170068027210885,
       "engagement": 0.47516198704103674,
       "disciplesPer100": 0.9359251259899207,
       "propValue": 6901923,
-      "propPerMember": 14906.961123110152
+      "propPerMember": 14906.961123110152,
+      "income": 183028,
+      "povertyRate": 4.1,
+      "favorability": 100
     },
     {
       "id": "81824f1f-79db-4e3b-bbbc-aa296d2dd6b5",
@@ -1278,10 +1670,14 @@
       "district": "North",
       "members": 468,
       "worship": 188,
+      "worshipTrend": -31.386861313868614,
       "engagement": 0.4017094017094017,
       "disciplesPer100": 0.9971509971509971,
       "propValue": 16766855,
-      "propPerMember": 35826.61324786325
+      "propPerMember": 35826.61324786325,
+      "income": 67987,
+      "povertyRate": 8.2,
+      "favorability": 62
     },
     {
       "id": "73b5b23d-19da-41e1-b328-f80d0fc2632d",
@@ -1290,10 +1686,14 @@
       "district": "Central",
       "members": 83,
       "worship": 19,
+      "worshipTrend": -29.629629629629626,
       "engagement": 0.2289156626506024,
       "disciplesPer100": 2.4096385542168677,
       "propValue": 757000,
-      "propPerMember": 9120.481927710844
+      "propPerMember": 9120.481927710844,
+      "income": 65699,
+      "povertyRate": 12.4,
+      "favorability": 47
     },
     {
       "id": "fbbf54f5-9aba-431d-a0ec-b88767b1b59e",
@@ -1302,10 +1702,14 @@
       "district": "Central",
       "members": 225,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 150705,
+      "povertyRate": 5.2,
+      "favorability": 99
     },
     {
       "id": "ada9e491-a521-4d96-95de-e6f3949a5386",
@@ -1314,10 +1718,14 @@
       "district": "Central",
       "members": 223,
       "worship": 80,
+      "worshipTrend": -43.66197183098591,
       "engagement": 0.35874439461883406,
       "disciplesPer100": 1.1958146487294468,
       "propValue": 2089000,
-      "propPerMember": 9367.713004484305
+      "propPerMember": 9367.713004484305,
+      "income": 76065,
+      "povertyRate": 15.3,
+      "favorability": 49
     },
     {
       "id": "0c3ed197-9f6f-46b2-b35f-3783b06a04cb",
@@ -1326,10 +1734,14 @@
       "district": "North",
       "members": 133,
       "worship": 68,
+      "worshipTrend": -55.55555555555556,
       "engagement": 0.5112781954887218,
       "disciplesPer100": 2.2556390977443606,
       "propValue": 2703000,
-      "propPerMember": 20323.30827067669
+      "propPerMember": 20323.30827067669,
+      "income": 60663,
+      "povertyRate": 12.7,
+      "favorability": 42
     },
     {
       "id": "bf38e659-ec66-46ba-b668-650322ac0185",
@@ -1338,10 +1750,14 @@
       "district": "Central",
       "members": 86,
       "worship": 50,
+      "worshipTrend": -62.68656716417911,
       "engagement": 0.5813953488372093,
       "disciplesPer100": 3.488372093023256,
       "propValue": 5909000,
-      "propPerMember": 68709.30232558139
+      "propPerMember": 68709.30232558139,
+      "income": 65486,
+      "povertyRate": 11.4,
+      "favorability": 50
     },
     {
       "id": "c4a7bbf2-52d5-4f8c-a4fa-75a263f7374c",
@@ -1350,10 +1766,14 @@
       "district": "Central",
       "members": 1318,
       "worship": 559,
+      "worshipTrend": -35.82089552238806,
       "engagement": 0.4241274658573596,
       "disciplesPer100": 3.0854830551340413,
       "propValue": 17045000,
-      "propPerMember": 12932.47344461305
+      "propPerMember": 12932.47344461305,
+      "income": 65486,
+      "povertyRate": 11.4,
+      "favorability": 51
     },
     {
       "id": "7cf5c025-5910-4115-9db5-f9338654d0cc",
@@ -1362,10 +1782,14 @@
       "district": "Central",
       "members": 141,
       "worship": 48,
+      "worshipTrend": -28.35820895522388,
       "engagement": 0.3404255319148936,
       "disciplesPer100": 3.0732860520094563,
       "propValue": 2067900,
-      "propPerMember": 14665.95744680851
+      "propPerMember": 14665.95744680851,
+      "income": 102724,
+      "povertyRate": 8.4,
+      "favorability": 83
     },
     {
       "id": "f3e4bac1-eb07-4402-8d50-7d9a2300a7dc",
@@ -1374,10 +1798,14 @@
       "district": "North",
       "members": 46,
       "worship": 11,
+      "worshipTrend": -68.57142857142857,
       "engagement": 0.2391304347826087,
       "disciplesPer100": 2.1739130434782608,
       "propValue": 587000,
-      "propPerMember": 12760.869565217392
+      "propPerMember": 12760.869565217392,
+      "income": 95899,
+      "povertyRate": 5.5,
+      "favorability": 85
     },
     {
       "id": "82694095-5b96-412c-b3dd-83148cf4443d",
@@ -1386,10 +1814,14 @@
       "district": "North",
       "members": 165,
       "worship": 75,
+      "worshipTrend": -67.53246753246754,
       "engagement": 0.45454545454545453,
       "disciplesPer100": 1.2121212121212122,
       "propValue": 2050000,
-      "propPerMember": 12424.242424242424
+      "propPerMember": 12424.242424242424,
+      "income": 131421,
+      "povertyRate": 4.8,
+      "favorability": 97
     },
     {
       "id": "dbc1311e-8017-460f-a31b-32c619042836",
@@ -1398,10 +1830,14 @@
       "district": "North",
       "members": 48,
       "worship": 25,
+      "worshipTrend": 212.5,
       "engagement": 0.5208333333333334,
       "disciplesPer100": 6.25,
       "propValue": 300000,
-      "propPerMember": 6250
+      "propPerMember": 6250,
+      "income": 90417,
+      "povertyRate": 0,
+      "favorability": 89
     },
     {
       "id": "b3bc8487-067c-40f0-bd76-41f878e4714f",
@@ -1410,10 +1846,14 @@
       "district": "North",
       "members": 51,
       "worship": 18,
+      "worshipTrend": -5.263157894736842,
       "engagement": 0.35294117647058826,
       "disciplesPer100": 0,
       "propValue": 900000,
-      "propPerMember": 17647.058823529413
+      "propPerMember": 17647.058823529413,
+      "income": 64750,
+      "povertyRate": 9.9,
+      "favorability": 56
     },
     {
       "id": "ac82c2e6-f2d5-4027-97f9-787c737a3aa2",
@@ -1422,10 +1862,14 @@
       "district": "North",
       "members": 108,
       "worship": 70,
+      "worshipTrend": 12.903225806451612,
       "engagement": 0.6481481481481481,
       "disciplesPer100": 0,
       "propValue": 350000,
-      "propPerMember": 3240.740740740741
+      "propPerMember": 3240.740740740741,
+      "income": 60663,
+      "povertyRate": 12.7,
+      "favorability": 42
     },
     {
       "id": "9fee194e-e4af-4774-82dd-057effa3c6e9",
@@ -1434,10 +1878,14 @@
       "district": "Central",
       "members": 25,
       "worship": 19,
+      "worshipTrend": 18.75,
       "engagement": 0.76,
       "disciplesPer100": 1.3333333333333333,
       "propValue": 1050000,
-      "propPerMember": 42000
+      "propPerMember": 42000,
+      "income": 119276,
+      "povertyRate": 3.8,
+      "favorability": 93
     },
     {
       "id": "634abd6b-c34a-4316-b7d0-bbf78a124b25",
@@ -1446,10 +1894,14 @@
       "district": "South",
       "members": 188,
       "worship": 84,
+      "worshipTrend": -52,
       "engagement": 0.44680851063829785,
       "disciplesPer100": 6.028368794326241,
       "propValue": 4029000,
-      "propPerMember": 21430.85106382979
+      "propPerMember": 21430.85106382979,
+      "income": 47331,
+      "povertyRate": 25.8,
+      "favorability": 13
     },
     {
       "id": "6e06076b-66c0-4e34-89c2-e21934df0abe",
@@ -1458,10 +1910,14 @@
       "district": "South",
       "members": 67,
       "worship": 18,
+      "worshipTrend": -43.75,
       "engagement": 0.26865671641791045,
       "disciplesPer100": 0,
       "propValue": 153000,
-      "propPerMember": 2283.582089552239
+      "propPerMember": 2283.582089552239,
+      "income": 62516,
+      "povertyRate": 17,
+      "favorability": 33
     },
     {
       "id": "c886def4-ac57-4595-835d-d19c7c42a862",
@@ -1470,10 +1926,14 @@
       "district": "South",
       "members": 205,
       "worship": 76,
+      "worshipTrend": -53.65853658536586,
       "engagement": 0.37073170731707317,
       "disciplesPer100": 0.6504065040650406,
       "propValue": 3839000,
-      "propPerMember": 18726.829268292684
+      "propPerMember": 18726.829268292684,
+      "income": 50567,
+      "povertyRate": 32.2,
+      "favorability": 8
     },
     {
       "id": "b3326e72-e931-41a9-898d-0fe53917b685",
@@ -1482,10 +1942,14 @@
       "district": "South",
       "members": 35,
       "worship": 12,
+      "worshipTrend": -42.857142857142854,
       "engagement": 0.34285714285714286,
       "disciplesPer100": 0,
       "propValue": 698500,
-      "propPerMember": 19957.14285714286
+      "propPerMember": 19957.14285714286,
+      "income": 60968,
+      "povertyRate": 13,
+      "favorability": 41
     },
     {
       "id": "ed4bb5a0-ba48-4d41-922b-f3614c71c7ab",
@@ -1494,10 +1958,14 @@
       "district": "South",
       "members": 135,
       "worship": 46,
+      "worshipTrend": -69.5364238410596,
       "engagement": 0.34074074074074073,
       "disciplesPer100": 2.71604938271605,
       "propValue": 1436158,
-      "propPerMember": 10638.207407407408
+      "propPerMember": 10638.207407407408,
+      "income": 48117,
+      "povertyRate": 23.2,
+      "favorability": 19
     },
     {
       "id": "7c03d390-3e5e-4fab-8cd5-d440dfe3eeab",
@@ -1506,10 +1974,14 @@
       "district": "South",
       "members": 451,
       "worship": 42,
+      "worshipTrend": -73.41772151898735,
       "engagement": 0.09312638580931264,
       "disciplesPer100": 1.0347376201034737,
       "propValue": 1840480,
-      "propPerMember": 4080.886917960089
+      "propPerMember": 4080.886917960089,
+      "income": 56867,
+      "povertyRate": 29.8,
+      "favorability": 11
     },
     {
       "id": "610d5167-b263-4e5a-b144-b0efc0176f48",
@@ -1518,10 +1990,14 @@
       "district": "South",
       "members": 193,
       "worship": 38,
+      "worshipTrend": -52.5,
       "engagement": 0.19689119170984457,
       "disciplesPer100": 2.7633851468048363,
       "propValue": 3639369,
-      "propPerMember": 18856.834196891192
+      "propPerMember": 18856.834196891192,
+      "income": 35742,
+      "povertyRate": 33.8,
+      "favorability": 4
     },
     {
       "id": "5a1cd85a-dc72-47b6-aa93-85adffa50719",
@@ -1530,10 +2006,14 @@
       "district": "South",
       "members": 766,
       "worship": 340,
+      "worshipTrend": -22.37442922374429,
       "engagement": 0.44386422976501305,
       "disciplesPer100": 1.7406440382941688,
       "propValue": 16328705,
-      "propPerMember": 21316.84725848564
+      "propPerMember": 21316.84725848564,
+      "income": null,
+      "povertyRate": null,
+      "favorability": null
     },
     {
       "id": "be67ff37-daa5-493c-9ea6-52304081938b",
@@ -1542,10 +2022,14 @@
       "district": "South",
       "members": 206,
       "worship": 63,
+      "worshipTrend": -35.051546391752574,
       "engagement": 0.3058252427184466,
       "disciplesPer100": 3.7216828478964397,
       "propValue": 2971100,
-      "propPerMember": 14422.815533980582
+      "propPerMember": 14422.815533980582,
+      "income": 49451,
+      "povertyRate": 25.3,
+      "favorability": 16
     },
     {
       "id": "4ba711f5-bfd4-4398-834d-2687d29ec4ee",
@@ -1554,10 +2038,14 @@
       "district": "South",
       "members": 39,
       "worship": 30,
+      "worshipTrend": -50,
       "engagement": 0.7692307692307693,
       "disciplesPer100": 2.564102564102564,
       "propValue": 2000000,
-      "propPerMember": 51282.05128205128
+      "propPerMember": 51282.05128205128,
+      "income": 39890,
+      "povertyRate": 34.5,
+      "favorability": 5
     },
     {
       "id": "f37ef8a8-051b-471b-9687-d0e6c9235306",
@@ -1566,10 +2054,14 @@
       "district": "South",
       "members": 27,
       "worship": 25,
+      "worshipTrend": -73.40425531914893,
       "engagement": 0.9259259259259259,
       "disciplesPer100": 0,
       "propValue": 1500000,
-      "propPerMember": 55555.555555555555
+      "propPerMember": 55555.555555555555,
+      "income": 52041,
+      "povertyRate": 19.7,
+      "favorability": 26
     },
     {
       "id": "690afe51-ca23-4f92-9b63-0a880a4b7662",
@@ -1578,10 +2070,14 @@
       "district": "South",
       "members": 156,
       "worship": 56,
+      "worshipTrend": -34.11764705882353,
       "engagement": 0.358974358974359,
       "disciplesPer100": 0.42735042735042733,
       "propValue": 3500000,
-      "propPerMember": 22435.897435897437
+      "propPerMember": 22435.897435897437,
+      "income": 44158,
+      "povertyRate": 26.8,
+      "favorability": 10
     },
     {
       "id": "27399431-c2ed-49a9-a893-67a0c5b878d3",
@@ -1590,10 +2086,14 @@
       "district": "South",
       "members": 181,
       "worship": 40,
+      "worshipTrend": -57.89473684210527,
       "engagement": 0.22099447513812154,
       "disciplesPer100": 0.3683241252302025,
       "propValue": 3875000,
-      "propPerMember": 21408.839779005524
+      "propPerMember": 21408.839779005524,
+      "income": 53797,
+      "povertyRate": 24.7,
+      "favorability": 21
     },
     {
       "id": "0df37bda-1ef6-4d4b-b07f-83ac1e302357",
@@ -1602,10 +2102,14 @@
       "district": "Central",
       "members": 108,
       "worship": 35,
+      "worshipTrend": -62.365591397849464,
       "engagement": 0.32407407407407407,
       "disciplesPer100": 2.7777777777777777,
       "propValue": 1453400,
-      "propPerMember": 13457.407407407407
+      "propPerMember": 13457.407407407407,
+      "income": 66341,
+      "povertyRate": 11.3,
+      "favorability": 54
     },
     {
       "id": "378df598-2a8a-432a-9fd6-35994caa3410",
@@ -1614,10 +2118,14 @@
       "district": "Central",
       "members": 183,
       "worship": 90,
+      "worshipTrend": -34.78260869565217,
       "engagement": 0.4918032786885246,
       "disciplesPer100": 1.639344262295082,
       "propValue": 5261163,
-      "propPerMember": 28749.524590163935
+      "propPerMember": 28749.524590163935,
+      "income": null,
+      "povertyRate": null,
+      "favorability": null
     },
     {
       "id": "451fb194-72c5-4012-b0f0-0a8ac0a9db98",
@@ -1626,10 +2134,14 @@
       "district": "North",
       "members": 95,
       "worship": 28,
+      "worshipTrend": -60,
       "engagement": 0.29473684210526313,
       "disciplesPer100": 3.508771929824562,
       "propValue": 1203000,
-      "propPerMember": 12663.157894736842
+      "propPerMember": 12663.157894736842,
+      "income": null,
+      "povertyRate": null,
+      "favorability": null
     },
     {
       "id": "378e6436-4bff-4423-a5db-bd21b4e53abe",
@@ -1638,10 +2150,14 @@
       "district": "North",
       "members": 350,
       "worship": 59,
+      "worshipTrend": -65.08875739644971,
       "engagement": 0.16857142857142857,
       "disciplesPer100": 1.3333333333333333,
       "propValue": 2451000,
-      "propPerMember": 7002.857142857143
+      "propPerMember": 7002.857142857143,
+      "income": 75048,
+      "povertyRate": 3.8,
+      "favorability": 80
     },
     {
       "id": "18de8bc7-99d9-4adc-82b2-38b37feb4cfc",
@@ -1650,10 +2166,14 @@
       "district": "Central",
       "members": 99,
       "worship": 12,
+      "worshipTrend": -53.84615384615385,
       "engagement": 0.12121212121212122,
       "disciplesPer100": 1.0101010101010102,
       "propValue": 1250000,
-      "propPerMember": 12626.262626262625
+      "propPerMember": 12626.262626262625,
+      "income": 71647,
+      "povertyRate": 12.6,
+      "favorability": 55
     },
     {
       "id": "7bf14eed-77d5-44a9-9b55-5bae1b414256",
@@ -1662,10 +2182,14 @@
       "district": "Central",
       "members": 1235,
       "worship": 488,
+      "worshipTrend": -1.6129032258064515,
       "engagement": 0.3951417004048583,
       "disciplesPer100": 1.322537112010796,
       "propValue": 16464300,
-      "propPerMember": 13331.417004048582
+      "propPerMember": 13331.417004048582,
+      "income": 79617,
+      "povertyRate": 6.6,
+      "favorability": 75
     },
     {
       "id": "a0e3fcc3-756b-4374-a8f4-79ec87c10ad0",
@@ -1674,10 +2198,14 @@
       "district": "Central",
       "members": 337,
       "worship": 51,
+      "worshipTrend": -68.90243902439023,
       "engagement": 0.1513353115727003,
       "disciplesPer100": 0.2967359050445104,
       "propValue": 5641000,
-      "propPerMember": 16738.872403560832
+      "propPerMember": 16738.872403560832,
+      "income": 79617,
+      "povertyRate": 6.6,
+      "favorability": 75
     },
     {
       "id": "5462ced1-0a23-487e-ab3a-92771c0bc2b7",
@@ -1686,10 +2214,14 @@
       "district": "Central",
       "members": 207,
       "worship": 39,
+      "worshipTrend": -42.64705882352941,
       "engagement": 0.18840579710144928,
       "disciplesPer100": 0,
       "propValue": 2153000,
-      "propPerMember": 10400.96618357488
+      "propPerMember": 10400.96618357488,
+      "income": 75080,
+      "povertyRate": 11.4,
+      "favorability": 61
     },
     {
       "id": "296667ba-9083-4a38-a111-d08434fc8ead",
@@ -1698,10 +2230,14 @@
       "district": "Central",
       "members": 77,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": null,
+      "povertyRate": null,
+      "favorability": null
     },
     {
       "id": "16f6ba00-5e69-4909-9291-4346768b98fa",
@@ -1710,10 +2246,14 @@
       "district": "Central",
       "members": 249,
       "worship": 102,
+      "worshipTrend": -37.80487804878049,
       "engagement": 0.40963855421686746,
       "disciplesPer100": 6.425702811244979,
       "propValue": 2535000,
-      "propPerMember": 10180.722891566265
+      "propPerMember": 10180.722891566265,
+      "income": 48049,
+      "povertyRate": 20.7,
+      "favorability": 23
     },
     {
       "id": "515cafd9-78fd-4dc9-8e64-c487a28fa55a",
@@ -1722,10 +2262,14 @@
       "district": "Central",
       "members": 293,
       "worship": 98,
+      "worshipTrend": -30.49645390070922,
       "engagement": 0.33447098976109213,
       "disciplesPer100": 5.915813424345848,
       "propValue": 2240000,
-      "propPerMember": 7645.051194539249
+      "propPerMember": 7645.051194539249,
+      "income": 129701,
+      "povertyRate": 4.3,
+      "favorability": 97
     },
     {
       "id": "5a9c9dec-bdb3-48b5-8b78-d7e4b5139fb7",
@@ -1734,10 +2278,14 @@
       "district": "Central",
       "members": 1009,
       "worship": 524,
+      "worshipTrend": -44.25531914893617,
       "engagement": 0.5193260654112983,
       "disciplesPer100": 3.303600925008259,
       "propValue": 13161000,
-      "propPerMember": 13043.60753221011
+      "propPerMember": 13043.60753221011,
+      "income": 89184,
+      "povertyRate": 6.1,
+      "favorability": 82
     },
     {
       "id": "c703eda9-c2e5-4673-9739-00d49fef7114",
@@ -1746,10 +2294,14 @@
       "district": "Central",
       "members": 100,
       "worship": 53,
+      "worshipTrend": -45.36082474226804,
       "engagement": 0.53,
       "disciplesPer100": 7.333333333333333,
       "propValue": 2337000,
-      "propPerMember": 23370
+      "propPerMember": 23370,
+      "income": 57609,
+      "povertyRate": 10.6,
+      "favorability": 45
     },
     {
       "id": "b039784a-a1bc-4677-a010-82b78f99344d",
@@ -1758,10 +2310,14 @@
       "district": "Central",
       "members": 97,
       "worship": 65,
+      "worshipTrend": -21.686746987951807,
       "engagement": 0.6701030927835051,
       "disciplesPer100": 0.6872852233676976,
       "propValue": 800000,
-      "propPerMember": 8247.422680412372
+      "propPerMember": 8247.422680412372,
+      "income": 67789,
+      "povertyRate": 10.5,
+      "favorability": 57
     },
     {
       "id": "1bdd9a04-9d23-460a-a18d-30b9ce2c78b0",
@@ -1770,10 +2326,14 @@
       "district": "Central",
       "members": 287,
       "worship": 79,
+      "worshipTrend": -53.80116959064327,
       "engagement": 0.27526132404181186,
       "disciplesPer100": 3.2520325203252036,
       "propValue": 2083513,
-      "propPerMember": 7259.6271777003485
+      "propPerMember": 7259.6271777003485,
+      "income": 84260,
+      "povertyRate": 7.4,
+      "favorability": 78
     },
     {
       "id": "84800ead-da68-4eb6-8b8a-d6a2839646c8",
@@ -1782,10 +2342,14 @@
       "district": "Central",
       "members": 180,
       "worship": 93,
+      "worshipTrend": -36.3013698630137,
       "engagement": 0.5166666666666667,
       "disciplesPer100": 3.518518518518518,
       "propValue": 5475200,
-      "propPerMember": 30417.777777777777
+      "propPerMember": 30417.777777777777,
+      "income": 126726,
+      "povertyRate": 5.8,
+      "favorability": 94
     },
     {
       "id": "13409544-40d5-43f3-a57e-385615919f00",
@@ -1794,10 +2358,14 @@
       "district": "Central",
       "members": 1564,
       "worship": 373,
+      "worshipTrend": -29.489603024574667,
       "engagement": 0.23849104859335038,
       "disciplesPer100": 1.0443307757885762,
       "propValue": 7627418,
-      "propPerMember": 4876.865728900256
+      "propPerMember": 4876.865728900256,
+      "income": 84426,
+      "povertyRate": 6.8,
+      "favorability": 81
     },
     {
       "id": "4878d22b-a9ed-4ca5-94f1-f3353f7bdf21",
@@ -1806,10 +2374,14 @@
       "district": "Central",
       "members": 294,
       "worship": 100,
+      "worshipTrend": -23.66412213740458,
       "engagement": 0.3401360544217687,
       "disciplesPer100": 1.473922902494331,
       "propValue": 2320253,
-      "propPerMember": 7892.017006802721
+      "propPerMember": 7892.017006802721,
+      "income": 80777,
+      "povertyRate": 8.9,
+      "favorability": 70
     },
     {
       "id": "7faab991-55fc-45cf-88a0-088acbbcc969",
@@ -1818,10 +2390,14 @@
       "district": "Central",
       "members": 5786,
       "worship": 522,
+      "worshipTrend": -71.92038730500269,
       "engagement": 0.09021776702385068,
       "disciplesPer100": 0.720129047125245,
       "propValue": 27962000,
-      "propPerMember": 4832.699619771863
+      "propPerMember": 4832.699619771863,
+      "income": 84180,
+      "povertyRate": 8.6,
+      "favorability": 74
     },
     {
       "id": "194ebf4e-6d07-4f41-9e41-de85889046c3",
@@ -1830,10 +2406,14 @@
       "district": "Central",
       "members": 533,
       "worship": 182,
+      "worshipTrend": -47.398843930635834,
       "engagement": 0.34146341463414637,
       "disciplesPer100": 2.0637898686679175,
       "propValue": 5860000,
-      "propPerMember": 10994.37148217636
+      "propPerMember": 10994.37148217636,
+      "income": 71455,
+      "povertyRate": 15.6,
+      "favorability": 45
     },
     {
       "id": "c7c0a7ff-c6bf-487d-b318-3dcffa9fdc8c",
@@ -1842,10 +2422,14 @@
       "district": "Central",
       "members": 146,
       "worship": 87,
+      "worshipTrend": -13,
       "engagement": 0.5958904109589042,
       "disciplesPer100": 3.652968036529681,
       "propValue": 2508450,
-      "propPerMember": 17181.164383561645
+      "propPerMember": 17181.164383561645,
+      "income": 40233,
+      "povertyRate": 29.9,
+      "favorability": 7
     },
     {
       "id": "19de34f2-0f5d-42b0-895b-a2a1efbf3bac",
@@ -1854,10 +2438,14 @@
       "district": "Central",
       "members": 30,
       "worship": 15,
+      "worshipTrend": -55.88235294117647,
       "engagement": 0.5,
       "disciplesPer100": 0,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 62203,
+      "povertyRate": 15.7,
+      "favorability": 36
     },
     {
       "id": "fadcb1b1-9cf8-4e5c-8e5d-6fe655cc0b46",
@@ -1866,10 +2454,14 @@
       "district": "Central",
       "members": 525,
       "worship": 185,
+      "worshipTrend": -29.65779467680608,
       "engagement": 0.3523809523809524,
       "disciplesPer100": 1.9682539682539684,
       "propValue": 12000000,
-      "propPerMember": 22857.14285714286
+      "propPerMember": 22857.14285714286,
+      "income": 71564,
+      "povertyRate": 9.1,
+      "favorability": 63
     },
     {
       "id": "7b57d349-ae91-4cc6-bcd2-b0e2720ec2ea",
@@ -1878,10 +2470,14 @@
       "district": "Central",
       "members": 175,
       "worship": 40,
+      "worshipTrend": -42.028985507246375,
       "engagement": 0.22857142857142856,
       "disciplesPer100": 0.7619047619047619,
       "propValue": 2256356,
-      "propPerMember": 12893.462857142857
+      "propPerMember": 12893.462857142857,
+      "income": 50352,
+      "povertyRate": 23.7,
+      "favorability": 21
     },
     {
       "id": "5fda8b5d-991a-4f87-822b-0766db70f4c9",
@@ -1890,10 +2486,14 @@
       "district": "Central",
       "members": 77,
       "worship": 55,
+      "worshipTrend": -25.675675675675674,
       "engagement": 0.7142857142857143,
       "disciplesPer100": 9.956709956709958,
       "propValue": 1944000,
-      "propPerMember": 25246.753246753247
+      "propPerMember": 25246.753246753247,
+      "income": 56833,
+      "povertyRate": 19.1,
+      "favorability": 29
     },
     {
       "id": "2819873d-a8ce-4ffc-af2c-64577399a62f",
@@ -1902,10 +2502,14 @@
       "district": "Central",
       "members": 195,
       "worship": 155,
+      "worshipTrend": -29.545454545454547,
       "engagement": 0.7948717948717948,
       "disciplesPer100": 0.3418803418803419,
       "propValue": 4213000,
-      "propPerMember": 21605.128205128207
+      "propPerMember": 21605.128205128207,
+      "income": 75395,
+      "povertyRate": 11.2,
+      "favorability": 62
     },
     {
       "id": "50dd83a1-12ef-4abb-bdad-0404dd296814",
@@ -1914,10 +2518,14 @@
       "district": "Central",
       "members": 189,
       "worship": 45,
+      "worshipTrend": -48.275862068965516,
       "engagement": 0.23809523809523808,
       "disciplesPer100": 0.7054673721340388,
       "propValue": 1662300,
-      "propPerMember": 8795.238095238095
+      "propPerMember": 8795.238095238095,
+      "income": 64251,
+      "povertyRate": 12.7,
+      "favorability": 46
     },
     {
       "id": "98dd64ee-0c08-470c-a12a-010463b00b30",
@@ -1926,10 +2534,14 @@
       "district": "Central",
       "members": 152,
       "worship": 119,
+      "worshipTrend": -17.36111111111111,
       "engagement": 0.7828947368421053,
       "disciplesPer100": 3.0701754385964914,
       "propValue": 3670668,
-      "propPerMember": 24149.13157894737
+      "propPerMember": 24149.13157894737,
+      "income": 62203,
+      "povertyRate": 15.7,
+      "favorability": 37
     },
     {
       "id": "27ef77db-9063-48d3-80a4-b1adab136fc0",
@@ -1938,10 +2550,14 @@
       "district": "Central",
       "members": 482,
       "worship": 164,
+      "worshipTrend": -39.48339483394834,
       "engagement": 0.34024896265560167,
       "disciplesPer100": 0.6915629322268327,
       "propValue": 17025000,
-      "propPerMember": 35321.57676348548
+      "propPerMember": 35321.57676348548,
+      "income": 60222,
+      "povertyRate": 15.9,
+      "favorability": 34
     },
     {
       "id": "609b5b21-d48b-49c0-86cf-3458e1067113",
@@ -1950,10 +2566,14 @@
       "district": "Central",
       "members": 103,
       "worship": 61,
+      "worshipTrend": -1.6129032258064515,
       "engagement": 0.5922330097087378,
       "disciplesPer100": 3.8834951456310676,
       "propValue": 1550000,
-      "propPerMember": 15048.543689320388
+      "propPerMember": 15048.543689320388,
+      "income": 103538,
+      "povertyRate": 5.7,
+      "favorability": 87
     },
     {
       "id": "47c7f012-7e04-43c9-af51-58fe24bb2e66",
@@ -1962,10 +2582,14 @@
       "district": "Central",
       "members": 79,
       "worship": 0,
+      "worshipTrend": -100,
       "engagement": 0,
       "disciplesPer100": 0.42194092827004215,
       "propValue": 0,
-      "propPerMember": 0
+      "propPerMember": 0,
+      "income": 50865,
+      "povertyRate": 25.1,
+      "favorability": 18
     },
     {
       "id": "2b93ac48-fb17-48d1-8436-1ff4ad3e762f",
@@ -1974,10 +2598,14 @@
       "district": "Central",
       "members": 228,
       "worship": 30,
+      "worshipTrend": -68.42105263157895,
       "engagement": 0.13157894736842105,
       "disciplesPer100": 0.29239766081871343,
       "propValue": 2217658,
-      "propPerMember": 9726.570175438597
+      "propPerMember": 9726.570175438597,
+      "income": 53342,
+      "povertyRate": 18.9,
+      "favorability": 27
     },
     {
       "id": "01ea8c34-ad3a-427c-8628-7ca8040565cd",
@@ -1986,10 +2614,14 @@
       "district": "Central",
       "members": 338,
       "worship": 109,
+      "worshipTrend": -36.627906976744185,
       "engagement": 0.3224852071005917,
       "disciplesPer100": 2.2682445759368837,
       "propValue": 5119000,
-      "propPerMember": 15144.970414201183
+      "propPerMember": 15144.970414201183,
+      "income": 56852,
+      "povertyRate": 13.9,
+      "favorability": 35
     },
     {
       "id": "45ca9b08-60a4-41cb-9385-ba6ef09693cb",
@@ -1998,10 +2630,14 @@
       "district": "Central",
       "members": 765,
       "worship": 177,
+      "worshipTrend": -70.98360655737706,
       "engagement": 0.23137254901960785,
       "disciplesPer100": 1.7864923747276689,
       "propValue": 17241000,
-      "propPerMember": 22537.254901960783
+      "propPerMember": 22537.254901960783,
+      "income": 34631,
+      "povertyRate": 21.2,
+      "favorability": 14
     },
     {
       "id": "b71bce0c-6175-482b-8e56-eef86887435d",
@@ -2010,10 +2646,14 @@
       "district": "Central",
       "members": 109,
       "worship": 38,
+      "worshipTrend": -65.45454545454545,
       "engagement": 0.3486238532110092,
       "disciplesPer100": 3.3639143730886847,
       "propValue": 7567442,
-      "propPerMember": 69426.07339449541
+      "propPerMember": 69426.07339449541,
+      "income": 62203,
+      "povertyRate": 15.7,
+      "favorability": 37
     },
     {
       "id": "43311455-ca2a-4f52-9528-7b64a775edad",
@@ -2022,10 +2662,14 @@
       "district": "Central",
       "members": 346,
       "worship": 182,
+      "worshipTrend": -35.91549295774648,
       "engagement": 0.5260115606936416,
       "disciplesPer100": 6.069364161849711,
       "propValue": 8600000,
-      "propPerMember": 24855.49132947977
+      "propPerMember": 24855.49132947977,
+      "income": 97465,
+      "povertyRate": 6.7,
+      "favorability": 83
     },
     {
       "id": "132dee65-2a42-4fde-b005-4d19e4719ed8",
@@ -2034,10 +2678,14 @@
       "district": "Central",
       "members": 546,
       "worship": 230,
+      "worshipTrend": -23.841059602649008,
       "engagement": 0.42124542124542125,
       "disciplesPer100": 0.9157509157509158,
       "propValue": 5355958,
-      "propPerMember": 9809.446886446887
+      "propPerMember": 9809.446886446887,
+      "income": 155488,
+      "povertyRate": 4.1,
+      "favorability": 99
     },
     {
       "id": "fde24e0d-fec6-488c-985f-9e1c5abafdff",
@@ -2046,10 +2694,14 @@
       "district": "North",
       "members": 31,
       "worship": 15,
+      "worshipTrend": -25,
       "engagement": 0.4838709677419355,
       "disciplesPer100": 0,
       "propValue": 597000,
-      "propPerMember": 19258.064516129034
+      "propPerMember": 19258.064516129034,
+      "income": 66177,
+      "povertyRate": 16.8,
+      "favorability": 39
     },
     {
       "id": "56a6eab3-1eb8-4947-aab6-03db90f31fd5",
@@ -2058,10 +2710,14 @@
       "district": "North",
       "members": 26,
       "worship": 16,
+      "worshipTrend": -50,
       "engagement": 0.6153846153846154,
       "disciplesPer100": 0,
       "propValue": 870000,
-      "propPerMember": 33461.53846153846
+      "propPerMember": 33461.53846153846,
+      "income": 66177,
+      "povertyRate": 16.8,
+      "favorability": 39
     },
     {
       "id": "2c82bb02-45ef-4736-a69e-667ff018bdc8",
@@ -2070,10 +2726,14 @@
       "district": "South",
       "members": 34,
       "worship": 8,
+      "worshipTrend": -60,
       "engagement": 0.23529411764705882,
       "disciplesPer100": 0,
       "propValue": 5000,
-      "propPerMember": 147.05882352941177
+      "propPerMember": 147.05882352941177,
+      "income": 67022,
+      "povertyRate": 11,
+      "favorability": 55
     },
     {
       "id": "54f20f2f-faef-4c88-9071-6bc8b9cb1340",
@@ -2082,10 +2742,14 @@
       "district": "South",
       "members": 110,
       "worship": 29,
+      "worshipTrend": -36.95652173913043,
       "engagement": 0.2636363636363636,
       "disciplesPer100": 0.30303030303030304,
       "propValue": 1558000,
-      "propPerMember": 14163.636363636364
+      "propPerMember": 14163.636363636364,
+      "income": 57728,
+      "povertyRate": 23.8,
+      "favorability": 25
     },
     {
       "id": "d5595001-de83-4926-be0a-0db53ae25663",
@@ -2094,10 +2758,14 @@
       "district": "North",
       "members": 141,
       "worship": 45,
+      "worshipTrend": -57.54716981132076,
       "engagement": 0.3191489361702128,
       "disciplesPer100": 1.4184397163120568,
       "propValue": 3000000,
-      "propPerMember": 21276.59574468085
+      "propPerMember": 21276.59574468085,
+      "income": 87978,
+      "povertyRate": 12.7,
+      "favorability": 68
     },
     {
       "id": "5afa1170-ccd3-41d9-ae51-a4d72316afb4",
@@ -2106,10 +2774,14 @@
       "district": "North",
       "members": 245,
       "worship": 36,
+      "worshipTrend": -54.43037974683544,
       "engagement": 0.1469387755102041,
       "disciplesPer100": 0.8163265306122449,
       "propValue": 2160000,
-      "propPerMember": 8816.326530612245
+      "propPerMember": 8816.326530612245,
+      "income": 101304,
+      "povertyRate": 17.9,
+      "favorability": 66
     },
     {
       "id": "fa2fd86b-aa53-4a05-ade8-2a58faeb0a18",
@@ -2118,10 +2790,14 @@
       "district": "North",
       "members": 289,
       "worship": 107,
+      "worshipTrend": -39.548022598870055,
       "engagement": 0.370242214532872,
       "disciplesPer100": 0.461361014994233,
       "propValue": 6980705,
-      "propPerMember": 24154.68858131488
+      "propPerMember": 24154.68858131488,
+      "income": 101304,
+      "povertyRate": 17.9,
+      "favorability": 67
     },
     {
       "id": "42afb988-e694-45a9-90cc-f54419964d4d",
@@ -2130,10 +2806,14 @@
       "district": "South",
       "members": 29,
       "worship": 18,
+      "worshipTrend": 20,
       "engagement": 0.6206896551724138,
       "disciplesPer100": 0,
       "propValue": 300000,
-      "propPerMember": 10344.827586206897
+      "propPerMember": 10344.827586206897,
+      "income": 56466,
+      "povertyRate": 10.9,
+      "favorability": 43
     },
     {
       "id": "cedfcdef-03e3-41a0-bf8a-01f848892465",
@@ -2142,10 +2822,14 @@
       "district": "North",
       "members": 49,
       "worship": 10,
+      "worshipTrend": -67.74193548387096,
       "engagement": 0.20408163265306123,
       "disciplesPer100": 0,
       "propValue": 500000,
-      "propPerMember": 10204.081632653062
+      "propPerMember": 10204.081632653062,
+      "income": 70148,
+      "povertyRate": 14.6,
+      "favorability": 46
     },
     {
       "id": "79f5a46d-7efe-497a-9295-b637c7d6edc7",
@@ -2154,10 +2838,14 @@
       "district": "North",
       "members": 43,
       "worship": 20,
+      "worshipTrend": -31.03448275862069,
       "engagement": 0.46511627906976744,
       "disciplesPer100": 0.7751937984496124,
       "propValue": 901000,
-      "propPerMember": 20953.488372093023
+      "propPerMember": 20953.488372093023,
+      "income": 72155,
+      "povertyRate": 13.7,
+      "favorability": 50
     },
     {
       "id": "a64db238-b37d-4e63-9b33-dc0165255c0d",
@@ -2166,10 +2854,14 @@
       "district": "North",
       "members": 113,
       "worship": 25,
+      "worshipTrend": 38.88888888888889,
       "engagement": 0.22123893805309736,
       "disciplesPer100": 0.2949852507374631,
       "propValue": 500000,
-      "propPerMember": 4424.778761061947
+      "propPerMember": 4424.778761061947,
+      "income": 56533,
+      "povertyRate": 9.1,
+      "favorability": 49
     },
     {
       "id": "0da12e3c-d1f9-44b8-9c69-9872c36e3624",
@@ -2178,10 +2870,14 @@
       "district": "North",
       "members": 52,
       "worship": 25,
+      "worshipTrend": -34.21052631578947,
       "engagement": 0.4807692307692308,
       "disciplesPer100": 0,
       "propValue": 111040,
-      "propPerMember": 2135.3846153846152
+      "propPerMember": 2135.3846153846152,
+      "income": 55478,
+      "povertyRate": 23.3,
+      "favorability": 23
     },
     {
       "id": "6839f564-79e9-43d7-b32d-516830178f04",
@@ -2190,10 +2886,14 @@
       "district": "South",
       "members": 36,
       "worship": 6,
+      "worshipTrend": -70,
       "engagement": 0.16666666666666666,
       "disciplesPer100": 0,
       "propValue": 260500,
-      "propPerMember": 7236.111111111111
+      "propPerMember": 7236.111111111111,
+      "income": 59591,
+      "povertyRate": 18.2,
+      "favorability": 31
     },
     {
       "id": "62ba7c84-f9a0-46be-8cae-3afc11c1e167",
@@ -2202,10 +2902,14 @@
       "district": "South",
       "members": 87,
       "worship": 39,
+      "worshipTrend": -13.333333333333334,
       "engagement": 0.4482758620689655,
       "disciplesPer100": 0.38314176245210724,
       "propValue": 1003600,
-      "propPerMember": 11535.632183908046
+      "propPerMember": 11535.632183908046,
+      "income": 37796,
+      "povertyRate": 32.2,
+      "favorability": 6
     },
     {
       "id": "79b5303e-2f34-4c85-acd4-450b5a5439e5",
@@ -2214,10 +2918,14 @@
       "district": "Central",
       "members": 54,
       "worship": 10,
+      "worshipTrend": -68.75,
       "engagement": 0.18518518518518517,
       "disciplesPer100": 0,
       "propValue": 496000,
-      "propPerMember": 9185.185185185184
+      "propPerMember": 9185.185185185184,
+      "income": 65486,
+      "povertyRate": 11.4,
+      "favorability": 51
     },
     {
       "id": "db0fedf3-4597-489a-b34e-bdf487393c87",
@@ -2226,10 +2934,14 @@
       "district": "Central",
       "members": 141,
       "worship": 50,
+      "worshipTrend": -19.35483870967742,
       "engagement": 0.3546099290780142,
       "disciplesPer100": 1.8912529550827426,
       "propValue": 4251000,
-      "propPerMember": 30148.936170212764
+      "propPerMember": 30148.936170212764,
+      "income": 51990,
+      "povertyRate": 26.2,
+      "favorability": 15
     },
     {
       "id": "d287c742-5597-4604-89fc-b8d1ff65db45",
@@ -2238,10 +2950,14 @@
       "district": "Central",
       "members": 579,
       "worship": 90,
+      "worshipTrend": -54.314720812182735,
       "engagement": 0.15544041450777202,
       "disciplesPer100": 0.3454231433506045,
       "propValue": 5960507,
-      "propPerMember": 10294.485319516407
+      "propPerMember": 10294.485319516407,
+      "income": 43708,
+      "povertyRate": 25.3,
+      "favorability": 11
     },
     {
       "id": "c35487a2-6685-4377-b903-819a88c68dea",
@@ -2250,10 +2966,14 @@
       "district": "Central",
       "members": 48,
       "worship": 15,
+      "worshipTrend": -53.125,
       "engagement": 0.3125,
       "disciplesPer100": 1.3888888888888888,
       "propValue": 159200,
-      "propPerMember": 3316.6666666666665
+      "propPerMember": 3316.6666666666665,
+      "income": 30655,
+      "povertyRate": 42.7,
+      "favorability": 2
     },
     {
       "id": "7db2272d-fed8-4514-94b7-ee14bdc88470",
@@ -2262,10 +2982,14 @@
       "district": "Central",
       "members": 123,
       "worship": 30,
+      "worshipTrend": -65.11627906976744,
       "engagement": 0.24390243902439024,
       "disciplesPer100": 2.4390243902439024,
       "propValue": 1489000,
-      "propPerMember": 12105.69105691057
+      "propPerMember": 12105.69105691057,
+      "income": 71367,
+      "povertyRate": 17,
+      "favorability": 41
     },
     {
       "id": "26e61764-395e-441c-9793-e0832150197d",
@@ -2274,10 +2998,14 @@
       "district": "Central",
       "members": 62,
       "worship": 35,
+      "worshipTrend": null,
       "engagement": 0.5645161290322581,
       "disciplesPer100": 10.75268817204301,
       "propValue": 1780000,
-      "propPerMember": 28709.677419354837
+      "propPerMember": 28709.677419354837,
+      "income": 102212,
+      "povertyRate": 6.1,
+      "favorability": 86
     }
   ]
 }
