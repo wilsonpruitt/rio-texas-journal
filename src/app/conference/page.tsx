@@ -5,6 +5,7 @@ import financeJson from "@/data/conference-finance.json";
 import { type FinanceRow, defaultAssumptions, cagr } from "@/lib/finance-model";
 import { fmtUsd, fmtPct } from "@/lib/atlas";
 import { isUnlocked } from "@/lib/unlock";
+import { inflateTo } from "@/lib/cpi";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Conference Finance" };
@@ -18,6 +19,15 @@ export default async function ConferencePage() {
 
   const apportPts = rows.filter((r) => r.apportionment_rev != null).map((r) => ({ year: r.data_year, value: r.apportionment_rev as number }));
   const netPts = rows.filter((r) => r.net_assets_eoy != null).map((r) => ({ year: r.data_year, value: r.net_assets_eoy as number }));
+
+  // Inflation-pegged baseline: the first year's apportionment grown forward by CPI —
+  // what giving would need to be each year just to hold its real (purchasing-power) value.
+  const anchor = apportPts[0];
+  const apportEnd = apportPts[apportPts.length - 1];
+  const inflationPts = apportPts.map((p) => ({ year: p.year, value: Math.round(inflateTo(anchor.value, anchor.year, p.year) ?? p.value) }));
+  const peggedEnd = inflationPts[inflationPts.length - 1].value;
+  // How far below the inflation line the latest actual giving sits (= real decline since the anchor year).
+  const belowInflationPct = peggedEnd > 0 ? (1 - apportEnd.value / peggedEnd) * 100 : null;
   const apportCagr = cagr(rows, "apportionment_rev");
   const apportDropPct = first.apportionment_rev && last.apportionment_rev
     ? ((last.apportionment_rev - first.apportionment_rev) / first.apportionment_rev) * 100 : null;
@@ -46,9 +56,24 @@ export default async function ConferencePage() {
       {/* historical trends */}
       <section className="mt-10 grid md:grid-cols-2 gap-6">
         <div className="panel rounded-lg p-6">
-          <div className="eyebrow">Apportionment revenue</div>
+          <div className="eyebrow">Apportionment revenue vs. inflation</div>
           <div className="mt-1 text-sm text-ink-mute">{first.data_year}–{last.data_year}, audited</div>
-          <div className="mt-3"><TrendChart points={apportPts} accent="ember" format="usd" markMergerYear={null} /></div>
+          <div className="mt-3">
+            <TrendChart
+              points={apportPts}
+              compare={{ points: inflationPts, label: "if pegged to inflation" }}
+              accent="ember"
+              format="usd"
+              markMergerYear={null}
+            />
+          </div>
+          <p className="mt-3 text-xs text-faint leading-relaxed">
+            The dashed line is {first.data_year}&rsquo;s apportionment ({fmtUsd(anchor.value)}) grown only by CPI — what
+            it would take to hold the same buying power, {fmtUsd(peggedEnd)} by {last.data_year}.
+            {belowInflationPct != null && (
+              <> Actual giving ({fmtUsd(apportEnd.value)}) sits <span className="text-ember font-medium">{belowInflationPct.toFixed(0)}% below</span> that line — the real decline once inflation is counted.</>
+            )}
+          </p>
         </div>
         <div className="panel rounded-lg p-6">
           <div className="eyebrow">Reserves (net assets)</div>

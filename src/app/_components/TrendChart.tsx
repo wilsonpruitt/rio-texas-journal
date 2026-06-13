@@ -12,6 +12,7 @@ export function TrendChart({
   points,
   projection,
   band,
+  compare,
   height = 132,
   accent = "teal",
   format = "count",
@@ -20,13 +21,15 @@ export function TrendChart({
   points: Pt[];
   projection?: Pt[];
   band?: { year: number; lo: number; hi: number }[];
+  /** Optional faint dashed reference line over the same x-range (e.g. an inflation-pegged baseline). */
+  compare?: { points: Pt[]; label?: string };
   height?: number;
   accent?: "teal" | "ember" | "amber" | "ink";
   format?: "count" | "usd";
   markMergerYear?: number | null;
 }) {
   const uid = useId();
-  const all = [...points, ...(projection ?? [])];
+  const all = [...points, ...(projection ?? []), ...(compare?.points ?? [])];
   if (all.length < 2) {
     return <div className="h-[132px] grid place-items-center text-sm text-faint">Insufficient data</div>;
   }
@@ -87,6 +90,18 @@ export function TrendChart({
           fill={color}
           opacity="0.08"
         />
+      )}
+
+      {/* comparison reference line (e.g. inflation-pegged baseline) */}
+      {compare && compare.points.length > 1 && (
+        <g>
+          <path d={line(compare.points)} fill="none" stroke="var(--color-ink-mute)" strokeWidth="1.25" strokeDasharray="4 3" opacity="0.65" strokeLinejoin="round" />
+          {compare.label && (
+            <text x={x(compare.points[compare.points.length - 1].year) - 4} y={y(compare.points[compare.points.length - 1].value) - 6} fontSize="9" textAnchor="end" fill="var(--color-ink-mute)" fontFamily="var(--font-mono)">
+              {compare.label}
+            </text>
+          )}
+        </g>
       )}
 
       <path d={area(points)} fill={`url(#fill-${uid})`} />
