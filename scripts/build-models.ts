@@ -269,9 +269,9 @@ async function main() {
   // churches still active today, traced back through every year — this isolates
   // real decline *within* the continuing congregations from decline caused by
   // churches leaving or closing.
-  const buildSeries = (keep: (g: string) => boolean) => {
+  const buildSeries = (keep: (g: string) => boolean, fields = ["MEMBTOT", "AVATTWOR", "GRANDTOT"]) => {
     const out: Record<string, { year: number; value: number }[]> = {};
-    for (const fc of ["MEMBTOT", "AVATTWOR", "GRANDTOT"]) {
+    for (const fc of fields) {
       const byYear: Record<number, number> = {};
       for (const g of gcfas) {
         if (!keep(g)) continue;
@@ -282,8 +282,11 @@ async function main() {
     }
     return out;
   };
-  const confSeries = buildSeries(() => true);
-  const confSeriesActive = buildSeries((g) => outcome(g) === 'active');
+  // Conference cuts also carry APPPAID (per-church apportionment paid) so the finance
+  // page can split apportionment giving by all churches vs. those who remained.
+  const CONF_FIELDS = ["MEMBTOT", "AVATTWOR", "GRANDTOT", "APPPAID"];
+  const confSeries = buildSeries(() => true, CONF_FIELDS);
+  const confSeriesActive = buildSeries((g) => outcome(g) === 'active', CONF_FIELDS);
 
   // Same two cuts, scoped per 2025 district, for the /districts/[id] trend panels.
   const districtSeries: Record<string, { all: ReturnType<typeof buildSeries>; active: ReturnType<typeof buildSeries> }> = {};

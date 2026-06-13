@@ -1,5 +1,8 @@
 import { TrendChart } from "@/app/_components/TrendChart";
+import { ApportionmentSplit } from "@/app/_components/ApportionmentSplit";
 import { LockedTeaser } from "@/app/_components/LockedTeaser";
+import { conferenceSeries } from "@/lib/atlas-server";
+import { createClient } from "@/lib/supabase/server";
 import ConferenceScenario from "./ConferenceScenario";
 import financeJson from "@/data/conference-finance.json";
 import { type FinanceRow, defaultAssumptions, cagr } from "@/lib/finance-model";
@@ -16,6 +19,14 @@ export default async function ConferencePage() {
   const unlocked = await isUnlocked();
   const first = rows[0], last = rows[rows.length - 1];
   const baseline = defaultAssumptions(rows);
+
+  // Per-church apportionment paid, all churches vs. those who remained (active today).
+  const sb = await createClient();
+  const [appPaidAll, appPaidRemained, activeCount] = await Promise.all([
+    conferenceSeries("APPPAID"),
+    conferenceSeries("APPPAID", true),
+    sb.from("church").select("*", { count: "exact", head: true }).not("gcfa_number", "is", null).eq("status", "active").then((r) => r.count ?? 0),
+  ]);
 
   const apportPts = rows.filter((r) => r.apportionment_rev != null).map((r) => ({ year: r.data_year, value: r.apportionment_rev as number }));
   const netPts = rows.filter((r) => r.net_assets_eoy != null).map((r) => ({ year: r.data_year, value: r.net_assets_eoy as number }));
@@ -81,6 +92,13 @@ export default async function ConferencePage() {
           <div className="mt-3"><TrendChart points={netPts} accent="teal" format="usd" markMergerYear={null} /></div>
         </div>
       </section>
+
+      {/* apportionments paid: all vs. remained */}
+      {appPaidAll.length > 1 && (
+        <section className="mt-10">
+          <ApportionmentSplit all={appPaidAll} remained={appPaidRemained} remainedCount={activeCount} />
+        </section>
+      )}
 
       {/* scenario tool */}
       <section className="mt-14">
