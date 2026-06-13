@@ -2,7 +2,7 @@ import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { fmtInt, fmtUsd } from "@/lib/atlas";
 import { conferenceSeries } from "@/lib/atlas-server";
-import { TrendChart } from "./_components/TrendChart";
+import { ConferenceTrends } from "./_components/ConferenceTrends";
 
 export const dynamic = "force-dynamic";
 
@@ -22,11 +22,14 @@ async function meta(key: string) {
 }
 
 export default async function Overview() {
-  const [c, members, attendance, giving, drivers] = await Promise.all([
+  const [c, members, attendance, giving, membersActive, attendanceActive, givingActive, drivers] = await Promise.all([
     counts(),
     conferenceSeries("MEMBTOT"),
     conferenceSeries("AVATTWOR"),
     conferenceSeries("GRANDTOT"),
+    conferenceSeries("MEMBTOT", true),
+    conferenceSeries("AVATTWOR", true),
+    conferenceSeries("GRANDTOT", true),
     meta("growth_drivers"),
   ]);
 
@@ -71,11 +74,11 @@ export default async function Overview() {
           Professing membership has fallen roughly {memDropPct}% from its peak. Figures before 2015 sum the two
           predecessor conferences.
         </p>
-        <div className="mt-8 grid lg:grid-cols-3 gap-5">
-          <TrendPanel title="Professing members" series={members} accent="ember" />
-          <TrendPanel title="Average worship attendance" series={attendance} accent="ember" />
-          <TrendPanel title="Total funds paid" series={giving} accent="teal" format="usd" />
-        </div>
+        <ConferenceTrends
+          all={{ members, attendance, giving }}
+          active={{ members: membersActive, attendance: attendanceActive, giving: givingActive }}
+          activeCount={c.active}
+        />
       </section>
 
       {/* ── Growth drivers ───────────────────────────────────── */}
@@ -118,23 +121,6 @@ function Stat({ n, label, accent, sub }: { n: number; label: string; accent: "te
       <div className={`tnum text-3xl sm:text-4xl font-semibold ${text}`}>{fmtInt(n)}</div>
       <div className="mt-1 text-sm text-ink-mute">{label}</div>
       {sub && <div className="text-xs text-faint">{sub}</div>}
-    </div>
-  );
-}
-
-function TrendPanel({ title, series, accent, format }: { title: string; series: { year: number; value: number }[]; accent: "teal" | "ember"; format?: "count" | "usd" }) {
-  const first = series[0]?.value ?? 0;
-  const last = series.at(-1)?.value ?? 0;
-  const pct = first ? Math.round(((last - first) / first) * 100) : 0;
-  return (
-    <div className="panel rounded-lg p-5">
-      <div className="flex items-baseline justify-between">
-        <h3 className="text-sm font-medium text-ink">{title}</h3>
-        <span className={`tnum text-xs ${pct < 0 ? "text-ember" : "text-teal"}`}>{pct > 0 ? "+" : ""}{pct}%</span>
-      </div>
-      <div className="mt-3">
-        <TrendChart points={series} accent={accent} format={format ?? "count"} height={120} />
-      </div>
     </div>
   );
 }

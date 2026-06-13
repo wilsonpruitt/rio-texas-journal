@@ -264,14 +264,35 @@ async function main() {
 
   // ---- 6. precomputed aggregates for the site (avoids paginating church_stat) --
   // Conference-wide yearly totals for the overview trend panels.
-  const confSeries: Record<string, { year: number; value: number }[]> = {};
-  for (const fc of ["MEMBTOT", "AVATTWOR", "GRANDTOT"]) {
-    const byYear: Record<number, number> = {};
-    for (const g of gcfas) {
-      const m = series[g]?.[fc]; if (!m) continue;
-      for (const y of sortedYears(m)) byYear[y] = (byYear[y] ?? 0) + m[y];
+  // Two cuts. ALL = raw conference totals (includes churches that have since
+  // closed or disaffiliated, so exits read as decline). ACTIVE-ONLY = only the
+  // churches still active today, traced back through every year — this isolates
+  // real decline *within* the continuing congregations from decline caused by
+  // churches leaving or closing.
+  const buildSeries = (keep: (g: string) => boolean) => {
+    const out: Record<string, { year: number; value: number }[]> = {};
+    for (const fc of ["MEMBTOT", "AVATTWOR", "GRANDTOT"]) {
+      const byYear: Record<number, number> = {};
+      for (const g of gcfas) {
+        if (!keep(g)) continue;
+        const m = series[g]?.[fc]; if (!m) continue;
+        for (const y of sortedYears(m)) byYear[y] = (byYear[y] ?? 0) + m[y];
+      }
+      out[fc] = Object.entries(byYear).map(([year, value]) => ({ year: +year, value: round(value)! })).sort((a, b) => a.year - b.year);
     }
-    confSeries[fc] = Object.entries(byYear).map(([year, value]) => ({ year: +year, value: round(value)! })).sort((a, b) => a.year - b.year);
+    return out;
+  };
+  const confSeries = buildSeries(() => true);
+  const confSeriesActive = buildSeries((g) => outcome(g) === 'active');
+
+  // Same two cuts, scoped per 2025 district, for the /districts/[id] trend panels.
+  const districtSeries: Record<string, { all: ReturnType<typeof buildSeries>; active: ReturnType<typeof buildSeries> }> = {};
+  for (const dist of DISTRICTS_2025) {
+    const inDist = (g: string) => district2025(ident.get(g)?.county_name, g) === dist;
+    districtSeries[dist] = {
+      all: buildSeries((g) => inDist(g)),
+      active: buildSeries((g) => inDist(g) && outcome(g) === 'active'),
+    };
   }
   // Per-church latest membership + worship attendance + 10-yr trend %, keyed by church_id.
   const churchMem: Record<string, { members: number | null; trend: number | null; worship: number | null; worshipTrend: number | null }> = {};
@@ -346,6 +367,8 @@ async function main() {
     { key: 'disaffiliation_autopsy', payload: disaffReport },
     { key: 'outcome_counts', payload: counts },
     { key: 'conference_series', payload: confSeries },
+    { key: 'conference_series_active', payload: confSeriesActive },
+    { key: 'district_series', payload: districtSeries },
     { key: 'church_membership', payload: churchMem },
     { key: 'district_summary', payload: districtSummary },
   ], { onConflict: 'key' });

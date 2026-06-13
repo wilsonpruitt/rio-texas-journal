@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { fetchAll, churchMembership, districtSummary } from "@/lib/atlas-server";
+import { fetchAll, churchMembership, districtSummary, districtSeries } from "@/lib/atlas-server";
 import { district2025, DISTRICTS_2025 } from "@/lib/district-2025";
 import { fmtInt, fmtUsd, fmtPct, RISK, type RiskTier } from "@/lib/atlas";
 import SearchableList, { type Row } from "../../churches/SearchableList";
+import { ConferenceTrends } from "../../_components/ConferenceTrends";
 
 export const dynamic = "force-dynamic";
 
@@ -26,6 +27,12 @@ export default async function DistrictPage({ params }: Params) {
   const d = summary[name];
   if (!d) notFound();
   const payout = d.apportioned > 0 ? (d.paid / d.apportioned) * 100 : null;
+
+  const ds = await districtSeries(name);
+  const trends = ds && {
+    all: { members: ds.all.MEMBTOT ?? [], attendance: ds.all.AVATTWOR ?? [], giving: ds.all.GRANDTOT ?? [] },
+    active: { members: ds.active.MEMBTOT ?? [], attendance: ds.active.AVATTWOR ?? [], giving: ds.active.GRANDTOT ?? [] },
+  };
 
   // roster — active churches in this district
   const churches = await fetchAll<{ id: string; canonical_name: string; status: Row["status"]; city: string | null; county_name: string | null; gcfa_number: string }>((s, from, to) =>
@@ -85,8 +92,20 @@ export default async function DistrictPage({ params }: Params) {
         </div>
       </section>
 
+      {/* trends */}
+      {trends && (
+        <section className="mt-12">
+          <h2 className="font-display text-2xl text-ink">A quarter-century in {name}</h2>
+          <p className="mt-2 text-sm text-ink-mute max-w-2xl">
+            District totals follow the 2025 boundaries back through every year. Toggle to see only the churches still
+            active in this district today.
+          </p>
+          <ConferenceTrends all={trends.all} active={trends.active} activeCount={d.churches} />
+        </section>
+      )}
+
       {/* roster */}
-      <section className="mt-10">
+      <section className="mt-12">
         <h2 className="font-display text-2xl text-ink">Churches</h2>
         <div className="mt-4">
           <SearchableList rows={rows} districts={[]} />

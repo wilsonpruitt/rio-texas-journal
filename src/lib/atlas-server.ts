@@ -27,11 +27,22 @@ export async function fetchAll<T>(
  * over the raw church_stat table here would require paginating ~12k rows per field,
  * which is slow and order-unstable under RLS.
  */
-export async function conferenceSeries(fieldCode: string) {
+export async function conferenceSeries(fieldCode: string, activeOnly = false) {
   const sb = await createClient();
-  const { data } = await sb.from("model_meta").select("payload").eq("key", "conference_series").maybeSingle();
+  const key = activeOnly ? "conference_series_active" : "conference_series";
+  const { data } = await sb.from("model_meta").select("payload").eq("key", key).maybeSingle();
   const payload = (data?.payload ?? {}) as Record<string, { year: number; value: number }[]>;
   return payload[fieldCode] ?? [];
+}
+
+type Series = Record<string, { year: number; value: number }[]>;
+
+/** Per-2025-district yearly series, both "all" and "active-only" cuts (precomputed). */
+export async function districtSeries(name: string): Promise<{ all: Series; active: Series } | null> {
+  const sb = await createClient();
+  const { data } = await sb.from("model_meta").select("payload").eq("key", "district_series").maybeSingle();
+  const payload = (data?.payload ?? {}) as Record<string, { all: Series; active: Series }>;
+  return payload[name] ?? null;
 }
 
 export type DistrictSummary = {
