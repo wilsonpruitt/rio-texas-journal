@@ -1,0 +1,168 @@
+{
+  "title": "Rio Texas Conference UMC — Board of Pensions Audited Financial Statements",
+  "as_of": "December 31, 2024 (comparative 2023)",
+  "source": "Transcribed from the audited Board of Pensions financial statements images (FY2024). The Statement of Financial Position (balance sheet) was not among the provided images; net-asset composition is reconciled from the Statement of Activities and Note 12.",
+  "cols": ["2024", "2023"],
+  "summary": {
+    "heading": "Where the Board of Pensions' assets are",
+    "bigNumbers": [
+      { "label": "total net assets", "statement": "activities", "row": "Net Assets, End of Year" },
+      { "label": "total investments", "statement": "investments", "row": "Total Investments" },
+      { "label": "cash", "statement": "cashflows", "row": "Cash and Cash Equivalents, End of Year" }
+    ],
+    "mapStatement": "investments",
+    "mapTotalRow": "Total Investments",
+    "mapHeading": "Investment holding (2024)",
+    "note": "About 99% of the Board's assets sit with <strong>Wespath</strong> (the denomination's investment manager); the rest is at the Texas Methodist Foundation. The largest restricted fund is the <strong>RGC Pension Legacy Fund</strong> ($8.81M, for clergy benefits of former Rio Grande Conference churches). See Note 12 for the full fund breakdown."
+  },
+  "statements": [
+    {
+      "id": "activities",
+      "name": "Statement of Activities",
+      "subtitle": "Revenue, expenses, and net-asset change (2024 totals; 2023 comparative)",
+      "rows": [
+        { "label": "OPERATING SUPPORT AND REVENUE", "kind": "header" },
+        { "label": "Participant Contributions - Insurance", "v": [2943997, 3744386] },
+        { "label": "Participant Contributions - Pension", "v": [2226908, 2764807] },
+        { "label": "Church Apportionments - Pension and Insurance", "v": [232554, 322262] },
+        { "label": "Other Income", "v": [9460, 10198] },
+        { "label": "Net Assets Released from Restriction", "v": [0, 0] },
+        { "label": "Total Operating Support and Revenue", "v": [5412919, 6841653], "kind": "subtotal" },
+        { "label": "OPERATING EXPENSES", "kind": "header" },
+        { "label": "Program", "v": [5833659, 6976638] },
+        { "label": "General and Administrative", "v": [181458, 179557] },
+        { "label": "Total Operating Expenses", "v": [6015117, 7156195], "kind": "subtotal" },
+        { "label": "Operating Loss", "v": [-602198, -314542], "kind": "subtotal" },
+        { "label": "OTHER INCOME (EXPENSE)", "kind": "header" },
+        { "label": "Pre-82 Pension Changes in Benefit Obligations", "v": [5397268, 1209774] },
+        { "label": "Investment Income", "v": [1545501, 2291923] },
+        { "label": "Retiree Health Changes in Retirement Account Obligations", "v": [18134, 48212] },
+        { "label": "Pre-82 Pension Income - Actuarial", "v": [-5916102, 802885] },
+        { "label": "Total Other Income (Expense)", "v": [1044801, 4352794], "kind": "subtotal" },
+        { "label": "Change in Net Assets", "v": [442603, 4038252], "kind": "subtotal" },
+        { "label": "Net Assets, Beginning of Year", "v": [24131706, 20093454] },
+        { "label": "Net Assets, End of Year", "v": [24574309, 24131706], "kind": "total" }
+      ]
+    },
+    {
+      "id": "functional",
+      "name": "Statement of Functional Expenses",
+      "subtitle": "What the Board spent, by category (2024 total; 2023 comparative)",
+      "rows": [
+        { "label": "Health Insurance Premiums", "v": [3525390, 3985248] },
+        { "label": "Pension Payments - DB (defined benefit)", "v": [826716, 1200247] },
+        { "label": "Pension Payments - UMPIP", "v": [736918, 848291] },
+        { "label": "Pension Payments - CPP (comprehensive protection)", "v": [364422, 451501] },
+        { "label": "Pension Payments - DC (defined contribution)", "v": [349239, 436281] },
+        { "label": "Legal and Accounting", "v": [124829, 127495] },
+        { "label": "Insurance", "v": [29480, 33482] },
+        { "label": "Life Insurance Premiums", "v": [17792, 25252] },
+        { "label": "Travel and Meeting Expenses", "v": [13258, 3347] },
+        { "label": "Office Expenses", "v": [11747, 9787] },
+        { "label": "Grants and Other Benefits Paid", "v": [8160, 27094] },
+        { "label": "Miscellaneous", "v": [5750, 6723] },
+        { "label": "Supplies", "v": [1320, 963] },
+        { "label": "Maintenance Expenses", "v": [96, 484] },
+        { "label": "Total Operating Expenses", "v": [6015117, 7156195], "kind": "total", "sumOf": "*" }
+      ]
+    },
+    {
+      "id": "cashflows",
+      "name": "Statement of Cash Flows",
+      "subtitle": "Where cash moved during the year",
+      "rows": [
+        { "label": "OPERATING ACTIVITIES", "kind": "header" },
+        { "label": "Change in Net Assets", "v": [442603, 4038252] },
+        { "label": "Gain on Investments", "v": [-1520928, -2269843] },
+        { "label": "Change in Value of Pre-82 Pension Asset", "v": [1345550, -2012659] },
+        { "label": "Change in Value of Retiree Health Retirement Account", "v": [-18134, -48212] },
+        { "label": "Change in Accounts Receivable", "v": [20018, -22258] },
+        { "label": "Change in Accounts Payable", "v": [26799, -2557] },
+        { "label": "Deferred Pension Liability - Disaffiliation", "v": [249849, 3592210] },
+        { "label": "Net Cash Provided by Operating Activities", "v": [545757, 3274933], "kind": "subtotal" },
+        { "label": "INVESTING ACTIVITIES", "kind": "header" },
+        { "label": "Pension Account Deposits", "v": [-5417113, -10165858] },
+        { "label": "Pension Account Disbursements", "v": [4967449, 6914497] },
+        { "label": "Purchases of Investments", "v": [-24573, -22080] },
+        { "label": "Net Cash Used by Investing Activities", "v": [-474237, -3273441], "kind": "subtotal" },
+        { "label": "Net Change in Cash Flows", "v": [71520, 1492], "kind": "subtotal" },
+        { "label": "Cash and Cash Equivalents, Beginning of Year", "v": [1156315, 1154823] },
+        { "label": "Cash and Cash Equivalents, End of Year", "v": [1227835, 1156315], "kind": "total" }
+      ]
+    },
+    {
+      "id": "investments",
+      "name": "Notes 5 & 15 — Investments (Fair Value)",
+      "subtitle": "The Board's $22.98M investment portfolio, fund by fund",
+      "rows": [
+        { "label": "Wespath — Short Term Investment Fund", "v": [1917408, 879831] },
+        { "label": "Wespath — U.S. Equity Fund", "v": [7592245, 7202195] },
+        { "label": "Wespath — International Equity Fund", "v": [6015713, 5797372] },
+        { "label": "Wespath — Fixed Income Fund", "v": [5102985, 4709128] },
+        { "label": "Wespath — Inflation Protection Fund", "v": [1929177, 1899480] },
+        { "label": "Wespath — Cash", "v": [103719, 178076] },
+        { "label": "Texas Methodist Foundation — Methodist Loan Fund", "v": [220000, 220000] },
+        { "label": "Texas Methodist Foundation — Balanced Fund", "v": [97845, 97845] },
+        { "label": "Other — Mineral Rights", "v": [300, 300] },
+        { "label": "Other — Spencer Gift", "v": [846, 846] },
+        { "label": "Total Investments", "v": [22980238, 20985073], "kind": "total", "sumOf": "*" }
+      ]
+    },
+    {
+      "id": "funds",
+      "name": "Note 12 — Net Assets / Fund Balances",
+      "subtitle": "The Board's designated and donor-restricted funds",
+      "rows": [
+        { "label": "Disaffiliation Benefit Fund", "v": [4351170, 3820262], "group": "Board-Designated" },
+        { "label": "Josephine Burns Forman Fund", "v": [537000, 537000], "group": "Board-Designated" },
+        { "label": "Wespath Dividend", "v": [888101, 949465], "group": "Board-Designated" },
+        { "label": "Total Designated", "v": [5776271, 5306727], "kind": "subtotal", "sumOf": "Board-Designated" },
+        { "label": "Boelsche Fund Interest", "v": [33469, 30834], "group": "Purpose Restricted" },
+        { "label": "Edinburg Parsonage Fund", "v": [49839, 45743], "group": "Purpose Restricted" },
+        { "label": "RGC Pension Legacy Fund", "v": [8808516, 8528670], "group": "Purpose Restricted" },
+        { "label": "RGC Pension Legacy Fund SEF", "v": [26632, 26632], "group": "Purpose Restricted" },
+        { "label": "Superannuate Endowment Fund", "v": [201656, 187876], "group": "Purpose Restricted" },
+        { "label": "Thompson Fund", "v": [61310, 60464], "group": "Purpose Restricted" },
+        { "label": "Total Purpose Restricted", "v": [9181422, 8880219], "kind": "subtotal", "sumOf": "Purpose Restricted" },
+        { "label": "Boelsche Fund", "v": [97845, 97845], "group": "Perpetually Restricted" },
+        { "label": "Raeke Fund", "v": [580572, 580572], "group": "Perpetually Restricted" },
+        { "label": "Seiler Fund", "v": [9697, 9697], "group": "Perpetually Restricted" },
+        { "label": "Skinner Fund", "v": [258000, 258000], "group": "Perpetually Restricted" },
+        { "label": "Total Perpetually Restricted", "v": [946114, 946114], "kind": "subtotal", "sumOf": "Perpetually Restricted" },
+        { "label": "Undesignated net assets (derived; balance sheet not provided)", "v": [8670502, 8998646], "kind": "placeholder" },
+        { "label": "Total Net Assets (per Statement of Activities)", "v": [24574309, 24131706], "kind": "total" }
+      ]
+    },
+    {
+      "id": "liquidity",
+      "name": "Note 17 — Liquidity and Availability",
+      "subtitle": "Financial assets available to meet cash needs within one year",
+      "rows": [
+        { "label": "Cash and Cash Equivalents", "v": [1227835, 1156315], "group": "Financial Assets" },
+        { "label": "Investments", "v": [22980238, 20985073], "group": "Financial Assets" },
+        { "label": "Accounts Receivable", "v": [27095, 47113], "group": "Financial Assets" },
+        { "label": "Total Financial Assets", "v": [24235168, 22188501], "kind": "subtotal", "sumOf": "Financial Assets" },
+        { "label": "Less: Board Designations", "v": [-5776271, -5306727] },
+        { "label": "Less: Donor Restrictions", "v": [-10127536, -9826333] },
+        { "label": "Financial Assets Available to Meet Cash Needs Within One Year", "v": [8331361, 7055441], "kind": "total" }
+      ]
+    }
+  ],
+  "narrative": [
+    { "name": "Independent Auditor's Report", "text": "Calvetti Ferguson (San Antonio, Texas) audited the FY2024 statements and issued an unmodified ('clean') opinion that the statements present fairly, in all material respects, the Board's financial position, changes in net assets, and cash flows under U.S. GAAP. Dated August 27, 2025. The FY2023 statements were audited by Randy Walker and Company (acquired by Calvetti Ferguson on August 1, 2025), which also issued an unmodified opinion." },
+    { "name": "Note 1 — Organization and Purpose", "text": "The UM Rio Texas Conference Board of Pensions is a Texas 501(c)(3) nonprofit that began operations January 1, 2015, on the unification of the Boards of Pensions of the predecessor Southwest Texas and Rio Grande Conferences. Its purpose is to report to the Annual Conference the retired ministers and the widows/children of deceased ministers entitled to annuities, pensions, or special relief, and the appropriations needed to meet those charges. The Board does not administer the pension program itself — that is Wespath's role; the Board collects and remits pension funds and administers other funds for pension and health benefits. About 99% (2024) / 98% (2023) of the Board's investment assets are placed with Wespath." },
+    { "name": "Note 2 — Summary of Significant Accounting Policies", "text": "Accrual basis with fund accounting and two net-asset classes (with/without donor restrictions). Cash equivalents are investments maturing in three months or less. Investments are carried at market with gains/losses in the statement of activities; no investment fees were incurred. Property and equipment are capitalized above $2,500 and depreciated straight-line over five years; a retiree's house donated in 2015 (transferred to the Board in 2017, used by a retired minister per the donor) is depreciated over 15 years and was fully depreciated by Dec 31, 2020. The Board is tax-exempt under IRC 501(c)(3)." },
+    { "name": "Note 3 — Description of Plans", "text": "The Board administers Conference-provided plans: the Clergy Retirement Security Program (CRSP, effective Jan 1, 2007, restated 2017) — funded by a 3% Board contribution to the CRSP Defined Contribution plan plus a Board-funded CRSP Defined Benefit contribution (the DB contribution actuarially determined; CRSP payments were $826,716 (2024) / $1,200,247 (2023)); a Defined Contribution Pension Plan for post-1982 service (fully funded annually by church and employee deposits to Wespath); a Defined Benefit Pension Plan for pre-1982 service (funded each year by the local churches through the Board); and a Health Insurance Plan for regular full-time clergy and lay employees (min. 30 hours/week). Retired pastors' health coverage from the predecessor SWTX board was discontinued March 31, 2014 and transitioned to a third-party plan (Towers Watson). Plans are 'church plans' under IRC 414(e)/403(b)(9)." },
+    { "name": "Note 4 — Concentration of Credit Risk", "text": "Cash and investments are held at various institutions; the FDIC insures cash up to $250,000 per bank and SIPC insures investment accounts up to $500,000, but the Board also holds uninsured accounts. Uninsured cash balances were $1,304,939 (2024) / $968,845 (2023); uninsured investment balances were $22,979,092 / $20,983,927." },
+    { "name": "Note 6 — Accounts Receivable", "text": "Amounts due from churches and individuals for pension and health insurance billings, considered fully collectible (no allowance needed): $27,095 (2024) / $47,113 (2023)." },
+    { "name": "Note 7 — Pre-82 Pension Asset", "text": "The Wespath pension plan was changed effective Jan 1, 1982. Separate pension assets available were $4,495,669 (2024) / $5,841,219 (2023), adequate to fully fund the past-service liability, with a projected surplus of $4,593,767 / $5,047,533. There were no past-service funding deposits in 2024 or 2023. The fair value of the plan assets was $567,653 / $535,087." },
+    { "name": "Note 8 — Pre-82 Post-Retirement Pension Benefits", "text": "The post-retirement benefit obligation is the actuarial present value of estimated future benefits for service rendered before Jan 1, 1982, covering currently retired employees and spouses and active employees/spouses after retirement. Wespath's actuary uses the Pri-2012 Top Quartile mortality tables with Scale MP-2020 projection; a 5.5% interest credit rate (2024 and 2023); surviving spouses receive 70% of the ministerial pension rate; retirement assumed between ages 55 and 72; expected benefit increases 2.00%. The Pre-82 funding plan is under review by Wespath's actuarial department." },
+    { "name": "Note 9 — Pension Participant Contributions and Payments", "text": "The Board is plan sponsor for several Wespath qualified plans: CRSP-DC, CRSP-DB, the Comprehensive Protection Plan (CPP), and the UM Personal Investment Plan (UMPIP). The Board invoices local churches monthly and remits a single payment to Wespath (monthly or annually depending on plan design)." },
+    { "name": "Note 10 — Post-Retirement Health Benefits", "text": "A closed plan limited to participants from the former Southwest Texas and Rio Grande Conference plans; no new participants. The annual benefit is fixed at the December 2014 annualized amount and provided via a health reimbursement account (HRA) through Towers Watson, funded by apportionments (participants make no contributions). The actuarial present value of the obligation was $287,152 (2024) / $305,286 (2023). Expected future payments: $38,812 (2025), $35,142 (2026), $31,718 (2027), $181,480 thereafter — total $287,152." },
+    { "name": "Note 11 — Legacy Funds", "text": "On January 1, 2015, the former Rio Grande Conference's pension assets of $6,922,748 were transferred to the Board, restricted (per the Rio Texas Unification Plan) to fund clergy benefits of legacy Rio Grande Conference churches. In 2024 the Board awarded $339,227 in grants to legacy churches and earned investment gains of $619,073, ending at a legacy fund balance of $8,808,516. In 2023 it awarded $375,683 in grants with gains of $1,052,141, ending at $8,528,670." },
+    { "name": "Note 13 — Related Party Transactions", "text": "The Board is located in the Conference-owned building, and the Conference's accounting department performs some of the Board's accounting; office-related expense allocations were $45,107 (2024) / $46,507 (2023). The Board also assisted the Conference with legal expenses related to disaffiliating churches — $100,601 (2024) / $94,540 (2023) — incurred to collect unfunded pension liabilities." },
+    { "name": "Note 14 — Disaffiliation", "text": "Beginning in FY2023, churches disaffiliated from the UMC over reasons of conscience related to human sexuality, following the Discipline ¶2553 process (2/3 professing-member vote). Each church paid its unfunded pension liability (calculated by Wespath at market value per ¶1504.23) along with apportionments. FY2024: 10 churches completed — $249,849 collected and forwarded to the Board for unfunded pension liability (recorded as deferred pension liability - disaffiliation; see Note 16). FY2023: 84 churches — $3,592,210 collected. In May 2023 the Conference sued 28 churches that intended to disaffiliate without following the Discipline; the Board contributed $100,601 (2024) / $94,540 (2023) toward that legal effort to collect unfunded pension liabilities." },
+    { "name": "Note 16 — Deferred Pension Liability - Disaffiliation", "text": "Pension liabilities exist for the Pre-82 Plan, MPP (1982–2006), and CRSP (2006–present), covering clergy service in the former Southwest Texas, Rio Grande, and Rio Texas Conferences. Separating/disaffiliating churches must pay their fair share of aggregate unfunded pension obligations, transferring their pension responsibility to the Conference Board of Pensions and the remaining churches. Disaffiliation pension contributions in 2024 and 2023 were placed in a new Rio Texas Conference Board of Pensions account at Wespath for future pension liabilities. The CRSP plan will end effective December 31, 2025, and pension liabilities are estimated for an additional 70+ years until the last eligible beneficiary ceases to be eligible. The statement of financial position reflects deferred pension liability - disaffiliation of $3,842,059 (2024) / $3,592,210 (2023), exclusive of the 28 churches in litigation that have not paid their unfunded pension liabilities." },
+    { "name": "Note 18 — Subsequent Events", "text": "As a result of recent disaffiliations, in 2025 the Conference plans to consolidate its seven districts into three geographical districts (North, Central, South), anticipated to start in summer 2025 and complete by year-end. In 2024 the Annual Conference voted to retire the current CRSP, MPP, and Pre-82 Defined Benefit plans in 2025 and replace them with a Compass 403B Plan effective January 1, 2026; the overall impact is undeterminable. The Board evaluated subsequent events through August 27, 2025, the date the statements were available to be issued, finding no additional events requiring disclosure." }
+  ]
+}

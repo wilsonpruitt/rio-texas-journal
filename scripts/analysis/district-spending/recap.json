@@ -1,0 +1,36 @@
+{
+  "_note": "Per-old-district apportionment from the conference statistical recap in each journal. Column order in the source PDF: Capital, Coastal Bend, Crossroads, El Valle, Hill Country, Las Misiones, West. 'journal_year' = the journal volume; 'current' column of that recap. Data-year alignment is calibrated against GCFA TOTAPP sums in build-district-spending.ts. Lines: 28a Amount Apportioned for Conference, 28b Amount Apportioned for District, 29a Paid Conference Apportionments, 29b Paid District Apportionments.",
+  "districts": ["Capital", "Coastal Bend", "Crossroads", "El Valle", "Hill Country", "Las Misiones", "West"],
+  "years": [
+    {
+      "journal_year": 2022,
+      "totals": { "ap_conf": 7703157, "ap_dist": 1539976, "paid_conf": 6774218, "paid_dist": 1392204 },
+      "by_district": {
+        "ap_conf":  { "Capital": 1666752, "Coastal Bend": 759316, "Crossroads": 664062, "El Valle": 484315, "Hill Country": 1253257, "Las Misiones": 2304659, "West": 570796 },
+        "ap_dist":  { "Capital": 374025,  "Coastal Bend": 135679, "Crossroads": 160259, "El Valle": 122276, "Hill Country": 184784,  "Las Misiones": 451154,  "West": 111799 },
+        "paid_conf":{ "Capital": 1497431, "Coastal Bend": 650809, "Crossroads": 606698, "El Valle": 396448, "Hill Country": 1246407, "Las Misiones": 1818613, "West": 557812 },
+        "paid_dist":{ "Capital": 332950,  "Coastal Bend": 126397, "Crossroads": 146944, "El Valle": 100075, "Hill Country": 183773,  "Las Misiones": 392376,  "West": 109689 }
+      }
+    },
+    {
+      "journal_year": 2023,
+      "totals": { "ap_conf": 7535961, "ap_dist": 1522224, "paid_conf": 6480557, "paid_dist": 1367071 },
+      "by_district": {
+        "ap_conf":  { "Capital": 1656451, "Coastal Bend": 722212, "Crossroads": 651173, "El Valle": 456785, "Hill Country": 1243721, "Las Misiones": 2236610, "West": 569009 },
+        "ap_dist":  { "Capital": 376451,  "Coastal Bend": 133724, "Crossroads": 160415, "El Valle": 109943, "Hill Country": 186442,  "Las Misiones": 442493,  "West": 112756 },
+        "paid_conf":{ "Capital": 1499864, "Coastal Bend": 574402, "Crossroads": 588103, "El Valle": 372330, "Hill Country": 1233453, "Las Misiones": 1652368, "West": 560037 },
+        "paid_dist":{ "Capital": 341275,  "Coastal Bend": 122622, "Crossroads": 145692, "El Valle": 95122,  "Hill Country": 184879,  "Las Misiones": 365200,  "West": 112281 }
+      }
+    },
+    {
+      "journal_year": 2024,
+      "totals": { "ap_conf": 8270132, "ap_dist": 773373, "paid_conf": 6492428, "paid_dist": 603524 },
+      "by_district": {
+        "ap_conf":  { "Capital": 1835931, "Coastal Bend": 746788, "Crossroads": 716710, "El Valle": 477217, "Hill Country": 1362722, "Las Misiones": 2476824, "West": 653940 },
+        "ap_dist":  { "Capital": 222775,  "Coastal Bend": 66767,  "Crossroads": 75003,  "El Valle": 64849,  "Hill Country": 68754,   "Las Misiones": 215224,  "West": 60001 },
+        "paid_conf":{ "Capital": 1242368, "Coastal Bend": 472064, "Crossroads": 591804, "El Valle": 238950, "Hill Country": 1290500, "Las Misiones": 2098200, "West": 558542 },
+        "paid_dist":{ "Capital": 153430,  "Coastal Bend": 50162,  "Crossroads": 61941,  "El Valle": 34213,  "Hill Country": 65021,   "Las Misiones": 187746,  "West": 51011 }
+      }
+    }
+  ]
+}

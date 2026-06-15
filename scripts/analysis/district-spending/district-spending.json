@@ -1,0 +1,512 @@
+{
+  "generated_for": "first-cut contribution-weighted split",
+  "years": [
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024
+  ],
+  "calibration": [
+    {
+      "journal_year": 2022,
+      "recap_ap_conf": 7703157,
+      "best_match_data_year": 2021,
+      "gcfa_totapp": 7645638,
+      "pct_diff": 0.7466938555192372
+    },
+    {
+      "journal_year": 2023,
+      "recap_ap_conf": 7535961,
+      "best_match_data_year": 2022,
+      "gcfa_totapp": 7535961,
+      "pct_diff": 0
+    },
+    {
+      "journal_year": 2024,
+      "recap_ap_conf": 8270132,
+      "best_match_data_year": 2023,
+      "gcfa_totapp": 8270132,
+      "pct_diff": 0
+    }
+  ],
+  "weight_matrix": {
+    "Capital": {
+      "North": 1,
+      "Central": 0,
+      "South": 0
+    },
+    "Coastal Bend": {
+      "North": 0,
+      "Central": 0,
+      "South": 1
+    },
+    "Crossroads": {
+      "North": 0.5429411406867236,
+      "Central": 0.05168772360721931,
+      "South": 0.405371135706057
+    },
+    "El Valle": {
+      "North": 0,
+      "Central": 0,
+      "South": 1
+    },
+    "Hill Country": {
+      "North": 0.2670163235037985,
+      "Central": 0.7329836764962014,
+      "South": 0
+    },
+    "Las Misiones": {
+      "North": 0,
+      "Central": 0.9835806309095454,
+      "South": 0.016419369090454532
+    },
+    "West": {
+      "North": 0.1631085495281574,
+      "Central": 0.8368914504718425,
+      "South": 0
+    }
+  },
+  "continuing_fraction": {
+    "Capital": 0.8959182859304335,
+    "Coastal Bend": 0.7703047009383591,
+    "Crossroads": 0.5141657686452464,
+    "El Valle": 0.5929505895024327,
+    "Hill Country": 0.723552445590039,
+    "Las Misiones": 0.5437672030939835,
+    "West": 0.6219386460431293
+  },
+  "conference_apportionment": {
+    "2014": {
+      "totapp": {
+        "full": {
+          "North": 3337215,
+          "Central": 4531810,
+          "South": 2036665,
+          "_unassigned": 827309
+        },
+        "continuing": {
+          "North": 2735654,
+          "Central": 2752117,
+          "South": 1401923,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 3232266,
+          "Central": 4135843,
+          "South": 1988264,
+          "_unassigned": 728140
+        },
+        "continuing": {
+          "North": 2631199,
+          "Central": 2625338,
+          "South": 1379013,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2015": {
+      "totapp": {
+        "full": {
+          "North": 3154608,
+          "Central": 4315296,
+          "South": 1909113,
+          "_unassigned": 711134
+        },
+        "continuing": {
+          "North": 2594144,
+          "Central": 2653384,
+          "South": 1304474,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 3038675,
+          "Central": 3856875,
+          "South": 1888716,
+          "_unassigned": 654574
+        },
+        "continuing": {
+          "North": 2478211,
+          "Central": 2436741,
+          "South": 1293449,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2016": {
+      "totapp": {
+        "full": {
+          "North": 3123112,
+          "Central": 4365104,
+          "South": 1942086,
+          "_unassigned": 672443
+        },
+        "continuing": {
+          "North": 2558941,
+          "Central": 2741864,
+          "South": 1309682,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 2979465,
+          "Central": 3903942,
+          "South": 1906558,
+          "_unassigned": 587749
+        },
+        "continuing": {
+          "North": 2418447,
+          "Central": 2532675,
+          "South": 1292748,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2017": {
+      "totapp": {
+        "full": {
+          "North": 2998039,
+          "Central": 4196487,
+          "South": 1883548,
+          "_unassigned": 561855
+        },
+        "continuing": {
+          "North": 2448069,
+          "Central": 2641902,
+          "South": 1265334,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 2909854,
+          "Central": 4022929,
+          "South": 1757162,
+          "_unassigned": 493293
+        },
+        "continuing": {
+          "North": 2363388,
+          "Central": 2469981,
+          "South": 1175988,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2018": {
+      "totapp": {
+        "full": {
+          "North": 2805083,
+          "Central": 3954890,
+          "South": 1754855,
+          "_unassigned": 474563
+        },
+        "continuing": {
+          "North": 2281306,
+          "Central": 2477266,
+          "South": 1176479,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 2616459,
+          "Central": 3684651,
+          "South": 1667740,
+          "_unassigned": 437242
+        },
+        "continuing": {
+          "North": 2101432,
+          "Central": 2223432,
+          "South": 1135433,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2019": {
+      "totapp": {
+        "full": {
+          "North": 2758969,
+          "Central": 3895481,
+          "South": 1698455,
+          "_unassigned": 454143
+        },
+        "continuing": {
+          "North": 2248485,
+          "Central": 2458425,
+          "South": 1129628,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 2451611,
+          "Central": 3443339,
+          "South": 1506001,
+          "_unassigned": 442670
+        },
+        "continuing": {
+          "North": 1980349,
+          "Central": 2027354,
+          "South": 1004527,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2020": {
+      "totapp": {
+        "full": {
+          "North": 2537413,
+          "Central": 3605795,
+          "South": 1556981,
+          "_unassigned": 426025
+        },
+        "continuing": {
+          "North": 2069586,
+          "Central": 2239461,
+          "South": 1027599,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 2190398,
+          "Central": 3041779,
+          "South": 1321395,
+          "_unassigned": 357314
+        },
+        "continuing": {
+          "North": 1759742,
+          "Central": 1834410,
+          "South": 862615,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2021": {
+      "totapp": {
+        "full": {
+          "North": 2395272,
+          "Central": 3432637,
+          "South": 1448689,
+          "_unassigned": 369040
+        },
+        "continuing": {
+          "North": 1943003,
+          "Central": 2090046,
+          "South": 952261,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 2175977,
+          "Central": 2936540,
+          "South": 1255305,
+          "_unassigned": 340983
+        },
+        "continuing": {
+          "North": 1752501,
+          "Central": 1704818,
+          "South": 802387,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2022": {
+      "totapp": {
+        "full": {
+          "North": 2375856,
+          "Central": 3391520,
+          "South": 1398354,
+          "_unassigned": 370231
+        },
+        "continuing": {
+          "North": 1917456,
+          "Central": 2020922,
+          "South": 910753,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 2159599,
+          "Central": 2802158,
+          "South": 1186133,
+          "_unassigned": 332667
+        },
+        "continuing": {
+          "North": 1726493,
+          "Central": 1744050,
+          "South": 707628,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2023": {
+      "totapp": {
+        "full": {
+          "North": 2631107,
+          "Central": 3751317,
+          "South": 1472622,
+          "_unassigned": 415086
+        },
+        "continuing": {
+          "North": 2157503,
+          "Central": 2216236,
+          "South": 943799,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 1851081,
+          "Central": 3344537,
+          "South": 966060,
+          "_unassigned": 330750
+        },
+        "continuing": {
+          "North": 1632536,
+          "Central": 1826657,
+          "South": 685132,
+          "_unassigned": 0
+        }
+      }
+    },
+    "2024": {
+      "totapp": {
+        "full": {
+          "North": 2555501,
+          "Central": 2373856,
+          "South": 1326267,
+          "_unassigned": 142529
+        },
+        "continuing": {
+          "North": 2239112,
+          "Central": 2324798,
+          "South": 977989,
+          "_unassigned": 0
+        }
+      },
+      "apppaid": {
+        "full": {
+          "North": 1649562,
+          "Central": 1903232,
+          "South": 784209,
+          "_unassigned": 47072
+        },
+        "continuing": {
+          "North": 1624542,
+          "Central": 1880588,
+          "South": 703239,
+          "_unassigned": 0
+        }
+      }
+    }
+  },
+  "district_apportionment": [
+    {
+      "journal_year": 2022,
+      "ap_dist": {
+        "full": {
+          "North": 528611.921316338,
+          "Central": 681037.0418039099,
+          "South": 330327.03687975195,
+          "_unassigned": 0
+        },
+        "continuing": {
+          "North": 426875.62944260595,
+          "Central": 401745.18045711546,
+          "South": 214448.29925289116,
+          "_unassigned": 0
+        }
+      },
+      "paid_dist": {
+        "full": {
+          "North": 479693.5474855276,
+          "Central": 620029.0299830454,
+          "South": 292481.422531427,
+          "_unassigned": 0
+        },
+        "continuing": {
+          "North": 385949.375836617,
+          "Central": 368320.12930250406,
+          "South": 190834.22820863355,
+          "_unassigned": 0
+        }
+      }
+    },
+    {
+      "journal_year": 2023,
+      "ap_dist": {
+        "full": {
+          "North": 531721.4280805528,
+          "Central": 674542.5052982175,
+          "South": 315960.06662122963,
+          "_unassigned": 0
+        },
+        "continuing": {
+          "North": 429510.0839970276,
+          "Central": 398494.52438639634,
+          "South": 205584.68057315116,
+          "_unassigned": 0
+        }
+      },
+      "paid_dist": {
+        "full": {
+          "North": 488056.8825915599,
+          "Central": 596214.4323133192,
+          "South": 282799.68509512086,
+          "_unassigned": 0
+        },
+        "continuing": {
+          "North": 393535.006183573,
+          "Central": 355687.7672878751,
+          "South": 184485.85601256992,
+          "_unassigned": 0
+        }
+      }
+    },
+    {
+      "journal_year": 2024,
+      "ap_dist": {
+        "full": {
+          "North": 291642.33076134545,
+          "Central": 316176.77565416915,
+          "South": 165553.89358448537,
+          "_unassigned": 0
+        },
+        "continuing": {
+          "North": 239896.17125453474,
+          "Central": 184797.50816128825,
+          "South": 107437.49668825426,
+          "_unassigned": 0
+        }
+      },
+      "paid_dist": {
+        "full": {
+          "North": 212742.31578579766,
+          "Central": 278214.91982817696,
+          "South": 112566.76438602534,
+          "_unassigned": 0
+        },
+        "continuing": {
+          "North": 172489.11302147355,
+          "Central": 163095.01292991737,
+          "South": 73513.13461178645,
+          "_unassigned": 0
+        }
+      }
+    }
+  ]
+}

@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const NAV = [
+type NavItem = { href: string; label: string; gated?: boolean; external?: boolean };
+
+const NAV: NavItem[] = [
   { href: "/", label: "Overview" },
   { href: "/churches", label: "Churches" },
   { href: "/districts", label: "Districts" },
   { href: "/conference", label: "Finance" },
+  { href: "/finances", label: "Audit", external: true },
   { href: "/signals", label: "Signals" },
   { href: "/map", label: "Map" },
   { href: "/vitality", label: "Vitality", gated: true },
@@ -32,20 +35,24 @@ export function SiteHeader({ unlocked = false }: { unlocked?: boolean }) {
             </span>
           </Link>
           <nav className="flex items-center gap-1 sm:gap-2 text-sm">
-            {nav.map((n) => (
-              <Link
-                key={n.href}
-                href={n.href}
-                className={[
-                  "px-2.5 py-1 rounded-sm transition-colors",
-                  isActive(n.href)
-                    ? "text-ink bg-teal-soft ring-1 ring-teal/20"
-                    : "text-ink-mute hover:text-ink hover:bg-bone",
-                ].join(" ")}
-              >
-                {n.label}
-              </Link>
-            ))}
+            {nav.map((n) => {
+              const cls = [
+                "px-2.5 py-1 rounded-sm transition-colors",
+                isActive(n.href)
+                  ? "text-ink bg-teal-soft ring-1 ring-teal/20"
+                  : "text-ink-mute hover:text-ink hover:bg-bone",
+              ].join(" ");
+              // Static (non-route) pages are served from /public — use a plain anchor.
+              return n.external ? (
+                <a key={n.href} href={n.href} className={cls}>
+                  {n.label}
+                </a>
+              ) : (
+                <Link key={n.href} href={n.href} className={cls}>
+                  {n.label}
+                </Link>
+              );
+            })}
             {!unlocked && (
               <Link
                 href="/unlock"
