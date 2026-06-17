@@ -88,19 +88,31 @@ export default function CareersPage() {
                 {a && (
                   <div>
                     <dt className="text-ink-mute">Active today ({a.n})</dt>
-                    <dd className="text-ink"><span className="font-display text-2xl text-ink">{a.churches_median}</span> churches (median), over {a.career_median} yrs so far</dd>
+                    <dd className="text-ink">
+                      <span className="font-display text-2xl text-ink">{a.churches_median}</span> churches
+                      <span className="text-ink-mute"> median · {a.churches_mean} mean</span>
+                      <div className="text-[13px] text-ink-mute">{a.career_median} yrs in so far · {a.career_mean} mean</div>
+                    </dd>
                   </div>
                 )}
                 {r && (
                   <div>
                     <dt className="text-ink-mute">Full career, now retired ({r.n})</dt>
-                    <dd className="text-ink"><span className="font-display text-2xl text-ink">{r.churches_median}</span> churches over {r.career_median} yrs</dd>
+                    <dd className="text-ink">
+                      <span className="font-display text-2xl text-ink">{r.churches_median}</span> churches
+                      <span className="text-ink-mute"> median · {r.churches_mean} mean</span>
+                      <div className="text-[13px] text-ink-mute">over {r.career_median} yrs · {r.career_mean} mean</div>
+                    </dd>
                   </div>
                 )}
                 {t && (
                   <div>
                     <dt className="text-ink-mute">Typical appointment</dt>
-                    <dd className="text-ink"><span className="font-display text-2xl text-ink">{t.median}</span> yrs · {Math.round(t.short_appt_share * 100)}% last 1–2 yrs</dd>
+                    <dd className="text-ink">
+                      <span className="font-display text-2xl text-ink">{t.median}</span> yrs
+                      <span className="text-ink-mute"> median · {t.mean} mean</span>
+                      <div className="text-[13px] text-ink-mute">{Math.round(t.short_appt_share * 100)}% last 1–2 yrs</div>
+                    </dd>
                   </div>
                 )}
               </dl>
@@ -125,7 +137,7 @@ export default function CareersPage() {
               <div key={o} className="rounded-lg border border-rule bg-parchment p-4">
                 <div className="flex items-baseline justify-between">
                   <h3 className="font-display text-lg text-ink">{o}s</h3>
-                  <span className="text-xs text-ink-mute">median {t?.median}y · n={t?.n}</span>
+                  <span className="text-xs text-ink-mute">median {t?.median}y · mean {t?.mean}y · n={t?.n}</span>
                 </div>
                 <VBars data={hist(t)} color={o === "Local pastor" ? OX : TEAL} />
               </div>
