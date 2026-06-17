@@ -89,9 +89,9 @@ export default function CareersPage() {
                   <div>
                     <dt className="text-ink-mute">Active today ({a.n})</dt>
                     <dd className="text-ink">
-                      <span className="font-display text-2xl text-ink">{a.churches_median}</span> churches
+                      <span className="font-display text-2xl text-ink">{a.churches_median}</span> {a.churches_median === 1 ? "church" : "churches"}
                       <span className="text-ink-mute"> median · {a.churches_mean} mean</span>
-                      <div className="text-[13px] text-ink-mute">{a.career_median} yrs in so far · {a.career_mean} mean</div>
+                      <div className="text-[13px] text-ink-mute">{a.career_median} {a.career_median === 1 ? "yr" : "yrs"} in so far · {a.career_mean} mean</div>
                     </dd>
                   </div>
                 )}
@@ -99,9 +99,9 @@ export default function CareersPage() {
                   <div>
                     <dt className="text-ink-mute">Full career, now retired ({r.n})</dt>
                     <dd className="text-ink">
-                      <span className="font-display text-2xl text-ink">{r.churches_median}</span> churches
+                      <span className="font-display text-2xl text-ink">{r.churches_median}</span> {r.churches_median === 1 ? "church" : "churches"}
                       <span className="text-ink-mute"> median · {r.churches_mean} mean</span>
-                      <div className="text-[13px] text-ink-mute">over {r.career_median} yrs · {r.career_mean} mean</div>
+                      <div className="text-[13px] text-ink-mute">over {r.career_median} {r.career_median === 1 ? "yr" : "yrs"} · {r.career_mean} mean</div>
                     </dd>
                   </div>
                 )}
@@ -109,7 +109,7 @@ export default function CareersPage() {
                   <div>
                     <dt className="text-ink-mute">Typical appointment</dt>
                     <dd className="text-ink">
-                      <span className="font-display text-2xl text-ink">{t.median}</span> yrs
+                      <span className="font-display text-2xl text-ink">{t.median}</span> {t.median === 1 ? "yr" : "yrs"}
                       <span className="text-ink-mute"> median · {t.mean} mean</span>
                       <div className="text-[13px] text-ink-mute">{Math.round(t.short_appt_share * 100)}% last 1–2 yrs</div>
                     </dd>
