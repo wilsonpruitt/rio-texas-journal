@@ -10,6 +10,7 @@ const NAV: NavItem[] = [
   { href: "/churches", label: "Churches" },
   { href: "/districts", label: "Districts" },
   { href: "/conference", label: "Finance" },
+  { href: "/careers", label: "Careers" },
   { href: "/finances", label: "Audit", external: true },
   { href: "/signals", label: "Signals" },
   { href: "/map", label: "Map" },
