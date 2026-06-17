@@ -109,9 +109,9 @@ export default function CareersPage() {
         })}
       </section>
       <p className="mt-3 text-sm text-ink-mute max-w-2xl">
-        An elder&apos;s full career runs to {C.orders.Elder.retired?.churches_median} churches; a
-        deacon&apos;s, often {C.orders.Deacon.retired?.churches_median}. Blending the orders would hide
-        exactly this difference.
+        An elder&apos;s full career runs to {C.orders.Elder.retired?.churches_median}{" "}
+        churches; a deacon&apos;s, often {C.orders.Deacon.retired?.churches_median}. Blending the
+        orders would hide exactly this difference.
       </p>
 
       {/* Tenure distributions, small multiples */}
