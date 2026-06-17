@@ -20,6 +20,11 @@ const jbmono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000",
+  ),
   title: {
     default: "Rio Texas Atlas — A Statistical Portrait of the Conference",
     template: "%s · Rio Texas Atlas",
