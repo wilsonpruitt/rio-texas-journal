@@ -47,18 +47,25 @@ export type Assumptions = {
   newChurchSpend: number;      // recurring DOLLAR draw on reserves each year for new church
                                // plants (a deliberate use of assets, not an operating expense).
   propertySaleRate: number;    // fraction of the INITIAL held-for-sale property sold each year.
-                               // On sale the proceeds split per conference policy: 20% upkeep
-                               // (consumed — leaves net assets), 60% districts + 20% conference
-                               // (both stay on the books as reserves and begin earning return).
+  urbanShare: number;          // fraction of sold property that is "urban" (county pop ≥50k),
+                               // which sets the district/conference split below.
 };
 
 export const ASSUMPTION_KEYS: (keyof Assumptions)[] = [
   "apportionmentStep", "apportionmentGrowth", "otherRevGrowth", "expenseGrowth", "investmentReturn",
-  "newChurchSpend", "propertySaleRate",
+  "newChurchSpend", "propertySaleRate", "urbanShare",
 ];
 
-// Property-sale waterfall (share of each dollar of proceeds).
-export const PROPERTY_SPLIT = { upkeep: 0.20, districts: 0.60, conference: 0.20 } as const;
+// Río Texas proceeds policy (BoD ¶2549.3 + Urban Ministry Strategic Plan). 20% of net
+// proceeds funds the Property Administration Fund, but that fund is capped — beyond the
+// cap the full proceeds flow to the distribution. The remaining net proceeds split by
+// category: urban properties 75% district / 25% conference; non-urban 100% district.
+// Per the "stays, reclassified" reading, every share remains in conference net assets as
+// a designated fund, so a sale converts non-earning property into earning reserves.
+export const PAF_RATE = 0.20;
+export const PAF_CAP = 400_000;
+export const URBAN_DISTRICT = 0.75;
+export const URBAN_CONFERENCE = 0.25;
 
 export type ProjPoint = {
   year: number;
@@ -71,7 +78,9 @@ export type ProjPoint = {
   propertyHeld: number;   // closed-church property still held for sale at year end
   churchSpend: number;    // reserve draw for new church plants this year
   propertySold: number;   // held property sold this year
-  upkeep: number;         // 20% of proceeds consumed on upkeep (leaves net assets)
+  toPaf: number;          // share of the sale to the Property Administration Fund (capped)
+  toDistricts: number;    // share to District Strategy Teams
+  toConference: number;   // share to the Conference Office of Congregational Vitality & Dev
   projected: boolean;
 };
 
@@ -109,6 +118,7 @@ export function defaultAssumptions(rows: FinanceRow[]): Assumptions {
     investmentReturn: 0.045,
     newChurchSpend: 0,
     propertySaleRate: 0,
+    urbanShare: 0.5,
   };
 }
 
@@ -124,7 +134,8 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
       return {
         year: r.data_year, apportionment, otherRev: totalRev - apportionment, totalRev,
         expense, operating: totalRev - expense, netAssets: r.net_assets_eoy ?? 0,
-        propertyHeld: r.property_held ?? 0, churchSpend: 0, propertySold: 0, upkeep: 0, projected: false,
+        propertyHeld: r.property_held ?? 0, churchSpend: 0, propertySold: 0,
+        toPaf: 0, toDistricts: 0, toConference: 0, projected: false,
       };
     });
 
@@ -135,6 +146,7 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
   // return (it isn't invested). It only converts to earning reserves when SOLD (below).
   const initialHeld = lastRow?.property_held ?? 0;
   let heldRemaining = initialHeld;
+  let pafCum = 0; // cumulative Property Administration Fund, capped at PAF_CAP
   // Launch the forward path from the RECURRING base — strip the year's one-time revenue
   // so a property windfall doesn't seed a permanent surplus.
   let apportionment = lastRow?.apportionment_rev ?? 0;
@@ -150,21 +162,25 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
     const totalRev = apportionment + otherRev;
     const operating = totalRev - expense;
 
-    // Property sale waterfall: sell a fixed share of the original held value each year
-    // (capped at what remains). 20% upkeep is consumed (leaves net assets); the other
-    // 80% (districts + conference) stays on the books and converts to earning reserves —
-    // captured automatically because heldRemaining shrinks while net assets only loses
-    // the upkeep, so (netAssets − heldRemaining), the invested base, grows by the 80%.
+    // Sell a fixed share of the original held value each year (capped at what remains).
+    // 20% funds the Property Administration Fund up to its $400k cap; the rest splits by
+    // category (urban 75/25, non-urban 100% district). All shares stay in net assets as
+    // designated funds — so the sale converts non-earning property into earning reserves
+    // (heldRemaining shrinks, the invested base netAssets−heldRemaining grows) with no loss.
     const propertySold = Math.min(a.propertySaleRate * initialHeld, heldRemaining);
     heldRemaining -= propertySold;
-    const upkeep = PROPERTY_SPLIT.upkeep * propertySold;
+    const toPaf = Math.min(PAF_RATE * propertySold, Math.max(PAF_CAP - pafCum, 0));
+    pafCum += toPaf;
+    const remaining = propertySold - toPaf;
+    const toDistricts = remaining * (a.urbanShare * URBAN_DISTRICT + (1 - a.urbanShare));
+    const toConference = remaining * (a.urbanShare * URBAN_CONFERENCE);
 
     const churchSpend = a.newChurchSpend;
     const invIncome = Math.max(netAssets - heldRemaining, 0) * a.investmentReturn;
-    netAssets = netAssets + operating + invIncome - upkeep - churchSpend;
+    netAssets = netAssets + operating + invIncome - churchSpend;
     out.push({
       year: lastYear + i, apportionment, otherRev, totalRev, expense, operating, netAssets,
-      propertyHeld: heldRemaining, churchSpend, propertySold, upkeep, projected: true,
+      propertyHeld: heldRemaining, churchSpend, propertySold, toPaf, toDistricts, toConference, projected: true,
     });
   }
   return out;

@@ -26,6 +26,15 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
     const withHeld = rows.filter((r) => r.property_held != null);
     return withHeld.length ? (withHeld[withHeld.length - 1].property_held as number) : 0;
   }, [rows]);
+  // Cumulative distribution of property proceeds across the projection.
+  const sale = useMemo(() => {
+    const proj = scen.filter((p) => p.projected);
+    const sum = (f: (p: ProjPoint) => number) => proj.reduce((s, p) => s + f(p), 0);
+    return {
+      sold: sum((p) => p.propertySold), paf: sum((p) => p.toPaf),
+      districts: sum((p) => p.toDistricts), conference: sum((p) => p.toConference),
+    };
+  }, [scen]);
 
   return (
     <div className="grid lg:grid-cols-[1fr_320px] gap-6">
@@ -82,16 +91,33 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
             </tbody>
           </table>
         </div>
+
+        {a.propertySaleRate > 0 && (
+          <div className="mt-5 rounded-md border border-rule p-4">
+            <div className="eyebrow">Where the proceeds go · {HORIZON} yrs</div>
+            <div className="mt-3 grid grid-cols-3 gap-3">
+              <Split label="District Strategy Teams" value={sale.districts} />
+              <Split label="Conference Vitality & Dev" value={sale.conference} />
+              <Split label="Property Admin Fund" value={sale.paf} />
+            </div>
+            <p className="mt-3 text-xs text-faint leading-relaxed">
+              Of {fmtUsd(sale.sold)} in property sold (¶2549.3 + Urban Ministry Strategic Plan). Every share is
+              restricted but stays in conference net assets as a designated fund until spent.
+            </p>
+          </div>
+        )}
         <p className="mt-4 text-xs text-faint leading-relaxed">
           Illustrative model. Audited revenue and expense aggregates include pass-through flows (the conference
           insurance program, grants, restricted-fund releases) that move year to year, so treat the projected path as a
           directional what-if, not a forecast. The projection excludes 2025&rsquo;s one-time, non-cash property
           windfall (≈$14.2M of closed churches reverting to the conference) and treats the ≈$27M of property held for
           sale as non-spendable — it earns no investment return — so the forward line reflects recurring operations,
-          not last year&rsquo;s asset jump. Selling that property (slider) splits each dollar per conference policy:
-          20% to upkeep (spent), 60% to the districts and 20% to the conference — both shares stay in reserves and
-          begin earning. Apportionment revenue is the cleanest line and the one most under the conference&rsquo;s
-          influence.
+          not last year&rsquo;s asset jump. Selling that property (slider) follows BoD ¶2549.3 and the Río Texas Urban
+          Ministry Strategic Plan: 20% funds the Property Administration Fund (capped at $400k), then net proceeds
+          split by category — urban 75% district / 25% conference, non-urban 100% district. Every share stays in
+          conference net assets as a restricted designated fund, so reserves don&rsquo;t fall on sale; the property
+          simply converts from idle to invested, and the draw-down comes when the funds are spent. Apportionment
+          revenue is the cleanest line and the one most under the conference&rsquo;s influence.
         </p>
       </div>
 
@@ -120,8 +146,13 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
             onChange={(n) => set("newChurchSpend")(Math.round(n) * COST_PER_PLANT)}
             min={0} max={6} base={baseline.newChurchSpend / COST_PER_PLANT} />
           <Slider label="Sell held property" unit="pct" neutral step={0.02}
-            hint={`${fmtUsd(a.propertySaleRate * held)} / yr of ${fmtUsd(held)} held · 20% upkeep / 60% districts / 20% conf`}
+            hint={`${fmtUsd(a.propertySaleRate * held)} / yr of ${fmtUsd(held)} held for sale`}
             value={a.propertySaleRate} onChange={set("propertySaleRate")} min={0} max={0.4} base={baseline.propertySaleRate} />
+          {a.propertySaleRate > 0 && (
+            <Slider label="Urban share of sales" unit="share" neutral step={0.05}
+              hint="urban → 75% district / 25% conference · non-urban → 100% district"
+              value={a.urbanShare} onChange={set("urbanShare")} min={0} max={1} base={baseline.urbanShare} />
+          )}
         </div>
       </div>
     </div>
@@ -131,11 +162,12 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
 function Slider({ label, hint, value, onChange, min, max, base, step = 0.005, highlight, unit = "pct", neutral }: {
   label: string; hint: string; value: number; onChange: (v: number) => void;
   min: number; max: number; base: number; step?: number; highlight?: boolean;
-  unit?: "pct" | "usd" | "count"; neutral?: boolean;
+  unit?: "pct" | "usd" | "count" | "share"; neutral?: boolean;
 }) {
   const fmt = (n: number) =>
     unit === "usd" ? fmtUsd(n)
     : unit === "count" ? `${Math.round(n)} ${Math.round(n) === 1 ? "church" : "churches"}`
+    : unit === "share" ? `${Math.round(n * 100)}%`
     : `${n > 0 ? "+" : ""}${(n * 100).toFixed(1)}%`;
   const valColor = neutral ? "text-ink" : value < 0 ? "text-ember" : value > 0 ? "text-teal" : "text-ink-mute";
   return (
@@ -155,6 +187,15 @@ function Slider({ label, hint, value, onChange, min, max, base, step = 0.005, hi
         <span>{highlight ? `start ${fmt(base)}` : `trend ${fmt(base)}`}</span>
         <span>{fmt(max)}</span>
       </div>
+    </div>
+  );
+}
+
+function Split({ label, value }: { label: string; value: number }) {
+  return (
+    <div>
+      <div className="tnum text-lg font-semibold text-ink">{fmtUsd(value)}</div>
+      <div className="text-xs text-ink-mute leading-tight">{label}</div>
     </div>
   );
 }
