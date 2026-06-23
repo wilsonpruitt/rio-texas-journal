@@ -21,6 +21,10 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
   const exhausted = reservesExhaustedYear(scen);
   const dirty = ASSUMPTION_KEYS.some((k) => a[k] !== baseline[k]);
   const firstProjYear = scen.find((p) => p.projected)!.year;
+  const held = useMemo(() => {
+    const withHeld = rows.filter((r) => r.property_held != null);
+    return withHeld.length ? (withHeld[withHeld.length - 1].property_held as number) : 0;
+  }, [rows]);
 
   return (
     <div className="grid lg:grid-cols-[1fr_320px] gap-6">
@@ -72,6 +76,8 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
               <Tr label="Total revenue" pts={scen} pick={(p) => p.totalRev} />
               <Tr label="Expenses" pts={scen} pick={(p) => p.expense} />
               <Tr label="Surplus / deficit" pts={scen} pick={(p) => p.operating} signed />
+              {a.newChurchSpend > 0 && <Tr label="New-church draw" pts={scen} pick={(p) => -p.churchSpend} signed />}
+              {a.propertySaleRate > 0 && <Tr label="Property sold" pts={scen} pick={(p) => p.propertySold} />}
             </tbody>
           </table>
         </div>
@@ -81,8 +87,10 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
           directional what-if, not a forecast. The projection excludes 2025&rsquo;s one-time, non-cash property
           windfall (≈$14.2M of closed churches reverting to the conference) and treats the ≈$27M of property held for
           sale as non-spendable — it earns no investment return — so the forward line reflects recurring operations,
-          not last year&rsquo;s asset jump. Apportionment revenue is the cleanest line and the one most under the
-          conference&rsquo;s influence.
+          not last year&rsquo;s asset jump. Selling that property (slider) splits each dollar per conference policy:
+          20% to upkeep (spent), 60% to the districts and 20% to the conference — both shares stay in reserves and
+          begin earning. Apportionment revenue is the cleanest line and the one most under the conference&rsquo;s
+          influence.
         </p>
       </div>
 
@@ -100,32 +108,45 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
           <Slider label="Other revenue" hint="ongoing annual change" value={a.otherRevGrowth} onChange={set("otherRevGrowth")} min={-0.2} max={0.2} base={baseline.otherRevGrowth} />
           <Slider label="Expenses" hint="ongoing annual change" value={a.expenseGrowth} onChange={set("expenseGrowth")} min={-0.2} max={0.2} base={baseline.expenseGrowth} />
           <Slider label="Investment return" hint="on reserves / yr" value={a.investmentReturn} onChange={set("investmentReturn")} min={0} max={0.1} base={baseline.investmentReturn} />
+
+          <div className="pt-4 border-t border-rule">
+            <div className="eyebrow">Asset moves</div>
+            <p className="mt-1 text-xs text-ink-mute">Deliberate uses of reserves, in dollars.</p>
+          </div>
+          <Slider label="New church planting" hint="reserve draw / yr" unit="usd" neutral step={50000}
+            value={a.newChurchSpend} onChange={set("newChurchSpend")} min={0} max={3000000} base={baseline.newChurchSpend} />
+          <Slider label="Sell held property" unit="pct" neutral step={0.02}
+            hint={`${fmtUsd(a.propertySaleRate * held)} / yr of ${fmtUsd(held)} held · 20% upkeep / 60% districts / 20% conf`}
+            value={a.propertySaleRate} onChange={set("propertySaleRate")} min={0} max={0.4} base={baseline.propertySaleRate} />
         </div>
       </div>
     </div>
   );
 }
 
-function Slider({ label, hint, value, onChange, min, max, base, highlight }: {
-  label: string; hint: string; value: number; onChange: (v: number) => void; min: number; max: number; base: number; highlight?: boolean;
+function Slider({ label, hint, value, onChange, min, max, base, step = 0.005, highlight, unit = "pct", neutral }: {
+  label: string; hint: string; value: number; onChange: (v: number) => void;
+  min: number; max: number; base: number; step?: number; highlight?: boolean;
+  unit?: "pct" | "usd"; neutral?: boolean;
 }) {
-  const pct = (n: number) => `${n > 0 ? "+" : ""}${(n * 100).toFixed(1)}%`;
+  const fmt = (n: number) => unit === "usd" ? fmtUsd(n) : `${n > 0 ? "+" : ""}${(n * 100).toFixed(1)}%`;
+  const valColor = neutral ? "text-ink" : value < 0 ? "text-ember" : value > 0 ? "text-teal" : "text-ink-mute";
   return (
     <div className={highlight ? "rounded-md ring-1 ring-teal/25 bg-teal-soft/40 p-3 -m-0.5" : ""}>
       <div className="flex items-baseline justify-between">
         <label className="text-sm text-ink">{label}</label>
-        <span className={`tnum text-sm font-semibold ${value < 0 ? "text-ember" : value > 0 ? "text-teal" : "text-ink-mute"}`}>{pct(value)}</span>
+        <span className={`tnum text-sm font-semibold ${valColor}`}>{fmt(value)}</span>
       </div>
       <div className="text-xs text-faint">{hint}</div>
       <input
-        type="range" min={min} max={max} step={0.005} value={value}
+        type="range" min={min} max={max} step={step} value={value}
         onChange={(e) => onChange(parseFloat(e.target.value))}
         className="mt-2 w-full accent-teal"
       />
       <div className="flex justify-between text-[10px] text-faint tnum">
-        <span>{pct(min)}</span>
-        <span>{highlight ? `start ${pct(base)}` : `trend ${pct(base)}`}</span>
-        <span>{pct(max)}</span>
+        <span>{fmt(min)}</span>
+        <span>{highlight ? `start ${fmt(base)}` : `trend ${fmt(base)}`}</span>
+        <span>{fmt(max)}</span>
       </div>
     </div>
   );

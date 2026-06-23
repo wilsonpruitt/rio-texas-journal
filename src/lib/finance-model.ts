@@ -44,11 +44,21 @@ export type Assumptions = {
   otherRevGrowth: number;
   expenseGrowth: number;
   investmentReturn: number;
+  newChurchSpend: number;      // recurring DOLLAR draw on reserves each year for new church
+                               // plants (a deliberate use of assets, not an operating expense).
+  propertySaleRate: number;    // fraction of the INITIAL held-for-sale property sold each year.
+                               // On sale the proceeds split per conference policy: 20% upkeep
+                               // (consumed — leaves net assets), 60% districts + 20% conference
+                               // (both stay on the books as reserves and begin earning return).
 };
 
 export const ASSUMPTION_KEYS: (keyof Assumptions)[] = [
   "apportionmentStep", "apportionmentGrowth", "otherRevGrowth", "expenseGrowth", "investmentReturn",
+  "newChurchSpend", "propertySaleRate",
 ];
+
+// Property-sale waterfall (share of each dollar of proceeds).
+export const PROPERTY_SPLIT = { upkeep: 0.20, districts: 0.60, conference: 0.20 } as const;
 
 export type ProjPoint = {
   year: number;
@@ -58,6 +68,10 @@ export type ProjPoint = {
   expense: number;
   operating: number; // totalRev - expense
   netAssets: number;
+  propertyHeld: number;   // closed-church property still held for sale at year end
+  churchSpend: number;    // reserve draw for new church plants this year
+  propertySold: number;   // held property sold this year
+  upkeep: number;         // 20% of proceeds consumed on upkeep (leaves net assets)
   projected: boolean;
 };
 
@@ -93,6 +107,8 @@ export function defaultAssumptions(rows: FinanceRow[]): Assumptions {
     otherRevGrowth: clamp(otherLast > 0 ? otherCagr : 0, -0.25, 0.25, -0.05),
     expenseGrowth: clamp(cagr(rows, "total_exp"), -0.25, 0.25, -0.04),
     investmentReturn: 0.045,
+    newChurchSpend: 0,
+    propertySaleRate: 0,
   };
 }
 
@@ -107,7 +123,8 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
       const expense = r.total_exp ?? 0;
       return {
         year: r.data_year, apportionment, otherRev: totalRev - apportionment, totalRev,
-        expense, operating: totalRev - expense, netAssets: r.net_assets_eoy ?? 0, projected: false,
+        expense, operating: totalRev - expense, netAssets: r.net_assets_eoy ?? 0,
+        propertyHeld: r.property_held ?? 0, churchSpend: 0, propertySold: 0, upkeep: 0, projected: false,
       };
     });
 
@@ -115,8 +132,9 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
   const usable = rows.filter((r) => r.total_rev != null && r.net_assets_eoy != null);
   const lastRow = usable[usable.length - 1];
   // Closed-church property held for sale: stays in net assets but earns no investment
-  // return (it isn't invested) and isn't sold down in the model — held constant.
-  const propertyHeld = lastRow?.property_held ?? 0;
+  // return (it isn't invested). It only converts to earning reserves when SOLD (below).
+  const initialHeld = lastRow?.property_held ?? 0;
+  let heldRemaining = initialHeld;
   // Launch the forward path from the RECURRING base — strip the year's one-time revenue
   // so a property windfall doesn't seed a permanent surplus.
   let apportionment = lastRow?.apportionment_rev ?? 0;
@@ -131,9 +149,23 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
     expense *= 1 + a.expenseGrowth;
     const totalRev = apportionment + otherRev;
     const operating = totalRev - expense;
-    const invIncome = Math.max(netAssets - propertyHeld, 0) * a.investmentReturn;
-    netAssets = netAssets + operating + invIncome;
-    out.push({ year: lastYear + i, apportionment, otherRev, totalRev, expense, operating, netAssets, projected: true });
+
+    // Property sale waterfall: sell a fixed share of the original held value each year
+    // (capped at what remains). 20% upkeep is consumed (leaves net assets); the other
+    // 80% (districts + conference) stays on the books and converts to earning reserves —
+    // captured automatically because heldRemaining shrinks while net assets only loses
+    // the upkeep, so (netAssets − heldRemaining), the invested base, grows by the 80%.
+    const propertySold = Math.min(a.propertySaleRate * initialHeld, heldRemaining);
+    heldRemaining -= propertySold;
+    const upkeep = PROPERTY_SPLIT.upkeep * propertySold;
+
+    const churchSpend = a.newChurchSpend;
+    const invIncome = Math.max(netAssets - heldRemaining, 0) * a.investmentReturn;
+    netAssets = netAssets + operating + invIncome - upkeep - churchSpend;
+    out.push({
+      year: lastYear + i, apportionment, otherRev, totalRev, expense, operating, netAssets,
+      propertyHeld: heldRemaining, churchSpend, propertySold, upkeep, projected: true,
+    });
   }
   return out;
 }
