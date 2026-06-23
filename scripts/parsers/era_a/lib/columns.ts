@@ -64,9 +64,10 @@ function buildSubTable(
   for (let li = headerIdx + 1; li < Math.min(headerIdx + 30, rowsEnd); li++) {
     const dataLine = lines[li];
     if (!dataLine.trim()) continue;
-    const numTokens = Array.from(dataLine.matchAll(/\S+/g)).filter((m) =>
-      /^([\d$,.\-]+|-)$/.test(m[0]),
-    );
+    const numTokens = Array.from(dataLine.matchAll(/\S+/g)).filter((m) => {
+      const t = normalizeDashes(m[0]);
+      return /^([\d$,.\-]+|-|#)$/.test(t);
+    });
     if (numTokens.length < 3) continue;
     // Find the column position closest to the first code's column position.
     const firstCodePos = tokens[0].start;
@@ -170,10 +171,23 @@ export function sliceRow(line: string, sub: SubTable): SlicedRow | null {
   return { seq, church, pastor, values };
 }
 
+// All Unicode dash/hyphen variants the journal typesetter uses for
+// "no data". Normalize to ASCII '-' before classification.
+const DASH_RE = /[‐‑‒–—―−]/g;
+
+export function normalizeDashes(raw: string): string {
+  return raw.replace(DASH_RE, '-');
+}
+
+export function isNoDataMarker(raw: string): boolean {
+  const t = normalizeDashes(raw).trim();
+  return t === '' || t === '-' || t === '#';
+}
+
 export function parseNumeric(raw: string): number | null {
   if (!raw) return null;
-  const cleaned = raw.replace(/[$,]/g, '').trim();
-  if (cleaned === '' || cleaned === '-') return null;
+  const cleaned = normalizeDashes(raw).replace(/[$,]/g, '').trim();
+  if (cleaned === '' || cleaned === '-' || cleaned === '#') return null;
   const n = Number(cleaned);
   return Number.isFinite(n) ? n : null;
 }

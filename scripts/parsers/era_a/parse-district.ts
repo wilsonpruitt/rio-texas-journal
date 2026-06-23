@@ -10,7 +10,7 @@
  *     scripts/parsers/era_a/parse-district.ts CA 480 487
  */
 
-import { findSubTables, sliceRow, parseNumeric, type SlicedRow, type SubTable } from './lib/columns.ts';
+import { findSubTables, sliceRow, parseNumeric, isNoDataMarker, type SlicedRow, type SubTable } from './lib/columns.ts';
 import { extractPages, splitPages } from '../era_b/lib/pdf.ts';
 import { adminClient } from '../era_b/lib/db.ts';
 import { canonicalize } from '../era_b/lib/names.ts';
@@ -207,7 +207,7 @@ async function main() {
         acc.pdfPages.add(pdfPage);
         for (const [code, raw] of Object.entries(sliced.values)) {
           const num = parseNumeric(raw);
-          const hasValue = raw !== '' && raw !== '-';
+          const hasValue = !isNoDataMarker(raw);
           acc.stats.set(code, {
             field_code: code,
             value_numeric: num,

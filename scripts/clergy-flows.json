@@ -1,0 +1,245 @@
+{
+  "source": "BAC disciplinary questions 2015–2025",
+  "rows": [
+    {
+      "year": 2015,
+      "retired": 18,
+      "transferredOut": 6,
+      "withdrawn": 0,
+      "died": 13,
+      "entrants": {
+        "commissioned": 4,
+        "ordainedDeacon": 0,
+        "ordainedElder": 4,
+        "receivedTransfer": 4,
+        "receivedDenom": 2
+      },
+      "candidates": {
+        "total": 7,
+        "newly": 3,
+        "continued": 4,
+        "discontinued": 0
+      }
+    },
+    {
+      "year": 2016,
+      "retired": 18,
+      "transferredOut": 2,
+      "withdrawn": 2,
+      "died": 18,
+      "entrants": {
+        "commissioned": 11,
+        "ordainedDeacon": 5,
+        "ordainedElder": 6,
+        "receivedTransfer": 6,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 28,
+        "newly": 17,
+        "continued": 11,
+        "discontinued": 3
+      }
+    },
+    {
+      "year": 2017,
+      "retired": 33,
+      "transferredOut": 1,
+      "withdrawn": 1,
+      "died": 20,
+      "entrants": {
+        "commissioned": 8,
+        "ordainedDeacon": 0,
+        "ordainedElder": 7,
+        "receivedTransfer": 2,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 36,
+        "newly": 26,
+        "continued": 10,
+        "discontinued": 9
+      }
+    },
+    {
+      "year": 2018,
+      "retired": 31,
+      "transferredOut": 1,
+      "withdrawn": 1,
+      "died": 23,
+      "entrants": {
+        "commissioned": 7,
+        "ordainedDeacon": 0,
+        "ordainedElder": 9,
+        "receivedTransfer": 0,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 33,
+        "newly": 15,
+        "continued": 18,
+        "discontinued": 4
+      }
+    },
+    {
+      "year": 2019,
+      "retired": 28,
+      "transferredOut": 0,
+      "withdrawn": 3,
+      "died": 10,
+      "entrants": {
+        "commissioned": 6,
+        "ordainedDeacon": 1,
+        "ordainedElder": 7,
+        "receivedTransfer": 3,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 32,
+        "newly": 14,
+        "continued": 18,
+        "discontinued": 2
+      }
+    },
+    {
+      "year": 2020,
+      "retired": 15,
+      "transferredOut": 1,
+      "withdrawn": 3,
+      "died": 21,
+      "entrants": {
+        "commissioned": 6,
+        "ordainedDeacon": 1,
+        "ordainedElder": 5,
+        "receivedTransfer": 2,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 38,
+        "newly": 27,
+        "continued": 11,
+        "discontinued": 4
+      }
+    },
+    {
+      "year": 2021,
+      "retired": 15,
+      "transferredOut": 1,
+      "withdrawn": 0,
+      "died": 12,
+      "entrants": {
+        "commissioned": 9,
+        "ordainedDeacon": 2,
+        "ordainedElder": 3,
+        "receivedTransfer": 0,
+        "receivedDenom": 7
+      },
+      "candidates": {
+        "total": 25,
+        "newly": 13,
+        "continued": 12,
+        "discontinued": 3
+      }
+    },
+    {
+      "year": 2022,
+      "retired": 19,
+      "transferredOut": 0,
+      "withdrawn": 3,
+      "died": 23,
+      "entrants": {
+        "commissioned": 5,
+        "ordainedDeacon": 3,
+        "ordainedElder": 2,
+        "receivedTransfer": 0,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 38,
+        "newly": 23,
+        "continued": 15,
+        "discontinued": 3
+      }
+    },
+    {
+      "year": 2023,
+      "retired": 27,
+      "transferredOut": 1,
+      "withdrawn": 37,
+      "died": 21,
+      "entrants": {
+        "commissioned": 5,
+        "ordainedDeacon": 1,
+        "ordainedElder": 4,
+        "receivedTransfer": 0,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 24,
+        "newly": 16,
+        "continued": 8,
+        "discontinued": 2
+      }
+    },
+    {
+      "year": 2024,
+      "retired": 10,
+      "transferredOut": 2,
+      "withdrawn": 26,
+      "died": 21,
+      "entrants": {
+        "commissioned": 11,
+        "ordainedDeacon": 1,
+        "ordainedElder": 1,
+        "receivedTransfer": 0,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 16,
+        "newly": 13,
+        "continued": 3,
+        "discontinued": 3
+      }
+    },
+    {
+      "year": 2025,
+      "retired": 19,
+      "transferredOut": 2,
+      "withdrawn": 10,
+      "died": 21,
+      "entrants": {
+        "commissioned": 6,
+        "ordainedDeacon": 4,
+        "ordainedElder": 3,
+        "receivedTransfer": 2,
+        "receivedDenom": 0
+      },
+      "candidates": {
+        "total": 8,
+        "newly": 7,
+        "continued": 1,
+        "discontinued": 4
+      }
+    },
+    {
+      "year": 2026,
+      "retired": 1,
+      "transferredOut": 2,
+      "withdrawn": 9,
+      "died": 0,
+      "entrants": {
+        "commissioned": 9,
+        "ordainedDeacon": 9,
+        "ordainedElder": 6,
+        "receivedTransfer": 4,
+        "receivedDenom": 2
+      },
+      "candidates": {
+        "total": 16,
+        "newly": 16,
+        "continued": 0,
+        "discontinued": 3
+      }
+    }
+  ]
+}

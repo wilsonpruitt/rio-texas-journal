@@ -10,13 +10,14 @@ import { execFileSync } from 'node:child_process';
 const PDFTOTEXT = '/usr/local/bin/pdftotext';
 
 const DISTRICTS = [
-  { code: 'CA', label: 'CAPITAL DISTRICT' },
-  { code: 'CB', label: 'COASTAL BEND DISTRICT' },
-  { code: 'CR', label: 'CROSSROADS DISTRICT' },
-  { code: 'EV', label: 'EL VALLE DISTRICT' },
-  { code: 'HC', label: 'HILL COUNTRY DISTRICT' },
-  { code: 'LM', label: 'LAS MISIONES DISTRICT' },
-  { code: 'WS', label: 'WEST DISTRICT' },
+  { code: 'CA', labels: ['CAPITAL DISTRICT'] },
+  { code: 'CB', labels: ['COASTAL BEND DISTRICT'] },
+  // 2020 PDF page 469 prints "CROSSROADS BEND DISTRICT" (typo in source).
+  { code: 'CR', labels: ['CROSSROADS DISTRICT', 'CROSSROADS BEND DISTRICT'] },
+  { code: 'EV', labels: ['EL VALLE DISTRICT'] },
+  { code: 'HC', labels: ['HILL COUNTRY DISTRICT'] },
+  { code: 'LM', labels: ['LAS MISIONES DISTRICT'] },
+  { code: 'WS', labels: ['WEST DISTRICT'] },
 ] as const;
 
 function pageHeader(year: number, page: number): string {
@@ -53,7 +54,7 @@ function detectDistrict(text: string): string | null {
   if (!hasJCodeLine(text)) return null;
   const upper = text.toUpperCase();
   for (const d of DISTRICTS) {
-    if (upper.includes(d.label)) return d.code;
+    if (d.labels.some((l) => upper.includes(l))) return d.code;
   }
   return null;
 }

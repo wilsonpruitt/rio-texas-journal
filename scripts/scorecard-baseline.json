@@ -1,0 +1,1074 @@
+{
+  "meta": {
+    "conference": "Río Texas Annual Conference",
+    "baselineYear": 2024,
+    "eraStart": 2015,
+    "frozen": true,
+    "primarySource": "GCFA statistical tables (per-church panel, field-coded), parsed from conference journals — Río Texas era 2015–2024",
+    "supplements": [
+      "Río Texas audited financials (2025 audit → 2024 figures)",
+      "Conference clergy roster (parsed journals)",
+      "Atlas GCFA church-status panel (closures/disaffiliations, committee rosters)"
+    ],
+    "note": "[Public] markers are populated from the public record. [Conference] and [Survey] markers are intentionally blank — and a blank is itself a finding."
+  },
+  "trust": {
+    "apportionmentPayoutRate": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "baseline": 0.6852094659193051,
+      "baselineYear": 2024,
+      "peak": {
+        "year": 2017,
+        "rate": 0.9526250660144904
+      },
+      "series": [
+        {
+          "year": 2015,
+          "asked": 10090151,
+          "paid": 9438840,
+          "rate": 0.9354508173366286
+        },
+        {
+          "year": 2016,
+          "asked": 10102745,
+          "paid": 9377714,
+          "rate": 0.9282342571251675
+        },
+        {
+          "year": 2017,
+          "asked": 9639929,
+          "paid": 9183238,
+          "rate": 0.9526250660144904
+        },
+        {
+          "year": 2018,
+          "asked": 8989391,
+          "paid": 8406092,
+          "rate": 0.9351125120711736
+        },
+        {
+          "year": 2019,
+          "asked": 8807048,
+          "paid": 7843621,
+          "rate": 0.8906072727206664
+        },
+        {
+          "year": 2020,
+          "asked": 8126214,
+          "paid": 6910886,
+          "rate": 0.8504435152704568
+        },
+        {
+          "year": 2021,
+          "asked": 7645638,
+          "paid": 6708805,
+          "rate": 0.8774683028414372
+        },
+        {
+          "year": 2022,
+          "asked": 7535961,
+          "paid": 6480557,
+          "rate": 0.8599509737377887
+        },
+        {
+          "year": 2023,
+          "asked": 8270132,
+          "paid": 6492428,
+          "rate": 0.7850452689267837
+        },
+        {
+          "year": 2024,
+          "asked": 6398153,
+          "paid": 4384075,
+          "rate": 0.6852094659193051
+        }
+      ],
+      "note": "Conference-wide apportionment paid ÷ asked — the cleanest trust proxy. Watch for recovery from the 2023–24 collapse."
+    },
+    "churchExits": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "closures": 27,
+      "disaffiliations": 84,
+      "annualBaseLost": 1605558,
+      "membersLost": null,
+      "source": "Atlas GCFA church-status panel (Río Texas)",
+      "note": "Closures + disaffiliations since the merger. 84 disaffiliations cost ≈$1.6M/yr in recurring apportionment base. Target: trending toward zero."
+    },
+    "conferenceNetAssets": {
+      "measurable": "Public",
+      "kind": "context",
+      "baseline": 29498188,
+      "baselineYear": 2024,
+      "series": [
+        {
+          "year": 2016,
+          "value": 23036987,
+          "source": "journal-2017"
+        },
+        {
+          "year": 2017,
+          "value": 24431932,
+          "source": "journal-2018"
+        },
+        {
+          "year": 2018,
+          "value": 32493040,
+          "source": "journal-2019"
+        },
+        {
+          "year": 2019,
+          "value": 30703713,
+          "source": "journal-2020"
+        },
+        {
+          "year": 2020,
+          "value": 28882845,
+          "source": "journal-2021"
+        },
+        {
+          "year": 2021,
+          "value": 29956370,
+          "source": "journal-2022"
+        },
+        {
+          "year": 2022,
+          "value": 33437524,
+          "source": "journal-2023"
+        },
+        {
+          "year": 2023,
+          "value": 33875072,
+          "source": "journal-2024"
+        },
+        {
+          "year": 2024,
+          "value": 29498188,
+          "source": "audit-2025-image"
+        }
+      ],
+      "source": "audit-2025-image",
+      "note": "Conference net assets, end of year, from the audit. Context for the reserves-vs-need question: reserves dwarf the annual apportionment gap."
+    },
+    "clergyAttrition": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "partial": true,
+      "total": 257,
+      "series": [
+        {
+          "year": 2014,
+          "value": 289
+        },
+        {
+          "year": 2015,
+          "value": 284
+        },
+        {
+          "year": 2016,
+          "value": 272
+        },
+        {
+          "year": 2017,
+          "value": 270
+        },
+        {
+          "year": 2018,
+          "value": 261
+        },
+        {
+          "year": 2019,
+          "value": 255
+        },
+        {
+          "year": 2020,
+          "value": 246
+        },
+        {
+          "year": 2021,
+          "value": 241
+        },
+        {
+          "year": 2022,
+          "value": 255
+        },
+        {
+          "year": 2023,
+          "value": 237
+        },
+        {
+          "year": 2024,
+          "value": 246
+        },
+        {
+          "year": 2025,
+          "value": 257
+        }
+      ],
+      "churn": [
+        {
+          "year": 2014,
+          "exits": 23,
+          "entrants": 18
+        },
+        {
+          "year": 2015,
+          "exits": 30,
+          "entrants": 18
+        },
+        {
+          "year": 2016,
+          "exits": 20,
+          "entrants": 18
+        },
+        {
+          "year": 2017,
+          "exits": 31,
+          "entrants": 22
+        },
+        {
+          "year": 2018,
+          "exits": 28,
+          "entrants": 22
+        },
+        {
+          "year": 2019,
+          "exits": 33,
+          "entrants": 24
+        },
+        {
+          "year": 2020,
+          "exits": 23,
+          "entrants": 18
+        },
+        {
+          "year": 2021,
+          "exits": 16,
+          "entrants": 30
+        },
+        {
+          "year": 2022,
+          "exits": 36,
+          "entrants": 18
+        },
+        {
+          "year": 2023,
+          "exits": 9,
+          "entrants": 18
+        },
+        {
+          "year": 2024,
+          "exits": 11,
+          "entrants": 22
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2014,
+        "toYear": 2025,
+        "from": 289,
+        "to": 257,
+        "change": -0.11072664359861592,
+        "direction": "down"
+      },
+      "bacExits": [
+        {
+          "year": 2015,
+          "retired": 18,
+          "transferredOut": 6,
+          "withdrawn": 0,
+          "ordinary": 24,
+          "totalExit": 24
+        },
+        {
+          "year": 2016,
+          "retired": 18,
+          "transferredOut": 2,
+          "withdrawn": 2,
+          "ordinary": 20,
+          "totalExit": 22
+        },
+        {
+          "year": 2017,
+          "retired": 33,
+          "transferredOut": 1,
+          "withdrawn": 1,
+          "ordinary": 34,
+          "totalExit": 35
+        },
+        {
+          "year": 2018,
+          "retired": 31,
+          "transferredOut": 1,
+          "withdrawn": 1,
+          "ordinary": 32,
+          "totalExit": 33
+        },
+        {
+          "year": 2019,
+          "retired": 28,
+          "transferredOut": 0,
+          "withdrawn": 3,
+          "ordinary": 28,
+          "totalExit": 31
+        },
+        {
+          "year": 2020,
+          "retired": 15,
+          "transferredOut": 1,
+          "withdrawn": 3,
+          "ordinary": 16,
+          "totalExit": 19
+        },
+        {
+          "year": 2021,
+          "retired": 15,
+          "transferredOut": 1,
+          "withdrawn": 0,
+          "ordinary": 16,
+          "totalExit": 16
+        },
+        {
+          "year": 2022,
+          "retired": 19,
+          "transferredOut": 0,
+          "withdrawn": 3,
+          "ordinary": 19,
+          "totalExit": 22
+        },
+        {
+          "year": 2023,
+          "retired": 27,
+          "transferredOut": 1,
+          "withdrawn": 37,
+          "ordinary": 28,
+          "totalExit": 65
+        },
+        {
+          "year": 2024,
+          "retired": 10,
+          "transferredOut": 2,
+          "withdrawn": 26,
+          "ordinary": 12,
+          "totalExit": 38
+        },
+        {
+          "year": 2025,
+          "retired": 19,
+          "transferredOut": 2,
+          "withdrawn": 10,
+          "ordinary": 21,
+          "totalExit": 31
+        },
+        {
+          "year": 2026,
+          "retired": 1,
+          "transferredOut": 2,
+          "withdrawn": 9,
+          "ordinary": 3,
+          "totalExit": 12
+        }
+      ],
+      "bacEntrants": [
+        {
+          "year": 2015,
+          "commissioned": 4,
+          "ordained": 4,
+          "received": 6,
+          "total": 14,
+          "net": -10
+        },
+        {
+          "year": 2016,
+          "commissioned": 11,
+          "ordained": 11,
+          "received": 6,
+          "total": 28,
+          "net": 6
+        },
+        {
+          "year": 2017,
+          "commissioned": 8,
+          "ordained": 7,
+          "received": 2,
+          "total": 17,
+          "net": -18
+        },
+        {
+          "year": 2018,
+          "commissioned": 7,
+          "ordained": 9,
+          "received": 0,
+          "total": 16,
+          "net": -17
+        },
+        {
+          "year": 2019,
+          "commissioned": 6,
+          "ordained": 8,
+          "received": 3,
+          "total": 17,
+          "net": -14
+        },
+        {
+          "year": 2020,
+          "commissioned": 6,
+          "ordained": 6,
+          "received": 2,
+          "total": 14,
+          "net": -5
+        },
+        {
+          "year": 2021,
+          "commissioned": 9,
+          "ordained": 5,
+          "received": 7,
+          "total": 21,
+          "net": 5
+        },
+        {
+          "year": 2022,
+          "commissioned": 5,
+          "ordained": 5,
+          "received": 0,
+          "total": 10,
+          "net": -12
+        },
+        {
+          "year": 2023,
+          "commissioned": 5,
+          "ordained": 5,
+          "received": 0,
+          "total": 10,
+          "net": -55
+        },
+        {
+          "year": 2024,
+          "commissioned": 11,
+          "ordained": 2,
+          "received": 0,
+          "total": 13,
+          "net": -25
+        },
+        {
+          "year": 2025,
+          "commissioned": 6,
+          "ordained": 7,
+          "received": 2,
+          "total": 15,
+          "net": -16
+        },
+        {
+          "year": 2026,
+          "commissioned": 9,
+          "ordained": 15,
+          "received": 6,
+          "total": 30,
+          "net": 18
+        }
+      ],
+      "note": "Three readings. The line is clergy holding an active Río-family appointment (a supply proxy: 289→257). The bars are the Business of the Annual Conference exit questions, separating ordinary attrition (retirements + transfers out, steady ~20–35/yr) from withdrawals — near-zero until the disaffiliation exodus drove 37 in 2023. Entrants (commissioned, ordained, received by transfer) net against exits to show the flow. Deaths are omitted: the BAC necrology can't be cleanly limited to a single year."
+    },
+    "clergyPipeline": {
+      "measurable": "Public",
+      "kind": "process",
+      "partial": true,
+      "total": 16,
+      "throughYear": 2026,
+      "peak": {
+        "year": 2020,
+        "total": 38
+      },
+      "trough": {
+        "year": 2025,
+        "total": 8
+      },
+      "series": [
+        {
+          "year": 2016,
+          "total": 28,
+          "newly": 17,
+          "discontinued": 3
+        },
+        {
+          "year": 2017,
+          "total": 36,
+          "newly": 26,
+          "discontinued": 9
+        },
+        {
+          "year": 2018,
+          "total": 33,
+          "newly": 15,
+          "discontinued": 4
+        },
+        {
+          "year": 2019,
+          "total": 32,
+          "newly": 14,
+          "discontinued": 2
+        },
+        {
+          "year": 2020,
+          "total": 38,
+          "newly": 27,
+          "discontinued": 4
+        },
+        {
+          "year": 2021,
+          "total": 25,
+          "newly": 13,
+          "discontinued": 3
+        },
+        {
+          "year": 2022,
+          "total": 38,
+          "newly": 23,
+          "discontinued": 3
+        },
+        {
+          "year": 2023,
+          "total": 24,
+          "newly": 16,
+          "discontinued": 2
+        },
+        {
+          "year": 2024,
+          "total": 16,
+          "newly": 13,
+          "discontinued": 3
+        },
+        {
+          "year": 2025,
+          "total": 8,
+          "newly": 7,
+          "discontinued": 4
+        },
+        {
+          "year": 2026,
+          "total": 16,
+          "newly": 16,
+          "discontinued": 3
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2016,
+        "toYear": 2026,
+        "from": 28,
+        "to": 16,
+        "change": -0.42857142857142855,
+        "direction": "down"
+      },
+      "note": "Certified candidates for licensed or ordained ministry (¶310) — the conference's clergy pipeline, from the Business of the Annual Conference, 2016–2026. It fell from a peak of 38 (2020) to a low of 8 (2025), then rebounded to 16 in 2026. The pipeline is a leading indicator of clergy supply — today's candidates are tomorrow's pastors — so the 2026 uptick is an early sign of recovery. Total and discontinuations read directly; “newly certified” is inferred from the certification date, so read it as indicative. 2015 is omitted (older journal format)."
+    },
+    "trustIndex": {
+      "measurable": "Survey",
+      "kind": "outcome",
+      "blank": true,
+      "reason": "Anonymous annual clergy + lay survey, identical questions each year. Blank until the instrument runs — see the survey page."
+    }
+  },
+  "discipleship": {
+    "professionsOfFaith": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "total": 478,
+      "median": 3,
+      "totalSeries": [
+        {
+          "year": 2015,
+          "value": 2110
+        },
+        {
+          "year": 2016,
+          "value": 1942
+        },
+        {
+          "year": 2017,
+          "value": 944
+        },
+        {
+          "year": 2018,
+          "value": 885
+        },
+        {
+          "year": 2019,
+          "value": 808
+        },
+        {
+          "year": 2020,
+          "value": 413
+        },
+        {
+          "year": 2021,
+          "value": 444
+        },
+        {
+          "year": 2022,
+          "value": 598
+        },
+        {
+          "year": 2023,
+          "value": 496
+        },
+        {
+          "year": 2024,
+          "value": 478
+        }
+      ],
+      "medianSeries": [
+        {
+          "year": 2015,
+          "value": 5,
+          "n": 220
+        },
+        {
+          "year": 2016,
+          "value": 5,
+          "n": 213
+        },
+        {
+          "year": 2017,
+          "value": 4,
+          "n": 154
+        },
+        {
+          "year": 2018,
+          "value": 3,
+          "n": 157
+        },
+        {
+          "year": 2019,
+          "value": 3,
+          "n": 168
+        },
+        {
+          "year": 2020,
+          "value": 3,
+          "n": 106
+        },
+        {
+          "year": 2021,
+          "value": 2,
+          "n": 110
+        },
+        {
+          "year": 2022,
+          "value": 3,
+          "n": 113
+        },
+        {
+          "year": 2023,
+          "value": 4,
+          "n": 89
+        },
+        {
+          "year": 2024,
+          "value": 3,
+          "n": 84
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2015,
+        "toYear": 2024,
+        "from": 2110,
+        "to": 478,
+        "change": -0.7734597156398104,
+        "direction": "down"
+      },
+      "note": "New believers received on profession of faith. Median matters more than total — it shows whether discipleship is broadening or concentrating in a few large churches."
+    },
+    "baptisms": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "total": 519,
+      "totalSeries": [
+        {
+          "year": 2017,
+          "value": 1644
+        },
+        {
+          "year": 2018,
+          "value": 1185
+        },
+        {
+          "year": 2019,
+          "value": 1047
+        },
+        {
+          "year": 2020,
+          "value": 561
+        },
+        {
+          "year": 2021,
+          "value": 736
+        },
+        {
+          "year": 2022,
+          "value": 679
+        },
+        {
+          "year": 2023,
+          "value": 542
+        },
+        {
+          "year": 2024,
+          "value": 519
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2017,
+        "toYear": 2024,
+        "from": 1644,
+        "to": 519,
+        "change": -0.6843065693430657,
+        "direction": "down"
+      },
+      "note": "Persons baptized (reported 2017 onward)."
+    },
+    "worshipAttendance": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "total": 16677,
+      "median": 46,
+      "totalSeries": [
+        {
+          "year": 2015,
+          "value": 44673
+        },
+        {
+          "year": 2016,
+          "value": 43778
+        },
+        {
+          "year": 2017,
+          "value": 42826
+        },
+        {
+          "year": 2018,
+          "value": 41658
+        },
+        {
+          "year": 2019,
+          "value": 40082
+        },
+        {
+          "year": 2020,
+          "value": 29207
+        },
+        {
+          "year": 2021,
+          "value": 24842
+        },
+        {
+          "year": 2022,
+          "value": 27267
+        },
+        {
+          "year": 2023,
+          "value": 19393
+        },
+        {
+          "year": 2024,
+          "value": 16677
+        }
+      ],
+      "medianSeries": [
+        {
+          "year": 2015,
+          "value": 58,
+          "n": 370
+        },
+        {
+          "year": 2016,
+          "value": 58,
+          "n": 362
+        },
+        {
+          "year": 2017,
+          "value": 58,
+          "n": 356
+        },
+        {
+          "year": 2018,
+          "value": 58,
+          "n": 348
+        },
+        {
+          "year": 2019,
+          "value": 58,
+          "n": 343
+        },
+        {
+          "year": 2020,
+          "value": 39,
+          "n": 341
+        },
+        {
+          "year": 2021,
+          "value": 40,
+          "n": 335
+        },
+        {
+          "year": 2022,
+          "value": 45,
+          "n": 329
+        },
+        {
+          "year": 2023,
+          "value": 45,
+          "n": 243
+        },
+        {
+          "year": 2024,
+          "value": 46,
+          "n": 200
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2015,
+        "toYear": 2024,
+        "from": 44673,
+        "to": 16677,
+        "change": -0.6266872607615338,
+        "direction": "down"
+      },
+      "note": "Average weekly worship attendance. Progress = bending the decline curve, not reversing it overnight."
+    },
+    "christianFormation": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "total": 17805,
+      "totalSeries": [
+        {
+          "year": 2015,
+          "value": 55741
+        },
+        {
+          "year": 2016,
+          "value": 53724
+        },
+        {
+          "year": 2017,
+          "value": 51198
+        },
+        {
+          "year": 2018,
+          "value": 49793
+        },
+        {
+          "year": 2019,
+          "value": 49618
+        },
+        {
+          "year": 2020,
+          "value": 36491
+        },
+        {
+          "year": 2021,
+          "value": 29663
+        },
+        {
+          "year": 2022,
+          "value": 28446
+        },
+        {
+          "year": 2023,
+          "value": 21056
+        },
+        {
+          "year": 2024,
+          "value": 17805
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2015,
+        "toYear": 2024,
+        "from": 55741,
+        "to": 17805,
+        "change": -0.6805762365224879,
+        "direction": "down"
+      },
+      "note": "Total enrolled in Christian-formation groups (church school + small groups)."
+    },
+    "discipleshipBudgetLine": {
+      "measurable": "Public",
+      "kind": "process",
+      "blank": true,
+      "reason": "Is there a named, funded discipleship/formation line in the conference budget, growing as a share of spend? Requires the budget broken out — not derivable from the statistical panel."
+    },
+    "intentionalPathwayShare": {
+      "measurable": "Conference",
+      "kind": "process",
+      "blank": true,
+      "reason": "Share of churches reporting an intentional discipleship pathway (not just programs). Requires charge-conference reporting or a survey item."
+    }
+  },
+  "belonging": {
+    "membershipComposition": {
+      "measurable": "Public",
+      "kind": "context",
+      "year": 2024,
+      "total": 67179,
+      "reportedByRace": 57493,
+      "hispanic": 8129,
+      "white": 45673,
+      "black": 3305,
+      "asian": 330,
+      "nativeAmerican": 56,
+      "female": 34250,
+      "male": 25241,
+      "note": "Self-reported member demographics from GCFA tables. Race columns are under-reported (not every church codes them), so treat shares as directional. This is the denominator a leadership-representation audit is measured against."
+    },
+    "representationAudit": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "committees": 16,
+      "seats": 259,
+      "vacant": 2,
+      "codedClergyLay": 0,
+      "codingComplete": false,
+      "note": "Leadership composition of boards/agencies vs. the membership composition above. The roster is captured (16 committees, 259 seats); the demographic coding is largely unfilled — and that incompleteness is the finding.",
+      "reason": "Crowdsource the demographic coding (per the committee-demographics instructions) to compute the representation gap against membership."
+    },
+    "voiceChannels": {
+      "measurable": "Conference",
+      "kind": "process",
+      "blank": true,
+      "reason": "Structured channels for lay / youth / young-adult / small-church voice that feed real decisions. Requires governance review."
+    },
+    "belongingSurvey": {
+      "measurable": "Survey",
+      "kind": "outcome",
+      "blank": true,
+      "reason": "“I feel I belong / my voice is heard,” segmented by demographic. The segmentation is the point — never a single number."
+    }
+  },
+  "bridges": {
+    "newBelievers": {
+      "measurable": "Public",
+      "kind": "outcome",
+      "total": 478,
+      "transfersIn": 882,
+      "totalSeries": [
+        {
+          "year": 2015,
+          "value": 2110
+        },
+        {
+          "year": 2016,
+          "value": 1942
+        },
+        {
+          "year": 2017,
+          "value": 944
+        },
+        {
+          "year": 2018,
+          "value": 885
+        },
+        {
+          "year": 2019,
+          "value": 808
+        },
+        {
+          "year": 2020,
+          "value": 413
+        },
+        {
+          "year": 2021,
+          "value": 444
+        },
+        {
+          "year": 2022,
+          "value": 598
+        },
+        {
+          "year": 2023,
+          "value": 496
+        },
+        {
+          "year": 2024,
+          "value": 478
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2015,
+        "toYear": 2024,
+        "from": 2110,
+        "to": 478,
+        "change": -0.7734597156398104,
+        "direction": "down"
+      },
+      "note": "Professions of faith (478) isolated from transfers in (882 from other churches/denominations). New people crossing the bridge — not members shuffling between churches."
+    },
+    "netMembership": {
+      "measurable": "Public",
+      "kind": "context",
+      "total": 67179,
+      "totalSeries": [
+        {
+          "year": 2015,
+          "value": 119755
+        },
+        {
+          "year": 2016,
+          "value": 115651
+        },
+        {
+          "year": 2017,
+          "value": 114429
+        },
+        {
+          "year": 2018,
+          "value": 112247
+        },
+        {
+          "year": 2019,
+          "value": 109355
+        },
+        {
+          "year": 2020,
+          "value": 106177
+        },
+        {
+          "year": 2021,
+          "value": 102386
+        },
+        {
+          "year": 2022,
+          "value": 99080
+        },
+        {
+          "year": 2023,
+          "value": 71426
+        },
+        {
+          "year": 2024,
+          "value": 67179
+        }
+      ],
+      "totalChange": {
+        "fromYear": 2015,
+        "toYear": 2024,
+        "from": 119755,
+        "to": 67179,
+        "change": -0.43902968560811656,
+        "direction": "down"
+      },
+      "note": "Total professing members. Context, not the test — a church can grow membership entirely by absorbing a closed church's roll."
+    },
+    "communityPartnershipShare": {
+      "measurable": "Conference",
+      "kind": "process",
+      "blank": true,
+      "reason": "Share of churches reporting an active community partnership (food, schools, immigration, neighborhood orgs). Requires charge-conference or survey reporting."
+    },
+    "newFaithCommunities": {
+      "measurable": "Conference",
+      "kind": "outcome",
+      "blank": true,
+      "reason": "New faith communities started — and still alive 2–3 years on. Requires the conference's new-church/new-place records."
+    }
+  }
+}
