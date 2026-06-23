@@ -90,6 +90,10 @@ export default async function ConferencePage() {
           <div className="eyebrow">Reserves (net assets)</div>
           <div className="mt-1 text-sm text-ink-mute">{first.data_year}–{last.data_year}, end of year</div>
           <div className="mt-3"><TrendChart points={netPts} accent="teal" format="usd" markMergerYear={null} /></div>
+          <p className="mt-3 text-xs text-faint leading-relaxed">
+            The {last.data_year} jump is largely non-cash: the FY2025 audit added {fmtUsd(14150090)} of closed-church
+            property reverting to the conference at fair value (net assets held for sale, not spendable reserves).
+          </p>
         </div>
       </section>
 
@@ -118,6 +122,12 @@ export default async function ConferencePage() {
           )}
         </div>
       </section>
+
+      <p className="mt-12 text-xs text-faint leading-relaxed">
+        Sources: Río Texas Annual Conference journals (2016–2023) and the conference Board of Trustees&rsquo; audited
+        financial statements. The 2024 and {last.data_year} figures are from the FY2025 audit (Calvetti Ferguson,
+        unmodified opinion dated May 18, 2026), which restates the prior-year comparatives.
+      </p>
     </main>
   );
 }

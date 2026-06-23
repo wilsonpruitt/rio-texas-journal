@@ -103,15 +103,28 @@
   },
   {
     "data_year": 2024,
-    "source": "audit-2025-image",
+    "source": "audit-2025",
     "apportionment_rev": 6014687,
-    "other_giving": 357417,
+    "other_giving": 337417,
     "insurance_income": 1283117,
-    "grants": 561281,
-    "total_rev": 12266985,
+    "grants": 2454643,
+    "total_rev": 12382792,
     "program_exp": 9285979,
     "gen_admin_exp": 1789417,
     "total_exp": 11075396,
-    "net_assets_eoy": 29498188
+    "net_assets_eoy": 35915092
+  },
+  {
+    "data_year": 2025,
+    "source": "audit-2025",
+    "apportionment_rev": 5010933,
+    "other_giving": 759011,
+    "insurance_income": 1462468,
+    "grants": 1805016,
+    "total_rev": 26155873,
+    "program_exp": 8717740,
+    "gen_admin_exp": 1570270,
+    "total_exp": 10288010,
+    "net_assets_eoy": 53238353
   }
 ]
