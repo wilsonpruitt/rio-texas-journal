@@ -78,7 +78,10 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
         <p className="mt-4 text-xs text-faint leading-relaxed">
           Illustrative model. Audited revenue and expense aggregates include pass-through flows (the conference
           insurance program, grants, restricted-fund releases) that move year to year, so treat the projected path as a
-          directional what-if, not a forecast. Apportionment revenue is the cleanest line and the one most under the
+          directional what-if, not a forecast. The projection excludes 2025&rsquo;s one-time, non-cash property
+          windfall (≈$14.2M of closed churches reverting to the conference) and treats the ≈$27M of property held for
+          sale as non-spendable — it earns no investment return — so the forward line reflects recurring operations,
+          not last year&rsquo;s asset jump. Apportionment revenue is the cleanest line and the one most under the
           conference&rsquo;s influence.
         </p>
       </div>
@@ -89,7 +92,7 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
           <div className="eyebrow">Assumptions</div>
           {dirty && <button onClick={() => setA(baseline)} className="text-xs text-teal hover:underline">Reset to trend</button>}
         </div>
-        <p className="mt-2 text-xs text-ink-mute">Defaults follow each line&rsquo;s 2016–2024 trend. Drag to ask &ldquo;what if?&rdquo;</p>
+        <p className="mt-2 text-xs text-ink-mute">Defaults follow each line&rsquo;s 2016–2025 trend. Drag to ask &ldquo;what if?&rdquo;</p>
 
         <div className="mt-5 space-y-5">
           <Slider label={`Apportionments in ${firstProjYear}`} hint="one-time jump, next year only" value={a.apportionmentStep} onChange={set("apportionmentStep")} min={-0.3} max={0.3} base={baseline.apportionmentStep} highlight />

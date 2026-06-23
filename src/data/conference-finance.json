@@ -112,7 +112,9 @@
     "program_exp": 9285979,
     "gen_admin_exp": 1789417,
     "total_exp": 11075396,
-    "net_assets_eoy": 35915092
+    "net_assets_eoy": 35915092,
+    "one_time_rev": 1454500,
+    "property_held": 13195512
   },
   {
     "data_year": 2025,
@@ -125,6 +127,8 @@
     "program_exp": 8717740,
     "gen_admin_exp": 1570270,
     "total_exp": 10288010,
-    "net_assets_eoy": 53238353
+    "net_assets_eoy": 53238353,
+    "one_time_rev": 14150090,
+    "property_held": 27155944
   }
 ]

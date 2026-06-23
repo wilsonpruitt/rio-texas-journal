@@ -19,7 +19,22 @@ export type FinanceRow = {
   gen_admin_exp?: number | null;
   total_exp: number | null;
   net_assets_eoy: number | null;
+  // Non-recurring revenue baked into total_rev — chiefly the non-cash fair value of
+  // closed-church property reverting to the conference (Note 9). It inflates a single
+  // year's "surplus" without being repeatable, so the forward projection strips it.
+  one_time_rev?: number | null;
+  // Net assets that are closed-church property held for sale (the Trustees Property
+  // Transition reserve). Real, but non-spendable and earns no investment return, so the
+  // projection holds it aside rather than compounding it.
+  property_held?: number | null;
 };
+
+// Recurring "other revenue" for a row = total revenue, less apportionments, less any
+// one-time items. This is the line the forward model trends — not the raw audited total.
+const recurringOther = (r: FinanceRow): number | null =>
+  r.total_rev == null || r.apportionment_rev == null
+    ? null
+    : r.total_rev - r.apportionment_rev - (r.one_time_rev ?? 0);
 
 export type Assumptions = {
   apportionmentGrowth: number; // ongoing annual fraction, e.g. -0.07
@@ -63,11 +78,11 @@ export function cagr(rows: FinanceRow[], field: keyof FinanceRow): number | null
 export function defaultAssumptions(rows: FinanceRow[]): Assumptions {
   const clamp = (x: number | null, lo: number, hi: number, fallback: number) =>
     x == null ? fallback : Math.max(lo, Math.min(hi, x));
-  // "other revenue" = total - apportionments; compute its own CAGR from a synthetic series
+  // "other revenue" = recurring total less apportionments (one-time items excluded);
+  // compute its own CAGR from a synthetic series so a windfall year can't set the trend.
   const otherPts = rows
-    .filter((r) => r.total_rev != null && r.apportionment_rev != null)
-    .map((r) => ({ y: r.data_year, v: (r.total_rev as number) - (r.apportionment_rev as number) }))
-    .filter((p) => p.v > 0);
+    .map((r) => ({ y: r.data_year, v: recurringOther(r) }))
+    .filter((p): p is { y: number; v: number } => p.v != null && p.v > 0);
   const otherCagr = otherPts.length >= 2
     ? (otherPts[otherPts.length - 1].v / otherPts[0].v) ** (1 / (otherPts[otherPts.length - 1].y - otherPts[0].y)) - 1
     : null;
@@ -97,8 +112,18 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
     });
 
   const out = [...actual];
-  let prev = actual[actual.length - 1];
-  let { apportionment, otherRev, expense, netAssets } = prev;
+  const usable = rows.filter((r) => r.total_rev != null && r.net_assets_eoy != null);
+  const lastRow = usable[usable.length - 1];
+  // Closed-church property held for sale: stays in net assets but earns no investment
+  // return (it isn't invested) and isn't sold down in the model — held constant.
+  const propertyHeld = lastRow?.property_held ?? 0;
+  // Launch the forward path from the RECURRING base — strip the year's one-time revenue
+  // so a property windfall doesn't seed a permanent surplus.
+  let apportionment = lastRow?.apportionment_rev ?? 0;
+  let otherRev = recurringOther(lastRow) ?? 0;
+  let expense = lastRow?.total_exp ?? 0;
+  let netAssets = lastRow?.net_assets_eoy ?? 0;
+  const lastYear = lastRow?.data_year ?? 0;
   for (let i = 1; i <= horizon; i++) {
     // first projected year also absorbs the one-time step; later years compound off it
     apportionment *= 1 + a.apportionmentGrowth + (i === 1 ? a.apportionmentStep : 0);
@@ -106,9 +131,9 @@ export function project(rows: FinanceRow[], a: Assumptions, horizon = 5): ProjPo
     expense *= 1 + a.expenseGrowth;
     const totalRev = apportionment + otherRev;
     const operating = totalRev - expense;
-    const invIncome = netAssets * a.investmentReturn;
+    const invIncome = Math.max(netAssets - propertyHeld, 0) * a.investmentReturn;
     netAssets = netAssets + operating + invIncome;
-    out.push({ year: prev.year + i, apportionment, otherRev, totalRev, expense, operating, netAssets, projected: true });
+    out.push({ year: lastYear + i, apportionment, otherRev, totalRev, expense, operating, netAssets, projected: true });
   }
   return out;
 }
