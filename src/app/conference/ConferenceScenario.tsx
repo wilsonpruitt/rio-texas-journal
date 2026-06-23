@@ -8,6 +8,7 @@ import {
 } from "@/lib/finance-model";
 
 const HORIZON = 5;
+const COST_PER_PLANT = 400_000; // rough all-in cost to plant one new church
 
 export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRow[]; baseline: Assumptions }) {
   const [a, setA] = useState<Assumptions>(baseline);
@@ -113,8 +114,11 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
             <div className="eyebrow">Asset moves</div>
             <p className="mt-1 text-xs text-ink-mute">Deliberate uses of reserves, in dollars.</p>
           </div>
-          <Slider label="New church planting" hint="reserve draw / yr" unit="usd" neutral step={50000}
-            value={a.newChurchSpend} onChange={set("newChurchSpend")} min={0} max={3000000} base={baseline.newChurchSpend} />
+          <Slider label="New church planting" unit="count" neutral step={1}
+            hint={`≈ ${fmtUsd(a.newChurchSpend)} / yr at ${fmtUsd(COST_PER_PLANT)} per plant`}
+            value={a.newChurchSpend / COST_PER_PLANT}
+            onChange={(n) => set("newChurchSpend")(Math.round(n) * COST_PER_PLANT)}
+            min={0} max={6} base={baseline.newChurchSpend / COST_PER_PLANT} />
           <Slider label="Sell held property" unit="pct" neutral step={0.02}
             hint={`${fmtUsd(a.propertySaleRate * held)} / yr of ${fmtUsd(held)} held · 20% upkeep / 60% districts / 20% conf`}
             value={a.propertySaleRate} onChange={set("propertySaleRate")} min={0} max={0.4} base={baseline.propertySaleRate} />
@@ -127,9 +131,12 @@ export default function ConferenceScenario({ rows, baseline }: { rows: FinanceRo
 function Slider({ label, hint, value, onChange, min, max, base, step = 0.005, highlight, unit = "pct", neutral }: {
   label: string; hint: string; value: number; onChange: (v: number) => void;
   min: number; max: number; base: number; step?: number; highlight?: boolean;
-  unit?: "pct" | "usd"; neutral?: boolean;
+  unit?: "pct" | "usd" | "count"; neutral?: boolean;
 }) {
-  const fmt = (n: number) => unit === "usd" ? fmtUsd(n) : `${n > 0 ? "+" : ""}${(n * 100).toFixed(1)}%`;
+  const fmt = (n: number) =>
+    unit === "usd" ? fmtUsd(n)
+    : unit === "count" ? `${Math.round(n)} ${Math.round(n) === 1 ? "church" : "churches"}`
+    : `${n > 0 ? "+" : ""}${(n * 100).toFixed(1)}%`;
   const valColor = neutral ? "text-ink" : value < 0 ? "text-ember" : value > 0 ? "text-teal" : "text-ink-mute";
   return (
     <div className={highlight ? "rounded-md ring-1 ring-teal/25 bg-teal-soft/40 p-3 -m-0.5" : ""}>
