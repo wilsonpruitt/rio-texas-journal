@@ -2,6 +2,7 @@ import Link from "next/link";
 import { TrendChart } from "@/app/_components/TrendChart";
 import { LockedTeaser } from "@/app/_components/LockedTeaser";
 import insights from "@/data/insights.json";
+import par from "@/data/par.json";
 import { fmtInt, fmtUsd, fmtPct } from "@/lib/atlas";
 import { isUnlocked } from "@/lib/unlock";
 
@@ -17,6 +18,20 @@ type Row = {
 
 const rows = insights.churches as Row[];
 const trend = insights.engagementTrend as { year: number; ratio: number }[];
+
+type ParRow = {
+  gcfa: string; id: string | null; name: string; city: string | null; district: string | null;
+  members: number | null; propensityPct: number | null;
+  history: { year: number; actual: number | null; expected: number | null }[];
+  forecast: { year: number; expected: number; lo: number; hi: number }[];
+};
+const parRows = par.churches as ParRow[];
+// over/under-performance vs expectation, summed over the last 3 reported years
+const parDelta = (r: ParRow) => {
+  const recent = r.history.filter((h) => h.year >= 2022 && h.actual != null && h.expected != null);
+  if (recent.length < 2) return null;
+  return recent.reduce((s, h) => s + (h.actual! - h.expected!), 0);
+};
 
 const median = (xs: number[]) => { const s = [...xs].sort((a, b) => a - b); return s.length ? s[Math.floor(s.length / 2)] : 0; };
 const top = (key: keyof Row, gate = 40, n = 12) =>
@@ -119,6 +134,28 @@ export default async function SignalsPage() {
         />
       </Section>
 
+      {/* 2b. Expected professions — gated (predictive model) */}
+      <Section
+        eyebrow="Regardless of the pastor"
+        title={unlocked ? "What each charge should be expected to produce." : "Expected professions of faith."}
+        lede={unlocked
+          ? `A model of expected professions of faith per charge — built from the charge's size, its own trailing record, its community, and the conference-wide climate of each year (so COVID years are scored against COVID expectations). The gap between actual and expected is the interesting part: it is what the charge did beyond what any charge like it would do. Forecast band is ±1 SD.`
+          : "How many professions of faith should a charge of this size, in this community, with this history, be expected to record — regardless of who is appointed there? A context model answers that, and shows who is running ahead of it."}
+      >
+        {unlocked ? (
+          <div className="grid lg:grid-cols-2 gap-6">
+            <ParCalloutList heading="Running ahead of expectation" sub="actual − expected professions, last 3 reported years" tone="teal"
+              rows={parRows.map((r) => ({ r, d: parDelta(r) })).filter((x): x is { r: ParRow; d: number } => x.d != null && x.d > 0).sort((a, b) => b.d - a.d).slice(0, 8)} />
+            <ParCalloutList heading="Running behind expectation" sub="actual − expected professions, last 3 reported years" tone="amber"
+              rows={parRows.map((r) => ({ r, d: parDelta(r) })).filter((x): x is { r: ParRow; d: number } => x.d != null && x.d < 0).sort((a, b) => a.d - b.d).slice(0, 8)} />
+          </div>
+        ) : (
+          <LockedTeaser title="Expected-professions model"
+            blurb="Models each charge's expected professions of faith from size, history, community context, and conference climate — then shows who is running ahead of or behind it. Enter the access code to view."
+            next="/signals" />
+        )}
+      </Section>
+
       {/* 3. Assets */}
       <Section
         eyebrow="Property and people"
@@ -214,6 +251,44 @@ function CalloutList({ heading, sub, tone, rows, metric }: {
             <span className={`tnum text-sm font-semibold ${text}`}>{metric(r)}</span>
           </Link>
         ))}
+      </div>
+    </div>
+  );
+}
+
+function ParCalloutList({ heading, sub, tone, rows }: {
+  heading: string; sub: string; tone: "teal" | "amber"; rows: { r: ParRow; d: number }[];
+}) {
+  const text = tone === "teal" ? "text-teal" : "text-amber";
+  return (
+    <div className="panel rounded-lg overflow-hidden">
+      <div className="px-4 py-3 border-b border-rule">
+        <div className={`font-medium ${text}`}>{heading}</div>
+        <div className="text-xs text-ink-mute">{sub}</div>
+      </div>
+      <div>
+        {rows.map(({ r, d }) => {
+          const f = r.forecast[0];
+          const inner = (
+            <>
+              <div className="min-w-0 flex-1">
+                <div className="text-ink truncate text-sm">{r.name}</div>
+                <div className="text-xs text-faint truncate">
+                  {[r.city, r.district].filter(Boolean).join(" · ")} · {fmtInt(r.members)} members
+                  {f ? ` · expect ${f.expected}/yr (${f.lo}–${f.hi})` : ""}
+                </div>
+              </div>
+              <span className={`tnum text-sm font-semibold ${text}`}>{d > 0 ? "+" : ""}{d.toFixed(1)}</span>
+            </>
+          );
+          return r.id ? (
+            <Link key={r.gcfa} href={`/churches/${r.id}`} className="flex items-center gap-3 px-4 py-2 border-b border-rule hover:bg-vellum transition-colors">
+              {inner}
+            </Link>
+          ) : (
+            <div key={r.gcfa} className="flex items-center gap-3 px-4 py-2 border-b border-rule">{inner}</div>
+          );
+        })}
       </div>
     </div>
   );

@@ -1,0 +1,2636 @@
+{
+  "generated": "PAR Phase 0 reconcile",
+  "byChurchId": {
+    "993532ad-03c3-4988-b2e3-b9c3512ab85d": "763785",
+    "ffd9fa9d-e072-4006-b73e-4dc86e45417f": "758323",
+    "932b7ffe-5035-4437-9f96-ad0ab6c15ab6": "764244",
+    "e632e6bb-8c34-4729-8204-42f2ecb1d382": "763397",
+    "cd4ce975-d92b-4e2f-8dd5-7e7032d18c75": "759420",
+    "cd7e0588-8147-4688-ba1d-1684eb8ba5a7": "758573",
+    "eed0dfde-3957-4496-913d-2e7782f241f9": "760587",
+    "fde4eedf-5a36-4bde-8d7b-042d41338477": "760122",
+    "144b968e-8e81-4e6e-85fb-6729f4f51e08": "759544",
+    "65665483-d249-4e88-a8f2-2532fa477b65": "760782",
+    "f9e27c2f-f1ba-43f9-b7e0-1db2d1bf5422": "764302",
+    "f1cea925-2dee-4bb2-82b5-6e72fefe1803": "758185",
+    "05dedd80-3b06-4b2d-a73e-f26fc9aee141": "764062",
+    "0e1fef01-c830-41a0-89b7-966e2caaca95": "762941",
+    "2051958b-1585-4296-800b-037421f56a38": "758471",
+    "2a80d896-194b-4bd6-888d-239169e27739": "761662",
+    "4bb8dd79-e365-4d31-b21e-a5f6f7804030": "763001",
+    "0b347b7a-5ffb-48e9-a03c-10c743917662": "761081",
+    "1cd8faed-56a0-405a-894d-1f4fb2c69b02": "763887",
+    "2129183f-58d9-4444-9ce0-897f3071f7fc": "758482",
+    "2e87f6e8-931f-4e4a-a33b-b1326f14f986": "985025",
+    "34f51d21-4be3-4415-a33f-65f518bba688": "758538",
+    "3b43a93e-4af5-4150-b6dc-64f6a982037d": "759602",
+    "57f2033f-1736-4165-b01d-323010c9cc73": "758777",
+    "92a3d191-2403-4be1-9255-2e92379be7c9": "760964",
+    "977212b8-5ea9-4ec3-b683-ab9682a8c8dc": "755706",
+    "99bc53f7-d2fd-4e50-a0a9-772ad5afd3a2": "756118",
+    "aec73bc5-d6f2-4c9a-9d3c-72d4aed75a69": "758117",
+    "ca699394-b3a0-41a7-979d-edb401f613bf": "760348",
+    "e4a48184-8908-48ad-9b53-b05415107bc9": "760144",
+    "12251e79-9213-4d90-8dba-1440ac16e434": "763967",
+    "1489bfd2-6510-44c9-abee-542d15f4b6e8": "761731",
+    "4f065306-5fbe-4aa8-a109-7d20b930fecf": "759087",
+    "5c1a969e-9c2b-4db5-af88-7cb01760b36a": "758083",
+    "86abe4f1-ee50-409e-830d-a831ab24ead8": "762484",
+    "ac4ec036-6514-4e37-98af-2bc7d901e705": "755683",
+    "c4f74a89-0776-4a37-a404-208b3f7514f4": "758493",
+    "e3f20cdf-4f58-4b3c-828e-1ea54e3f2cc0": "763307",
+    "fad09c31-b5f8-4b0b-bd47-b71339c898b5": "763626",
+    "0b38fdff-4ec3-488c-a0d2-c6a9167c6af3": "764200",
+    "1760b250-3c3d-424c-a4d9-6db38fb54cc2": "763854",
+    "1e9e622a-f50f-488a-89ba-c09bfcebb23c": "762427",
+    "358cab92-a302-4e09-b406-3ac90b4133d4": "759167",
+    "35a1ac52-2c26-4520-8bc5-ba504d970149": "761822",
+    "43dda166-8f07-4f9a-883c-0cc1d6e808a6": "764211",
+    "4a06bc5a-c241-4ab0-8dee-e1c559c786a4": "763898",
+    "5938abd3-ee42-43fa-b457-60372ea3532c": "985925",
+    "68f3a46e-4b53-4f8c-979d-6cc4ca4f092a": "760873",
+    "734dc714-fa3a-4344-887b-e8a6b9cec979": "761786",
+    "93373a41-4ca1-47af-b196-0de26f11eb04": "760771",
+    "9d74a760-e79b-4863-a12e-b670f84f9ba0": "764266",
+    "b510dcfd-26de-446a-a786-5bf3edbe4eea": "757352",
+    "c6bbc1e1-9138-4161-81dc-3ae5d47dda23": "755706",
+    "c6fab69b-11b5-471f-a0cf-d6e47050f24a": "758722",
+    "de870e23-16e5-4245-9197-019a938b6d20": "761627",
+    "e27b671b-c6fc-4e30-976c-3d503bed9016": "760725",
+    "f3dc9b28-4cc8-4535-b0a5-5eb17ed42578": "750624",
+    "134fcfc9-ee05-42c7-a8f3-97ac51034bb9": "755661",
+    "346a0f99-f86b-4739-a18b-e3a06c1edd73": "763397",
+    "3a748919-d5aa-45f4-a77e-7f4b51415bc3": "758243",
+    "3ad0a8a1-57a3-427e-83af-9af23fbb98c9": "761582",
+    "4b381164-f29b-4c49-baa8-46e610de6c61": "764040",
+    "4bd702fa-a808-4f40-b4d1-a571721451ad": "760406",
+    "6a9f6d94-6ad9-44a7-8363-1f5a5954acde": "759577",
+    "72563dfc-f493-4972-9165-f7de5eb066f6": "759681",
+    "846ae5b9-22ae-47fc-9ff5-5631b5f7ec05": "763843",
+    "886f2c30-4ea1-47ef-adcb-dda5e60be4fd": "985151",
+    "8a4c0955-6082-4e1f-afa9-fcb1d176d174": "763488",
+    "8bdc43d9-6679-478d-b9de-f6969b20be65": "758130",
+    "8f46eba5-68ad-4701-8f48-09b86f2d472a": "762644",
+    "935e7274-baf0-46aa-a63f-f9efe6ffa1b8": "985845",
+    "9d032358-0729-4030-a88b-3faed0da1a86": "761605",
+    "a49f11a2-fef2-4132-b4a5-859e351bbfb9": "758367",
+    "b651a276-cf08-4749-8817-70ab0134622b": "760020",
+    "baf08565-07fa-4e51-865c-2120a15c32e2": "762985",
+    "bb142064-2957-4906-8d6c-03c987d4bf19": "761946",
+    "c51cb083-6791-4eee-9b82-480af35ca5cb": "762063",
+    "d39540e5-40d6-4912-b9ab-32dcb58bdb15": "758265",
+    "dd882df9-0634-4050-add5-603d9d954390": "761252",
+    "ea2d872d-0104-4779-9d04-66133fb37419": "761718",
+    "19509d48-b6c7-4bf6-a51e-752226faf7af": "985184",
+    "21d8890a-f298-465e-8bc7-8cbdc14ecf14": "758243",
+    "2746d530-53dd-42d3-9503-6661f81a80ca": "760942",
+    "36a4a571-df76-4a94-add1-816ba50cc6d7": "759602",
+    "3c7c6dbc-fb0b-4652-8eaf-1ffdf8dcc5d1": "762440",
+    "411fdcbd-aeda-4c3b-a22c-5c128c2ad851": "762382",
+    "46c167f6-b8b3-4dc3-9793-da8458cde94d": "761981",
+    "48cb0a1f-4425-4b76-b4fd-4716a7b32061": "758276",
+    "51d367bc-0c52-48b0-856a-504514d48a1e": "755661",
+    "5e56a36c-2a8e-4941-b73c-05c3b917ab30": "985993",
+    "5f9ed240-0355-422c-bd27-2626eb272a97": "761560",
+    "62a484a8-5b45-461f-9d5c-f1b4c2d39fb0": "763832",
+    "68a785df-3117-4efd-99ee-c4ad79ab30f0": "756860",
+    "70136381-772b-48de-8d8e-6170810f0af7": "763808",
+    "815a2bef-6fce-4814-8b85-2c2a612fda5c": "761800",
+    "8325ea16-a88d-41ed-9462-c4d29a32172a": "764005",
+    "876e09d4-25f1-4a68-b535-eabe62202a39": "764073",
+    "8e092f49-a337-4ff4-8b5a-1efe689b7b2b": "759442",
+    "99f04082-48c8-4af0-84e4-4ab79ff4263c": "761241",
+    "9a22c4a8-02ee-4ba4-89f4-26c8cf6cc3b5": "755741",
+    "9ecc087f-3c9d-4e9f-ab02-cf84aa64b03a": "762564",
+    "a7537b89-93e4-4a67-a74a-4ec2c65f486b": "763444",
+    "ccaac125-80c2-4571-8dbd-74537ae5295e": "764016",
+    "d04fd8b3-db57-4207-8425-c6eb8330b0d4": "755672",
+    "dc01247b-9bb8-47f5-8eb7-5a59365685fb": "764051",
+    "06386258-e8e0-4ff5-9bbc-f96bf4d929c5": "762063",
+    "152c95e1-5612-433b-b391-74776a796bc6": "763945",
+    "15325a0e-157a-4dd0-9760-061b810bddc4": "762325",
+    "1e998f2a-fc45-46f5-a570-9530095a7e88": "760816",
+    "2baa2cf0-e077-42fb-976a-54f8075775c3": "756745",
+    "32c98c4d-2e22-4d90-8fd5-f8b6c4b2ca4c": "764120",
+    "40f68438-d31a-4ba3-85ae-cb2325d38009": "730273",
+    "5b92cbac-88af-4c84-ae05-56406c83846a": "763854",
+    "5f6b9edf-179d-49cc-ae1e-fabff4bc3ac5": "755683",
+    "6736a11a-f0b3-4feb-af06-496fa4667435": "759761",
+    "69184185-d2ce-451f-a7c4-79b7b937a1c9": "755444",
+    "71bbf63e-a37e-4f6a-bf53-b3c1b1bb77d9": "758664",
+    "77ffd42a-b56b-4108-b254-9354bf2ec38a": "984863",
+    "79f9b356-8f4f-48d7-af20-aaebdb1fc207": "755741",
+    "7aede656-4dd1-41fa-b6db-632772a92e06": "761707",
+    "868a4d75-1fd8-4345-a8d8-0cc4f31e57c9": "758128",
+    "8e157f85-0082-4217-b477-13da1e51486a": "984954",
+    "8eda43ca-5d90-4568-aab6-2a1ef4eef68e": "762666",
+    "9413fcdb-2026-4681-9f62-d27fbf952209": "764211",
+    "ac117a01-ce1a-45bc-a52a-1fc17707543f": "761445",
+    "ac84e04e-4bf7-4b3f-8b58-f7553768dce7": "763728",
+    "ba7962f2-ee3e-4f95-a32b-6479c68c1905": "760268",
+    "bf99e4de-e102-4a3c-a2d4-df43e60a0887": "759087",
+    "cdeb6cee-9e41-42be-af6d-45f947e825da": "761888",
+    "d36dbd33-5213-434c-830c-df78a2968bd7": "756131",
+    "def966a9-7c5b-4090-8e4d-1905c4cda356": "755706",
+    "e12141dd-ad46-4b5e-bd66-62995e6182c9": "755570",
+    "e1a55dba-8fe5-4af1-b60c-bf5762edd721": "760350",
+    "e402c825-4561-47a7-a050-e73d4b2d58c6": "759761",
+    "f1389377-5fc7-42dc-9a8b-7ab640d95eab": "985982",
+    "f5b8ca12-2463-44f2-aaa3-81e3b1340153": "985891",
+    "f6cb920f-4f46-4091-bae4-41dc765c7e83": "764200",
+    "f85ee468-77cb-4a4b-a2a6-8a1e16b2c883": "756745",
+    "fba44fd7-fe5f-494a-b4d7-5220980608f1": "985812",
+    "fd7a018f-a8b8-42a2-8213-2f8f8ea9619d": "762028",
+    "00dff589-78db-4dd4-87f6-446867f3e735": "763978",
+    "04867e0d-3f62-4801-90b4-d6c2e0f53377": "759748",
+    "0542af00-7535-433f-befa-8c34003d94be": "758573",
+    "06cd0592-beb6-4093-8034-3657b2c2a343": "758152",
+    "06e403b9-8ff8-42e0-82bc-f6eb3c03bacc": "758584",
+    "07d671f4-6ebf-46f6-b933-d67016e784f0": "758185",
+    "086f7d24-b772-4cca-bc88-8683896537e7": "755661",
+    "08c5ea1a-64b8-4c2d-babd-64df1499fec9": "755103",
+    "08f86950-1539-434a-9d9b-829a3b48ec8e": "762622",
+    "09ea5363-267d-4b5d-b8f7-ee5c9e5fdb47": "762985",
+    "0ba404c1-7680-4df8-98f5-f90950cd394d": "760645",
+    "0c915800-785f-416f-a614-3e515782e709": "760975",
+    "0d1d11c8-bf99-4660-beef-e6f2e247e9fb": "756142",
+    "0fd36985-e97b-42d0-bc3e-28d5abcb5fe1": "759588",
+    "105af7dc-8afb-46b8-b136-ff913029ccde": "760100",
+    "10615558-2240-4c33-a46c-7521ffdd4e01": "758607",
+    "1083255d-41fe-4bb3-bd5e-4f3e3832b6ba": "763898",
+    "10f7a522-854d-4365-bd41-6ed8c6b01795": "764062",
+    "129bc4a8-0678-4873-8174-6aa66aeab0f6": "760986",
+    "12e36e33-0017-4fba-aada-4c6738efc781": "764346",
+    "149ba77b-f8d1-42a7-b432-ceb8b1ee505b": "758185",
+    "14ed338d-5e06-48c2-95e6-51293fd9b04e": "764346",
+    "15c812b1-3527-4c30-858a-6d07ed350afb": "764164",
+    "1958f2ce-73ee-444a-9fd7-cfd84fd41afa": "984908",
+    "1c31a85d-c3d5-44a0-a488-b6b7f0d462e5": "756120",
+    "1df270e5-df5c-4dbc-9b11-858b36487c2d": "763353",
+    "238e01c9-802d-48c9-8935-90771e195d7e": "761742",
+    "253e4087-1ae4-4333-a2a2-cd1cde91c82a": "756368",
+    "253eb391-477f-47ef-abc0-cab4d2615465": "756803",
+    "2586ac25-3b48-4604-816a-6713d4ef0619": "760348",
+    "2780cf56-3775-43bc-ba0b-23f1c430eff7": "763080",
+    "281d9840-ff2d-4778-9c38-58e157706092": "758642",
+    "2b1766d6-9266-4150-a057-ac4bd4a128ec": "763898",
+    "2b520893-e789-43f1-b672-977189ac6772": "761115",
+    "2d0f672f-0baa-4a60-8963-8988af76aa53": "756847",
+    "2d19f573-a2e4-4957-b997-b36ffa7b4334": "987115",
+    "2d53df18-4d74-456e-8f4a-6bc5bfce0aa0": "760144",
+    "2f99fdee-9bad-47e3-8d84-cfde4157541d": "758766",
+    "3037beab-a0dd-46e4-a59e-586d17545e74": "759863",
+    "306210d0-1d8a-4878-98c6-79c9829856f0": "761800",
+    "3094ab94-906e-4515-8d21-3a42f6d5c3fb": "756825",
+    "3258d026-5b96-451d-8fe4-ec58bc441593": "758130",
+    "326153cb-cc49-40e8-9235-9be91f3623cf": "760918",
+    "3353d888-85a2-42ad-93c8-dd7d4e5fcec6": "759588",
+    "36b25666-f3e0-4a76-84a4-1cd7572a1366": "759305",
+    "378c2bb8-e324-4f71-8491-01756427752f": "756153",
+    "379614e9-50ae-4c34-9368-51fb73978211": "758788",
+    "39c47c89-75fd-47cb-a009-a4430981fe6e": "755694",
+    "3bf1d1eb-aff2-4ccb-a2f9-562bd095ec54": "758584",
+    "3c10c588-65ee-48e1-a3ef-86dbccce5432": "761684",
+    "3ca0fda6-f31d-4f93-816c-4ea3a0ecdb03": "764040",
+    "3daa7385-aa9f-4854-b2bc-c6b33975d910": "763397",
+    "3e33f597-f168-4d0c-9937-4300413f0771": "759098",
+    "3eda2f89-2f14-4ed6-a28e-55258c9833b3": "762245",
+    "4056a5c1-2230-4be1-9257-fc8bb0bcfe59": "760918",
+    "405ba2b2-550f-4028-bdb6-031ac66c1977": "761662",
+    "4074f465-1af2-48fe-a2f5-aaf2f8b7fb7b": "758777",
+    "44249ea1-2395-4c20-924a-5b1a5b10f7a9": "764404",
+    "4456ae81-52ef-4b83-a337-903215693219": "758243",
+    "451d1611-af02-407e-b1cd-2c2326a44eb3": "756131",
+    "4531e074-6b3a-4262-af83-9fe49864aa3e": "763887",
+    "456f449e-bf63-416e-9028-8374d5ed5dfa": "764164",
+    "45ea5421-7386-4bc9-95e7-cb99eeb1adda": "761560",
+    "461b9c48-db93-4152-adee-98a0dd12cd85": "758083",
+    "4b4aeb7b-5688-4448-8bd6-9247adee0026": "761150",
+    "4ed4ea6b-a452-4a86-a80f-d043f01ef78d": "763353",
+    "4f94e46c-9f4a-469e-873f-57d681925c15": "761662",
+    "4fa71e02-9b55-48a7-9a3f-4edeba66fb36": "756608",
+    "5089a5f6-5b56-49fe-8aaf-696331640fe3": "755741",
+    "5196bc77-2257-4a8f-a787-980aec097eac": "755694",
+    "5545fa65-893f-4040-9c8b-1317f3701144": "764346",
+    "557465c3-3f3e-4d4c-9c77-0f9223885cb1": "756745",
+    "56dbe45b-6d23-459b-ac55-a724d56aeb84": "762041",
+    "5841c9c2-5304-4ccc-9912-7451777ffba1": "761946",
+    "59e078b3-3f36-4fee-8edc-3e2578ec4f3a": "764266",
+    "5ad24fbb-7ecf-4779-bc15-ce53a32bd4ac": "755648",
+    "5c572003-a9f6-4661-a9c5-cb4767ad8e52": "760144",
+    "5d25a86c-6940-4663-b6a6-e7f6d6d1cefb": "762427",
+    "5f9dc56c-c54d-4cc9-b3db-39d49922756e": "760100",
+    "61eceb63-97ab-41bf-8291-2e788634e849": "757352",
+    "646ea61c-9383-4bdc-874d-8d032a1c730e": "763397",
+    "65511552-6908-4b2a-9707-cba58bfa02ca": "761148",
+    "65ae8a2c-8665-43bf-a7aa-b202e12a1202": "764266",
+    "65d0235d-4986-4486-b18f-a49782445005": "764244",
+    "665fed05-3d50-4246-9ea3-9d8eeeeeca3b": "760907",
+    "66ebaead-9cf5-490b-9901-2229fc1997ee": "985982",
+    "687f5ba6-a97c-4c0e-b5f2-caea965438c4": "756847",
+    "69c57d56-a0cf-42fe-af44-c4d73d9c845c": "755661",
+    "69dffa16-8e6a-4c3d-9ebb-7933a6b4fd46": "763898",
+    "6a09537e-94f0-4eb2-a8d0-306b41d86960": "758221",
+    "6d5dc0a8-c717-4635-a9b2-24d6a7478d9f": "761104",
+    "6dc04c6c-876c-41a0-a1f1-cccfa8dbe145": "762941",
+    "6e65120f-2d0f-49b9-923d-53b1b02cb889": "756448",
+    "6e8174ee-2fd8-4db8-a0dc-ab3bdcbcdb29": "759098",
+    "6fb4f713-a6ae-4546-9ab5-eccd0d0c4819": "761263",
+    "7315610f-3310-43f3-9d3e-04d7e88261e8": "760224",
+    "74094c3c-f9b8-44b3-93a4-bee54d505836": "761720",
+    "76f152ff-bf06-4296-9bf9-e82779129903": "758323",
+    "781ba054-52fa-4ae7-9e29-9ed7269345e8": "764266",
+    "7851c17a-4d73-4892-a3dd-63058b0854aa": "764244",
+    "78fe5a62-bf28-4c11-96cb-4d7837fdc91f": "759748",
+    "7a29349c-ce44-4d84-8d62-75a2863d5130": "985014",
+    "7c1ac10b-e102-4032-abb3-39223da686a0": "760782",
+    "7c54122c-f122-4274-96dc-7d0b34b2d6a6": "759806",
+    "7f18b1a2-040b-4d4e-b4ce-413a5be22757": "764302",
+    "7fa55ca6-8f07-4e84-99a0-3af1e59d1692": "985025",
+    "7fd962b4-1b9a-4313-b0e6-bd72ca264f74": "761148",
+    "80a9c946-fba4-400b-99d7-381493103f63": "762440",
+    "81802bf2-9bc2-49cd-acdc-8b91ca66a708": "761115",
+    "822ac23b-d1d8-4236-bf3d-445d7fad12e6": "756825",
+    "827c2028-a802-4d08-b420-e7892344efc1": "760587",
+    "8332d200-40e8-488c-819a-378bd0202da3": "755763",
+    "84d9fcdd-4920-471f-922f-ed5267fd1182": "763785",
+    "86112eff-2a56-489f-b355-9c6535355c83": "761684",
+    "8724a6b6-73bd-4567-8d99-df70526c723a": "755843",
+    "88f310ba-c19d-4503-a1cb-7bc183a6328c": "756927",
+    "89453c17-4298-46f3-b488-bd780d77c3f4": "755661",
+    "8976f9c5-d4c7-4b6e-911e-eb8141abbc35": "761651",
+    "8bbc9c60-409c-4105-9778-d079147c7811": "764040",
+    "8e4101df-a7b2-4a3b-856c-57251deb0ad5": "764142",
+    "8ef863c1-ec63-49c3-b707-6acb37c21348": "764302",
+    "8f287d53-86c0-43f9-bb33-60501e947203": "755741",
+    "8f2fa9cc-c184-4b51-be36-e20357ea8426": "762985",
+    "8fcb4161-9f84-423a-a3e3-1080851aebd9": "755763",
+    "8ff4b1bc-a646-4728-9e04-2f38f0fee7db": "758117",
+    "915ce734-37ea-48c1-8eb7-449084afddb5": "761115",
+    "947efb18-e5e3-44d7-9451-1d571451c4ca": "759577",
+    "94c4237c-282a-480b-8a0c-65b6c4748e2f": "986031",
+    "96ef70f6-f4c4-4b8f-b8b9-8a73b4ec3d75": "761684",
+    "970aed1c-337a-4b60-9e22-380bc5072119": "764062",
+    "98f7cc96-1b7e-49e6-b12f-5b5161da86e1": "755683",
+    "9e628700-67c6-4693-9bd6-54f5b5e75edd": "763854",
+    "9f04c2c1-a903-46f9-9e30-9646f18cd20f": "985812",
+    "9f8b6021-d5de-41f9-b43c-9888ea945b5d": "763945",
+    "9f996000-1adc-4869-ab8b-22a0d1e99a03": "985025",
+    "a0451245-1940-4a52-b773-d81a0e783579": "758744",
+    "a04d3a9c-231c-4ad3-83a0-a9bcd5666680": "764164",
+    "a1e5d5cb-55bb-40ad-88e8-b4233cc359a1": "755706",
+    "a1f22149-3d81-44cf-92eb-4e1971f39e26": "760224",
+    "a2e1bc09-fc8d-4563-9ac4-19b02b2e26bf": "761148",
+    "a3878015-65a6-4209-8ba2-33f3783427ce": "756847",
+    "a47bbb64-4c51-4e62-8d59-0614e074e355": "760736",
+    "a507c8ba-bed8-4080-a83a-15d8579bb710": "759748",
+    "a52bdc66-a8df-482f-930b-ab69f5ae265f": "760918",
+    "a54d5d97-a16f-46e5-a11f-cf2c92fd4ac7": "763648",
+    "a60e062a-bd34-4b22-9169-5f89c0bf77d4": "764016",
+    "a8b6ca55-32e7-4bec-b4a3-6762f1b2eaea": "756643",
+    "a94bd9d7-14aa-449d-9317-702419a81341": "758460",
+    "a9820b55-3d42-40b0-9c72-a4bdc2123243": "764404",
+    "a9f9afce-4395-4d58-abe0-abb909506b64": "984976",
+    "acf266e4-fe17-4b05-81ea-479e5f90ef8b": "763080",
+    "ae328547-cc70-4b09-a792-0d522a643dfe": "760942",
+    "aed1f3e8-bc03-41c0-962e-0ebeb6be48c2": "764324",
+    "b0257140-574f-4cb4-be4a-e6f5fa9a1f8a": "761480",
+    "b1a73bd7-5480-49bb-8c80-53e5c3c9922e": "758323",
+    "b2a514c9-c0e2-4e88-bbb0-ba480a1bb616": "763648",
+    "b32777dd-e6d5-42e5-884a-98c35e6d0b65": "755320",
+    "b405a463-476a-432d-bddc-83aadf05febb": "763832",
+    "b41b3f10-9a09-43c5-8c6b-c28c742ae52a": "985036",
+    "b48cf2a2-2204-41fb-a224-7c2d84cda712": "758744",
+    "b6d2a1a9-8769-4fbe-8f8f-083b9c5923ce": "758744",
+    "b6e1c663-a835-4e12-9434-6e5dca8470f3": "762440",
+    "b77dac58-1853-4e60-800c-b7a9081a4912": "985014",
+    "b8cb2369-a030-428b-bb6e-be465c4a664f": "760587",
+    "b9e21e97-0e43-4123-8c9e-08a5be3f3a12": "763978",
+    "b9ffa051-bd57-4d3e-937b-a37fdb234b28": "758584",
+    "bf147035-9602-489a-ad35-6cfba93191c5": "757352",
+    "bfd4da7d-e9c3-42c9-9069-9533b115a626": "763626",
+    "c05d1567-dd7f-4da0-a3a3-3bc105f922e6": "758538",
+    "c15b7735-af3a-433e-810e-3624a9d62dbe": "761150",
+    "c198c009-33f7-4e7f-85c3-b14bc9e1105d": "763637",
+    "c3ac7f88-69b0-4bd1-8b6c-6282ab364b44": "760224",
+    "c4d86133-bb9b-47da-9bc5-e29a852ae4be": "985982",
+    "c589e634-4f24-4bd9-b9e6-31636b23ee51": "762427",
+    "c5edbe31-d2cd-447c-8a49-83c3b1a17156": "755661",
+    "c6015160-b930-4f2e-990e-12b255c2f53e": "761252",
+    "c614be1b-4d95-471e-af15-2eae861ee8e9": "763978",
+    "c61e4f5b-883b-4087-9c11-a4a3df0df60c": "759008",
+    "c8fa6cf7-9c71-458b-9c37-3e930582b983": "755706",
+    "ca164782-c1ce-4b64-97b5-3ab0e3037c0f": "763648",
+    "cb40f1d9-5f0c-476f-9bc8-51ad90a68c31": "759544",
+    "cbdcd80e-f446-4608-b49a-776a2d83e57e": "756448",
+    "cceafed2-54ea-4cff-8b68-d44bee50cae2": "763832",
+    "cdb0dd7c-2814-460e-afc0-05bae602d9e6": "760667",
+    "ce15e537-3f73-42e2-9e09-80e819cf0df5": "761206",
+    "d046229b-07c5-40d3-9204-9d0035aecae7": "755763",
+    "d2087763-5c61-4bec-b52e-2e16c3f58c53": "759008",
+    "d35ce746-7e06-4c26-8d59-17faf91bf4b6": "759008",
+    "d37c5f0a-a61a-4fc3-b5ea-dde7722b1f15": "984896",
+    "d468d5e6-5bd2-4782-bd9f-764746aeae9c": "763637",
+    "d4bf4b55-492a-4b3f-9384-0e8b60549fbe": "763887",
+    "d4dc0524-b8d8-4061-8aa0-34da7772e080": "762280",
+    "d513a482-5171-4ece-a1a7-04ff7e78a723": "755683",
+    "d695e2e7-89dd-40b5-8e34-326fbfdf2bf2": "759544",
+    "d8f62038-0022-4580-a81e-c9c543708fc8": "756701",
+    "d92cfded-5ee3-4eba-a3b9-f6b5d52dc8c9": "764346",
+    "d9a83f0c-af20-491b-8f55-24eb7dfb30c0": "985891",
+    "da19b8ec-ccda-4dfc-93e4-e3815f3c5ad5": "759806",
+    "da2be2d5-77d6-4c39-9f81-a3041269d50b": "761115",
+    "db84c8d6-d775-4d48-a562-449071d92277": "763626",
+    "dc70bd8b-b6de-42f7-8147-62de0ec8af1b": "756368",
+    "ddbbcdca-486d-4865-be2e-27c9608fbfa0": "759544",
+    "deb94bcf-a0a1-4b94-93ae-491085a53b10": "761480",
+    "dee9e524-3096-4159-bd13-884a66bc6c34": "764244",
+    "e28a3600-cc37-4327-a56d-6d9c268586ed": "758380",
+    "e343d24d-747c-44a5-8fd1-87c6cd4fa10f": "985138",
+    "e3b8f157-c577-4759-b450-3eb7721424bc": "762028",
+    "e5c57216-9622-4335-8cc8-cc55267c6c09": "758595",
+    "e65bff0e-55a7-49cd-b7f5-f42d1711c234": "760428",
+    "e71f5475-b418-4f7b-a0e6-f70011b288f2": "756131",
+    "e93ca210-86af-4e8c-9eaf-c78a46d990a9": "760975",
+    "eaa46289-934d-4c4a-b2e1-e4d4d7e94cf5": "761252",
+    "eb73176e-d04a-4506-935e-3ce5cf071255": "763626",
+    "ec3007c7-77b8-4cf8-9389-330f22426041": "758538",
+    "ee9c982d-a02f-4e35-b813-fd420c4ef7bf": "756153",
+    "f30b079e-c5ea-4ba4-8d00-d44de867c809": "984896",
+    "f4da5b40-4ddc-4fca-afca-689597c51acc": "759577",
+    "f5aabb09-e6c7-4580-b5f8-f44962a3bd96": "764186",
+    "f5c525c1-f41a-4621-b756-b4a0f7b988f2": "758130",
+    "f5dfc915-82a0-485e-848b-f31937086dda": "759577",
+    "f65cea36-cda5-4687-94e7-2d9c3f52e727": "985993",
+    "f6ec4ea4-500f-4acc-9ce9-ae496e6be769": "764186",
+    "f94e41ab-fbe9-4a35-95a6-9d1045451269": "763626",
+    "f975021a-c3a9-44a9-a480-da66cee6bba4": "759098",
+    "f99dfa03-27f5-4439-acdd-92f03101c23c": "761707",
+    "fa41b23d-28b0-4183-a738-e2b6faa5cc47": "755741",
+    "fb4a19af-d78d-4801-8250-278470202c03": "758471",
+    "fdfafb96-767e-4675-a9f6-c0a30c2c019e": "761480",
+    "fe151b9e-2efe-46e5-bde6-0a1b7e012cb3": "757113",
+    "fff03989-40ce-45b5-b915-57e6f6ae6c6e": "985982"
+  },
+  "nonChurchIds": [
+    "c16bb2f1-38a5-4676-93ba-40599e831e67",
+    "59c7c819-2ac7-42ad-b487-ae2ad5378437",
+    "ed1e5e5f-6e23-4287-b92f-e50054b7fab2",
+    "619a71bf-4540-452f-aea3-81fbc294479f",
+    "b223f82a-0d69-44bb-b207-949f85c1389a",
+    "029d1c4a-eab2-4b3c-ae26-f2aac9c4623c",
+    "3b9b6656-e6ca-4ab5-9079-c92ca3e88e92",
+    "ae1ea331-a74a-422b-9bf8-e235ff338f29",
+    "00608dbb-a507-4fd4-9a46-a16105ec6eed",
+    "08f62c63-28ce-4fa1-8ecc-df65d504cfa1",
+    "31251a2a-a510-43b4-be13-1394bb95c9e9",
+    "38bb55ff-d209-4371-b9a4-a6477013e91a",
+    "4f92d91a-31b2-4f53-8492-355df0bcb9f4",
+    "5f479d4b-69d3-4bf6-8a7a-c22fc8bb9f5a",
+    "85881ae9-7328-4008-8dfb-510917453ab3",
+    "b774ed7b-37ff-4884-97d4-d1a2170f5f5c",
+    "c122c38c-535a-49e3-9deb-6517f5e65461",
+    "0a0226f8-253d-4ae8-965c-4c3f9a4d9b6d",
+    "12da298b-ca17-462b-b907-020964792a8a",
+    "18740656-ec7e-4179-aca1-1b8cf55e8594",
+    "202f20f7-02bc-40a1-99ca-7724700627c6",
+    "23901bc4-e6c0-4a05-a6b8-b78289402f11",
+    "403e66c1-c34c-41bf-8572-1b626a827d27",
+    "4095c949-18ec-48a8-b419-f7b7890874de",
+    "451237c8-01cf-4ea0-88c1-7924486c4d75",
+    "4681c83a-d042-4185-a520-2ce9e812b65b",
+    "5667834e-7021-4559-b7d2-b20cbcd8e75b",
+    "69816428-69c7-4a1d-9bd3-c9f25bd2f618",
+    "7781af8d-31e7-448e-b739-fbec5754c25b",
+    "7a1e0771-b206-40b6-b947-06b9de8cc713",
+    "7f6541bd-2cc0-4c52-95f8-aa72e920911c",
+    "7f7da8fe-1bbc-4e0a-86fa-1417d2d076d3",
+    "83471008-0ba8-4ff6-ac0b-d67d0800789d",
+    "881e2de5-a1dc-41b6-a826-c1ecec180079",
+    "a3e5d20e-9596-46d2-a7ee-7a0617f0332a",
+    "bdb92b4b-d668-4cad-8b0d-7ea760cb004d",
+    "c771b477-ee51-4325-9d18-48bccdbfedb6",
+    "c99b6648-c399-4678-945d-f348620e6e9c",
+    "d6a75a9f-a545-4e50-b086-97da43094758",
+    "e2c7025d-ccf9-4933-b0da-e60f79e78431",
+    "f615d8ac-3f37-49c7-8e9b-276312622370",
+    "f6c48ee3-971f-42a8-85b4-827185149e9e",
+    "01bc9a59-c49c-43a3-9010-40f4e189f073",
+    "040467d7-15ea-4e4f-beba-06fe8a98408a",
+    "0445feb0-77a4-4404-b78b-2be7b2c8e5c8",
+    "054d85c8-4c86-4cdc-bc72-b3136f4ac4d9",
+    "083191b4-7bf6-45a5-b1a2-a5eb48878113",
+    "08e62fdb-8eb5-4578-924a-e8a3567f49be",
+    "0a28b1bb-8fe8-4920-9128-5bebc0972a91",
+    "0bf948bb-a9b9-4929-be9a-6aab05526973",
+    "0c8788e1-5207-4580-84f2-bf7ef23aada7",
+    "0f5efc76-285a-4212-b33c-9eff5e4c25ff",
+    "113b9306-803f-4f79-8d51-26231b487583",
+    "11b3c5c5-7c8a-4a15-8efa-36c059936bd5",
+    "13b952d4-b3fb-44b4-8cb0-8d8d21221f87",
+    "13eb9b62-7b47-4d64-9f27-3c3b907c0e4e",
+    "15694c60-e7b3-4889-866a-f8d7fc79f77f",
+    "17660efd-b25d-401a-bff5-32bc18cab44b",
+    "19fc5937-4a5c-4b01-8097-01ac54d743a4",
+    "1ae4871b-2bea-4655-a881-adebb8602829",
+    "1e291969-3f71-4266-a7e6-749808d67e12",
+    "21342e54-cc96-4ffa-b32e-5cadebc2ea27",
+    "21344f8a-7b79-49c1-b580-e84604ffbcb8",
+    "21a59eb4-04f1-4b09-a313-60f45ecfc2aa",
+    "22756788-a43d-4f1d-abcf-5863dae4d1db",
+    "24883c4f-5fac-4900-93a5-517fb7c13715",
+    "2538325d-3a23-461a-b2b0-14301ea00103",
+    "25848e67-627c-4a00-b805-c30ed94321fa",
+    "25efbe87-7b85-470e-97af-c9f3ed0ace82",
+    "2620cb6d-0fdb-4b7d-8495-72897c0518ac",
+    "26be0a92-3fde-4a9c-aa47-7c7abb3ca300",
+    "28b8042e-e681-446a-82a3-0b337473d7da",
+    "28baaee3-9e85-440c-957d-b471b8b7ad68",
+    "2bb34403-ff29-4564-b1f6-43d4b3e65ad8",
+    "2f4436c8-6635-48eb-9eaf-b0906763ac2f",
+    "32a2f901-3944-48db-bbfa-6a0250738425",
+    "32a92392-00e0-4531-9456-2fadb169c2cc",
+    "330ff887-0461-4ebc-8222-264662c4d03f",
+    "35a42cb6-1e16-46eb-b13d-5ed51a134231",
+    "37dec627-feb0-4689-bdee-e45af983f3f0",
+    "384d55ab-18b0-45d9-8fa7-493a60133aee",
+    "39252cbe-ba2f-4ae0-9d0a-db3622caea3f",
+    "3a0816dd-fc06-4066-a95e-5bb645451bdc",
+    "3e09e144-bccc-486c-875a-25b0701995c8",
+    "3ea5d698-6fc7-4ffe-b445-a83f97bc2d35",
+    "41ff2f84-e037-47e4-84d9-0e5c95779e9c",
+    "42b369dd-5fa7-4ba1-935e-372ed917e29f",
+    "43fb3763-d734-4990-9011-8945feed5957",
+    "44cfea32-9f23-43ff-b9fd-ab6e5ab2b3cc",
+    "461476df-5918-498d-a730-8d508a5bd425",
+    "4705d342-268c-4de4-8ef2-06f10c877d53",
+    "4736649f-ce9e-484f-a11f-e87efb302943",
+    "47d2c9fd-bce4-44a0-a685-a29a28a709b8",
+    "47e045fe-d5d5-4300-a9a5-0b3d7b9b1f12",
+    "4d195111-e94b-4f0c-ae80-bb45321b024a",
+    "50bc1864-f9a5-4ada-8236-3181149938a3",
+    "51ed2769-ac7d-42ee-9ac5-526cdc57e990",
+    "52ea3dbd-24d2-469e-b432-5599d27c446c",
+    "55c43a9b-1920-401a-8d37-a7851d078d90",
+    "564ad77b-c09a-4ae6-b8e2-32a02ed86799",
+    "5672c7f1-6fec-44e8-b1a5-e16442c66809",
+    "57f710f4-ee7f-4875-b703-658c4a2d0bf1",
+    "593bdf80-dcd6-4189-b514-457ba9b5507e",
+    "5a81344e-8a3b-4802-b836-d47fae622682",
+    "5b18c42c-2850-4e4c-8d72-b9634d74e55d",
+    "5daf6ba4-2120-4b96-8d38-83a0370603f0",
+    "5dbbe821-1db8-438d-94d6-4aec96f00b5c",
+    "5e40103c-e191-41ea-a045-445fb72917ea",
+    "5e6fa8e8-77d1-417a-9570-7aefa23f9426",
+    "6079a478-eb58-49bf-a54d-1c73bb93be40",
+    "61e96c43-054e-4093-8dfd-9532bb35974f",
+    "6702edc6-7e75-4702-ab3f-4b4ee9f8b809",
+    "67af88ca-bca8-4514-9f29-80b79b466188",
+    "681d30ee-0afd-4f5a-9de3-7ff8ccbe34c5",
+    "694993f3-6d28-43b3-b28b-9e9b04aca5a5",
+    "69590143-e176-4bec-80db-4408deb09091",
+    "6a9a2b1e-6a7a-4c6d-9d5c-ed97409634b6",
+    "6be91997-81fd-417e-a104-927dbf296443",
+    "6c4ea8a8-c462-47a8-ad9b-cc715bc1676b",
+    "6cdbc06c-4cab-4640-9a12-629a4837b694",
+    "6d2138c4-f697-4ec2-b8ff-59c0e63f4d65",
+    "6e47b02b-3454-41a7-a7d1-73346ba6e9d5",
+    "6f5bf2a9-9e0b-4847-8d4a-3ad07144ae2f",
+    "70e3f2b9-f107-4b7f-b429-3c15524a355d",
+    "7110f36f-18c3-4a2f-966b-9ee1ddb603a1",
+    "71f25cb7-4033-480e-9176-b29454d7f7dd",
+    "725339bc-3f92-429f-9bff-1b749305ec2f",
+    "73cf6389-ab72-4c8f-8a5b-f4fd0ff61da6",
+    "74b70ae3-0abc-4696-8bea-35a9df1fe5ca",
+    "7761f3d4-039e-45e2-a02f-1a7c7e024315",
+    "7aa57d59-3bd1-411f-865f-d2250a265921",
+    "7c4fcea5-caa2-4bd8-a3a3-b3ba560cfea2",
+    "7dd98168-4a18-49de-a019-05a8d6745e28",
+    "7e67d126-0b7f-48e7-94be-f866ab1c9ed7",
+    "7f353856-0c0c-498d-add8-79700f2062cf",
+    "7f3ebb20-843a-4fe3-af34-642c701ec288",
+    "8053f9f6-0fe1-4de2-b78d-57ad60b97e89",
+    "8196e6a2-dcce-4a68-994b-97fc50435e2d",
+    "81fde957-8503-40f6-ab3d-a13689a1eba6",
+    "82162700-0aca-4c7d-8c6a-bb7c1a04c03f",
+    "8223e433-6f86-475f-9ece-f6118f1346db",
+    "828f54cf-d6d5-4bfe-b007-bce516575c30",
+    "8302545a-0b06-48bf-bea4-65e94dcc29c9",
+    "84bd0482-600f-41c9-840d-3115cc35805c",
+    "87d312c2-6c02-4a45-b76f-8a6f4e46403b",
+    "89389916-77d4-46e4-9e0e-a09f9e02ea8a",
+    "89d8d5e7-3a8c-49e2-a2fa-413326e893e6",
+    "8abb2910-0c57-46ad-8fe3-de669cbc529d",
+    "8d2ef224-8a86-4343-a2cb-5276a93bacfb",
+    "8f3da34d-3950-4592-8aa6-03e6bfbe1ca0",
+    "8fb11eb3-847d-4a84-ae3c-6e26608a61a6",
+    "9144b2d1-c9dc-4e63-8e79-e2e7b9abed0c",
+    "926688a6-1740-4b66-ade6-b8dab847c29d",
+    "926c8542-cb24-4e94-9e44-921cdfcc4ae6",
+    "961fe30e-9ac4-4d5e-8f51-31055631b651",
+    "96df500e-af59-4b44-b2dd-8a0df1dce041",
+    "96ec83b5-567e-435e-8deb-44f11964f69b",
+    "970c2ba7-1bf7-4e58-b9a5-5948b9472739",
+    "997140d2-1539-4267-b8df-35d70703f07d",
+    "9d919827-f991-45b1-b44e-751c4f5b0763",
+    "9f4fbaa1-5d47-4979-91ae-a34216fefef5",
+    "a1ae0286-b376-4eb5-a125-97ce636507a1",
+    "a1cef576-e831-4caa-ab34-6f2cc2506287",
+    "a1ebacb6-2d0f-427f-a8dc-cab8042d3111",
+    "a40ff804-1459-41c6-aac7-f753100e15eb",
+    "a6127c91-dce8-43c8-b738-0e50df8f2bdc",
+    "a7208658-f1c5-45c2-981d-f5b6c8d3b277",
+    "a7216e1b-18be-46db-823e-1ab48ab436ed",
+    "ac66adb6-d696-4e59-a757-d4d8bacd8dee",
+    "ae108bbf-4c21-4478-bd0a-e186fc275e1d",
+    "b0b96bb7-206f-463f-9b50-1b8f9858cc49",
+    "b24cbbbe-67d3-4ddc-8c86-537fca99de1c",
+    "b41a0231-c35f-441d-8c13-2c4957ed55aa",
+    "b44b1eeb-182a-4aac-bfe8-9214c78a1b42",
+    "b653ba8d-3e70-4070-ad3a-226f9bf7fa7c",
+    "b6f438a7-0272-4d2e-8da5-0c9cf0ee79a0",
+    "b8f9fe7d-bc2c-4db4-af21-81709470afb3",
+    "b9b44531-823b-47ea-8a4b-1fc05e2d5888",
+    "b9bc8d38-fd78-4ca4-98cd-873972781ec7",
+    "be5419f9-b819-4ee0-a027-9d4b06af83e2",
+    "beb374ba-4f92-43c5-a4c9-1df5a765ab81",
+    "bf823b84-6be8-4d78-9b97-353ebf72d431",
+    "bfd51a12-e16f-4b44-bd00-71887947111d",
+    "c00e8990-9fcd-4dca-94e7-31da6434efe1",
+    "c04750e9-2d57-47ca-8e22-86a43afbd458",
+    "c0c00279-06bf-465b-a98c-ae1631a5ce13",
+    "c0cfccd7-8172-4710-af8d-0029f8bad464",
+    "c157bbb7-7d4b-4130-a4b7-a2bb7a861772",
+    "c1e8b090-d3e1-4224-bffb-6b3a20dfd1c9",
+    "c5359f51-f8f2-47a3-939c-ae96e3546d7e",
+    "c5859db5-92b7-471a-a7ab-c4426bff4b98",
+    "c8948614-d246-46cf-b0b1-0ee0f777ce35",
+    "cd396e98-aad6-4ee3-9a08-f89d1eeac441",
+    "d0c09a33-2c46-4c90-bb14-2e0b565bef72",
+    "d16d4e83-c7ac-4888-a912-6a775b0899a0",
+    "d1843885-f0d7-4443-a611-de715c3c1feb",
+    "d3143ec4-5325-44fc-8fa0-17ca42256a95",
+    "d5203939-0c38-43f9-94ce-a8ffbce38ecd",
+    "d59a6275-93f6-4664-af0d-e31d3f5203cd",
+    "d9e3caad-5306-43fa-bcea-80bba80abb91",
+    "e0579ba2-eb2c-48f5-b814-4ef1b87d0966",
+    "e0b2cf90-7802-4617-8156-e8627a8071fd",
+    "e76c784a-3155-48d2-8530-88d882ed2ed7",
+    "e7840f71-2d47-485e-a1cb-2566fed441ce",
+    "e895d0ae-6be0-4bcf-b188-446fd056f9d1",
+    "e9c91bf7-939b-45ff-b6ec-7ff933b95170",
+    "e9d8e63d-a2f7-42dc-804b-cb515346e909",
+    "ea163ac6-2e64-4691-8f01-b1414883dc7f",
+    "eb8f5d14-0ab9-4010-a23b-f2e6ce38f554",
+    "ec8dba77-31e0-4af3-b6fe-95a784ca7eb9",
+    "edccefae-7c21-4bd2-9484-5702a662da17",
+    "ee7fd28b-a93e-42e7-a854-eaa9b3739533",
+    "effc0214-7ad6-495a-8f81-d21ef5707143",
+    "f19bc675-6aac-48dc-906f-0d2362e98b5b",
+    "f2f02e5d-7e53-4cdd-b44a-036a59b6e64b",
+    "f37c1777-ed09-4526-a943-91b56b4459e0",
+    "f6215034-bedf-447b-9671-b2390e5a33f2",
+    "f6939370-dcc5-43ef-a0ae-cd6c0ad3fd55",
+    "f7221a03-8727-4552-b913-ba2d27d60640",
+    "f864563e-186e-4588-983a-9ecff459b8a5",
+    "f8c7e977-2bb2-45ce-85ae-6dbc836cc9f5",
+    "fab7f85c-f20f-4cd8-b510-f86ed725f01d",
+    "fb2bc33b-f8fe-44ec-87f3-0c7ff9eec4c9",
+    "fca9776f-5ab1-4731-acf0-d210dab392cb",
+    "ff056548-bb07-42fa-8f36-51ca6c526d9f",
+    "ff86b2c3-9bed-4a82-86e6-988b2240f034",
+    "ffb7e1a7-f759-4280-b4ad-e4f59d9b24cb"
+  ],
+  "unmatched": [
+    {
+      "name": "Perkins School of Theology",
+      "status": "closed",
+      "appts": 2
+    },
+    {
+      "name": "Teach Outside Meth Ch, St. Edwards College",
+      "status": "closed",
+      "appts": 2
+    },
+    {
+      "name": "Mentoring",
+      "status": "closed",
+      "appts": 2
+    },
+    {
+      "name": "HALLE Retired PM: APPT",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Fort Worth: Nuev Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "G Assoc. Pastor, Bulverde",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Somerset UMC ak Hill",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "1982 Rio Grande A Assoc. Pastor, CC: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Runge rst",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Schulenburg s UMC EWERTT, BILLY, JR. (OE) Goldthwaite",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Blumberg Memorial Library -TX. Lutheran Univ.",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Kerrville: S",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Portland: Fi Assoc. Pastor, Portland",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pastor, CC: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Relations",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "1974 Retired Trini Austi",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Boys and Girls of Corpus Christi",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Extension Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Goliad: First UMC SY) Carrizo Springs Pastor (PT), Carrizo Springs EUGENE (RE) Retired chool, TX Conf",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Angelo: Sierra 2023 Leave of Absence",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Lueders",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "S Andrew’s",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mertzon LIAM (RL) Retired 2006 Yorktown: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Little Rock Chapel of Bulv",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "S Resurrection",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San 2009 SAnt: Principe De Paz",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: Del Rio Principe De Paz (Del Rio) | Donna Principe De Paz (Donna) | PRINCIPE DE PAZ (SAN ANTONIO)"
+    },
+    {
+      "name": "of Absence",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Goldth",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Counselor, RGIL (RE) Retired hool, NWTX Conf",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Manor UMC st",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Freer",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Sant: Emanuel",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: Emanuel San Antonio (San Antonio) | EMANUEL SAN ANTONIO (SAN ANTONIO)"
+    },
+    {
+      "name": "Riverside Community Church East",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Nuevo Pacto V",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Educator and Outreach Coordinator, Magdalena , So House Univ",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Faith UMC, Orange",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Samartiano",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Medical Le Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "SAnt ENISE (RE) Retired chool, Yale University",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Canyon Lak Shore",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pharr: ueva Vida",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Browns",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Weimer S",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Sp rst UMC HAMILTON, DANA LOVE Retired nf",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "SAn",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Ass - Liberty Hill",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Methodist Healt Kingsville: El Buen Pastor",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: EL BUEN PASTOR HOUSTON (HOUSTON) | San Marcos El Buen Pastor (San Marcos) | MOODY EL BUEN PASTOR (?) | TULIA EL BUEN PASTOR (?)"
+    },
+    {
+      "name": "Goldthwaite UMC ueva Vida",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Seguin: (FL) Schulenburg nburg (OE) Goldthwaite UMC waite UMC ALTER (RE) Art ke",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "O ona",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pearsall UMC olonial Hills",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Jefferson Y El Divino Salvador",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio:",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Psychologist, Private Practi 2017 Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Teach Outside Meth",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "on Ganado",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. Spring Creek",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "A Mercedes: El Buen Pastor",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: EL BUEN PASTOR HOUSTON (HOUSTON) | San Marcos El Buen Pastor (San Marcos) | MOODY EL BUEN PASTOR (?) | TULIA EL BUEN PASTOR (?)"
+    },
+    {
+      "name": "Hal",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Professor, South Texas College",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Bee Cree Corredor de la Esperanza",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Seguin: Firs Rockport: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Elgin aller, John Ford Retired D: UT at Arlington",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Alamo Heights Retired Three Rivers le: Christ etired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Marcos: El Buen Pa Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "r, Metropolitan Methodist",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Devine UMC 0 George MC",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Professor, South Texas Grand College",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. University",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Leawood: The Church of Resurrection",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Blumberg Memorial Library- TX. Lutheran Univ.",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Retire",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "S Retired Care System",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rankin Assistant to the E 2014 Assistant to",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "errville: St. Paul's",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Juan",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Blanco UMC COOPER,",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Boe",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pastor, SAnt: Lau Transitional Leave",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Castroville:",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Three Rivers UMC HN (FE) New Braunfels: First UMC Braunfels: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: orthern Hills UMC Family Leave",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Brownsville: El Buen Pastor",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: EL BUEN PASTOR HOUSTON (HOUSTON) | San Marcos El Buen Pastor (San Marcos) | MOODY EL BUEN PASTOR (?) | TULIA EL BUEN PASTOR (?)"
+    },
+    {
+      "name": "eet JR. (PL) Dewville",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "C: St. John's",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Heights",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "SA Harlandale",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Shiner orado - ericksburg St. Mark Matthew's istrict",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pastor, Portland: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Hebbronvi Freer",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Redentor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "F Retired 2 E",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Canyon Lake: North Shore UMC ’s",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Lolita Development Dire Attitudinal H, S",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Corpus Christi: St. Lukes 0 Bandera ista",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Hollywood Hills",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Schert",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pearsall: San Pabl",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Br Freer",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "S Fellowship",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "09 SAnt: Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pawnee Pawnee M (FE) SAnt: Coker UMC Pastor, The Foundry",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "I Refugio",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Edcouch ., SR. (RE) Retired ecord of Appointment, LRA Conf",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Fam",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "QKD Quarry Kingdom Development",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Drip",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "1953 NAL Conf",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "College Station Christ",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": ": First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Marcos: El Buen Pastor JACQUELYNN (FE) Edinburg: First UMC Bethany",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rio Grande City: St. John's",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Retir",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Ala Pablo",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Ale Health Care System",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Dri wood Leakey",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Sabinal: 982 SAnt: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Office Of lopment, Avance N, CHARLES HENRY (RE) Retired S: 1997 In School, Perkins School of Theology (335.1a)",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Lyford NGSTON (FE) Ozona UMC est",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Minister Of Education, McMurry University",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Garwood: Lehrer Memorial Point Comfort",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": ": St. John mondville: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Extension",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Heart to Heart Hospice",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Odem: First UMC Heig",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "errville: Fi",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Manchaca UMC E M",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: Lake",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Brownsvil Buen Pastor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Bee Creek UM Buda",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Leav",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Don",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "C: ohn’s",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: orthern Hills UMC inistries sense RG",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Cheroke",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rio Grande City: St. John’s",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "A Assoc. Pastor, Bulverde",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Carri o Springs",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Weimer",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "CC 2023 SAng: St. Luke",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: Saint Lukes Corpus Christi (Nueces) | St Luke Austin (Austin) | SAINT LUKES CORPUS CHRISTI (CORPUS CHRISTI) | St Luke San Angelo (San Angelo)"
+    },
+    {
+      "name": "San Antonio: Emanuel W",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Las Misio",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Alexand Health Care System",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pearsall: San",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Heart to Heart Hos",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Riviera",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Brownsville: Templo Emmanuel",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "SAn Samartiano",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Counselor, Community Hospice of Texas Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "ew Braunfels: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Edcouch Robs Lome",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "SA Meadow",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mathis (FL) SAnt: Westlawn : El Divino Salvador",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Draw",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Staff, City of CC: Homeless Program",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Edinburg: First UMC T, GUADALUPE T. (FE) Northern Hills of Absence",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: dinburg: El Pollard Memorial Coker",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Donna: n Juan: Los Wesleyanos",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Marcos: RBURY (PL) Pettus",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "I Pastor, Refugio",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. Pas Hollywood Hills",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Bro",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mathis Exte",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Bloomington Memorial",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "New Wineskin",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Merced",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: S Church",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. SY: 2 Pastor, SAnt: Northern Hills",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "First UMC Fort Worth",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "El Campo: W Chapel",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Alamo Heights U",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "orang",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Asbur",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pastoral Counseling, Victoria Pastoral Counsel 2019 Family Leave",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "D uarry ingdom Development",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Refugio UMC P A",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: BROO Jefferson Y El Divino Salvador",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Unappointed , o Record of Appt",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "S Epworth",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Odem: First UMC stor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Medical Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Partners In Hope - Texas",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: ng Creek",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Myers Park",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Donna: FUMC SE Conf",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "academic Coordinator, QKD Quarry Kingdom Development",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Spring Creek (FL) Unappointed . Pastor, Austin: Bethany",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, SAnt: Bethany",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "El Divino PL: Salvador",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. MC",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "o recor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Alamo Heights FL: APPT",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "al Hospice Services (FL) Assoc. Pastor, Floresville UMC c. Pastor, Bulverde",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Relations M",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Schert UMC Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Prairie Lea A U",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "IND Conf-New PL: Paris",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rio Grande City: Firs",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "R Pearsall: San Pablo",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: Alamo San Pablo (Alamo) | Pearsall San Pablo (Pearsall)"
+    },
+    {
+      "name": "Rio Grande City: St. John",
+      "status": "disaffiliated",
+      "appts": 1,
+      "note": "ambiguous: Rio Grand City Saint John (Starr) | St Johns Austin (Austin) | Saint Johns Corpus Christi (Corpus Christi) | Saint Johns San Antonio (San Antonio)"
+    },
+    {
+      "name": "Castell FARRIS, JAMES REAVES Methodist University of Sao",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rocksprings: F",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pastoral Counseling, Victoria Pastoral Cou 2019 Family Leave",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Creek",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "R MC: St. Mark UMC P A",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Bulverde UMC Discipleship",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Corpus Christi: Grace or, CC: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Laurel Heig Retired ESCAMILLA, ROBERTO (RE) Retired .1a)",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Educator and Outreach Coordinator, Magdalena House",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "a Feria Bracken",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Fredericksburg UMC Community",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Seadrift",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Counselor, Belton ISD",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Marble Falls UMC CRUZ (PL)Assoc. Pastor, Harlingen: Valley . Pastor, San Benito: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Principe De Pa",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Devine UMC kson Chapel",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Garwood: arkham Lehrer Memoria",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Cha Heart Hospice",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Buda UMC 16 Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Manchaca UMC l",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Guadalupe Regional c. Pastor, Wimberley",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Industry : University UMC Denton",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Abse Laredo: La Trinidad KELLY SQUYRES (PE) Assoc. Pastor, SAng: Sierra Vista S: 2018 Assoc. Pastor, SAng: Sierra Vista UMC WILLIAM MONROE (FE) Mission: First UMC S: 1985 Assoc. Pastor, Avoca",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply P Freer",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Kenedy: El Buen Samaritano–",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: EL BUEN SAMARITANO (DALLAS) | KENEDY EL BUEN SAMARITANO (Karnes) | EL BUEN SAMARITANO (SAN ANTONIO) | Harlingen El Buen Samaritano (Cameron)"
+    },
+    {
+      "name": "El Valle New Church",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: St. otes Hills UMC EROY (RE) Retired Conf - Belden",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rabke t. Luke",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Draw oreste RG",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "academic Coordinator, QKD Rio Quarry Kingdom Development",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Puyallup",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Angelo: We 2019 SAng: Wesley Trinity",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Extension Mar",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "orange, Faith",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Parkland Memorial H",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Suppl",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "red",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Dist Wimberley UMC Supe and",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Medical Leav",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pastor, Smithville: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Angelo: Sierra V",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Corpus Christi: St. Lukes",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: Saint Lukes Corpus Christi (Nueces) | SAINT LUKES CORPUS CHRISTI (CORPUS CHRISTI)"
+    },
+    {
+      "name": "CASA Hermosa",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Weslaco: La ad",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "A Assoc. Pastor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Salvador",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "extension min., Mission: B",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Kempner UMC 1980 Three Rivers Stockdale: Christ",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Grant",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Christ 1966 Rio Grande A",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. Pas Grange: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Harlingen: El Buen Samaritano",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: EL BUEN SAMARITANO (DALLAS) | KENEDY EL BUEN SAMARITANO (Karnes) | EL BUEN SAMARITANO (SAN ANTONIO) | Harlingen El Buen Samaritano (Cameron)"
+    },
+    {
+      "name": "e: First UMC SAnt: El Divino Salvador",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Aus",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Jefferson Y El 015 Divino Salvador 990 Flatonia",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Guadalupe Regional Hospice Services",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: Servan",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "H Medical Leave U H",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "A Montel A",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: Servant pointed pt N (RE) Retired Local Pastor, MO East Conf - Columbia",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Alamo F (HN) Honorable Location eshoe: El Divino Salvador",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: ODESSA EL DIVINO SALVADOR (Ector) | MULESHOE EL DIVINO SALVADOR (?) | EL DIVINO SALVADOR (SAN ANTONIO) | SHERMAN EL DIVINO SALVADOR (?)"
+    },
+    {
+      "name": "Assoc. tor, Mt. Wesley Methodist Encampment",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: St. Ma",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mossy Grove Smiley",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Laredo: La Trinidad Boerne: First CAMP, CHARLES ALLEN Retired er",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin Region JFO",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Fanni Telferner",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rabke A R",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: El Buen Samarita",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: R",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Lyford Retired sville",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Alde",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Castroville: M",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: Luke",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Metropolitan Methodist",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Donna:Principe de Pa",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "ingsbury",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mathis E P A",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Comm. Ctr., S.A East St. Paul",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Brownsville: Templo Emmanuel",
+      "status": "active",
+      "appts": 1
+    },
+    {
+      "name": "aymondville Assoc. Pastor, P ugerville",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Hon Location",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: orthwest Hills",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Ingleside UMC ily Leave",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "La Feria: Dios es 1987 Amor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "C 2022 CC: Wesl HUR EUGENE (RE) Retired N Conf - Hampshire",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "City",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Lare",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin Region JFON",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Jacobs Chape",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Yancey S",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Art 3 Assoc. FARRIS, JAMES REAVES Retired a",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "UT Austin Police Dept.",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Canyon Lake UM 2021 La Vernia",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Alamo Heights Crystal",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Medical",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: Se",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mathis P A",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Buda UMC nce",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: CTX Conf - Harker Hgts Nolanvil",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "s Industry",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "C: St. John’s",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Raymondville: Fi Retired ARCHER, WILLIAM CONRAD Retired ille: Christ",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Chapel Hill urg",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mount L",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rush",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. Pas Gruene",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Telferner Wesley Trinity",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pastoral Counseling, Victoria Pastoral Counseling",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Rio Texas New",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "uevo Pacto",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Floresville UMC Chapl Eligi",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "John's",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "P ugerville",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "McCamey: irst",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Ment",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Church &",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "P Retired A U",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "University Methodist",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Brown Buen Pastor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. Cres Pastor, First UMC Fort Worth Scho Asso",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. B Pastor, SAng: First UMC J P",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Cotul First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Alamo: San na:Principe de Paz",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Skidmore Absenc",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "SA Campus Minist",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pot Co-Pastor, Harlan and Monroe Chapel",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Lay Pastor (PT), Carri o Sp",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Lyford",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "2 Mercedes: El Buen Pastor",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: EL BUEN PASTOR HOUSTON (HOUSTON) | San Marcos El Buen Pastor (San Marcos) | MOODY EL BUEN PASTOR (?) | TULIA EL BUEN PASTOR (?)"
+    },
+    {
+      "name": "Taft GERTRUDE SPARKS (RL) Assoc. Pastor, CC: Asbury S: 2002 Assoc. Pastor (PT), CC: Asbury",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "M Leave, Medical Leave",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Ozona UMC (HN) Honorable Location r Point",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: L City",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, Brownsville: Emmanuel",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Campus",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Psychologist, Private Practice",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Andrew’s",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Poteet Retired rse of Study",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Goldthwaite UMC t",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "S CC: First UMC C",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Chri Christoval",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Sterling City: First UMC 1974 Kingsville: Heights",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Seadrift order Hope",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "APPT Retired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Little Rock Chapel of Bulverde",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "A Retired F",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "TCU Wesley Assoc. Pastor, SAnt: St. Andrew’s",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "A Church",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Counselor, Leander ISD",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Wellspring",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Edna: ISTEN EBEL (FE) Assoc. Pastor, SAnt: 18",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Center P",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pearsall UMC Retired BAE, HYEOK (OF) SAnt: Korean UMC e CT",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "O'Donnell",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. Pastor, Floresville",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Paz",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "enedy: El Buen Samaritano",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: EL BUEN SAMARITANO (DALLAS) | KENEDY EL BUEN SAMARITANO (Karnes) | EL BUEN SAMARITANO (SAN ANTONIO) | Harlingen El Buen Samaritano (Cameron)"
+    },
+    {
+      "name": "Int Pastor, Smithville: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Segu Trinidad",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. Pas Pflugerville",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Carri o MC",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Coastal",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "2019 Counselor, Leander ISD",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Aus Simpson",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "First: Abilene E LOUISE (RE) Retired edar Park: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "ore UMC CC: St. John's",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "ReX",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Pre",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Jourdanton tired",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "FL: Retired APPT Trin",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Crossr",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc. .1a)",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austi Church",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "errville: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: orthwest Hills Perkins School",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Baptist Health Systems Chaplaincy",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Supply Pastor, SAng: Bethel",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "O’Donnell",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "ED: Texas Women's Univ BSW",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Methodist Health County Hospice",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "First UMC MC",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: East St. Paul Soc Wkr -Kerrvi Harper",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San Antonio: Hills",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Corpus Christi: Asbury FORREST (FE) Austin: Bethany c. Pastor, Austin: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Kerrvill",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "San niversity Benito",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Mertzon Missi",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "St. John",
+      "status": "closed",
+      "appts": 1,
+      "note": "ambiguous: Rio Grand City Saint John (Starr) | St Johns Austin (Austin) | Saint Johns Corpus Christi (Corpus Christi) | Saint Johns San Antonio (San Antonio)"
+    },
+    {
+      "name": "Comfort: Gaddis Memor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Austin: Servant 2017 SAnt: Travis Park",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "S Andrew's",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "t: Coker Gruene",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Portland: First UMC Coor",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "C Kyle",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "FLORES",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Granite Shoa",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "C Health",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Alexandria VA Health (FD)Assoc. Pastor, SAnt: Northern Hills UMC oc. Pastor, SAnt: Northern Hills",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Extension Minist Mission: Border Hope",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "ingsville: First",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Kingsvi",
+      "status": "closed",
+      "appts": 1
+    },
+    {
+      "name": "Assoc errville: First",
+      "status": "closed",
+      "appts": 1
+    }
+  ]
+}

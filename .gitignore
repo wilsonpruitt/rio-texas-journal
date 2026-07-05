@@ -52,3 +52,10 @@ scripts/data/gcfa/church_stats.csv
 scripts/data/gcfa/church_stats.jsonl
 scripts/data/gcfa/church_id_map.json
 scripts/data/disaffiliation-reconcile.tsv
+
+# PAR pastor-level outputs (names attached — LOCAL ONLY, never commit/deploy)
+scripts/data/par/pastor-par.csv
+scripts/data/par/par-brief.html
+
+# python bytecode
+__pycache__/

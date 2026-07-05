@@ -1,0 +1,89 @@
+{
+  "M": {
+    "stints": 175,
+    "pastors": 146,
+    "medianArrivalMembers": 188,
+    "meanArrivalMembers": 409.4,
+    "medianExpectedPerYr": 1.03,
+    "medianFavorability": 53,
+    "meanParPerYr": -0.57,
+    "medianParPerYr": -0.31,
+    "meanParShrunk": -0.1,
+    "pctPositivePar": 34
+  },
+  "F": {
+    "stints": 75,
+    "pastors": 65,
+    "medianArrivalMembers": 183,
+    "meanArrivalMembers": 290.7,
+    "medianExpectedPerYr": 1.01,
+    "medianFavorability": 56,
+    "meanParPerYr": -0.27,
+    "medianParPerYr": -0.17,
+    "meanParShrunk": -0.13,
+    "pctPositivePar": 37
+  },
+  "bandMix": {
+    "M": {
+      "<50": 10,
+      "50-99": 18,
+      "100-249": 33,
+      "250-499": 18,
+      "500+": 21
+    },
+    "F": {
+      "<50": 12,
+      "50-99": 20,
+      "100-249": 32,
+      "250-499": 17,
+      "500+": 19
+    }
+  },
+  "tail": {
+    "500": {
+      "M": {
+        "n": 37,
+        "pct": 21
+      },
+      "F": {
+        "n": 14,
+        "pct": 19
+      }
+    },
+    "750": {
+      "M": {
+        "n": 24,
+        "pct": 14
+      },
+      "F": {
+        "n": 5,
+        "pct": 7
+      }
+    },
+    "1000": {
+      "M": {
+        "n": 19,
+        "pct": 11
+      },
+      "F": {
+        "n": 3,
+        "pct": 4
+      }
+    },
+    "top20": {
+      "M": 17,
+      "F": 3
+    },
+    "median500plus": {
+      "M": 1063,
+      "F": 665.5
+    }
+  },
+  "coverage": {
+    "stints": 307,
+    "inferred": 250,
+    "pastorsM": 146,
+    "pastorsF": 65,
+    "pastorsUnknown": 45
+  }
+}
