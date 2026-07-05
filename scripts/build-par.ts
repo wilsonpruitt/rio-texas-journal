@@ -70,7 +70,7 @@ const clergyRows = await fetchAll<ClergyRow>("clergy", "id, canonical_name");
 const churchById = new Map(churchRows.map((c) => [c.id, c]));
 const clergyName = new Map(clergyRows.map((c) => [c.id, c.canonical_name]));
 
-const stats = await loadStats(new Set(["MEMBTOT", "RECPROF", "REMCHR", "REMWITH", "REMUMC", "REMOTH", "REMDEATH", "RECUMC", "RECOTH", "RECREST"]));
+const stats = await loadStats(new Set(["MEMBTOT", "RECPROF", "REMCHR", "REMWITH", "REMUMC", "REMOTH", "REMDEATH", "RECUMC", "RECOTH", "RECREST", "COMPPAST", "PASTHOUS", "TOTCASH"]));
 const ctx = await buildContext(db, stats.keys());
 const model = buildParModel(stats, ctx);
 const cohorts = model.cohortTable(TRAIN_MAX);
@@ -162,6 +162,7 @@ type StintScore = {
   actualTotal: number; expectedTotal: number; parTotal: number; parPerYr: number; parShrunk: number;
   arrivalMembers: number | null;
   flows: { nonNaturalOut: number; deaths: number; transfersIn: number };
+  compBaseSum: number; compTotalSum: number; compYears: number; yearSum: number;
 };
 const scoreByStint = new Map<Stint, StintScore>();
 let skippedSmall = 0, skippedNoData = 0;
@@ -183,6 +184,7 @@ for (const c of clean) {
       start: s.start, end: s.end, years: [],
       actualTotal: 0, expectedTotal: 0, parTotal: 0, parPerYr: 0, parShrunk: 0,
       arrivalMembers: e0, flows: { nonNaturalOut: 0, deaths: 0, transfersIn: 0 },
+      compBaseSum: 0, compTotalSum: 0, compYears: 0, yearSum: 0,
     };
     scoreByStint.set(s, sc);
   }
@@ -194,6 +196,13 @@ for (const c of clean) {
   sc.flows.nonNaturalOut += (field(s.gcfa, "REMCHR", c.year) ?? 0) + (field(s.gcfa, "REMWITH", c.year) ?? 0) + (field(s.gcfa, "REMUMC", c.year) ?? 0) + (field(s.gcfa, "REMOTH", c.year) ?? 0);
   sc.flows.deaths += field(s.gcfa, "REMDEATH", c.year) ?? 0;
   sc.flows.transfersIn += (field(s.gcfa, "RECUMC", c.year) ?? 0) + (field(s.gcfa, "RECOTH", c.year) ?? 0) + (field(s.gcfa, "RECREST", c.year) ?? 0);
+  const base = field(s.gcfa, "COMPPAST", c.year);
+  if (base != null && base > 0) {
+    sc.compBaseSum += base;
+    sc.compTotalSum += base + (field(s.gcfa, "PASTHOUS", c.year) ?? 0) + (field(s.gcfa, "TOTCASH", c.year) ?? 0);
+    sc.compYears++;
+    sc.yearSum += c.year;
+  }
 }
 const scores = [...scoreByStint.values()].filter((s) => s.years.length > 0);
 for (const s of scores) {
@@ -244,11 +253,13 @@ for (const s of ranked.slice(-5)) console.log(`  ${s.parShrunk.toFixed(2)}/yr  $
 const esc = (v: string) => (/[",\n]/.test(v) ? `"${v.replace(/"/g, '""')}"` : v);
 // Leading apostrophe on name/church guards CSV formula injection (names can start with =,+,-,@).
 const csvLines = [
-  "clergy,church,gcfa,start,end,years_scored,arrival_members,actual_total,expected_total,par_total,par_per_yr,par_shrunk,non_natural_out,deaths,transfers_in",
+  "clergy,church,gcfa,start,end,years_scored,arrival_members,actual_total,expected_total,par_total,par_per_yr,par_shrunk,non_natural_out,deaths,transfers_in,comp_base_mean,comp_total_mean,comp_years,comp_mid_year",
   ...scores.sort((a, b) => b.parShrunk - a.parShrunk).map((s) =>
     [esc(s.name), esc(s.church), s.gcfa, s.start, s.end === OPEN_END ? "" : s.end, s.years.length, s.arrivalMembers ?? "",
       s.actualTotal, s.expectedTotal.toFixed(2), s.parTotal.toFixed(2), s.parPerYr.toFixed(2), s.parShrunk.toFixed(2),
-      s.flows.nonNaturalOut, s.flows.deaths, s.flows.transfersIn].join(",")),
+      s.flows.nonNaturalOut, s.flows.deaths, s.flows.transfersIn,
+      s.compYears ? Math.round(s.compBaseSum / s.compYears) : "", s.compYears ? Math.round(s.compTotalSum / s.compYears) : "",
+      s.compYears, s.compYears ? (s.yearSum / s.compYears).toFixed(1) : ""].join(",")),
 ];
 writeFileSync(OUT_CSV, csvLines.join("\n"));
 

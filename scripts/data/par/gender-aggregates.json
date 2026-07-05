@@ -23,6 +23,22 @@
     "meanParShrunk": -0.13,
     "pctPositivePar": 37
   },
+  "compEquity": {
+    "all": {
+      "stintsM": 165,
+      "stintsF": 74,
+      "medianBaseM": 43063,
+      "medianBaseF": 38202,
+      "residualGapPct": -2.2
+    },
+    "fulltime-shaped (100+ members, $10k+)": {
+      "stintsM": 118,
+      "stintsF": 51,
+      "medianBaseM": 51258,
+      "medianBaseF": 44150,
+      "residualGapPct": -8.6
+    }
+  },
   "bandMix": {
     "M": {
       "<50": 10,

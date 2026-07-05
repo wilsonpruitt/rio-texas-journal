@@ -164,6 +164,69 @@ for g in ("M", "F"):
     tail.setdefault("median500plus", {})[g] = med(xs)
 print(f"top-20 largest arrivals: M {tail['top20']['M']} / F {tail['top20']['F']} | median size of 500+ arrivals: M {tail['median500plus']['M']} vs F {tail['median500plus']['F']}")
 
+# ---- Compensation equity v0 ------------------------------------------------
+# Church-reported senior-pastor base comp (COMPPAST) averaged over the stint's
+# scored years, attributed via the same clean incumbency rules as PAR.
+# Gap = gender difference in residuals of log(comp) ~ log(arrival members) + year.
+import math
+
+def ols_multi(X, y):
+    """tiny normal-equations OLS with intercept; returns coefficient list."""
+    n, k = len(X), len(X[0]) + 1
+    A = [[1.0] + list(r) for r in X]
+    XtX = [[sum(A[i][a]*A[i][b] for i in range(n)) for b in range(k)] for a in range(k)]
+    Xty = [sum(A[i][a]*y[i] for i in range(n)) for a in range(k)]
+    for col in range(k):                       # gaussian elimination
+        piv = max(range(col, k), key=lambda r: abs(XtX[r][col]))
+        XtX[col], XtX[piv] = XtX[piv], XtX[col]
+        Xty[col], Xty[piv] = Xty[piv], Xty[col]
+        d = XtX[col][col]
+        XtX[col] = [v/d for v in XtX[col]]
+        Xty[col] /= d
+        for r in range(k):
+            if r != col and XtX[r][col]:
+                f = XtX[r][col]
+                XtX[r] = [v - f*XtX[col][j] for j, v in enumerate(XtX[r])]
+                Xty[r] -= f*Xty[col]
+    return Xty
+
+comp_rows = [r for r in known
+             if r.get("comp_base_mean") and r["arrival_members"]
+             and float(r["comp_base_mean"]) > 0 and int(r["arrival_members"]) > 0]
+print(f"\n--- Compensation equity v0 (stints with reported base comp: {len(comp_rows)}) ---")
+comp_agg = {}
+for label, sel in [("all", comp_rows),
+                   ("fulltime-shaped (100+ members, $10k+)",
+                    [r for r in comp_rows if int(r["arrival_members"]) >= 100 and float(r["comp_base_mean"]) >= 10000])]:
+    ms = [r for r in sel if r["gender"] == "M"]
+    fs = [r for r in sel if r["gender"] == "F"]
+    if len(ms) < 8 or len(fs) < 8:
+        print(f"  {label}: too few stints (M {len(ms)} / F {len(fs)})")
+        continue
+    medM = med([float(r["comp_base_mean"]) for r in ms])
+    medF = med([float(r["comp_base_mean"]) for r in fs])
+    # residual gap controlling size + year
+    X = [[math.log(int(r["arrival_members"])), float(r["comp_mid_year"] or 2020) - 2020] for r in sel]
+    y = [math.log(float(r["comp_base_mean"])) for r in sel]
+    b = ols_multi(X, y)
+    resid = {id(r): y[i] - (b[0] + b[1]*X[i][0] + b[2]*X[i][1]) for i, r in enumerate(sel)}
+    gapln = (sum(resid[id(r)] for r in fs)/len(fs)) - (sum(resid[id(r)] for r in ms)/len(ms))
+    gap_pct = (math.exp(gapln) - 1) * 100
+    comp_agg[label] = {"stintsM": len(ms), "stintsF": len(fs),
+                       "medianBaseM": round(medM), "medianBaseF": round(medF),
+                       "residualGapPct": round(gap_pct, 1)}
+    print(f"  {label}: M {len(ms)} / F {len(fs)} stints")
+    print(f"    median base comp: M ${medM:,.0f} vs F ${medF:,.0f}")
+    print(f"    size+year-controlled gap: women {'+' if gap_pct >= 0 else ''}{gap_pct:.1f}% vs men")
+# same-controls gap within size bands (medians of residuals, descriptive)
+for b_ in ("100-249", "250-499", "500+"):
+    grp = [r for r in comp_rows if band(r["arrival_members"]) == b_]
+    ms = [float(r["comp_base_mean"]) for r in grp if r["gender"] == "M"]
+    fs = [float(r["comp_base_mean"]) for r in grp if r["gender"] == "F"]
+    if len(ms) >= 5 and len(fs) >= 5:
+        print(f"  band {b_}: median M ${med(ms):,.0f} (n={len(ms)}) vs F ${med(fs):,.0f} (n={len(fs)})")
+
+agg["compEquity"] = comp_agg
 agg["bandMix"] = banddist
 agg["tail"] = tail
 agg["coverage"] = {"stints": len(rows), "inferred": len(known), "pastorsM": by["M"], "pastorsF": by["F"], "pastorsUnknown": by["unknown"]}
