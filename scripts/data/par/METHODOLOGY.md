@@ -120,6 +120,17 @@ anyone leans on it.)
    grieving congregation together through a disaffiliation vote. It is one
    instrument on the panel, never the panel.
 
+## Replicating in a second conference
+
+Every number above was produced on the data the model was developed against.
+Before any validation claim is made for a second conference, the analysis runs
+under the **pre-registered protocol in `VALIDATION-PROTOCOL.md`** (same
+directory): data-sufficiency and linkage gates, a year-effect shape check,
+holdout calibration thresholds, split-half replication, and the ceiling-audit
+secondary analysis — all with pass/fail criteria fixed before that
+conference's data is seen, and all results disclosed whichever way they come
+out.
+
 ## Use guardrails
 
 - Never publish or circulate a pastor ranking without its uncertainty; a
