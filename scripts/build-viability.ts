@@ -28,12 +28,15 @@ import { adminClient } from "./parsers/era_b/lib/db.ts";
 import { district2025 } from "../src/lib/districts.ts";
 import { writeFileSync } from "node:fs";
 import { loadStats, buildContext } from "./lib/par-model.ts";
+import config from "../src/lib/conference.ts";
 
 const OUT = new URL("./data/par/viability.json", import.meta.url).pathname;
-const SUSTAINABLE_SHARE = 1 / 3; // share of operating income a charge can durably spend on pastoral support
-const BURDEN_STRAINED = 0.33;
-const BURDEN_UNSUSTAINABLE = 0.45;
-const FLOOR_MEMBERS = 250;       // "clearly full-time" cohort for deriving the floor
+const V = config.models.viability ?? {};
+const SUSTAINABLE_SHARE = V.sustainableShare ?? 1 / 3; // share of operating income a charge can durably spend on pastoral support
+const BURDEN_STRAINED = V.burdenStrained ?? 0.33;
+const BURDEN_UNSUSTAINABLE = V.burdenUnsustainable ?? 0.45;
+const FLOOR_MEMBERS = V.floorMembers ?? 250;       // "clearly full-time" cohort for deriving the floor
+const FLOOR_PERCENTILE = V.floorPercentile ?? 0.25;
 
 const db = adminClient();
 const stats = await loadStats(new Set(["MEMBTOT", "AVATTWOR", "COMPPAST", "PASTHOUS", "TOTCASH", "HLTHBILLED", "PENBILLED", "ANNOPP", "GRANDTOT", "FUNDSCRA"]));
@@ -113,7 +116,7 @@ for (const gcfa of stats.keys()) {
 
 // full-time floor: median pastoral cost among clearly-full-time charges
 const ftCosts = pre.filter((r) => (r.members ?? 0) >= FLOOR_MEMBERS).map((r) => r.pastoralCost).sort((a, b) => a - b);
-const floor = ftCosts[Math.floor(ftCosts.length * 0.25)]; // P25: a minimum viable full-time package
+const floor = ftCosts[Math.floor(ftCosts.length * FLOOR_PERCENTILE)]; // P25: a minimum viable full-time package
 
 const rows: Row[] = pre.map((r) => {
   const afford = r.capacity * SUSTAINABLE_SHARE >= floor;

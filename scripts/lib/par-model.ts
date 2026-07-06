@@ -6,13 +6,15 @@
 import { createReadStream, existsSync, readFileSync } from "node:fs";
 import { createInterface } from "node:readline";
 import type { SupabaseClient } from "@supabase/supabase-js";
+import config from "../../src/lib/conference.ts";
 
-export const GATE_MEMBERS = 25;
-export const TRAIN_MIN = 2005;
-export const TRAIN_MAX = 2023;
-export const TRAIL = 3;
-export const STRENGTH_CHURCH = 5;
-export const STRENGTH_COHORT = 50;
+// Engine defaults; conference config (models.par) overrides.
+export const GATE_MEMBERS = config.models.par?.gateMembers ?? 25;
+export const TRAIN_MIN = config.years.trainMin;
+export const TRAIN_MAX = config.years.trainMax;
+export const TRAIL = config.models.par?.trail ?? 3;
+export const STRENGTH_CHURCH = config.models.par?.strengthChurch ?? 5;
+export const STRENGTH_COHORT = config.models.par?.strengthCohort ?? 50;
 
 const DIR = new URL("../data/gcfa/", import.meta.url).pathname;
 

@@ -43,10 +43,16 @@ const config: ConferenceConfig = {
     par: {
       gateMembers: 25,
       kShrink: 2,
-      trainMin: 2005,
-      trainMax: 2023,
+      trail: 3,
       strengthChurch: 5,
       strengthCohort: 50,
+    },
+    viability: {
+      sustainableShare: 1 / 3, // share of operating income a charge can durably spend on pastoral support
+      burdenStrained: 0.33,
+      burdenUnsustainable: 0.45,
+      floorMembers: 250, // "clearly full-time" cohort for deriving the floor
+      floorPercentile: 0.25, // P25: a minimum viable full-time package
     },
   },
 

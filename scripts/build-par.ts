@@ -31,15 +31,16 @@
 import { adminClient } from "./parsers/era_b/lib/db.ts";
 import { readFileSync, writeFileSync } from "node:fs";
 import { GATE_MEMBERS, TRAIN_MAX, loadStats, buildContext, buildParModel } from "./lib/par-model.ts";
+import config from "../src/lib/conference.ts";
 
 const MAP_PATH = new URL("./data/par/church-match-map.json", import.meta.url).pathname;
 const OUT_CSV = new URL("./data/par/pastor-par.csv", import.meta.url).pathname;
 const OUT_HTML = new URL("./data/par/par-brief.html", import.meta.url).pathname;
 
-const DATA_MIN = 2015;   // reliable appointment coverage starts 2015 (Rio Texas merger)
-const DATA_MAX = 2024;   // include 2024 where the church reported
-const K_SHRINK = 2;      // EB shrink of PAR/yr toward 0
-const OPEN_END = 2026;   // open-ended stints run through journal_year 2025
+const DATA_MIN = config.years.dataMin;   // reliable appointment coverage starts (Rio Texas merger: 2015)
+const DATA_MAX = config.years.dataMax;   // include latest year where the church reported
+const K_SHRINK = config.models.par?.kShrink ?? 2;      // EB shrink of PAR/yr toward 0
+const OPEN_END = config.years.openEnd;   // open-ended stints run through journal_year (openEnd − 1)
 
 const db = adminClient();
 

@@ -33,12 +33,17 @@ export type ConferenceConfig = {
     par?: Partial<{
       gateMembers: number;
       kShrink: number;
-      trainMin: number;
-      trainMax: number;
+      trail: number;
       strengthChurch: number;
       strengthCohort: number;
     }>;
-    viability?: Partial<{ floorPercentile: number; externallyFundedBurden: number }>;
+    viability?: Partial<{
+      sustainableShare: number;
+      burdenStrained: number;
+      burdenUnsustainable: number;
+      floorMembers: number;
+      floorPercentile: number;
+    }>;
   };
 
   modules: Record<
