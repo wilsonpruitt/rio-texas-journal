@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { TrendChart } from "@/app/_components/TrendChart";
 import { LockedTeaser } from "@/app/_components/LockedTeaser";
-import insights from "@/data/insights.json";
-import par from "@/data/par.json";
+import insights from "@data/public/insights.json";
+import par from "@data/public/par.json";
 import { fmtInt, fmtUsd, fmtPct } from "@/lib/atlas";
 import { isUnlocked } from "@/lib/unlock";
 

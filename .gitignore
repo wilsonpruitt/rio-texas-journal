@@ -53,9 +53,10 @@ scripts/data/gcfa/church_stats.jsonl
 scripts/data/gcfa/church_id_map.json
 scripts/data/disaffiliation-reconcile.tsv
 
-# PAR pastor-level outputs (names attached — LOCAL ONLY, never commit/deploy)
-scripts/data/par/pastor-par.csv
-scripts/data/par/par-brief.html
+# Restricted tier: person-keyed outputs (pastor names attached — LOCAL ONLY,
+# never commit/deploy). Directory-level rule, not per-file: classification is
+# by output location, so a new person-keyed build output is safe by default.
+/data/restricted/
 
 # python bytecode
 __pycache__/

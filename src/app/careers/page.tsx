@@ -1,4 +1,4 @@
-import careers from "@/data/clergy-careers.json";
+import careers from "@data/public/clergy-careers.json";
 
 export const metadata = {
   title: "Clergy Careers",

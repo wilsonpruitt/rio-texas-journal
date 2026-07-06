@@ -23,8 +23,8 @@
  *  - PAR/yr is empirical-Bayes shrunk: parTotal / (yearsScored + 2).
  *
  * Outputs (gitignored — pastor names attached, never deployed):
- *   scripts/data/par/pastor-par.csv
- *   scripts/data/par/par-brief.html
+ *   data/restricted/pastor-par.csv
+ *   data/restricted/par-brief.html
  *
  *   node --env-file=.env.local --experimental-strip-types scripts/build-par.ts
  */
@@ -34,8 +34,10 @@ import { GATE_MEMBERS, TRAIN_MAX, loadStats, buildContext, buildParModel } from 
 import config from "../src/lib/conference.ts";
 
 const MAP_PATH = new URL("./data/par/church-match-map.json", import.meta.url).pathname;
-const OUT_CSV = new URL("./data/par/pastor-par.csv", import.meta.url).pathname;
-const OUT_HTML = new URL("./data/par/par-brief.html", import.meta.url).pathname;
+// Person-keyed (pastor names attached) — lives under data/restricted/, which is
+// wholesale-gitignored (never committed/deployed) rather than remembered per-file.
+const OUT_CSV = new URL("../data/restricted/pastor-par.csv", import.meta.url).pathname;
+const OUT_HTML = new URL("../data/restricted/par-brief.html", import.meta.url).pathname;
 
 const DATA_MIN = config.years.dataMin;   // reliable appointment coverage starts (Rio Texas merger: 2015)
 const DATA_MAX = config.years.dataMax;   // include latest year where the church reported

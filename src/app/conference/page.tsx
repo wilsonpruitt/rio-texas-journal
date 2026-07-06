@@ -4,7 +4,7 @@ import { LockedTeaser } from "@/app/_components/LockedTeaser";
 import { conferenceSeries } from "@/lib/atlas-server";
 import { createClient } from "@/lib/supabase/server";
 import ConferenceScenario from "./ConferenceScenario";
-import financeJson from "@/data/conference-finance.json";
+import financeJson from "@data/public/conference-finance.json";
 import { type FinanceRow, defaultAssumptions, cagr } from "@/lib/finance-model";
 import { fmtUsd, fmtPct } from "@/lib/atlas";
 import { isUnlocked } from "@/lib/unlock";
