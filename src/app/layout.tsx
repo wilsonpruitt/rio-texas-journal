@@ -42,6 +42,9 @@ export default async function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${franklin.variable} ${jbmono.variable} h-full antialiased`}
     >
+      <head>
+        <script defer src="/_vercel/insights/script.js"></script>
+      </head>
       <body className="min-h-full flex flex-col">
         <SiteHeader unlocked={unlocked} />
         <div className="flex-1">{children}</div>
