@@ -15,6 +15,8 @@
  */
 import { adminClient } from "./parsers/era_b/lib/db.ts";
 import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import config from "../src/lib/conference.ts";
 
 const APPLY = process.argv.includes("--apply");
 const CSV = "/Users/wilsonpruitt/Downloads/Rio TX UMC Disaffiliation.xlsx - Disaffiliated.csv";
@@ -22,16 +24,13 @@ const Q = String.fromCharCode(34);
 
 // Hand-map for rows the fuzzy matcher misses or mis-matches (verified against DB 2026-06-12).
 // Keyed by exact CSV name -> authoritative GCFA church number.
-const HAND_MAP: Record<string, string> = {
-  "CC: St. Luke's (CB)": "750613",        // Saint Lukes Corpus Christi (active live record; 759624 is a closed dup)
-  "Sant: Northwest Hills": "763956",      // Northwest Hills (San Antonio) — not 758083 (Austin)
-  "Sant: St. Andrew's": "764164",         // Saint Andrews San Antonio
-  "Harlandale": "764005",                 // Harlandale (San Antonio)
-  "Sant: Resurrection": "758471",         // Resurrection (San Antonio)
-  "Walnut": "761172",                     // Walnut (Buchanan Dam)
-  "Oak Island-San Antonio (LM)": "763648",// Oak Island — fuzzy matcher wrongly grabbed Oak Meadow (764073)
-  "New Fountain-Hondo (HC)": "761206",    // New Fountain — fuzzy matcher wrongly grabbed Hondo (760862)
-};
+// Lives at conferences/<slug>/hand-maps/disaffiliation.json.
+const HAND_MAP_RAW: Record<string, { value: string; _note?: string }> = JSON.parse(
+  readFileSync(join(process.cwd(), "conferences", config.slug, "hand-maps", "disaffiliation.json"), "utf8"),
+);
+const HAND_MAP: Record<string, string> = Object.fromEntries(
+  Object.entries(HAND_MAP_RAW).map(([k, v]) => [k, v.value]),
+);
 
 // Target status per category.
 const TARGET: Record<string, "disaffiliated" | "active"> = {

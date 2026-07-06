@@ -15,6 +15,8 @@
 import { adminClient } from "./parsers/era_b/lib/db.ts";
 import { execFileSync } from "node:child_process";
 import { writeFileSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import config from "../src/lib/conference.ts";
 
 const APPLY = process.argv.includes("--apply");
 
@@ -40,15 +42,13 @@ const PDF = "/Users/wilsonpruitt/Downloads/new+districts+RTC+3-Districts+FINAL+0
 const OLD_DISTRICTS = new Set(["West", "Capital", "Hill Country", "Crossroads", "Las Misiones", "Coastal Bend", "El Valle"]);
 
 // Hand-map for rows the fuzzy matcher misses (roster "name|city" -> GCFA number). Verified against DB 2026-06-12.
-const HAND_MAP: Record<string, string> = {
-  "The Journey UMC|Kyle": "758458",        // The Journey (Buda) — roster lists under Kyle
-  "Spring Creek UMC|San Antonio": "764392",// Spring Creek (Fair Oaks Ranch, Bexar-adjacent)
-  "Lakehills UMC|Pipe Creek": "760532",    // Lakehills (Bandera Co.)
-  "Gruene UMC|Gruene": "758595",           // Gruene (New Braunfels)
-  "First UMC / MBH|Eagle Pass": "762440",  // mangled canonical "Eagle [ Pass"
-  "St. Paul’s UMC|Austin": "758460",       // Saint Paul Austin — PAULS/PAUL token tie vs St Johns
-  "St. Mark UMC|Lockhart": "985140",       // Lockhart: St. Mark's — tie vs St Mark Austin
-};
+// Lives at conferences/<slug>/hand-maps/district-roster.json.
+const HAND_MAP_RAW: Record<string, { value: string; _note?: string }> = JSON.parse(
+  readFileSync(join(process.cwd(), "conferences", config.slug, "hand-maps", "district-roster.json"), "utf8"),
+);
+const HAND_MAP: Record<string, string> = Object.fromEntries(
+  Object.entries(HAND_MAP_RAW).map(([k, v]) => [k, v.value]),
+);
 
 const STOP = new Set(["UMC", "THE", "OF", "CHURCH", "UNITED", "METHODIST"]);
 

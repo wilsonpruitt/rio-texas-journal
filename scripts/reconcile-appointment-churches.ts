@@ -15,33 +15,21 @@
  */
 import { adminClient } from "./parsers/era_b/lib/db.ts";
 import { readFileSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import config from "../src/lib/conference.ts";
 
 const DIR = new URL("./data/gcfa/", import.meta.url).pathname;
 const OUT = new URL("./data/par/church-match-map.json", import.meta.url).pathname;
 
 // Hand-verified overrides for names token matching can't settle.
 // Keyed by the stub church's exact canonical_name -> gcfa_number (or null = confirmed unscoreable).
-const HAND_MAP: Record<string, string | null> = {
-  "Pharr: Nueva Vida": "730273",            // Nueva Vida Mission (Pharr) — not the Fort Worth one
-  "San Antonio: Emanuel": "755570",         // Emanuel San Antonio, current through 2024 (755821 is a stale dup ending 2008)
-  "Dri wood": "760816",                     // Driftwood (glyph-dropped "ft")
-  "Seadri": "760268",                       // Seadrift (glyph-dropped "ft")
-  "Donna: F": "761560",                     // DONNA (First; glyph-truncated)
-  "Hebbronville: F": "761707",              // HEBBRONVILLE
-  "Smithville: F": "759087",                // Smithville
-  "Stevens Chapel": "984954",               // Schulenburg Stevens Chpl (active)
-  "Supply Pastor, Haynie Chapel": "758664", // Haynie Chapel (Del Valle)
-  "Supply Pastor, Melvin": "762666",        // Melvin
-  "San Antonio: orthern Hills": "763397",   // Northern Hills (glyph-dropped "N")
-  "Sherman: F": null,                       // North Texas Conference — out of scope
-  "Lenexa: St. Paul": null,                 // Kansas — out of scope
-  "Southall Memorial": null,                // not in GCFA extract (pre-2000/out of conference)
-  "Riverside Community Church": null,       // not in GCFA extract
-  "Hallettsville Circuit": null,            // circuit label, ambiguous across churches
-  "RTC ew Church Start": null,              // new-church-start placeholder (glyph-mangled)
-  "Rio Texas ew Church Start": null,
-  "San Antonio: Pollar Samartiano": null,   // glyph mash — unresolvable
-};
+// Lives at conferences/<slug>/hand-maps/appointment-churches.json; grows during reconciliation.
+const HAND_MAP_RAW: Record<string, { value: string | null; _note?: string }> = JSON.parse(
+  readFileSync(join(process.cwd(), "conferences", config.slug, "hand-maps", "appointment-churches.json"), "utf8"),
+);
+const HAND_MAP: Record<string, string | null> = Object.fromEntries(
+  Object.entries(HAND_MAP_RAW).map(([k, v]) => [k, v.value]),
+);
 
 // Clearly not local churches: extension ministries, conference/district posts, institutions.
 const NON_CHURCH_RE =
