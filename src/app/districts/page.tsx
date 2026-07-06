@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { districtSummary, type DistrictSummary } from "@/lib/atlas-server";
-import { DISTRICTS_2025 } from "@/lib/district-2025";
+import { DISTRICTS_2025 } from "@/lib/districts";
 import { fmtInt, fmtUsd, fmtPct, RISK, type RiskTier } from "@/lib/atlas";
 
 export const dynamic = "force-dynamic";

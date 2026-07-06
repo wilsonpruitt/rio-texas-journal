@@ -20,7 +20,7 @@
 import { createReadStream, readFileSync } from 'node:fs';
 import { createInterface } from 'node:readline';
 import { adminClient } from './parsers/era_b/lib/db.ts';
-import { district2025, DISTRICTS_2025 } from '../src/lib/district-2025.ts';
+import { district2025, DISTRICTS_2025 } from "../src/lib/districts.ts";
 import type { SupabaseClient } from '@supabase/supabase-js';
 
 const DRY = process.argv.includes('--dry');

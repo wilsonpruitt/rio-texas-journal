@@ -1,0 +1,21 @@
+{
+  "Pharr: Nueva Vida": { "value": "730273", "_note": "Nueva Vida Mission (Pharr) — not the Fort Worth one" },
+  "San Antonio: Emanuel": { "value": "755570", "_note": "Emanuel San Antonio, current through 2024 (755821 is a stale dup ending 2008)" },
+  "Dri wood": { "value": "760816", "_note": "Driftwood (glyph-dropped \"ft\")" },
+  "Seadri": { "value": "760268", "_note": "Seadrift (glyph-dropped \"ft\")" },
+  "Donna: F": { "value": "761560", "_note": "DONNA (First; glyph-truncated)" },
+  "Hebbronville: F": { "value": "761707", "_note": "HEBBRONVILLE" },
+  "Smithville: F": { "value": "759087", "_note": "Smithville" },
+  "Stevens Chapel": { "value": "984954", "_note": "Schulenburg Stevens Chpl (active)" },
+  "Supply Pastor, Haynie Chapel": { "value": "758664", "_note": "Haynie Chapel (Del Valle)" },
+  "Supply Pastor, Melvin": { "value": "762666", "_note": "Melvin" },
+  "San Antonio: orthern Hills": { "value": "763397", "_note": "Northern Hills (glyph-dropped \"N\")" },
+  "Sherman: F": { "value": null, "_note": "North Texas Conference — out of scope" },
+  "Lenexa: St. Paul": { "value": null, "_note": "Kansas — out of scope" },
+  "Southall Memorial": { "value": null, "_note": "not in GCFA extract (pre-2000/out of conference)" },
+  "Riverside Community Church": { "value": null, "_note": "not in GCFA extract" },
+  "Hallettsville Circuit": { "value": null, "_note": "circuit label, ambiguous across churches" },
+  "RTC ew Church Start": { "value": null, "_note": "new-church-start placeholder (glyph-mangled)" },
+  "Rio Texas ew Church Start": { "value": null, "_note": "new-church-start placeholder (glyph-mangled)" },
+  "San Antonio: Pollar Samartiano": { "value": null, "_note": "glyph mash — unresolvable" }
+}

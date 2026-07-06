@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { TrendChart } from "@/app/_components/TrendChart";
 import { LockedTeaser } from "@/app/_components/LockedTeaser";
-import insights from "@/data/insights.json";
-import par from "@/data/par.json";
+import insights from "@data/public/insights.json";
+import par from "@data/public/par.json";
 import { fmtInt, fmtUsd, fmtPct } from "@/lib/atlas";
 import { isUnlocked } from "@/lib/unlock";
+import config from "@/lib/conference";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Signals" };
@@ -38,6 +40,7 @@ const top = (key: keyof Row, gate = 40, n = 12) =>
   rows.filter((r) => r[key] != null && r.members >= gate).sort((a, b) => (b[key] as number) - (a[key] as number)).slice(0, n);
 
 export default async function SignalsPage() {
+  if (!config.modules.signals) notFound();
   const unlocked = await isUnlocked();
   const latest = insights.generatedFor;
   const engNow = trend[trend.length - 1].ratio, engThen = trend[0].ratio;

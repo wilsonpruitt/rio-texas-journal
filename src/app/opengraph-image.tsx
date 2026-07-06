@@ -1,12 +1,17 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import config from "@/lib/conference.ts";
 
-// Default social-share card for the Rio Texas Atlas. Echoes the masthead:
-// parchment surface, Fraunces display, "Atlas" in oxblood italic, one accent.
-export const alt = "Rio Texas Atlas — a statistical portrait of the conference";
+// Default social-share card. Echoes the masthead: parchment surface, Fraunces
+// display, the site title's last word in oxblood italic, one accent.
+export const alt = `${config.branding.siteTitle} — a statistical portrait of the conference`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const titleWords = config.branding.siteTitle.split(" ");
+const titleAccent = titleWords[titleWords.length - 1];
+const titleMain = titleWords.slice(0, -1).join(" ");
 
 export default async function Image() {
   const [serif, italic] = await Promise.all([
@@ -31,12 +36,12 @@ export default async function Image() {
       >
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 25, fontWeight: 600, letterSpacing: 6, color: "#6b6354", textTransform: "uppercase" }}>
-            An archive of the Rio Texas Annual Conference
+            {`An archive of the ${config.name}`}
           </div>
           <div style={{ width: 68, height: 3, background: "#6e2417", marginTop: 30, marginBottom: 34 }} />
           <div style={{ display: "flex", alignItems: "baseline", fontSize: 112, lineHeight: 1 }}>
-            <span style={{ fontWeight: 600, color: "#1b1813" }}>Rio Texas</span>
-            <span style={{ fontWeight: 400, fontStyle: "italic", color: "#6e2417", marginLeft: 28 }}>Atlas</span>
+            <span style={{ fontWeight: 600, color: "#1b1813" }}>{titleMain}</span>
+            <span style={{ fontWeight: 400, fontStyle: "italic", color: "#6e2417", marginLeft: 28 }}>{titleAccent}</span>
           </div>
           <div style={{ fontSize: 42, fontWeight: 400, fontStyle: "italic", color: "#6b6354", marginTop: 28, maxWidth: 940, lineHeight: 1.3 }}>
             A statistical portrait of the conference — 481 churches, 2000–2024.

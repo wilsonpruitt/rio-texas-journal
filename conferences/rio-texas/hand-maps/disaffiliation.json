@@ -1,0 +1,10 @@
+{
+  "CC: St. Luke's (CB)": { "value": "750613", "_note": "Saint Lukes Corpus Christi (active live record; 759624 is a closed dup)" },
+  "Sant: Northwest Hills": { "value": "763956", "_note": "Northwest Hills (San Antonio) — not 758083 (Austin)" },
+  "Sant: St. Andrew's": { "value": "764164", "_note": "Saint Andrews San Antonio" },
+  "Harlandale": { "value": "764005", "_note": "Harlandale (San Antonio)" },
+  "Sant: Resurrection": { "value": "758471", "_note": "Resurrection (San Antonio)" },
+  "Walnut": { "value": "761172", "_note": "Walnut (Buchanan Dam)" },
+  "Oak Island-San Antonio (LM)": { "value": "763648", "_note": "Oak Island — fuzzy matcher wrongly grabbed Oak Meadow (764073)" },
+  "New Fountain-Hondo (HC)": { "value": "761206", "_note": "New Fountain — fuzzy matcher wrongly grabbed Hondo (760862)" }
+}

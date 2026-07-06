@@ -1,6 +1,6 @@
 /**
  * Build per-church + conference "signals" from the GCFA stat panel and bundle them
- * into the app (src/data/insights.json) — no DB write, no migration. Read-only over
+ * into the app (data/public/insights.json) — no DB write, no migration. Read-only over
  * church_stat, so it deploys cleanly and can be verified locally.
  *
  * Three signals (all from data already loaded):
@@ -11,14 +11,14 @@
  *   node --env-file=.env.local --experimental-strip-types scripts/build-insights.ts
  */
 import { adminClient } from "./parsers/era_b/lib/db.ts";
-import { district2025 } from "../src/lib/district-2025.ts";
+import { district2025 } from "../src/lib/districts.ts";
 import { createReadStream, readFileSync, writeFileSync } from "node:fs";
 import { createInterface } from "node:readline";
 
 const FIELDS = new Set(["MEMBTOT", "AVATTWOR", "RECPROF", "NUMBAPT", "VALPROP"]);
 const GATE_MEMBERS = 25; // exclude very small churches so ratios aren't dominated by noise
 const DIR = new URL("./data/gcfa/", import.meta.url).pathname;
-const OUT = new URL("../src/data/insights.json", import.meta.url).pathname;
+const OUT = new URL("../data/public/insights.json", import.meta.url).pathname;
 
 const db = adminClient();
 

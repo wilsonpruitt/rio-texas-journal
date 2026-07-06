@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { isUnlocked } from "@/lib/unlock";
+import config from "@/lib/conference";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -26,11 +27,10 @@ export const metadata: Metadata = {
       : "http://localhost:3000",
   ),
   title: {
-    default: "Rio Texas Atlas — A Statistical Portrait of the Conference",
-    template: "%s · Rio Texas Atlas",
+    default: `${config.branding.siteTitle} — ${config.branding.ogTagline}`,
+    template: `%s · ${config.branding.siteTitle}`,
   },
-  description:
-    "An interactive statistical atlas of the Rio Texas Annual Conference and its predecessor conferences — 481 churches, 2000–2024, with trends, projections, and vitality analysis.",
+  description: config.branding.metaDescription,
 };
 
 export default async function RootLayout({

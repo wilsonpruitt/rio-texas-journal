@@ -1,13 +1,8 @@
-import { createClient, type SupabaseClient } from '@supabase/supabase-js';
+import type { SupabaseClient } from '@supabase/supabase-js';
 
-export function adminClient(): SupabaseClient {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  if (!url || !key) {
-    throw new Error('Missing NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY');
-  }
-  return createClient(url, key, { auth: { persistSession: false } });
-}
+// Re-exported from the generic engine location; every existing script imports
+// adminClient from here, so the re-export keeps them working unchanged.
+export { adminClient } from "../../../lib/db.ts";
 
 /**
  * Find or insert a church by canonical_name. Records the alias if the

@@ -1,14 +1,17 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { fetchAll, churchMembership } from "@/lib/atlas-server";
-import { district2025 } from "@/lib/district-2025";
+import { district2025 } from "@/lib/districts";
 import { fmtInt, RISK, type RiskTier } from "@/lib/atlas";
 import { requireUnlock } from "@/lib/unlock";
+import config from "@/lib/conference";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Vitality & Risk" };
 
 export default async function VitalityPage() {
+  if (!config.modules.vitality) notFound();
   await requireUnlock("/vitality");
   const sb = await createClient();
 

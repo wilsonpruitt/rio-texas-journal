@@ -26,12 +26,12 @@
  *
  * Outputs:
  *   scripts/data/par/baseline.json  — full: every gcfa church with history
- *   src/data/par.json               — site bundle: active churches only
+ *   data/public/par.json               — site bundle: active churches only
  *
  *   node --env-file=.env.local --experimental-strip-types scripts/build-par-baseline.ts
  */
 import { adminClient } from "./parsers/era_b/lib/db.ts";
-import { district2025 } from "../src/lib/district-2025.ts";
+import { district2025 } from "../src/lib/districts.ts";
 import { writeFileSync } from "node:fs";
 import {
   GATE_MEMBERS, TRAIN_MIN, TRAIN_MAX, TRAIL, STRENGTH_CHURCH, STRENGTH_COHORT,
@@ -39,7 +39,7 @@ import {
 } from "./lib/par-model.ts";
 
 const OUT_FULL = new URL("./data/par/baseline.json", import.meta.url).pathname;
-const OUT_SITE = new URL("../src/data/par.json", import.meta.url).pathname;
+const OUT_SITE = new URL("../data/public/par.json", import.meta.url).pathname;
 const FORECAST_YEARS = [2025, 2026, 2027];
 
 const db = adminClient();

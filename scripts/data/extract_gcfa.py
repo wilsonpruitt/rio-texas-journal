@@ -3,7 +3,10 @@
 Extract GCFA local-church statistical tables (2000-2024) from the service-ticket
 workbook into clean, normalized artifacts keyed by the stable GCFA church number.
 
-Inputs : Service Ticket #726954 - Wilson Pruitt.xlsx  (26 sheets: Headers + 2000..2024)
+Inputs : the GCFA service-ticket workbook (one sheet per year: Headers + 2000..2024).
+         Default path is looked up by CONFERENCE_SLUG in DEFAULT_WORKBOOKS below
+         (Rio Texas: Service Ticket #726954 - Wilson Pruitt.xlsx); pass an explicit
+         path for any conference without a registered default.
 Outputs (scripts/data/gcfa/):
   codebook.json      canonical stat fields  {code, label, question, table, category}
   churches.json      one record per GCFA number (latest-known identity + history span)
@@ -15,8 +18,24 @@ Run: /usr/local/bin/python3.11 scripts/data/extract_gcfa.py [path-to-xlsx]
 import openpyxl, re, json, csv, sys, os, datetime
 from collections import defaultdict, Counter
 
-XLSX = sys.argv[1] if len(sys.argv) > 1 else os.path.expanduser(
-    "~/Downloads/Service Ticket #726954 - Wilson Pruitt.xlsx")
+# GCFA's local-church statistical-table format is nationwide, so this extractor is
+# ~already the universal Tier-A adapter (see
+# ~/wroot-labs/notes/conference-atlas-architecture.md §4) — only the default
+# workbook path is per-conference. Add an entry here per new conference, mirroring
+# the same CONFERENCE_SLUG-keyed-registry pattern as src/lib/conference.ts.
+DEFAULT_WORKBOOKS = {
+    "rio-texas": os.path.expanduser("~/Downloads/Service Ticket #726954 - Wilson Pruitt.xlsx"),
+}
+CONFERENCE_SLUG = os.environ.get("CONFERENCE_SLUG", "rio-texas")
+
+if len(sys.argv) > 1:
+    XLSX = sys.argv[1]
+elif CONFERENCE_SLUG in DEFAULT_WORKBOOKS:
+    XLSX = DEFAULT_WORKBOOKS[CONFERENCE_SLUG]
+else:
+    raise SystemExit(
+        f"No default workbook registered for conference '{CONFERENCE_SLUG}' — "
+        f"pass the path explicitly: extract_gcfa.py <path-to-xlsx>")
 OUT = os.path.join(os.path.dirname(__file__), "gcfa")
 os.makedirs(OUT, exist_ok=True)
 

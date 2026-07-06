@@ -1,11 +1,14 @@
+import { notFound } from "next/navigation";
 import { fetchAll, churchMembership } from "@/lib/atlas-server";
-import { district2025 } from "@/lib/district-2025";
+import { district2025 } from "@/lib/districts";
 import ChurchMap, { type Point } from "./Map";
+import config from "@/lib/conference";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Map" };
 
 export default async function MapPage() {
+  if (!config.modules.map) notFound();
   const churches = await fetchAll<{ id: string; canonical_name: string; city: string | null; county_name: string | null; status: string; lat: number | null; lng: number | null; gcfa_number: string }>((s, from, to) =>
     s.from("church").select("id, canonical_name, city, county_name, status, lat, lng, gcfa_number").not("gcfa_number", "is", null).neq("status", "unverified").not("lat", "is", null).range(from, to));
   const vits = await fetchAll<{ church_id: string; risk_tier: string; risk_score: number }>((s, from, to) =>
@@ -21,7 +24,9 @@ export default async function MapPage() {
       id: c.id, name: c.canonical_name, city: c.city, lat: c.lat as number, lng: c.lng as number,
       status: c.status, riskTier: v?.risk_tier ?? null, riskScore: v?.risk_score ?? null,
       members: m?.members ?? null, trend: m?.trend ?? null,
-      district: district2025(c.county_name, c.gcfa_number),
+      // Map.tsx's coloring is still keyed to RT's three district names specifically;
+      // districts.ts itself is generic now (returns string | null).
+      district: district2025(c.county_name, c.gcfa_number) as Point["district"],
     };
   });
 
