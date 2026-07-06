@@ -62,6 +62,7 @@ export type ConferenceConfig = {
     siteTitle: string;
     ogTagline?: string;
     footerNote?: string;
+    metaDescription?: string;
   };
 
   access: {

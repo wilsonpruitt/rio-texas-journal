@@ -70,7 +70,8 @@ const config: ConferenceConfig = {
   branding: {
     siteTitle: "Rio Texas Atlas",
     ogTagline: "A Statistical Portrait of the Conference",
-    footerNote: undefined,
+    metaDescription:
+      "An interactive statistical atlas of the Rio Texas Annual Conference and its predecessor conferences — 481 churches, 2000–2024, with trends, projections, and vitality analysis.",
   },
 
   access: {

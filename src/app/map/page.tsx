@@ -1,11 +1,14 @@
+import { notFound } from "next/navigation";
 import { fetchAll, churchMembership } from "@/lib/atlas-server";
 import { district2025 } from "@/lib/districts";
 import ChurchMap, { type Point } from "./Map";
+import config from "@/lib/conference";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Map" };
 
 export default async function MapPage() {
+  if (!config.modules.map) notFound();
   const churches = await fetchAll<{ id: string; canonical_name: string; city: string | null; county_name: string | null; status: string; lat: number | null; lng: number | null; gcfa_number: string }>((s, from, to) =>
     s.from("church").select("id, canonical_name, city, county_name, status, lat, lng, gcfa_number").not("gcfa_number", "is", null).neq("status", "unverified").not("lat", "is", null).range(from, to));
   const vits = await fetchAll<{ church_id: string; risk_tier: string; risk_score: number }>((s, from, to) =>

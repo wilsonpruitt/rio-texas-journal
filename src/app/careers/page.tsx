@@ -1,4 +1,6 @@
+import { notFound } from "next/navigation";
 import careers from "@data/public/clergy-careers.json";
+import config from "@/lib/conference";
 
 export const metadata = {
   title: "Clergy Careers",
@@ -62,9 +64,10 @@ const ORDER_BLURB: Record<string, string> = {
 };
 
 export default function CareersPage() {
+  if (!config.modules.careers) notFound();
   return (
     <main className="mx-auto max-w-6xl px-5 sm:px-8 py-10 sm:py-14">
-      <p className="eyebrow text-oxblood">Rio Texas · {C.journal_year} Journal</p>
+      <p className="eyebrow text-oxblood">{config.shortName} · {C.journal_year} Journal</p>
       <h1 className="mt-2 font-display text-4xl sm:text-5xl text-ink leading-tight">
         What a ministry career looks like
       </h1>

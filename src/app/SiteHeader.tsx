@@ -3,19 +3,24 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import config from "@/lib/conference";
 
-type NavItem = { href: string; label: string; gated?: boolean; external?: boolean };
+type NavItem = { href: string; label: string; gated?: boolean; external?: boolean; module?: keyof typeof config.modules };
+
+const titleWords = config.branding.siteTitle.split(" ");
+const titleAccent = titleWords[titleWords.length - 1];
+const titleMain = titleWords.slice(0, -1).join(" ");
 
 const NAV: NavItem[] = [
-  { href: "/", label: "Overview" },
-  { href: "/churches", label: "Churches" },
-  { href: "/districts", label: "Districts" },
-  { href: "/conference", label: "Finance" },
-  { href: "/careers", label: "Careers" },
+  { href: "/", label: "Overview", module: "atlas" },
+  { href: "/churches", label: "Churches", module: "atlas" },
+  { href: "/districts", label: "Districts", module: "atlas" },
+  { href: "/conference", label: "Finance", module: "conferenceFinance" },
+  { href: "/careers", label: "Careers", module: "careers" },
   { href: "/finances", label: "Audit", external: true },
-  { href: "/signals", label: "Signals" },
-  { href: "/map", label: "Map" },
-  { href: "/vitality", label: "Vitality", gated: true },
+  { href: "/signals", label: "Signals", module: "signals" },
+  { href: "/map", label: "Map", module: "map" },
+  { href: "/vitality", label: "Vitality", gated: true, module: "vitality" },
 ];
 
 const UnlockIcon = () => (
@@ -29,7 +34,7 @@ export function SiteHeader({ unlocked = false }: { unlocked?: boolean }) {
   const [open, setOpen] = useState(false);
   const isActive = (href: string) =>
     href === "/" ? path === "/" : path.startsWith(href);
-  const nav = NAV.filter((n) => !n.gated || unlocked);
+  const nav = NAV.filter((n) => (!n.module || config.modules[n.module]) && (!n.gated || unlocked));
 
   const linkCls = (href: string) =>
     [
@@ -56,7 +61,7 @@ export function SiteHeader({ unlocked = false }: { unlocked?: boolean }) {
         <div className="flex items-baseline justify-between gap-4 py-3">
           <Link href="/" className="group flex items-baseline gap-3" onClick={() => setOpen(false)}>
             <span className="font-display text-xl sm:text-2xl text-ink leading-none">
-              Rio Texas <span className="italic text-oxblood">Atlas</span>
+              {titleMain} <span className="italic text-oxblood">{titleAccent}</span>
             </span>
             <span className="hidden sm:inline eyebrow translate-y-[-1px]">2000—2024</span>
           </Link>

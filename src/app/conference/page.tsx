@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { TrendChart } from "@/app/_components/TrendChart";
 import { ApportionmentSplit } from "@/app/_components/ApportionmentSplit";
 import { LockedTeaser } from "@/app/_components/LockedTeaser";
@@ -9,6 +10,7 @@ import { type FinanceRow, defaultAssumptions, cagr } from "@/lib/finance-model";
 import { fmtUsd, fmtPct } from "@/lib/atlas";
 import { isUnlocked } from "@/lib/unlock";
 import { inflateTo } from "@/lib/cpi";
+import config from "@/lib/conference";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Conference Finance" };
@@ -16,6 +18,7 @@ export const metadata = { title: "Conference Finance" };
 const rows = financeJson as FinanceRow[];
 
 export default async function ConferencePage() {
+  if (!config.modules.conferenceFinance) notFound();
   const unlocked = await isUnlocked();
   const first = rows[0], last = rows[rows.length - 1];
   const baseline = defaultAssumptions(rows);
