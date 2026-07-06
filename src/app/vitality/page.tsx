@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { fetchAll, churchMembership } from "@/lib/atlas-server";
-import { district2025 } from "@/lib/district-2025";
+import { district2025 } from "@/lib/districts";
 import { fmtInt, RISK, type RiskTier } from "@/lib/atlas";
 import { requireUnlock } from "@/lib/unlock";
 

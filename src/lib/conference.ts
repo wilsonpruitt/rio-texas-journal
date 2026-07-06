@@ -1,5 +1,5 @@
-import type { ConferenceConfig } from "./conference-config";
-import rioTexas from "../../conferences/rio-texas/config";
+import type { ConferenceConfig } from "./conference-config.ts";
+import rioTexas from "../../conferences/rio-texas/config.ts";
 
 // Single instance-selection point. One Vercel project = one CONFERENCE_SLUG = one
 // config. Every current import of district-2025.ts / branding strings / model

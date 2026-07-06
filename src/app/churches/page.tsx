@@ -1,5 +1,5 @@
 import { fetchAll, churchMembership } from "@/lib/atlas-server";
-import { district2025 } from "@/lib/district-2025";
+import { district2025 } from "@/lib/districts";
 import SearchableList, { type Row } from "./SearchableList";
 
 export const dynamic = "force-dynamic";

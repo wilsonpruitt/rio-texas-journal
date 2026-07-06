@@ -11,7 +11,7 @@
  *   node --env-file=.env.local --experimental-strip-types scripts/build-insights.ts
  */
 import { adminClient } from "./parsers/era_b/lib/db.ts";
-import { district2025 } from "../src/lib/district-2025.ts";
+import { district2025 } from "../src/lib/districts.ts";
 import { createReadStream, readFileSync, writeFileSync } from "node:fs";
 import { createInterface } from "node:readline";
 

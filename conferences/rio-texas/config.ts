@@ -1,4 +1,4 @@
-import type { ConferenceConfig } from "../../src/lib/conference-config";
+import type { ConferenceConfig } from "../../src/lib/conference-config.ts";
 
 // Rio Texas Annual Conference — reference instance. Values captured here are the
 // literals that lived scattered across scripts/build-*.ts, src/lib/district-2025.ts,

@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import { TrendChart, type Pt } from "@/app/_components/TrendChart";
 import { RiskMeter } from "@/app/_components/RiskMeter";
 import { fmtInt, fmtUsd, fmtPct, STATUS, type RiskTier } from "@/lib/atlas";
-import { district2025 } from "@/lib/district-2025";
+import { district2025 } from "@/lib/districts";
 
 export const dynamic = "force-dynamic";
 

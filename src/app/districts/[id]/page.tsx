@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { fetchAll, churchMembership, districtSummary, districtSeries } from "@/lib/atlas-server";
-import { district2025, DISTRICTS_2025 } from "@/lib/district-2025";
+import { district2025, DISTRICTS_2025 } from "@/lib/districts";
 import { fmtInt, fmtUsd, fmtPct, RISK, type RiskTier } from "@/lib/atlas";
 import SearchableList, { type Row } from "../../churches/SearchableList";
 import { ConferenceTrends } from "../../_components/ConferenceTrends";

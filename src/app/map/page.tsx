@@ -1,5 +1,5 @@
 import { fetchAll, churchMembership } from "@/lib/atlas-server";
-import { district2025 } from "@/lib/district-2025";
+import { district2025 } from "@/lib/districts";
 import ChurchMap, { type Point } from "./Map";
 
 export const dynamic = "force-dynamic";
@@ -21,7 +21,9 @@ export default async function MapPage() {
       id: c.id, name: c.canonical_name, city: c.city, lat: c.lat as number, lng: c.lng as number,
       status: c.status, riskTier: v?.risk_tier ?? null, riskScore: v?.risk_score ?? null,
       members: m?.members ?? null, trend: m?.trend ?? null,
-      district: district2025(c.county_name, c.gcfa_number),
+      // Map.tsx's coloring is still keyed to RT's three district names specifically;
+      // districts.ts itself is generic now (returns string | null).
+      district: district2025(c.county_name, c.gcfa_number) as Point["district"],
     };
   });
 
